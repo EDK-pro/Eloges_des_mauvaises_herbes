@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://cce0ygh1ma5ed"]
+
+[ext_resource type="Script" path="res://Test_proto_subnonotica/test_salle1.gd" id="1_qrxag"]
+[ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://Test_proto_subnonotica/interactable_1.tscn" id="2_l4xhn"]
+[ext_resource type="PackedScene" uid="uid://cgnvg1d2kl8c6" path="res://Test_proto_subnonotica/interactable2.tscn" id="3_csiqv"]
+[ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://Test_proto_subnonotica/UI_buttons.tscn" id="3_h88qs"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://Test_proto_subnonotica/player.tscn" id="5_s2tft"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
+size = Vector3(30, 2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uffbm"]
+size = Vector3(30, 2, 30)
+
+[node name="test_salle1" type="Node"]
+script = ExtResource("1_qrxag")
+
+[node name="Salle" type="Node" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Salle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="Mur-z" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7.35, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur-z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur-z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="Mur+x" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 6.526, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur+x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur+x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="Mur+z" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur+z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur+z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="Mur-x" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur-x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur-x"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="Plafond" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Plafond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_v4n01")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Plafond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_uffbm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salle"]
+transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0, 8.08124, 4.22514)
+
+[node name="Interactable1" parent="Salle" instance=ExtResource("2_l4xhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
+
+[node name="Area3D" parent="Salle" instance=ExtResource("3_csiqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0975, 1.09073, -4.17259)
+
+[node name="Control" parent="." instance=ExtResource("3_h88qs")]
+
+[node name="Player" parent="." instance=ExtResource("5_s2tft")]
