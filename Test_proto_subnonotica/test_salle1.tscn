@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Test_proto_subnonotica/test_salle1.gd" id="1_qrxag"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://Test_proto_subnonotica/interactable_1.tscn" id="2_l4xhn"]
-[ext_resource type="PackedScene" uid="uid://cgnvg1d2kl8c6" path="res://Test_proto_subnonotica/interactable2.tscn" id="3_csiqv"]
 [ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://Test_proto_subnonotica/UI_buttons.tscn" id="3_h88qs"]
+[ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://Test_proto_subnonotica/Test_talk_interface.tscn" id="5_mucdl"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://Test_proto_subnonotica/player.tscn" id="5_s2tft"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
@@ -88,9 +88,8 @@ transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0,
 [node name="Interactable1" parent="Salle" instance=ExtResource("2_l4xhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 
-[node name="Area3D" parent="Salle" instance=ExtResource("3_csiqv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0975, 1.09073, -4.17259)
-
 [node name="Control" parent="." instance=ExtResource("3_h88qs")]
 
 [node name="Player" parent="." instance=ExtResource("5_s2tft")]
+
+[node name="Talk" parent="." instance=ExtResource("5_mucdl")]

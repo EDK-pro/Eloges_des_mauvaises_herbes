@@ -21,5 +21,11 @@ shape = SubResource("BoxShape3D_5trcj")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_cbhxk")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
