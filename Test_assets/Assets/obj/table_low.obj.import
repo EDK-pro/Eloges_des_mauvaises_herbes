@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b0iq3itgp8n2c"
+path="res://.godot/imported/table_low.obj-05d992f56e99b57a767479fca4b4d6ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table_low.obj-05d992f56e99b57a767479fca4b4d6ac.mesh"]
+
+source_file="res://Test_assets/Assets/obj/table_low.obj"
+dest_files=["res://.godot/imported/table_low.obj-05d992f56e99b57a767479fca4b4d6ac.mesh", "res://.godot/imported/table_low.obj-05d992f56e99b57a767479fca4b4d6ac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

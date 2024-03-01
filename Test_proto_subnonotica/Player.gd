@@ -25,26 +25,20 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
 	if event is InputEventMouse:
-
 		mouse = event.position
-
 	if event is InputEventMouseButton and event.pressed:
-
 		if event.button_index == MOUSE_BUTTON_LEFT:
-
 			get_selection()
 
 
 
 func get_selection():
-
 	var worldspace = get_world_3d().direct_space_state
-
 	var start = $Camera3D.project_ray_origin(mouse)
-
 	var end = $Camera3D.project_position(mouse, 10)
-
 	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
-	print(result)
+	if !result.is_empty():
+		print(result.collider)
 

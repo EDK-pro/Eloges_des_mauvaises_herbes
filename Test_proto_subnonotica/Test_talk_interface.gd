@@ -12,11 +12,12 @@ var timer_array = []
 var index_timer = 0
 var index_temps_qui_passe = 0
 var index_color = 0
+var t_increment: float
 
 func _ready():
-	initialize(150,8)
+	initialize(150,4,5.0)
 
-func initialize(temps_marge,nb_symbole):
+func initialize(temps_marge,nb_symbole, duree_communication):
 	margin_time = temps_marge
 	timer_array.resize(nb_symbole)
 	input_validated.resize(nb_symbole)
@@ -26,23 +27,26 @@ func initialize(temps_marge,nb_symbole):
 	for i in nb_symbole:
 		timer_array[i] = temps_entre_chaque_symbole * 5000 * i
 	print(timer_array)
+	t_increment = duree_communication / 0.01666666667 / (duree_communication * 60 * duree_communication)
 	
 func _physics_process(delta):
+	
 	if Input.is_action_pressed("talk"):
+		
 		talking = true
 		$Timing/Arrow.position.x = $Timing/Line.position.x
 		start_time = Time.get_ticks_msec()
 		index_temps_qui_passe = 0
 		index_color = 0
 		$Timing/Arrow.color = Color(0.176,1,1,1)
-		print("Distance = ",$Timing/Endline.position.x-$Timing/Arrow.position.x)
-		print("Temps = ",($Timing/Endline.position.x-$Timing/Arrow.position.x) / (delta * 0.2))
 		
 	if talking == true:
 		#Avec t += delta * 0.2, ça laisse environ 5 secondes pour faire tout l'input
-		t += delta * 0.2
+		t += delta * t_increment
+		print(delta)
 		if t <= 1.0 :
-			$Timing/Arrow.position.x = $Timing/Line.position.lerp($Timing/Endline.position, t).x
+			#$Timing/Arrow.position.x = $Timing/Line.position.lerp($Timing/Endline.position, t).x
+			$Timing/Arrow.position.x = $Timing/Line.position.x + ($Timing/Endline.position.x-$Timing/Line.position.x) * t
 			timestamp = Time.get_ticks_msec() - start_time
 			if index_temps_qui_passe < timer_array.size():
 				if timer_array[index_color] - margin_time < timestamp:
