@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Eloges_des_mauvaises_herbes"
-run/main_scene="res://Test_proto_subnonotica/test_salle1.tscn"
+run/main_scene="res://scene/map/test_salle1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/visuel/UI_sprite/icon.svg"
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 
