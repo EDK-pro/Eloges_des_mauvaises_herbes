@@ -6,8 +6,9 @@ extends Node
 @export var isDialogVisible : bool = false
 
 func _ready():
-	$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
-	#pass
+	#$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
+	$Salle/Interactable_action/Hitbox.shape.size = Vector3(2,2,2)
+	
 
 func _process(delta):
 	talkWith(marginTime, symbolCount, communicationDuration)
