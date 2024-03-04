@@ -6,8 +6,8 @@ extends Node
 @export var isDialogVisible : bool = false
 
 func _ready():
-	#$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
-	pass
+	$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
+	#pass
 
 func _process(delta):
 	talkWith(marginTime, symbolCount, communicationDuration)

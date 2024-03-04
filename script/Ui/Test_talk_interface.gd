@@ -22,18 +22,19 @@ var inputValidated = []
 
 var timerArray = []
 
-var indexTimer: float = 0
+var indexTimer: int = 0
+
+var indexColor : int = 0
 
 var timeIncrement: float
 
-@export var communicationDuration: float
-@export var symbolCount: int
+@export var communicationDuration: float = 5.0
+@export var symbolCount: int = 4
 
 
 func _ready():
 
 	initialize(marginTime, symbolCount, communicationDuration)
-
 
 
 func initialize(margintime: int, symbolcount: int, communicationduration: float):
@@ -58,6 +59,8 @@ func initialize(margintime: int, symbolcount: int, communicationduration: float)
 
 	timeIncrement = communicationDuration / 0.01666666667 / (communicationDuration * 60 * communicationDuration)
 
+	print(timeIncrement)
+
 	
 
 func _physics_process(delta):
@@ -71,9 +74,10 @@ func _physics_process(delta):
 		startTime = Time.get_ticks_msec()
 
 		indexTimer = 0
+		
+		indexColor = 0
 
 		$Timing/Arrow.color = Color(0.176, 1, 1, 1)
-
 		
 
 	if isTalking:
@@ -90,15 +94,15 @@ func _physics_process(delta):
 
 			if indexTimer < timerArray.size():
 
-				if timerArray[indexTimer] - marginTime < timestamp:
+				if timerArray[indexColor] - marginTime < timestamp:
 
 					$Timing/Arrow.color = Color(0.6, 0.6, 0.6, 1)
 
-				if timerArray[indexTimer] + marginTime < timestamp:
+				if timerArray[indexColor] + marginTime < timestamp:
 
 					$Timing/Arrow.color = Color(0.176, 1, 1, 1)
 
-					indexTimer += 1
+					indexColor += 1
 
 				if timestamp > timerArray[indexTimer]:
 

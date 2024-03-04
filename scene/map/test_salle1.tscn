@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rt08rfk0hsqe" path="res://scene/ui/test_truc_talk.tscn" id="5_8ccre"]
 [ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://scene/ui/UI_buttons.tscn" id="6_b3cdp"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="7_pwvp3"]
-[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_opsm4"]
+[ext_resource type="PackedScene" uid="uid://bd5o6ir2g2mkb" path="res://scene/player/player_constraint.tscn" id="8_rmylt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)
@@ -107,4 +107,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 [node name="Talk" parent="." instance=ExtResource("7_pwvp3")]
 visible = false
 
-[node name="Player" parent="." instance=ExtResource("8_opsm4")]
+[node name="Player_constraint" parent="." instance=ExtResource("8_rmylt")]
