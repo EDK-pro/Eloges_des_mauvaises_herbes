@@ -8,20 +8,16 @@
 [sub_resource type="BoxMesh" id="BoxMesh_yd1ep"]
 size = Vector3(0.9, 0.9, 0.9)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6r7a1"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i4281"]
 viewport_path = NodePath("UI_handler/SubView")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0n3cs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm0j0"]
 resource_local_to_scene = true
-blend_mode = 1
-cull_mode = 2
-albedo_color = Color(1, 1, 1, 0)
-albedo_texture = SubResource("ViewportTexture_6r7a1")
-billboard_mode = 1
+transparency = 1
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_i4281")
 
-[sub_resource type="QuadMesh" id="QuadMesh_or3q4"]
-resource_local_to_scene = true
-size = Vector2(2, 2)
+[sub_resource type="PlaneMesh" id="PlaneMesh_rl30x"]
 
 [node name="Interactable1" type="StaticBody3D"]
 input_capture_on_drag = true
@@ -36,13 +32,13 @@ mesh = SubResource("BoxMesh_yd1ep")
 [node name="UI_handler" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.739821, 0)
 
-[node name="Plane" type="MeshInstance3D" parent="UI_handler"]
-material_override = SubResource("StandardMaterial3D_0n3cs")
-transparency = 0.3
-mesh = SubResource("QuadMesh_or3q4")
-
 [node name="SubView" type="SubViewport" parent="UI_handler"]
 transparent_bg = true
 handle_input_locally = false
 
 [node name="Select_Object" parent="UI_handler/SubView" instance=ExtResource("2_cc7d7")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UI_handler"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.4)
+material_override = SubResource("StandardMaterial3D_bm0j0")
+mesh = SubResource("PlaneMesh_rl30x")

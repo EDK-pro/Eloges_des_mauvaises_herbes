@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm1506mguuk1n"]
+
+[ext_resource type="Script" path="res://scene/debug/flower.gd" id="1_g4lr0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_541b4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_waqhh"]
+
+[node name="Flower" type="RigidBody3D"]
+script = ExtResource("1_g4lr0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_541b4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_waqhh")

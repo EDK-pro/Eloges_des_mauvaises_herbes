@@ -11,9 +11,11 @@ var slot2
 var slot3
 
 signal hover_object
+signal fleur
 
 var selected: bool = false
 var mouse = Vector2()
+var mouse_confirm = Vector2.ZERO
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
@@ -39,9 +41,17 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-
+	
+	if mouse_confirm == mouse:
+		if Input.is_action_pressed("slot1"):
+			fleur.emit(0)
+		if Input.is_action_pressed("slot2"):
+			fleur.emit(1)
+		if Input.is_action_pressed("slot3"):
+			fleur.emit(2)
 	if event is InputEventMouse:
 		mouse = event.position
+		mouse_confirm = mouse
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			get_selection()
@@ -56,5 +66,6 @@ func get_selection():
 		selected = true
 		print(result.collider)
 		hover_object.emit()
+		fleur.emit(3)
 
 
