@@ -6,6 +6,13 @@ extends CharacterBody3D
 @export var speed: int = 5
 @export var mouse_sensitivity: float = 0.002
 
+var slot1
+var slot2
+var slot3
+
+signal hover_object
+
+var selected: bool = false
 var mouse = Vector2()
 
 func _ready():
@@ -46,4 +53,8 @@ func get_selection():
 	var end = $Camera3D.project_position(mouse, 10)
 	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
 	if !result.is_empty():
+		selected = true
 		print(result.collider)
+		hover_object.emit()
+
+

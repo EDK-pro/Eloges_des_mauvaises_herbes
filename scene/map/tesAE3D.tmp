@@ -104,7 +104,7 @@ transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 
 [node name="Meshchange" parent="Salle" instance=ExtResource("2_6bx8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 1.50371, -2.03463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 1.20752, -2.03463)
 
 [node name="Control" parent="." instance=ExtResource("6_b3cdp")]
 

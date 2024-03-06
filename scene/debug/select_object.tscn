@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cruo2mjjb1iht"]
+
+[ext_resource type="Script" path="res://scene/debug/select_object.gd" id="1_jni5p"]
+[ext_resource type="Texture2D" uid="uid://bj028jdr5ieik" path="res://assets/visuel/UI_sprite/cercle_blanc_png.png" id="1_qm6gc"]
+
+[node name="Select_Object" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jni5p")
+
+[node name="Circle" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.5
+offset_top = -310.5
+offset_right = 310.5
+offset_bottom = 310.5
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_progress = ExtResource("1_qm6gc")
+tint_under = Color(1, 1, 1, 0)
