@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx385t7hyeb3n"]
+
+[ext_resource type="Script" path="res://script/Ui/UI_buttons.gd" id="1_kloir"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kloir")
+
+[node name="Deplacement" type="Node" parent="."]
+
+[node name="BTN_gauche" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 487.0
+offset_top = 600.0
+offset_right = 498.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<---"
+
+[node name="BTN_derriere" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 549.0
+offset_top = 600.0
+offset_right = 560.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "|
+v"
+
+[node name="BTN_droite" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 611.0
+offset_top = 600.0
+offset_right = 622.0
+offset_bottom = 639.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "--->"
+
+[node name="BTN_vers_gauche" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 487.0
+offset_top = 539.0
+offset_right = 498.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<o"
+
+[node name="BTN_devant" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 549.0
+offset_top = 539.0
+offset_right = 560.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "^
+|"
+
+[node name="BTN_vers_droite" type="Button" parent="Deplacement"]
+anchors_preset = -1
+anchor_top = -0.0324074
+anchor_right = 0.0425347
+offset_left = 611.0
+offset_top = 539.0
+offset_right = 622.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "o>"
+
+[connection signal="pressed" from="Deplacement/BTN_gauche" to="." method="_on_btn_gauche_pressed"]
+[connection signal="pressed" from="Deplacement/BTN_derriere" to="." method="_on_btn_derriere_pressed"]
+[connection signal="pressed" from="Deplacement/BTN_droite" to="." method="_on_btn_droite_pressed"]
+[connection signal="pressed" from="Deplacement/BTN_vers_gauche" to="." method="_on_btn_vers_gauche_pressed"]
+[connection signal="pressed" from="Deplacement/BTN_devant" to="." method="_on_btn_devant_pressed"]
+[connection signal="pressed" from="Deplacement/BTN_vers_droite" to="." method="_on_btn_vers_droite_pressed"]
