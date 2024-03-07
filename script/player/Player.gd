@@ -6,9 +6,11 @@ extends CharacterBody3D
 @export var speed: int = 5
 @export var mouse_sensitivity: float = 0.002
 
-var slot1
-var slot2
-var slot3
+var slot1: all_items
+var slot2: all_items
+var slot3: all_items
+
+var slots: Array[all_items] = [null,null,null]
 
 signal hover_object
 signal fleur
@@ -17,12 +19,23 @@ var selected: bool = false
 var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
 
+var t = 0.0
+var pickup_shit
+
 func _ready():
 	# Set mouse mode to captured when the scene is ready
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _physics_process(delta):
 	# Check for pause action and adjust mouse mode accordingly
+	for i in 3:
+		if slots[i] != null:
+			if t <= 1.0:
+				t += delta * 0.9
+				slots[i].global_position = pickup_shit  + (Vector3(global_position.x,global_position.y + 1.8,global_position.z) - pickup_shit) * t
+			else:
+				slots[i].global_position = Vector3(global_position.x,global_position.y + 1.8,global_position.z)
 	if Input.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -68,4 +81,19 @@ func get_selection():
 		hover_object.emit()
 		fleur.emit(3)
 
-
+func _on_pick_up(slot, etat, object):
+	print(slot, etat, object)
+	if etat == 1:
+		if slots[slot] == null:
+			slots[slot] = object
+			slots[slot].gravity_scale = 0
+			slots[slot].disable_coll()
+			t = 0.0
+			slots[slot].rotation = Vector3(0,0,0)
+			pickup_shit = Vector3(object.global_position)
+	else:
+		if slots[slot] != null:
+			slots[slot].gravity_scale = 1
+			slots[slot].enable_coll()
+			slots[slot].apply_force(Vector3(300,300,300))
+			slots[slot] = null

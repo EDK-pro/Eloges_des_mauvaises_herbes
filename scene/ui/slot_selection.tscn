@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://b72pbjnaypa2p"]
+
+[ext_resource type="Script" path="res://scene/ui/slot_selection.gd" id="1_7pota"]
+[ext_resource type="Texture2D" uid="uid://n2w73jn1yowh" path="res://assets/visuel/UI_sprite/gradient_haut_unselected_png.png" id="2_4v0pd"]
+[ext_resource type="Texture2D" uid="uid://sxewferkhck" path="res://assets/visuel/UI_sprite/gradient_haut_selected_png.png" id="2_415bf"]
+[ext_resource type="Texture2D" uid="uid://brim1wgf7lqux" path="res://assets/visuel/UI_sprite/gradient_gauche_unselected_png(1).png" id="4_l7f3e"]
+[ext_resource type="Texture2D" uid="uid://dpp68mfbo0p18" path="res://assets/visuel/UI_sprite/gradient_gauche_selected_png(1).png" id="5_x5aae"]
+[ext_resource type="Texture2D" uid="uid://by3brv6mcbdyr" path="res://assets/visuel/UI_sprite/gradient_droit_unselected_png(1).png" id="6_7se34"]
+[ext_resource type="Texture2D" uid="uid://b38sn0lcahtei" path="res://assets/visuel/UI_sprite/gradient_droit_selected_png(1).png" id="7_lush0"]
+[ext_resource type="Texture2D" uid="uid://dmr818cna8tb0" path="res://assets/visuel/UI_sprite/gradient_bas_unselected_png.png" id="8_ck77e"]
+[ext_resource type="Texture2D" uid="uid://dv1dfvxoui7w5" path="res://assets/visuel/UI_sprite/gradient_bas_selected_png.png" id="9_gjgfu"]
+
+[node name="Slot_selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7pota")
+
+[node name="UnselectedSlot1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 140.0
+grow_horizontal = 2
+texture = ExtResource("2_4v0pd")
+
+[node name="RectSlot1" type="TextureRect" parent="UnselectedSlot1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_415bf")
+
+[node name="UnselectedSlot2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -190.0
+offset_right = 260.0
+offset_bottom = 190.0
+grow_vertical = 2
+texture = ExtResource("4_l7f3e")
+
+[node name="RectSlot2" type="TextureRect" parent="UnselectedSlot2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_x5aae")
+
+[node name="UnselectedSlot2-bis" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -190.0
+offset_bottom = 190.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_7se34")
+
+[node name="RectSlot3" type="TextureRect" parent="UnselectedSlot2-bis"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_lush0")
+
+[node name="UnselectedSlot3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_ck77e")
+
+[node name="RectSlot4" type="TextureRect" parent="UnselectedSlot3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_gjgfu")
+
+[connection signal="mouse_entered" from="UnselectedSlot1/RectSlot1" to="." method="_on_rect_slot_1_mouse_entered"]
+[connection signal="mouse_exited" from="UnselectedSlot1/RectSlot1" to="." method="_on_rect_slot_1_mouse_exited"]
+[connection signal="mouse_entered" from="UnselectedSlot2/RectSlot2" to="." method="_on_rect_slot_2_mouse_entered"]
+[connection signal="mouse_exited" from="UnselectedSlot2/RectSlot2" to="." method="_on_rect_slot_2_mouse_exited"]
+[connection signal="mouse_entered" from="UnselectedSlot2-bis/RectSlot3" to="." method="_on_rect_slot_3_mouse_entered"]
+[connection signal="mouse_exited" from="UnselectedSlot2-bis/RectSlot3" to="." method="_on_rect_slot_3_mouse_exited"]
+[connection signal="mouse_entered" from="UnselectedSlot3/RectSlot4" to="." method="_on_rect_slot_4_mouse_entered"]
+[connection signal="mouse_exited" from="UnselectedSlot3/RectSlot4" to="." method="_on_rect_slot_4_mouse_exited"]

@@ -51,15 +51,15 @@ func put_in_slot(item,slot):
 	if slot_used[slot] == 1:
 		print("Tu vas te faire foutreuh")
 	else:
-		item_placed.emit(slot, 1)
+		item_placed.emit(slot, 1, self)
 	
 func remove_from_slot(slot):
 	if slot_used[slot] == 0:
 		print("huertuof eriaf et sav uT")
 	else:
-		item_placed.emit(slot, 0)
+		item_placed.emit(slot, 0, self)
 	
-func _on_item_placed(slot,etat):
+func _on_item_placed(slot,etat,osef):
 	slot_used[slot] = etat
 	
 func use(target):
