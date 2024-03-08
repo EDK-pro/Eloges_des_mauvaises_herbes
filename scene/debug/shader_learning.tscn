@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btb6jrdq0l4t2"]
+
+[ext_resource type="Shader" path="res://assets/shader/grass_shader.gdshader" id="1_jmp52"]
+[ext_resource type="Texture2D" uid="uid://tbesvka171rq" path="res://assets/Test_assets/arbre.png" id="2_vg7bv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5uxeq"]
+shader = ExtResource("1_jmp52")
+
+[node name="shader_learning" type="Node2D"]
+
+[node name="tree_code" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5uxeq")
+position = Vector2(160, 144)
+texture = ExtResource("2_vg7bv")
+
+[node name="tree_post_code" type="Sprite2D" parent="."]
+position = Vector2(495, 144)
+texture = ExtResource("2_vg7bv")
