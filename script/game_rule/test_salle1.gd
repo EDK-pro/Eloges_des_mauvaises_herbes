@@ -6,16 +6,22 @@ extends Node
 @export var isDialogVisible : bool = false
 
 func _ready():
+	var cltablo: Array = get_tree().get_nodes_in_group("pickable_item")
 	#$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
 	#$Salle/Interactable_action/Hitbox.shape.size = Vector3(2,2,2)s
 	$Salle/Meshchange/Mesh.mesh = load("res://assets/Test_assets/Assets/column.obj")
 	#$Player.hover_object.connect($Select_Object._on_selected_object.bind())
 	$Player.hover_object.connect($Salle/Meshchange/UI_handler/SubView/Select_Object._on_selected_object.bind())
-	$Player.hover_object.connect($Salle/Flower/UIHandler/SubViewport/Select_Object._on_selected_object.bind())
+	$Player.hover_object.connect($Salle/Flower/UIHandler/SubView/Select_Object._on_selected_object.bind())
 	$Player.fleur.connect($Salle/Flower._on_click.bind())
 	$Salle/Flower.item_placed.connect($Player._on_pick_up.bind())
-	$Salle/Flower/UIHandler/SubViewport/Select_Object.item_fully_selected.connect($Slot_selection._on_full_circle.bind())
-	
+	$Salle/Flower/UIHandler/SubView/Select_Object.item_fully_selected.connect($Slot_selection._on_full_circle.bind())
+	#$Slot_selection.slot_accepted.connect($Salle/Flower._stop_value_circle.bind())
+	for i in cltablo.size() :
+		print(cltablo[0])
+		$Slot_selection.slot_accepted.connect(cltablo[i]._stop_value_circle.bind())
+		$Slot_selection.slot_accepted.connect($Salle/Flower._on_click.bind())
+
 func _process(delta):
 	talkWith(marginTime, symbolCount, communicationDuration)
 	$Salle/Meshchange/UI_handler.look_at($Player.position)

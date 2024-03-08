@@ -11,17 +11,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if fade_value[0] == 1.0:
+			if fade_value[0] >= 1.0:
 				slot_accepted.emit(0)
 				print("1")
 				self.hide()
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			if fade_value[1] == 1.0:
+			if fade_value[1] >= 1.0:
 				slot_accepted.emit(1)
 				print("1")
 				self.hide()
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			if fade_value[2] == 1.0:
+			if fade_value[2] >= 1.0:
 				slot_accepted.emit(2)
 				print("1")
 				self.hide()

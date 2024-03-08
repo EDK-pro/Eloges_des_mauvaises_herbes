@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/debug/select_object.tscn" id="1_rqfmm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_hj8fn"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("SubView")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3qp6"]
 resource_local_to_scene = true
@@ -16,12 +16,12 @@ billboard_mode = 1
 
 [node name="UIHandler" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_f3qp6")
 mesh = SubResource("PlaneMesh_dfut6")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubView" type="SubViewport" parent="."]
 transparent_bg = true
 
-[node name="Select_Object" parent="SubViewport" instance=ExtResource("1_rqfmm")]
+[node name="Select_Object" parent="SubView" instance=ExtResource("1_rqfmm")]

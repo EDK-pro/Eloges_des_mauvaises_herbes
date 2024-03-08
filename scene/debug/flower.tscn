@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_541b4"]
 
-[node name="Flower" type="RigidBody3D"]
+[node name="Flower" type="RigidBody3D" groups=["pickable_item"]]
 script = ExtResource("1_g4lr0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

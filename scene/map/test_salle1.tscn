@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=16 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/debug/interactable_action.tscn" id="2_6bx8d"]
@@ -17,6 +17,15 @@ size = Vector3(30, 2, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uffbm"]
 size = Vector3(30, 2, 30)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkjbl"]
+viewport_path = NodePath("UI_handler/SubView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s50bi"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_xkjbl")
 
 [node name="test_salle1" type="Node"]
 script = ExtResource("1_2cylx")
@@ -94,6 +103,9 @@ transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0,
 [node name="Interactable_action" parent="Salle" instance=ExtResource("2_6bx8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 
+[node name="MeshInstance3D" parent="Salle/Interactable_action/UI_handler" index="1"]
+material_override = SubResource("StandardMaterial3D_s50bi")
+
 [node name="interactible_communication" parent="Salle" instance=ExtResource("3_hxidv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42893, 0.910506, -0.0585521)
 
@@ -122,3 +134,6 @@ visible = false
 
 [node name="Slot_selection" parent="." instance=ExtResource("11_kid48")]
 visible = false
+
+[editable path="Salle/Interactable_action"]
+[editable path="Salle/Flower"]

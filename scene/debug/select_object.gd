@@ -15,3 +15,7 @@ func _process(delta):
 
 func _on_selected_object():
 	hovered = true
+
+func stop_processus():
+	hovered = false
+	$Circle.value = 0

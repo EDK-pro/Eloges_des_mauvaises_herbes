@@ -38,7 +38,7 @@ func _physics_process(delta):
 				slots[i].global_position = Vector3(global_position.x,global_position.y + 1.8,global_position.z)
 	if Input.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# Handle player movement based on input
@@ -57,11 +57,11 @@ func _input(event):
 	
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
-			fleur.emit(0)
+			fleur.emit(3)
 		if Input.is_action_pressed("slot2"):
-			fleur.emit(1)
+			fleur.emit(4)
 		if Input.is_action_pressed("slot3"):
-			fleur.emit(2)
+			fleur.emit(5)
 	if event is InputEventMouse:
 		mouse = event.position
 		mouse_confirm = mouse
@@ -79,7 +79,6 @@ func get_selection():
 		selected = true
 		print(result.collider)
 		hover_object.emit()
-		fleur.emit(3)
 
 func _on_pick_up(slot, etat, object):
 	print(slot, etat, object)
@@ -90,10 +89,13 @@ func _on_pick_up(slot, etat, object):
 			slots[slot].disable_coll()
 			t = 0.0
 			slots[slot].rotation = Vector3(0,0,0)
+			slots[slot].sleeping = true
 			pickup_shit = Vector3(object.global_position)
 	else:
 		if slots[slot] != null:
-			slots[slot].gravity_scale = 1
+			slots[slot].gravity_scale = 3
 			slots[slot].enable_coll()
-			slots[slot].apply_force(Vector3(300,300,300))
+			var facing = $Camera3D.get_camera_transform().basis.z
+			slots[slot].sleeping = false
+			slots[slot].apply_force(Vector3(300*facing.x,0,300*facing.z))
 			slots[slot] = null
