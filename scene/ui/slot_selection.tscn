@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b72pbjnaypa2p"]
 
-[ext_resource type="Script" path="res://scene/ui/slot_selection.gd" id="1_7pota"]
+[ext_resource type="Script" path="res://script/Ui/slot_selection.gd" id="1_7pota"]
 [ext_resource type="Texture2D" uid="uid://n2w73jn1yowh" path="res://assets/visuel/UI_sprite/gradient_haut_unselected_png.png" id="2_4v0pd"]
 [ext_resource type="Texture2D" uid="uid://sxewferkhck" path="res://assets/visuel/UI_sprite/gradient_haut_selected_png.png" id="2_415bf"]
 [ext_resource type="Texture2D" uid="uid://brim1wgf7lqux" path="res://assets/visuel/UI_sprite/gradient_gauche_unselected_png(1).png" id="4_l7f3e"]

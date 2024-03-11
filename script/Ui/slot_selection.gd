@@ -2,28 +2,24 @@ extends Control
 
 var fade_in: Array[bool] = [false,false,false]
 var fade_value: Array[float] = [0.0,0.0,0.0]
-signal slot_accepted(slot_value)
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+## Emitted when you click on a slot, transmitted to each individual interactable item.
+## Makes the circle around the item disappear, and call _on_click.
+signal slot_accepted(slot_value)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			if fade_value[0] >= 1.0:
 				slot_accepted.emit(0)
-				print("1")
 				self.hide()
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			if fade_value[1] >= 1.0:
 				slot_accepted.emit(1)
-				print("1")
 				self.hide()
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			if fade_value[2] >= 1.0:
 				slot_accepted.emit(2)
-				print("1")
 				self.hide()
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if fade_in[0] == true : 
@@ -57,43 +53,26 @@ func _process(delta):
 func _on_rect_slot_1_mouse_entered():
 	fade_in[0] = true
 
-	print("mouse_entered")
-
-
 func _on_rect_slot_1_mouse_exited():
 	fade_in[0] = false
-	print("mouse_exited")
-
-
 
 func _on_rect_slot_2_mouse_entered():
 	fade_in[1] = true
-	print("mouse_entered")
-
 
 func _on_rect_slot_2_mouse_exited():
 	fade_in[1] = false
-	print("mouse_exited")
-
 
 func _on_rect_slot_3_mouse_entered():
 	fade_in[1] = true
-	print("mouse_entered")
-
 
 func _on_rect_slot_3_mouse_exited():
 	fade_in[1] = false
-	print("mouse_exited")
-
 
 func _on_rect_slot_4_mouse_entered():
 	fade_in[2] = true
-	print("mouse_entered")
-
 
 func _on_rect_slot_4_mouse_exited():
 	fade_in[2] = false
-	print("mouse_exited")
 
 func _on_full_circle():
 	self.show()

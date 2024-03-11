@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm1506mguuk1n"]
 
-[ext_resource type="Script" path="res://scene/debug/flower.gd" id="1_g4lr0"]
+[ext_resource type="Script" path="res://script/interactable/flower.gd" id="1_g4lr0"]
 [ext_resource type="ArrayMesh" uid="uid://ygnvae27pcex" path="res://assets/visuel/flower.obj" id="2_f8nsk"]
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="3_knw2y"]
 

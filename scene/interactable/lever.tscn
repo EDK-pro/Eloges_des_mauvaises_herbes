@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dr7ikn6s6wsh1"]
 
-[ext_resource type="Script" path="res://lever.gd" id="1_5vbjq"]
+[ext_resource type="Script" path="res://script/interactable/lever.gd" id="1_5vbjq"]
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_gccw4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m52iy"]

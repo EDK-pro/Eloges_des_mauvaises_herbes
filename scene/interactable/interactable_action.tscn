@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ftv7p5ehdkwu"]
 
 [ext_resource type="Script" path="res://script/interactable/interactable_1.gd" id="1_imwih"]
-[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/debug/select_object.tscn" id="2_cc7d7"]
+[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="2_cc7d7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5trcj"]
 

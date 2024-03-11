@@ -1,9 +1,7 @@
 extends all_items
 
-func _enter_tree():
-	self.add_to_group("pickable_item")
-
 func _ready():
+	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
 
 func disable_coll():

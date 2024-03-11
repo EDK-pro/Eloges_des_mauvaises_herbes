@@ -8,12 +8,9 @@ enum Items {FLOWER, GAZLAMP, UMBRELLA, LEVER}
 
 const Litems := {FLOWER = "Flower", GAZLAMP = "GazLamp", UMBRELLA = "Umbrella", LEVER = "Lever"}
 
-
 enum Slots {SLOT_1, SLOT_2, SLOT_3}
 @export var status: Slots
 
-## Name of Item as it appears in game.
-#@export var name : String
 ## Description of Item as it'll appear in the HUD / Inventory menu
 @export_multiline var description : String = ""
 ## Path to Scene that will be spawned when item is removed from inventory to be dropped into the world.
@@ -35,7 +32,6 @@ enum Slots {SLOT_1, SLOT_2, SLOT_3}
 @export_subgroup("Animations")
 @export var equip_anim : String
 @export var unequip_anim : String
-@export var reload_anim : String
 @export var use_anim : String
 
 var player_interaction_component
@@ -51,29 +47,12 @@ signal poser_objet
 var slot_used: Array=[0,0,0]
 
 func put_in_slot(item,slot):
-	if slot_used[slot] == 1:
-		print("Tu vas te faire foutreuh")
-	else:
+	if slot_used[slot] != 1:
 		item_placed.emit(slot, 1, self)
 	
 func remove_from_slot(slot):
-	if slot_used[slot] == 0:
-		print("huertuof eriaf et sav uT")
-	else:
+	if slot_used[slot] != 0:
 		item_placed.emit(slot, 0, self)
 	
-func _on_item_placed(slot,etat,osef):
-	slot_used[slot] = etat
-	
-func use(target):
-	match items:
-		Items.FLOWER:
-			print("Flower jolie")
-		Items.GAZLAMP:
-			print("Lampe toggle")
-		Items.UMBRELLA:
-			print("Parapluie toggle")
-		Items.LEVER:
-			print("Activation handle")
-		_:
-			print("default")
+func _on_item_placed(slot,state,useless):
+	slot_used[slot] = state
