@@ -24,4 +24,4 @@ mesh = SubResource("PlaneMesh_dfut6")
 [node name="SubView" type="SubViewport" parent="."]
 transparent_bg = true
 
-[node name="Select_Object" parent="SubView" instance=ExtResource("1_rqfmm")]
+[node name="Select_Object" parent="SubView" groups=["cercle_objet"] instance=ExtResource("1_rqfmm")]

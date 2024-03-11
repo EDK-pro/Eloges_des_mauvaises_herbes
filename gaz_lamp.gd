@@ -13,7 +13,7 @@ func enable_coll():
 	$CollisionShape3D.disabled = false
 
 func _hovered(item_name):
-	if item_name == Litems.FLOWER:
+	if item_name == Litems.GAZLAMP:
 		$UIHandler/SubView/Select_Object._on_selected_object()
 		is_being_selected = true
 
@@ -26,7 +26,6 @@ func _on_click(slot):
 			if is_being_selected:
 				put_in_slot(self,slot)
 				print("Putting")
-				is_being_selected = false
 		3,4,5:
 			remove_from_slot(slot-3)
 			print("Remewing")

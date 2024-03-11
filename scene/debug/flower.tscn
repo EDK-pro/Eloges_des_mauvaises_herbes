@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm1506mguuk1n"]
+[gd_scene load_steps=6 format=3 uid="uid://cm1506mguuk1n"]
 
 [ext_resource type="Script" path="res://scene/debug/flower.gd" id="1_g4lr0"]
 [ext_resource type="ArrayMesh" uid="uid://ygnvae27pcex" path="res://assets/visuel/flower.obj" id="2_f8nsk"]
@@ -6,7 +6,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_541b4"]
 
-[node name="Flower" type="RigidBody3D" groups=["pickable_item"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5q4lf"]
+albedo_color = Color(0.572549, 0.639216, 1, 1)
+
+[node name="Flower" type="RigidBody3D"]
 script = ExtResource("1_g4lr0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -14,7 +17,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_541b4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_5q4lf")
 mesh = ExtResource("2_f8nsk")
 
 [node name="UIHandler" parent="." instance=ExtResource("3_knw2y")]

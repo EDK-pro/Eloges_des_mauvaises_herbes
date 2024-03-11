@@ -3,8 +3,11 @@ extends RigidBody3D
 class_name all_items
 
 
-enum Items {FLOWER, GAZLAMP, UMBRELLA, CRANK_HANDLE}
+enum Items {FLOWER, GAZLAMP, UMBRELLA, LEVER}
 @export var items: Items
+
+const Litems := {FLOWER = "Flower", GAZLAMP = "GazLamp", UMBRELLA = "Umbrella", LEVER = "Lever"}
+
 
 enum Slots {SLOT_1, SLOT_2, SLOT_3}
 @export var status: Slots
@@ -36,7 +39,7 @@ enum Slots {SLOT_1, SLOT_2, SLOT_3}
 @export var use_anim : String
 
 var player_interaction_component
-var is_being_wielded : bool
+var is_being_selected : bool
 var wielded_item
 
 signal prendre_objet
@@ -70,7 +73,7 @@ func use(target):
 			print("Lampe toggle")
 		Items.UMBRELLA:
 			print("Parapluie toggle")
-		Items.CRANK_HANDLE:
+		Items.LEVER:
 			print("Activation handle")
 		_:
 			print("default")

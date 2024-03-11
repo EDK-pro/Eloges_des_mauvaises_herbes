@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbj3upiios76e"]
+
+[ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_7eal5"]
+[ext_resource type="Script" path="res://gaz_lamp.gd" id="1_k4j6a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_upa06"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0hx1"]
+albedo_color = Color(1, 1, 0.729412, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r71le"]
+
+[node name="GazLamp" type="RigidBody3D"]
+script = ExtResource("1_k4j6a")
+items = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_upa06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_x0hx1")
+mesh = SubResource("CylinderMesh_r71le")
+
+[node name="UIHandler" parent="." instance=ExtResource("1_7eal5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=17 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/debug/interactable_action.tscn" id="2_6bx8d"]
-[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/debug/interactible_communication.tscn" id="3_hxidv"]
-[ext_resource type="PackedScene" uid="uid://bun2tqhqm4ek" path="res://assets/Test_assets/Assets/gltf/bed_double_A.gltf" id="4_ys60i"]
 [ext_resource type="PackedScene" uid="uid://rt08rfk0hsqe" path="res://scene/ui/test_truc_talk.tscn" id="5_8ccre"]
+[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://umbrella.tscn" id="5_ifsnp"]
 [ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/debug/flower.tscn" id="6_0jmli"]
 [ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://scene/ui/UI_buttons.tscn" id="6_b3cdp"]
+[ext_resource type="PackedScene" uid="uid://cbj3upiios76e" path="res://gaz_lamp.tscn" id="6_jprck"]
+[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://lever.tscn" id="7_8mgfa"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="7_pwvp3"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_hn4av"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/debug/select_object.tscn" id="9_rfvgj"]
@@ -106,11 +107,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 [node name="MeshInstance3D" parent="Salle/Interactable_action/UI_handler" index="1"]
 material_override = SubResource("StandardMaterial3D_s50bi")
 
-[node name="interactible_communication" parent="Salle" instance=ExtResource("3_hxidv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42893, 0.910506, -0.0585521)
-
-[node name="bed_double_A2" parent="Salle/interactible_communication" instance=ExtResource("4_ys60i")]
-
 [node name="Node3D" parent="Salle" instance=ExtResource("5_8ccre")]
 transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313, -1.28791, 0.474233, -4.17357)
 
@@ -122,6 +118,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 0.616886, -2.03463)
 
 [node name="Flower" parent="Salle" instance=ExtResource("6_0jmli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54749, 0, 3)
+
+[node name="Umbrella" parent="Salle" instance=ExtResource("5_ifsnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87664, 0, 0)
+
+[node name="GazLamp" parent="Salle" instance=ExtResource("6_jprck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.10534)
+
+[node name="Lever" parent="Salle" instance=ExtResource("7_8mgfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4667, 0, 3.68228)
 
 [node name="Control" parent="." instance=ExtResource("6_b3cdp")]
 
