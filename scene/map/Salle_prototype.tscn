@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=26 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_6bx8d"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="7_8mgfa"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="7_pwvp3"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_hn4av"]
+[ext_resource type="PackedScene" uid="uid://ce1f44dtfntkb" path="res://scene/debug/rope.tscn" id="9_5f3ku"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="9_rfvgj"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="11_kid48"]
 
@@ -29,6 +30,26 @@ resource_local_to_scene = true
 transparency = 1
 cull_mode = 1
 albedo_texture = SubResource("ViewportTexture_xkjbl")
+
+[sub_resource type="SphereMesh" id="SphereMesh_kvhvn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pf6dn"]
+
+[sub_resource type="Animation" id="Animation_ta4oj"]
+resource_name = "test_rope"
+length = 15.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.1, 1, -2.26436, 1.53316, 2.82473, 7.6, 1, 0.490378, 1.53316, 2.82473, 14.9, 1, -2.26986, 1.53316, 2.82473)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_new7n"]
+_data = {
+"test_rope": SubResource("Animation_ta4oj")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l0xrs"]
 sky_top_color = Color(0.882353, 0.690196, 0.431373, 1)
@@ -154,6 +175,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.10534)
 [node name="Lever" parent="Salle" instance=ExtResource("7_8mgfa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4667, 0, 3.68228)
 
+[node name="rope" parent="Salle" instance=ExtResource("9_5f3ku")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.947683, 6.7541, 2.71021)
+
+[node name="Armature" parent="Salle/rope" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -8.35187e-23, 0, -8.35187e-23, 1, 0, -0.0739855, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Salle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26436, 1.53316, 2.82473)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/StaticBody3D"]
+mesh = SubResource("SphereMesh_kvhvn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/StaticBody3D"]
+shape = SubResource("SphereShape3D_pf6dn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Salle/StaticBody3D"]
+libraries = {
+"": SubResource("AnimationLibrary_new7n")
+}
+autoplay = "test_rope"
+
 [node name="UI" type="Node" parent="."]
 
 [node name="Player" parent="." node_paths=PackedStringArray("light") instance=ExtResource("8_hn4av")]
@@ -166,6 +208,7 @@ environment = SubResource("Environment_exs6x")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="POST_PROCESS"]
 transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0, 27.4521, 4.22514)
+visible = false
 light_energy = 0.684
 
 [node name="OmniLight3D" type="OmniLight3D" parent="POST_PROCESS"]
@@ -190,4 +233,5 @@ visible = false
 
 [editable path="Salle/Interactable_action"]
 [editable path="Salle/Flower"]
+[editable path="Salle/rope"]
 [editable path="Player"]

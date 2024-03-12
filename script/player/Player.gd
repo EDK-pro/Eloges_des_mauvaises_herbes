@@ -26,11 +26,18 @@ var mouse_confirm = Vector2.ZERO
 var t = 0.0
 var pickup
 
+var rope_scene = load("res://scene/debug/rope.tscn")
+var instance
+
 func _ready():
 	# Set mouse mode to captured when the scene is ready
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
+	if instance != null:
+		instance.depart.position += Vector3(position.x,0.0,position.z) 
+		instance.fin.position = position
+		print(instance.fin.position)
 	if Input.is_action_just_pressed("light"):
 		light.visible = true
 	# Check for pause action and adjust mouse mode accordingly
@@ -84,6 +91,21 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			get_selection()
+	
+	if Input.is_action_just_pressed("throw_rope"):
+		instance = rope_scene.instantiate()
+		#instance.position.y += position.y + 2.0
+		#instance.position.x += 2.0
+		#instance.position.y += 0.5
+		#instance.depart.position = position
+		#instance.depart.position.y = position.y + 4.0
+		add_child(instance)
+		#instance.depart.position = position
+		#instance.depart.position.y = position.y + 4.0
+		#instance.rotate_z(90)
+		#instance.position.y += position.y + 2.0
+
+		instance._disable_collision()
 
 # Method to select objects in the game world using the mouse
 func get_selection():
