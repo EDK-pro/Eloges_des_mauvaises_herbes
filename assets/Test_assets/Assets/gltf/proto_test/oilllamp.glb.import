@@ -1,0 +1,49 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b7p5mjvu16fxe"
+path="res://.godot/imported/oilllamp.glb-39886be2fa458304f1190ba868f68ad3.scn"
+
+[deps]
+
+source_file="res://assets/Test_assets/Assets/gltf/proto_test/oilllamp.glb"
+dest_files=["res://.godot/imported/oilllamp.glb-39886be2fa458304f1190ba868f68ad3.scn"]
+
+[params]
+
+nodes/root_type="MeshInstance3D"
+nodes/root_name="oil_lamp"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"bas_lampe": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/Test_assets/Assets/material/bas_lampe.tres"
+},
+"lumière": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/Test_assets/Assets/material/lumière.tres"
+},
+"oilmap": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/Test_assets/Assets/material/oilmap.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

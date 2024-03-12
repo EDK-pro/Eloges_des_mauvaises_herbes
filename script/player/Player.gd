@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var speed: int = 5
 @export var mouse_sensitivity: float = 0.002
+@export var light: OmniLight3D
 
 var slot1: all_items
 var slot2: all_items
@@ -30,6 +31,8 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("light"):
+		light.visible = true
 	# Check for pause action and adjust mouse mode accordingly
 	for i in 3:
 		if slots[i] != null:
