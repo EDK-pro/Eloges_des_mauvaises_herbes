@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://05pd1lqj65uy"]
+
+[ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_5rbhv"]
+[ext_resource type="Script" path="res://script/interactable/umbrella.gd" id="1_mfdve"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qoukv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3hqs"]
+albedo_color = Color(0.686275, 1, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_f4ufc"]
+
+[node name="Umbrella" type="RigidBody3D"]
+script = ExtResource("1_mfdve")
+items = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_qoukv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_u3hqs")
+mesh = SubResource("PrismMesh_f4ufc")
+
+[node name="UIHandler" parent="." instance=ExtResource("1_5rbhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

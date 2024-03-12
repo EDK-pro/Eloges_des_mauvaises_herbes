@@ -1,20 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=17 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
-[ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/debug/interactable_action.tscn" id="2_6bx8d"]
-[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/debug/interactible_communication.tscn" id="3_hxidv"]
-[ext_resource type="PackedScene" uid="uid://bun2tqhqm4ek" path="res://assets/Test_assets/Assets/gltf/bed_double_A.gltf" id="4_ys60i"]
+[ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_6bx8d"]
 [ext_resource type="PackedScene" uid="uid://rt08rfk0hsqe" path="res://scene/ui/test_truc_talk.tscn" id="5_8ccre"]
+[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://scene/interactable/umbrella.tscn" id="5_ifsnp"]
+[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="6_0jmli"]
 [ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://scene/ui/UI_buttons.tscn" id="6_b3cdp"]
+[ext_resource type="PackedScene" uid="uid://cbj3upiios76e" path="res://scene/interactable/gaz_lamp.tscn" id="6_jprck"]
+[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="7_8mgfa"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="7_pwvp3"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_hn4av"]
-[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/debug/select_object.tscn" id="9_rfvgj"]
+[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="9_rfvgj"]
+[ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="11_kid48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uffbm"]
 size = Vector3(30, 2, 30)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkjbl"]
+viewport_path = NodePath("UI_handler/SubView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s50bi"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_xkjbl")
 
 [node name="test_salle1" type="Node"]
 script = ExtResource("1_2cylx")
@@ -92,10 +104,8 @@ transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0,
 [node name="Interactable_action" parent="Salle" instance=ExtResource("2_6bx8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 
-[node name="interactible_communication" parent="Salle" instance=ExtResource("3_hxidv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42893, 0.910506, -0.0585521)
-
-[node name="bed_double_A2" parent="Salle/interactible_communication" instance=ExtResource("4_ys60i")]
+[node name="MeshInstance3D" parent="Salle/Interactable_action/UI_handler" index="1"]
+material_override = SubResource("StandardMaterial3D_s50bi")
 
 [node name="Node3D" parent="Salle" instance=ExtResource("5_8ccre")]
 transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313, -1.28791, 0.474233, -4.17357)
@@ -104,7 +114,19 @@ transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 
 [node name="Meshchange" parent="Salle" instance=ExtResource("2_6bx8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 1.50371, -2.03463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 0.616886, -2.03463)
+
+[node name="Flower" parent="Salle" instance=ExtResource("6_0jmli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54749, 0, 3)
+
+[node name="Umbrella" parent="Salle" instance=ExtResource("5_ifsnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87664, 0, 0)
+
+[node name="GazLamp" parent="Salle" instance=ExtResource("6_jprck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.10534)
+
+[node name="Lever" parent="Salle" instance=ExtResource("7_8mgfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4667, 0, 3.68228)
 
 [node name="Control" parent="." instance=ExtResource("6_b3cdp")]
 
@@ -114,3 +136,9 @@ visible = false
 [node name="Player" parent="." instance=ExtResource("8_hn4av")]
 
 [node name="Select_Object" parent="." instance=ExtResource("9_rfvgj")]
+
+[node name="Slot_selection" parent="." instance=ExtResource("11_kid48")]
+visible = false
+
+[editable path="Salle/Interactable_action"]
+[editable path="Salle/Flower"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rt08rfk0hsqe"]
 
-[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/debug/interactible_communication.tscn" id="1_xww0n"]
+[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/interactable/interactible_communication.tscn" id="1_xww0n"]
 [ext_resource type="PackedScene" uid="uid://cvls3omr55pdw" path="res://assets/Test_assets/Assets/gltf/armchair_pillows.gltf" id="2_c3ddx"]
 
 [node name="test_truc_talk" type="Node3D"]
