@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ftv7p5ehdkwu"]
+[gd_scene load_steps=9 format=3 uid="uid://ftv7p5ehdkwu"]
 
 [ext_resource type="Script" path="res://script/interactable/interactable_1.gd" id="1_imwih"]
+[ext_resource type="Material" uid="uid://c5px5j8dwbo1j" path="res://assets/Test_assets/Assets/material/prototype_green.tres" id="2_86prm"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="2_cc7d7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5trcj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yd1ep"]
+material = ExtResource("2_86prm")
 size = Vector3(0.9, 0.9, 0.9)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_i4281"]

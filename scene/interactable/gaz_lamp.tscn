@@ -1,27 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbj3upiios76e"]
+[gd_scene load_steps=5 format=3 uid="uid://cbj3upiios76e"]
 
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_7eal5"]
 [ext_resource type="Script" path="res://script/interactable/gaz_lamp.gd" id="1_k4j6a"]
+[ext_resource type="ArrayMesh" uid="uid://ducf55muoqhhb" path="res://scene/debug/oil_lamp.tres" id="2_tuwuf"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_upa06"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0hx1"]
-albedo_color = Color(1, 1, 0.729412, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_r71le"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u2k6d"]
+points = PackedVector3Array(-0.000239968, 3.1413, 1.28943, 0.757836, 3.1413, 1.04326, 0.276144, 3.58863, 0.850613, -0.262937, 3.66721, 0.808954, -0.758075, 3.1413, 1.04326, -0.000239968, 0, 0.99983, 0.587587, 0, 0.808954, 1.22632, 3.1413, 0.398417, 0.687959, 3.66721, 0.499915, 0.458399, 3.89337, 0.333024, 0.183936, 3.82976, 0.566571, -0.175291, 3.89337, 0.538797, -0.723738, 3.58863, 0.525668, -1.22656, 3.1413, 0.398417, -0.587827, 0, 0.808954, 0.950896, 0, 0.308786, 1.22632, 3.1413, -0.39867, 0.894227, 3.58863, -0.000252366, 0.036019, 4.24716, 0.0260057, 0.595751, 3.82976, -0.000252366, 0.0144076, 4.24176, 0.0446894, -0.0139271, 4.24716, 0.042417, -0.482412, 3.82976, 0.350193, -0.566936, 3.89337, -0.000252366, -0.850764, 3.66721, -0.000252366, -1.22656, 3.1413, -0.39867, -0.951136, 0, 0.308786, 0.950896, 0, -0.309291, 0.757836, 3.1413, -1.04351, 0.687959, 3.66721, -0.500168, 0.458399, 3.89337, -0.333277, 0.0468246, 4.24176, -0.000252366, 0.036019, 4.24716, -0.0265106, -0.0449033, 4.24716, -0.000252366, -0.0381798, 4.24176, 0.0275207, -0.482412, 3.82976, -0.350446, -0.723738, 3.58863, -0.525921, -0.758075, 3.1413, -1.04351, -0.951136, 0, -0.309291, 0.587587, 0, -0.809206, -0.000239968, 3.1413, -1.28968, 0.276144, 3.58863, -0.850866, 0.183936, 3.82976, -0.566823, 0.0144076, 4.24176, -0.0449418, -0.0139271, 4.24716, -0.0426694, -0.0381798, 4.24176, -0.027773, -0.175291, 3.89337, -0.539302, -0.262937, 3.66721, -0.809206, -0.000239968, 0, -1.00008, -0.587827, 0, -0.809206)
 
 [node name="GazLamp" type="RigidBody3D"]
 script = ExtResource("1_k4j6a")
 items = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_upa06")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_x0hx1")
-mesh = SubResource("CylinderMesh_r71le")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+mesh = ExtResource("2_tuwuf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_u2k6d")
 
 [node name="UIHandler" parent="." instance=ExtResource("1_7eal5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

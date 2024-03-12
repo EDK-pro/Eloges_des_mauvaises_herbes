@@ -1,17 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=17 format=3 uid="uid://cfvtuvv0esxbn"]
 
-[ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
-[ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_6bx8d"]
-[ext_resource type="PackedScene" uid="uid://rt08rfk0hsqe" path="res://scene/ui/test_truc_talk.tscn" id="5_8ccre"]
-[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://scene/interactable/umbrella.tscn" id="5_ifsnp"]
-[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="6_0jmli"]
-[ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://scene/ui/UI_buttons.tscn" id="6_b3cdp"]
-[ext_resource type="PackedScene" uid="uid://cbj3upiios76e" path="res://scene/interactable/gaz_lamp.tscn" id="6_jprck"]
-[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="7_8mgfa"]
-[ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="7_pwvp3"]
-[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_hn4av"]
-[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="9_rfvgj"]
-[ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="11_kid48"]
+[ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_xq8jc"]
+[ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_jwmn4"]
+[ext_resource type="PackedScene" uid="uid://rt08rfk0hsqe" path="res://scene/ui/test_truc_talk.tscn" id="3_ox6n8"]
+[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="4_ogglq"]
+[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://scene/interactable/umbrella.tscn" id="5_bsfk4"]
+[ext_resource type="PackedScene" uid="uid://cbj3upiios76e" path="res://scene/interactable/gaz_lamp.tscn" id="6_764pu"]
+[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="7_gp422"]
+[ext_resource type="PackedScene" uid="uid://cx385t7hyeb3n" path="res://scene/ui/UI_buttons.tscn" id="8_uiibr"]
+[ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="9_vhnta"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="10_bkmb0"]
+[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="11_dr1tw"]
+[ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="12_dq0xb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)
@@ -29,7 +29,7 @@ cull_mode = 1
 albedo_texture = SubResource("ViewportTexture_xkjbl")
 
 [node name="test_salle1" type="Node"]
-script = ExtResource("1_2cylx")
+script = ExtResource("1_xq8jc")
 
 [node name="Salle" type="Node" parent="."]
 
@@ -101,43 +101,43 @@ mesh = SubResource("BoxMesh_uffbm")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salle"]
 transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0, 8.08124, 4.22514)
 
-[node name="Interactable_action" parent="Salle" instance=ExtResource("2_6bx8d")]
+[node name="Interactable_action" parent="Salle" instance=ExtResource("2_jwmn4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 
 [node name="MeshInstance3D" parent="Salle/Interactable_action/UI_handler" index="1"]
 material_override = SubResource("StandardMaterial3D_s50bi")
 
-[node name="Node3D" parent="Salle" instance=ExtResource("5_8ccre")]
+[node name="Node3D" parent="Salle" instance=ExtResource("3_ox6n8")]
 transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313, -1.28791, 0.474233, -4.17357)
 
-[node name="test_truc_talk" parent="Salle" instance=ExtResource("5_8ccre")]
+[node name="test_truc_talk" parent="Salle" instance=ExtResource("3_ox6n8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 
-[node name="Meshchange" parent="Salle" instance=ExtResource("2_6bx8d")]
+[node name="Meshchange" parent="Salle" instance=ExtResource("2_jwmn4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 0.616886, -2.03463)
 
-[node name="Flower" parent="Salle" instance=ExtResource("6_0jmli")]
+[node name="Flower" parent="Salle" instance=ExtResource("4_ogglq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54749, 0, 3)
 
-[node name="Umbrella" parent="Salle" instance=ExtResource("5_ifsnp")]
+[node name="Umbrella" parent="Salle" instance=ExtResource("5_bsfk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87664, 0, 0)
 
-[node name="GazLamp" parent="Salle" instance=ExtResource("6_jprck")]
+[node name="GazLamp" parent="Salle" instance=ExtResource("6_764pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.10534)
 
-[node name="Lever" parent="Salle" instance=ExtResource("7_8mgfa")]
+[node name="Lever" parent="Salle" instance=ExtResource("7_gp422")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4667, 0, 3.68228)
 
-[node name="Control" parent="." instance=ExtResource("6_b3cdp")]
+[node name="Control" parent="." instance=ExtResource("8_uiibr")]
 
-[node name="Talk" parent="." instance=ExtResource("7_pwvp3")]
+[node name="Talk" parent="." instance=ExtResource("9_vhnta")]
 visible = false
 
-[node name="Player" parent="." instance=ExtResource("8_hn4av")]
+[node name="Player" parent="." instance=ExtResource("10_bkmb0")]
 
-[node name="Select_Object" parent="." instance=ExtResource("9_rfvgj")]
+[node name="Select_Object" parent="." instance=ExtResource("11_dr1tw")]
 
-[node name="Slot_selection" parent="." instance=ExtResource("11_kid48")]
+[node name="Slot_selection" parent="." instance=ExtResource("12_dq0xb")]
 visible = false
 
 [editable path="Salle/Interactable_action"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://nc1xq0inht6a"]
 
-[ext_resource type="Material" uid="uid://c5px5j8dwbo1j" path="res://assets/Test_assets/materials/prototype_green.tres" id="1_2smvw"]
-[ext_resource type="Material" uid="uid://d3yuc5kgk10vy" path="res://assets/Test_assets/materials/prototype_black.tres" id="2_k8kvw"]
+[ext_resource type="Material" uid="uid://c5px5j8dwbo1j" path="res://assets/Test_assets/Assets/material/prototype_green.tres" id="1_2smvw"]
+[ext_resource type="Material" uid="uid://d3yuc5kgk10vy" path="res://assets/Test_assets/Assets/material/prototype_black.tres" id="2_k8kvw"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="3_vxjiw"]
 [ext_resource type="PackedScene" uid="uid://cc53ldbuwpaf1" path="res://assets/Test_assets/Assets/gltf/armchair.gltf" id="4_jd06l"]
 [ext_resource type="PackedScene" uid="uid://7nekipngkbjl" path="res://assets/Test_assets/Assets/gltf/flower/fleure2.glb" id="5_a1w14"]

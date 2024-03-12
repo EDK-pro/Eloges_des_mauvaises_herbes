@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Eloges_des_mauvaises_herbes"
-run/main_scene="res://scene/map/test_salle1.tscn"
+run/main_scene="res://scene/map/Salle_prototype.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/visuel/UI_sprite/icon.svg"
 
 [display]
 
 window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_height=280
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
