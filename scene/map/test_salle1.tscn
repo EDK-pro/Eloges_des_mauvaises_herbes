@@ -16,6 +16,43 @@ size = Vector3(30, 2, 30)
 [sub_resource type="BoxMesh" id="BoxMesh_uffbm"]
 size = Vector3(30, 2, 30)
 
+<<<<<<< Updated upstream:scene/map/test_salle1.tscn
+=======
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkjbl"]
+viewport_path = NodePath("UI_handler/SubView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s50bi"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_xkjbl")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l0xrs"]
+sky_top_color = Color(0.882353, 0.690196, 0.431373, 1)
+sky_horizon_color = Color(0.243137, 0.462745, 0.701961, 1)
+ground_bottom_color = Color(0.301961, 0.25098, 0.239216, 1)
+ground_horizon_color = Color(0.756863, 0.764706, 0.643137, 1)
+ground_curve = 0.355062
+
+[sub_resource type="Sky" id="Sky_dbmnf"]
+sky_material = SubResource("ProceduralSkyMaterial_l0xrs")
+
+[sub_resource type="Environment" id="Environment_exs6x"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_dbmnf")
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+ssao_intensity = 2.17
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_albedo = Color(0.564706, 0.258824, 0.792157, 1)
+volumetric_fog_emission_energy = 10.78
+volumetric_fog_length = 7.45
+
+>>>>>>> Stashed changes:scene/map/Salle_prototype.tscn
 [node name="test_salle1" type="Node"]
 script = ExtResource("1_2cylx")
 
@@ -32,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_uffbm")
 
 [node name="Mur-z" type="StaticBody3D" parent="Salle"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7.35, -15)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.512982, 0, 1, -2.24231e-08, 0, 7.35, -15)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur-z"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -104,7 +141,53 @@ transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 
 [node name="Meshchange" parent="Salle" instance=ExtResource("2_6bx8d")]
+<<<<<<< Updated upstream:scene/map/test_salle1.tscn
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 1.50371, -2.03463)
+=======
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 0.616886, -2.03463)
+
+[node name="Flower" parent="Salle" instance=ExtResource("6_0jmli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54749, 0, 3)
+
+[node name="Umbrella" parent="Salle" instance=ExtResource("5_ifsnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87664, 0, 0)
+
+[node name="GazLamp" parent="Salle" instance=ExtResource("6_jprck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.10534)
+
+[node name="Lever" parent="Salle" instance=ExtResource("7_8mgfa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4667, 0, 3.68228)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Player" parent="." node_paths=PackedStringArray("light") instance=ExtResource("8_hn4av")]
+light = NodePath("../POST_PROCESS/OmniLight3D")
+
+[node name="POST_PROCESS" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="POST_PROCESS"]
+environment = SubResource("Environment_exs6x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="POST_PROCESS"]
+transform = Transform3D(1, 0, 0, 0, 0.519221, 0.85464, 0, -0.85464, 0.519221, 0, 27.4521, 4.22514)
+light_energy = 0.684
+
+[node name="OmniLight3D" type="OmniLight3D" parent="POST_PROCESS"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.4928, 0)
+light_color = Color(0.952941, 0.498039, 0, 1)
+light_energy = 16.0
+omni_range = 2196.93
+omni_attenuation = 1.03526
+
+[node name="SpotLight3D" type="SpotLight3D" parent="POST_PROCESS"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0476112, 12.5502, -0.0363994)
+visible = false
+light_color = Color(0.133333, 0.156863, 0.227451, 1)
+light_energy = 8.879
+spot_range = 21.039
+spot_attenuation = 0.287176
+spot_angle = 59.92
+>>>>>>> Stashed changes:scene/map/Salle_prototype.tscn
 
 [node name="Control" parent="." instance=ExtResource("6_b3cdp")]
 

@@ -15,6 +15,21 @@ run/main_scene="res://scene/map/test_salle1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/visuel/UI_sprite/icon.svg"
 
+<<<<<<< Updated upstream
+=======
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+>>>>>>> Stashed changes
 [filesystem]
 
 import/fbx/enabled=false

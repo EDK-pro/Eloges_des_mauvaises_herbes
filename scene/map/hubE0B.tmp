@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwel5dwkllscu"]
+
+[ext_resource type="Texture2D" uid="uid://j1nf885iaw67" path="res://assets/sketch_decor_fond_transparent.png" id="1_2xki2"]
+[ext_resource type="Script" path="res://scene/map/player_HUD.gd" id="2_dwxet"]
+[ext_resource type="Texture2D" uid="uid://c5rg41fqthi0x" path="res://assets/visuel/caillou_1_caillou_1-caillou_1.png" id="3_l8vda"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cawe"]
+transparency = 1
+albedo_texture = ExtResource("1_2xki2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_47b1w"]
+material = SubResource("StandardMaterial3D_5cawe")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vxt2m"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_txlyt"]
+radius = 0.001
+height = 42.122
+
+[node name="HUB" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_47b1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vxt2m")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 3.57846, 3.49208, 0, -3.49208, 3.57846, -0.0355468, 0.204049, 0)
+script = ExtResource("2_dwxet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_txlyt")
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0, 0)
+texture = ExtResource("3_l8vda")

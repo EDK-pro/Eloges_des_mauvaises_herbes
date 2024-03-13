@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwel5dwkllscu"]
+
+[ext_resource type="Texture2D" uid="uid://j1nf885iaw67" path="res://assets/sketch_decor_fond_transparent.png" id="1_2xki2"]
+[ext_resource type="Script" path="res://scene/map/player_HUD.gd" id="2_dwxet"]
+[ext_resource type="Texture2D" uid="uid://c5062alq2rjnm" path="res://assets/Test_assets/reinette.png" id="3_iimb5"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_10vpb"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="5_tmcpn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5cawe"]
+transparency = 1
+albedo_texture = ExtResource("1_2xki2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_47b1w"]
+material = SubResource("StandardMaterial3D_5cawe")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vxt2m"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqfq5"]
+radius = 0.06
+height = 0.16
+
+[node name="HUB" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_47b1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_vxt2m")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.07, 0, 0, 0, 0.0239414, 0.0657785, 0, -0.0657785, 0.0239414, 0, 0.005, 0)
+script = ExtResource("2_dwxet")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_kqfq5")
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+texture = ExtResource("3_iimb5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.01, 0.275, -0.03)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+script = ExtResource("4_10vpb")
+
+[node name="PhantomCamera3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.01, 0.275, -0.03)
+script = ExtResource("5_tmcpn")
+priority_override = false
+priority = 0
+follow_mode = 2
+follow_target = NodePath("")
+follow_parameters/target_offset = Vector3(0, 0, 0)
+follow_parameters/damping = false
+look_at_mode = 0
+tween_parameters = null
+tween_on_load = false
+inactive_update_mode = 0
+camera_3D_resource = null

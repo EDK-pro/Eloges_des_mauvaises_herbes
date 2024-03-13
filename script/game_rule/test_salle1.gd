@@ -4,6 +4,7 @@ extends Node
 @export var symbolCount : int = 4
 @export var communicationDuration : float = 5.0
 @export var isDialogVisible : bool = false
+var checkDegradation: int = 0
 
 func _ready():
 	#$Control.btn_deplacement.connect($Player_constraint._on_appuie_des_boutons.bind())
