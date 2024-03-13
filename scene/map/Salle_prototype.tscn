@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=27 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_6bx8d"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="8_hn4av"]
 [ext_resource type="PackedScene" uid="uid://ce1f44dtfntkb" path="res://scene/debug/rope.tscn" id="9_5f3ku"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="9_rfvgj"]
+[ext_resource type="PackedScene" uid="uid://bvj25quit1gj5" path="res://test_rope_4_armature.tscn" id="10_770wn"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="11_kid48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
@@ -195,6 +196,9 @@ libraries = {
 "": SubResource("AnimationLibrary_new7n")
 }
 autoplay = "test_rope"
+
+[node name="test_rope_4_armature" parent="Salle" instance=ExtResource("10_770wn")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8, 1, 0)
 
 [node name="UI" type="Node" parent="."]
 

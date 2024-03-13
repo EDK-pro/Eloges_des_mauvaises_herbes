@@ -16,14 +16,18 @@ var skeleton_movement
 var ROPE_BODIES : Array
 var last_rigidbody
 
+var last_rope_int = 17
+var nope = false
 
  
 func _ready()->void:
 	#Adding a RigidBody for every bone. 
 	for i in skeleton.get_bone_count(): 
+		if i == last_rope_int:
+			nope = true
 		_add_rigidbody(skeleton.get_bone_global_pose(i))
-	_add_pin_joint(depart,ROPE_BODIES[0])
-	_add_pin_joint(fin,ROPE_BODIES[16])
+	#_add_pin_joint(depart,ROPE_BODIES[0])
+	#_add_pin_joint(fin,ROPE_BODIES[16])
 	#_add_pin_joint(ROPE_BODIES[0],depart)
 	#_add_pin_joint(ROPE_BODIES[16],fin)
 	
@@ -45,7 +49,7 @@ func _add_rigidbody(pos:Transform3D)->void:
 	ROPE_BODIES.append(rigidbody)
 	add_child(rigidbody)
 	#Adding a PinJoint between RigidBodies.
-	if last_rigidbody != null:
+	if last_rigidbody != null or nope == true:
 		_add_pin_joint(last_rigidbody,rigidbody)
 	#Saving the last added RigidBody for _add_pin_joint function to get position between the old RigidBody and new RigidBody.
 	last_rigidbody = rigidbody
@@ -70,7 +74,34 @@ func _add_pin_joint(node_A, node_B)->void:
 		var between = _get_pos_between_vectors(node_A.transform.origin,node_B.transform.origin)
 		#Setting the given position for the PinJoint.
 		pin.transform.origin = between 
+		print(node_A.transform.origin,"",node_B.transform.origin,"",between)
 	#Adding the PinJoint as a child.
+	add_child(pin)
+	pass
+
+func _haha_add_pin_joint(node_A, node_B)->void:
+	#Creating a new PinJoint and setting the params for it.
+	var pin = PinJoint3D.new()
+	#pin.set("params/bias",bias)
+	#pin.set("params/damping",damping)
+	#pin.set("params/impulse_clamp",impulse_clamp)
+	#Setting the node_B(AKA rigidbody variable) for PinJoint
+	pin.set_node_b(node_B.get_path())
+	#Checking if the node_A(AKA  last_rigidbody variable) is null, and if it is true, PinJoint's translation = Vector.ZERO.  
+	pin.set_node_a(node_A.get_path())
+	#if node_A == null:
+		#pin.transform.origin = Vector3.ZERO 
+	#else:
+		##If node_A is not = null then we are setting the node_A for PinJoint.  
+		#pin.set_node_a(node_A.get_path())
+		##Getting the position between node_A and node_B (AKA last_rigidbody and rigidbody variables).
+		#var between = _get_pos_between_vectors(node_A.transform.origin,node_B.transform.origin)
+		##Setting the given position for the PinJoint.
+		#pin.transform.origin = between 
+		#print(node_A.transform.origin,"",node_B.transform.origin,"",between)
+	#Adding the PinJoint as a child.
+	print(node_A.transform.origin,"",node_B.transform.origin)
+	pin.transform.origin = node_A.transform.origin
 	add_child(pin)
 	pass
 	
@@ -78,10 +109,22 @@ func _add_pin_joint(node_A, node_B)->void:
 func _get_pos_between_vectors(A:Vector3,B:Vector3)->Vector3:
 	return (A+B)/2
 
+func _connect_first_pin_to_player(player):
+	print("feur")
+	_add_pin_joint(player,ROPE_BODIES[0])
+	#ROPE_BODIES[0].get_child(0).disabled = true
+	
+	
+func _connect_last_pin_to_player(node_3d):
+	_add_pin_joint(node_3d,ROPE_BODIES[last_rope_int])
+	#ROPE_BODIES[17].get_child(0).disabled = true
+
 func _disable_collision():
 	for i in ROPE_BODIES:
-		#i.sleeping = true
-		i.get_child(0).disabled = true
+		if i == ROPE_BODIES[0] or i == ROPE_BODIES[last_rope_int]:
+			pass
+		else:
+			i.get_child(0).disabled = true
 	#for i in skeleton.get_bone_count(): 
 		#var bone_name =skeleton.get_bone_name(i)
 		#var id = skeleton.find_bone(bone_name)

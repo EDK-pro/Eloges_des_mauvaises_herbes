@@ -75,7 +75,7 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-
+		$Cable.position = $Camera3D.project_position(mouse, 4)
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
 			throw_object.emit(3)
@@ -94,18 +94,22 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("throw_rope"):
 		instance = rope_scene.instantiate()
-		#instance.position.y += position.y + 2.0
+		#instance.position += $Start_cable_player.position
 		#instance.position.x += 2.0
 		#instance.position.y += 0.5
 		#instance.depart.position = position
 		#instance.depart.position.y = position.y + 4.0
 		add_child(instance)
+		
+		#instance._connect_first_pin_to_player($End_cable_player)
+		instance._connect_first_pin_to_player($Camera3D/Start_cable_player)
+		instance._connect_last_pin_to_player($Camera3D/End_cable_player)
+		
 		#instance.depart.position = position
 		#instance.depart.position.y = position.y + 4.0
 		#instance.rotate_z(90)
 		#instance.position.y += position.y + 2.0
-
-		instance._disable_collision()
+		
 
 # Method to select objects in the game world using the mouse
 func get_selection():
