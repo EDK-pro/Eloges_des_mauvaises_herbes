@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfvtuvv0esxbn"]
+[gd_scene load_steps=19 format=3 uid="uid://cfvtuvv0esxbn"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_xq8jc"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_jwmn4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="10_bkmb0"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="11_dr1tw"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="12_dq0xb"]
+[ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/goutte.tres" id="13_u4bsw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)
@@ -28,12 +29,19 @@ transparency = 1
 cull_mode = 1
 albedo_texture = SubResource("ViewportTexture_xkjbl")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_44a5m"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 5)
+scale_min = 0.1
+scale_max = 0.2
+
 [node name="test_salle1" type="Node"]
 script = ExtResource("1_xq8jc")
 
 [node name="Salle" type="Node" parent="."]
 
 [node name="Ground" type="StaticBody3D" parent="Salle"]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -139,6 +147,15 @@ visible = false
 
 [node name="Slot_selection" parent="." instance=ExtResource("12_dq0xb")]
 visible = false
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.3764)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.67658, -11.6016)
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_44a5m")
+draw_pass_1 = ExtResource("13_u4bsw")
 
 [editable path="Salle/Interactable_action"]
 [editable path="Salle/Flower"]
