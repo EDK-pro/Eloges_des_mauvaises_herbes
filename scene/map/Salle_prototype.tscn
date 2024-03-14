@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cce0ygh1ma5ed"]
+[gd_scene load_steps=29 format=3 uid="uid://cce0ygh1ma5ed"]
 
 [ext_resource type="Script" path="res://script/game_rule/test_salle1.gd" id="1_2cylx"]
 [ext_resource type="PackedScene" uid="uid://ftv7p5ehdkwu" path="res://scene/interactable/interactable_action.tscn" id="2_6bx8d"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://ce1f44dtfntkb" path="res://scene/debug/rope.tscn" id="9_5f3ku"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="9_rfvgj"]
 [ext_resource type="PackedScene" uid="uid://bvj25quit1gj5" path="res://test_rope_4_armature.tscn" id="10_770wn"]
+[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/interactable/interactible_communication.tscn" id="11_8afob"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="11_kid48"]
+[ext_resource type="PackedScene" uid="uid://de104h2qq2l42" path="res://assets/Test_assets/Assets/gltf/book_set.gltf" id="12_inbfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)
@@ -111,6 +113,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 6.
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur+x"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("BoxShape3D_v4n01")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur+x"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -155,14 +158,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11163, -3.23209)
 [node name="MeshInstance3D" parent="Salle/Interactable_action/UI_handler" index="1"]
 material_override = SubResource("StandardMaterial3D_s50bi")
 
-[node name="Node3D" parent="Salle" instance=ExtResource("5_8ccre")]
-transform = Transform3D(0.999313, 0, 0.0370623, 0, 1, 0, -0.0370623, 0, 0.999313, -1.28791, 0.474233, -4.17357)
-
 [node name="test_truc_talk" parent="Salle" instance=ExtResource("5_8ccre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78786, 1.12507, -3.38275)
 
 [node name="Meshchange" parent="Salle" instance=ExtResource("2_6bx8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36215, 0.616886, -2.03463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98691, 0.616886, -2.03463)
 
 [node name="Flower" parent="Salle" instance=ExtResource("6_0jmli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54749, 0, 3)
@@ -200,6 +200,11 @@ autoplay = "test_rope"
 [node name="test_rope_4_armature" parent="Salle" instance=ExtResource("10_770wn")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8, 1, 0)
 
+[node name="book_shelf" parent="Salle" instance=ExtResource("11_8afob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11327, 1.59087, -3.35092)
+
+[node name="book_set2" parent="Salle/book_shelf" instance=ExtResource("12_inbfe")]
+
 [node name="UI" type="Node" parent="."]
 
 [node name="Player" parent="." node_paths=PackedStringArray("light") instance=ExtResource("8_hn4av")]
@@ -236,6 +241,8 @@ visible = false
 visible = false
 
 [editable path="Salle/Interactable_action"]
+[editable path="Salle/test_truc_talk"]
 [editable path="Salle/Flower"]
 [editable path="Salle/rope"]
 [editable path="Player"]
+[editable path="Player/Cable"]

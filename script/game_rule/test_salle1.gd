@@ -12,7 +12,8 @@ func _ready():
 	var circle_array: Array = get_tree().get_nodes_in_group("circle_around_item")
 	
 	$Salle/Meshchange/Mesh.mesh = load("res://assets/Test_assets/Assets/column.obj")
-	
+	$Player/Cable.cable_connected.connect(talkWith.bind())
+	$Player/Cable.cable_disconnected.connect(endTalk.bind())
 	## For each interactable item 
 	for i in pickable_array.size() :
 		print(pickable_array[i])
@@ -30,17 +31,32 @@ func _ready():
 		$Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
 func _process(delta):
-	talkWith(marginTime, symbolCount, communicationDuration)
-	$Salle/Meshchange/UI_handler.look_at($Player.position)
-	$Salle/Meshchange/UI_handler.rotation.x = deg_to_rad(10)
-	$Salle/Meshchange/UI_handler.rotation.z = deg_to_rad(10)
+	pass
+
+func endTalk():
+	$Talk.hide()
+
+func talkWith(item):
+	var marginTime: int
+	var symbolCount: int
+	var communicationDuration: float
+	var correctArray: Array
+	var talkative_name = str(item).get_slice(":",0)
+	print("Bah alors ",  talkative_name)
+	if talkative_name == "book_shelf":
+		marginTime = 250
+		symbolCount = 4.0
+		communicationDuration = 5.0
+		correctArray = [0,1,0,1]
+		$Talk.show()
+		$Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
+
 	
-func talkWith(marginTime: int, symbolCount: int, communicationDuration: float):
-	if Input.is_action_just_pressed("envoi_parole"):
-		if isDialogVisible:
-			$Talk.hide()
-			isDialogVisible = false
-		else:
-			$Talk.show()
-			$Talk.initialize(marginTime, symbolCount, communicationDuration)
-			isDialogVisible = true
+#func talkWith(marginTime: int, symbolCount: int, communicationDuration: float):
+	#if isDialogVisible:
+		#$Talk.hide()
+		#isDialogVisible = false
+	#else:
+		#$Talk.show()
+		#$Talk.initialize(marginTime, symbolCount, communicationDuration)
+		#isDialogVisible = true

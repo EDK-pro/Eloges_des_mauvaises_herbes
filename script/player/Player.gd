@@ -24,7 +24,10 @@ var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
 
 var t = 0.0
+var t_cable = 0.0
 var pickup
+var cable_active = false
+var taille_max
 
 var rope_scene = load("res://scene/debug/rope.tscn")
 var instance
@@ -32,12 +35,34 @@ var instance
 func _ready():
 	# Set mouse mode to captured when the scene is ready
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	taille_max = $Cable/Tube.mesh.height
 
 func _physics_process(delta):
+	if cable_active == true:
+		$Cable.show()
+		if t_cable <= 1.0:
+			t_cable += delta * 0.5
+			$Cable/Tube.mesh.height = taille_max * t_cable
+		var face = $Camera3D.get_camera_transform().basis.z
+		
+		$Cable.global_position = self.global_position + Vector3(-0.1 * face.x, -1 * face.y +1.6 ,-0.4 * face.z) 
+		$Cable.global_rotation = Vector3(-1 * face.x * face.y,self.rotation.y,-1 * face.z * face.y)
+		$Cable.global_rotation.y += deg_to_rad(90)
+		$Cable.global_rotation.z += deg_to_rad(-90)
+		
+	if cable_active == false:
+		if t_cable >= 0.0:
+			t_cable -= delta * 0.5
+			$Cable/Tube.mesh.height = taille_max * t_cable
+		else:
+			$Cable.hide()
+
 	if instance != null:
 		instance.depart.position += Vector3(position.x,0.0,position.z) 
 		instance.fin.position = position
 		print(instance.fin.position)
+		#var face = $Camera3D.get_camera_transform().basis.z
+
 	if Input.is_action_just_pressed("light"):
 		light.visible = true
 	# Check for pause action and adjust mouse mode accordingly
@@ -75,7 +100,8 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-		$Cable.position = $Camera3D.project_position(mouse, 4)
+
+		
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
 			throw_object.emit(3)
@@ -93,18 +119,19 @@ func _input(event):
 			get_selection()
 	
 	if Input.is_action_just_pressed("throw_rope"):
-		instance = rope_scene.instantiate()
-		#instance.position += $Start_cable_player.position
-		#instance.position.x += 2.0
-		#instance.position.y += 0.5
-		#instance.depart.position = position
-		#instance.depart.position.y = position.y + 4.0
-		add_child(instance)
-		
-		#instance._connect_first_pin_to_player($End_cable_player)
-		instance._connect_first_pin_to_player($Camera3D/Start_cable_player)
-		instance._connect_last_pin_to_player($Camera3D/End_cable_player)
-		
+		#instance = rope_scene.instantiate()
+		##instance.position += $Start_cable_player.position
+		##instance.position.x += 2.0
+		##instance.position.y += 0.5
+		##instance.depart.position = position
+		##instance.depart.position.y = position.y + 4.0
+		#add_child(instance)
+		#
+		##instance._connect_first_pin_to_player($End_cable_player)
+		#instance._connect_first_pin_to_player($Camera3D/Start_cable_player)
+		#instance._connect_last_pin_to_player($Camera3D/End_cable_player)
+		cable_active = !cable_active
+		$Cable/Interact_collide.disabled = !$Cable/Interact_collide.disabled
 		#instance.depart.position = position
 		#instance.depart.position.y = position.y + 4.0
 		#instance.rotate_z(90)
