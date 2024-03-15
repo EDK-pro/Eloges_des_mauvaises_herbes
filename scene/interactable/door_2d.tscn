@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://jb0h6p3x7d1x"]
+
+[ext_resource type="Script" path="res://script/2d_scene/Door.gd" id="1_pdffj"]
+[ext_resource type="PackedScene" uid="uid://nc1xq0inht6a" path="res://scene/debug/test_scene_boz.tscn" id="2_f8ifk"]
+[ext_resource type="Texture2D" uid="uid://c1cciyipgiq40" path="res://addons/phantom_camera/PORTE_MOEVA.png" id="3_u4fk5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny26p"]
+render_priority = 8
+transparency = 3
+alpha_hash_scale = 0.77
+alpha_antialiasing_mode = 0
+specular_mode = 1
+albedo_texture = ExtResource("3_u4fk5")
+ao_light_affect = 0.92
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ajek6"]
+material = SubResource("StandardMaterial3D_ny26p")
+size = Vector2(40, 70)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmyi2"]
+size = Vector3(47.1904, 17.5714, 85.3694)
+
+[node name="Door" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 13.1752, -107.571)
+collision_layer = 0
+script = ExtResource("1_pdffj")
+next_scene = ExtResource("2_f8ifk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 6.06857, -16.6733)
+mesh = SubResource("PlaneMesh_ajek6")
+skeleton = NodePath("../../StaticBody3D/MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-07, 0, 1.49012e-07, 1, -1.08569, 14.3544, -10.4901)
+shape = SubResource("BoxShape3D_gmyi2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

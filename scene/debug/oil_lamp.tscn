@@ -11,12 +11,5 @@ data = PackedVector3Array(-0.5349, 0.7149, 0, -0.5508, 0.9147, -0.4002, -0.4551,
 mesh = ExtResource("1_rj0j7")
 skeleton = NodePath("")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="lampe"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28492, 0.0624701)
-light_color = Color(0.839216, 0.486275, 0.188235, 1)
-light_energy = 4.789
-omni_range = 1.387
-omni_attenuation = 0.420448
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_g8o3c")
