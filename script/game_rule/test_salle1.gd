@@ -5,6 +5,8 @@ extends Node
 @export var communicationDuration : float = 5.0
 @export var isDialogVisible : bool = false
 
+var goutte_loaded = load("res://goutte_ploc.tscn")
+var scene_goutte
 func _ready():
 	## Array to get all the pickable item. Used to easily connect all nodes together
 	var pickable_array: Array = get_tree().get_nodes_in_group("pickable_item")
@@ -31,7 +33,11 @@ func _ready():
 		$Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
 func _process(delta):
-	pass
+	if scene_goutte == null:
+		scene_goutte = goutte_loaded.instantiate()
+		scene_goutte.position = Vector3(5,4,5)
+		scene_goutte.crushed = $Player.audio_state
+		add_child(scene_goutte)
 
 func endTalk():
 	$Talk.hide()

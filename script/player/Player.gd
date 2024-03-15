@@ -29,8 +29,12 @@ var pickup
 var cable_active = false
 var taille_max
 
-var rope_scene = load("res://scene/debug/rope.tscn")
-var instance
+enum Condition {CORRECT,PARTIALLY_BROKEN,NEARLY_BROKEN,BROKEN}
+var audio_state: int = Condition.CORRECT
+var visual_state: int = Condition.CORRECT
+var movement_state: int = Condition.CORRECT
+
+var timer_1_shot: bool = false
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
@@ -57,12 +61,6 @@ func _physics_process(delta):
 		else:
 			$Cable.hide()
 
-	if instance != null:
-		instance.depart.position += Vector3(position.x,0.0,position.z) 
-		instance.fin.position = position
-		print(instance.fin.position)
-		#var face = $Camera3D.get_camera_transform().basis.z
-
 	if Input.is_action_just_pressed("light"):
 		light.visible = true
 	# Check for pause action and adjust mouse mode accordingly
@@ -80,6 +78,11 @@ func _physics_process(delta):
 				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * t
 			else:
 				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
+				if slots[i].items == slots[i].Items.FLOWER:
+					if !timer_1_shot:
+						$Timer.start()
+						print("COUBEH", slots[i].items)
+						timer_1_shot = true
 
 	if Input.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -169,3 +172,10 @@ func _on_pick_up(slot, state, item):
 			slots[slot].sleeping = false
 			slots[slot].apply_force(Vector3(300*facing.x,0,300*facing.z))
 			slots[slot] = null
+
+
+func _on_timer_timeout():
+	if audio_state != Condition.BROKEN:
+		audio_state = audio_state + 1 
+		print("Audio state : ", audio_state)
+		timer_1_shot = false

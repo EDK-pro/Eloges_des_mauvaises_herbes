@@ -24,4 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Cable" parent="." instance=ExtResource("2_65cvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
 [editable path="Cable"]
