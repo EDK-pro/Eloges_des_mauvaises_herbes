@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0g33o7j5rca1"]
 
-[ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/goutte.tres" id="1_b46j0"]
+[ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/tres_file(fichier_ressources)/goutte.tres" id="1_b46j0"]
 [ext_resource type="Script" path="res://goutte_ploc.gd" id="1_r80g8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nehal"]

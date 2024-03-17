@@ -21,7 +21,7 @@ size = Vector2(40, 70)
 size = Vector3(47.1904, 17.5714, 85.3694)
 
 [node name="Door" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 13.1752, -107.571)
+transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0)
 collision_layer = 0
 script = ExtResource("1_pdffj")
 next_scene = ExtResource("2_f8ifk")

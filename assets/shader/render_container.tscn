@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://o7ido6u8yes"]
+[gd_scene load_steps=6 format=3 uid="uid://o7ido6u8yes"]
 
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
-[ext_resource type="PackedScene" uid="uid://nc1xq0inht6a" path="res://scene/map/test_scene_boz.tscn" id="2_oh2kp"]
+[ext_resource type="PackedScene" uid="uid://cfvtuvv0esxbn" path="res://scene/map/Salle_test_1.tscn" id="2_oh2kp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkat"]
 shader = ExtResource("1_iggdh")
@@ -11,6 +11,15 @@ shader_parameter/dithering = true
 shader_parameter/scale_resolution = true
 shader_parameter/target_resolution_scale = 3
 shader_parameter/enable_recolor = false
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gu0um"]
+viewport_path = NodePath("UI_handler/SubView")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6es31"]
+resource_local_to_scene = true
+transparency = 1
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_gu0um")
 
 [node name="Render_Container" type="Control"]
 layout_mode = 3
@@ -38,7 +47,11 @@ render_target_update_mode = 4
 
 [node name="STATIC_ENVIRONMENT" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_oh2kp")]
 
+[node name="MeshInstance3D" parent="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/Salle/Interactable_action/UI_handler" index="1"]
+material_override = SubResource("StandardMaterial3D_6es31")
+
 [editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT"]
-[editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/ASSETS/fleure2"]
+[editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/Salle/Interactable_action"]
+[editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/Salle/Flower"]
 [editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/Player"]
-[editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/oil_lamp"]
+[editable path="SubViewportContainer/SubViewport/STATIC_ENVIRONMENT/Player/Cable"]
