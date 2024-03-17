@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://o7ido6u8yes"]
 
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
-[ext_resource type="PackedScene" uid="uid://nc1xq0inht6a" path="res://scene/debug/test_scene_boz.tscn" id="2_oh2kp"]
+[ext_resource type="PackedScene" uid="uid://nc1xq0inht6a" path="res://scene/map/test_scene_boz.tscn" id="2_oh2kp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkat"]
 shader = ExtResource("1_iggdh")
