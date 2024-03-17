@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cf5nvu2p6q8c1"]
+
+[node name="Salon" type="Node3D"]
+
+[node name="Light" type="Node" parent="."]
+
+[node name="Environnement" type="Node" parent="."]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Shader and effect" type="Node" parent="."]
+
+[node name="Manager" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Interactable" type="Node" parent="."]
+
+[node name="Static" type="Node" parent="."]
