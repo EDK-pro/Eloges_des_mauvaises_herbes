@@ -8,7 +8,7 @@ enum Items {FLOWER, GAZLAMP, UMBRELLA, LEVER}
 
 const Litems := {FLOWER = "Flower", GAZLAMP = "GazLamp", UMBRELLA = "Umbrella", LEVER = "Lever"}
 
-enum Slots {SLOT_1, SLOT_2, SLOT_3}
+enum Slots {NONE, SLOT_1, SLOT_2, SLOT_3}
 @export var status: Slots
 
 ## Description of Item as it'll appear in the HUD / Inventory menu
@@ -48,10 +48,12 @@ var slot_used: Array=[0,0,0]
 
 func put_in_slot(item,slot):
 	if slot_used[slot] != 1:
+		self.status = slot+1
 		item_placed.emit(slot, 1, self)
 	
 func remove_from_slot(slot):
 	if slot_used[slot] != 0:
+		self.status = Slots.NONE
 		item_placed.emit(slot, 0, self)
 	
 func _on_item_placed(slot,state,useless):

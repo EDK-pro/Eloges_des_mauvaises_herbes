@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://n3sugcf80hbo"
+path="res://.godot/imported/WATRDrip_Gouttes casserole metallique (ID 1382)_LS.ogg-f971a9a2a84acfc426125996b2e9ae00.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Test_assets/WATRDrip_Gouttes casserole metallique (ID 1382)_LS.ogg"
+dest_files=["res://.godot/imported/WATRDrip_Gouttes casserole metallique (ID 1382)_LS.ogg-f971a9a2a84acfc426125996b2e9ae00.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
