@@ -4,6 +4,16 @@ func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
 
+func _process(delta):
+	if Input.is_action_just_pressed("light"):
+		turn_on_light(3)
+
+func turn_on_light(energy):
+	$OmniLight3D.light_energy = energy
+
+func turn_off_light():
+	$OmniLight3D.light_energy = 0
+
 func disable_coll():
 	$CollisionShape3D.disabled = true
 
@@ -30,5 +40,3 @@ func _on_click(slot):
 		_:
 			print("echec match")
 	print(slot_used)
-
-

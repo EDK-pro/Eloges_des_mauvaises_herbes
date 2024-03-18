@@ -42,8 +42,8 @@ func _ready():
 	taille_max = $Cable/Tube.mesh.height
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("light"):
-		light.visible = true
+	#if Input.is_action_just_pressed("light"):
+		#light.visible = true
 	wire_handler(delta)
 	slots_handler(delta)
 	# Check for pause action and adjust mouse mode accordingly
@@ -147,6 +147,7 @@ func slots_handler(delta):
 					print("COUBEH", slots[i].items)
 					timer_1_shot = true
 			if slots[i].items == slots[i].Items.GAZLAMP:
+				print("oups")
 
 func wire_handler(delta):
 	if cable_active == true:

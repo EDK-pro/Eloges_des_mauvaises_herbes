@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbcvt0pf0hrb"]
+
+[ext_resource type="PackedScene" uid="uid://b64vdx8n0j3mh" path="res://assets/visuel/fleur.glb" id="1_rg6s2"]
+
+[node name="fleur" instance=ExtResource("1_rg6s2")]

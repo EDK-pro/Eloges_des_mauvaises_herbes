@@ -8,8 +8,6 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_yvgxc")
-speed = null
-mouse_sensitivity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -28,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1)
 
 [node name="Timer_fleur" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 20.0
 
 [node name="Timer_gazlamp" type="Timer" parent="."]
 

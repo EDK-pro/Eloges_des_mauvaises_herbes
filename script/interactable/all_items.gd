@@ -49,11 +49,15 @@ var slot_used: Array=[0,0,0]
 func put_in_slot(item,slot):
 	if slot_used[slot] != 1:
 		self.status = slot+1
+		set_collision_layer_value(1,false)
+		self.freeze = true
 		item_placed.emit(slot, 1, self)
 	
 func remove_from_slot(slot):
 	if slot_used[slot] != 0:
 		self.status = Slots.NONE
+		set_collision_layer_value(1,true)
+		self.freeze = false
 		item_placed.emit(slot, 0, self)
 	
 func _on_item_placed(slot,state,useless):

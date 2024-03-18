@@ -9,14 +9,16 @@ resource_name = "Distortion"
 mode = 2
 drive = 0.7
 
-[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_hf6a5"]
-resource_name = "Filter"
-resonance = 0.96
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_bkcvk"]
+resource_name = "EQ"
+band_db/3200_hz = -44.4
+band_db/10000_hz = -60.0
 
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_8g6xv"]
-resource_name = "Compressor"
-threshold = -10.0
-ratio = 40.0
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_mnmbo"]
+resource_name = "Reverb"
+room_size = 0.3
+damping = 0.9
+wet = 0.1
 
 [resource]
 bus/1/name = &"Goutte_deau"
@@ -26,22 +28,22 @@ bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectPanner_xq0l7")
-bus/1/effect/0/enabled = true
+bus/1/effect/0/enabled = false
 bus/1/effect/1/effect = SubResource("AudioEffectDistortion_qs5jw")
-bus/1/effect/1/enabled = true
+bus/1/effect/1/enabled = false
 bus/2/name = &"Reducson"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -10.5236
+bus/2/volume_db = -15.2046
 bus/2/send = &"Master"
 bus/3/name = &"EQ_test"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.0
+bus/3/volume_db = -0.130497
 bus/3/send = &"Master"
-bus/3/effect/0/effect = SubResource("AudioEffectFilter_hf6a5")
+bus/3/effect/0/effect = SubResource("AudioEffectEQ_bkcvk")
 bus/3/effect/0/enabled = false
-bus/3/effect/1/effect = SubResource("AudioEffectCompressor_8g6xv")
+bus/3/effect/1/effect = SubResource("AudioEffectReverb_mnmbo")
 bus/3/effect/1/enabled = true

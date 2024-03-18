@@ -5,10 +5,12 @@ func _ready():
 	item_placed.connect(_on_item_placed.bind())
 
 func disable_coll():
-	$CollisionShape3D.disabled = true
+	print("Disbaale")
+	#$CollisionShape3D.disabled = true
 
 func enable_coll():
-	$CollisionShape3D.disabled = false
+	print("enable")
+	#$CollisionShape3D.disabled = false
 
 func _hovered(item_name):
 	if item_name == Litems.FLOWER:
