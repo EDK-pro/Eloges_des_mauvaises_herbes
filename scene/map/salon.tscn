@@ -1,0 +1,350 @@
+[gd_scene load_steps=38 format=3 uid="uid://cf5nvu2p6q8c1"]
+
+[ext_resource type="PackedScene" uid="uid://cle13v5ckbhw5" path="res://assets/prefabs/basic_texture_wall.tscn" id="1_samxe"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_xk4n5"]
+[ext_resource type="PackedScene" uid="uid://dwcvxkxj1f0hd" path="res://assets/exported_File/Props/fauteuil.glb" id="3_cf1lj"]
+[ext_resource type="PackedScene" uid="uid://vgbrk3n34ceu" path="res://assets/exported_File/Props/bois001.glb" id="4_imnoo"]
+[ext_resource type="PackedScene" uid="uid://daluhxys5e4js" path="res://assets/exported_File/cailloux/C1.glb" id="5_k42i5"]
+[ext_resource type="PackedScene" uid="uid://donhif6ipwevd" path="res://assets/exported_File/cailloux/C2.glb" id="6_o5luk"]
+[ext_resource type="PackedScene" uid="uid://cn15314hk1rvs" path="res://assets/exported_File/cailloux/C3.glb" id="7_s3cnp"]
+[ext_resource type="PackedScene" uid="uid://bmsxi4gjdub7x" path="res://assets/exported_File/cailloux/C4.glb" id="8_b703t"]
+[ext_resource type="PackedScene" uid="uid://gt5xw1jq01w4" path="res://assets/exported_File/cailloux/C6.glb" id="9_d63ay"]
+[ext_resource type="PackedScene" uid="uid://tyv4gjpemkst" path="res://assets/exported_File/cailloux/C7.glb" id="10_u4crx"]
+[ext_resource type="PackedScene" uid="uid://c1brcielrailt" path="res://assets/exported_File/cailloux/C8.glb" id="11_vf04r"]
+[ext_resource type="PackedScene" uid="uid://bbjskw0jykktx" path="res://assets/exported_File/cailloux/C9.glb" id="12_utns5"]
+[ext_resource type="PackedScene" uid="uid://cwcc6lt6o467e" path="res://assets/exported_File/Props/Tuyau001.glb" id="13_ew3wv"]
+[ext_resource type="PackedScene" uid="uid://b81i1vy5i61tl" path="res://assets/exported_File/Props/Tuyau003.glb" id="14_v4vbc"]
+[ext_resource type="PackedScene" uid="uid://ccw1dl7bdril7" path="res://assets/prefabs/object/fleur_001.tscn" id="14_vpypa"]
+[ext_resource type="PackedScene" uid="uid://cl4l7dyvud84p" path="res://assets/prefabs/object/fleur_002.tscn" id="15_l222d"]
+[ext_resource type="PackedScene" uid="uid://do7qkm6b4ynjo" path="res://assets/prefabs/object/fleur_003.tscn" id="16_q4b5s"]
+[ext_resource type="PackedScene" uid="uid://cj0sfek8s7vsx" path="res://assets/prefabs/object/pistil_002.tscn" id="17_8oljk"]
+[ext_resource type="PackedScene" uid="uid://bni2ecbl103wp" path="res://assets/prefabs/object/pistil_003.tscn" id="18_1lwiw"]
+[ext_resource type="PackedScene" uid="uid://by74k0ka7ol20" path="res://assets/prefabs/object/pistil_004.tscn" id="19_pgjgg"]
+[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="21_2hqax"]
+[ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="21_shasf"]
+[ext_resource type="PackedScene" uid="uid://cbj3upiios76e" path="res://scene/interactable/gaz_lamp.tscn" id="22_bkd8i"]
+[ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="22_we5qh"]
+[ext_resource type="Texture2D" uid="uid://be7w6edpogc1p" path="res://assets/texture/7.jpg" id="23_ysrxm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r55j6"]
+sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
+sky_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+sky_energy_multiplier = 2.25
+ground_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+
+[sub_resource type="Sky" id="Sky_5upr0"]
+sky_material = SubResource("ProceduralSkyMaterial_r55j6")
+
+[sub_resource type="Environment" id="Environment_jqcmb"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_5upr0")
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.35
+ssao_power = 0.69977
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.8
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0194
+volumetric_fog_albedo = Color(0.584314, 0.823529, 0.721569, 1)
+volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_detail_spread = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pewp"]
+albedo_texture = ExtResource("21_shasf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hdhsi"]
+material = SubResource("StandardMaterial3D_2pewp")
+size = Vector2(40, 40)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4t0sk"]
+data = PackedVector3Array(20, 0, 20, -20, 0, 20, 20, 0, -20, -20, 0, 20, -20, 0, -20, 20, 0, -20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3512"]
+albedo_texture = ExtResource("22_we5qh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l4vlo"]
+material = SubResource("StandardMaterial3D_v3512")
+size = Vector2(40, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6p83"]
+albedo_texture = ExtResource("22_we5qh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rodex"]
+material = SubResource("StandardMaterial3D_b6p83")
+size = Vector2(40, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0d0g"]
+albedo_texture = ExtResource("23_ysrxm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6p746"]
+material = SubResource("StandardMaterial3D_i0d0g")
+size = Vector2(40, 40)
+
+[node name="Salon" type="Node3D"]
+
+[node name="Environnement" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environnement"]
+environment = SubResource("Environment_jqcmb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
+transform = Transform3D(-0.246384, -0.901363, -0.356145, 0.660728, -0.425059, 0.618679, -0.709037, -0.0828823, 0.700284, 0, 26.5418, 0)
+light_color = Color(0.262745, 0.364706, 0.427451, 1)
+light_energy = 1.232
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 14.0202, -13.1725)
+light_color = Color(0.588235, 0.701961, 0.505882, 1)
+light_energy = 3.688
+light_indirect_energy = 0.506
+spot_range = 42.346
+spot_attenuation = 0.840896
+spot_angle = 41.67
+spot_angle_attenuation = 0.0213444
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player2" parent="Player" instance=ExtResource("2_xk4n5")]
+
+[node name="Shader and effect" type="Node" parent="."]
+
+[node name="Manager" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Interactable" type="Node" parent="."]
+
+[node name="Static" type="Node" parent="."]
+
+[node name="basic_texture_wall" parent="Static" instance=ExtResource("1_samxe")]
+
+[node name="props" type="Node3D" parent="Static"]
+
+[node name="fauteuil" parent="Static/props" instance=ExtResource("3_cf1lj")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.34265, -12)
+
+[node name="wood" type="Node3D" parent="Static/props"]
+transform = Transform3D(1.06066, -1.06066, 0, 0.918559, 0.918559, 0.75, -0.53033, -0.53033, 1.29904, -6.43823, 0.296757, -9.46725)
+
+[node name="bois001" parent="Static/props/wood" instance=ExtResource("4_imnoo")]
+transform = Transform3D(1, 2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="bois002" parent="Static/props/wood" instance=ExtResource("4_imnoo")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 4.47834, -8.72098, 5.19615)
+
+[node name="Plane" parent="Static/props/wood/bois002" index="0"]
+transform = Transform3D(1.29888, -0.540652, -0.0647721, -0.114883, -0.0366947, -1.18671, 0.681017, 1.02498, -0.0766501, 0, 0, 0)
+
+[node name="bois003" parent="Static/props/wood" instance=ExtResource("4_imnoo")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 10.5695, -9.0225, -0.847811)
+
+[node name="Plane" parent="Static/props/wood/bois003" index="0"]
+transform = Transform3D(1.29888, -0.540652, -0.0647721, -0.114883, -0.0366947, -1.18671, 0.681017, 1.02498, -0.0766501, 0, 0, 0)
+
+[node name="bois004" parent="Static/props/wood" instance=ExtResource("4_imnoo")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 2.7299, -12.1481, 11.6113)
+
+[node name="Plane" parent="Static/props/wood/bois004" index="0"]
+transform = Transform3D(1.29888, -0.540652, -0.0647721, -0.114883, -0.0366947, -1.18671, 0.681017, 1.02498, -0.0766501, 0, 0, 0)
+
+[node name="bois005" parent="Static/props/wood" instance=ExtResource("4_imnoo")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, -5.99109, -1.07009, 8.72451)
+
+[node name="Plane" parent="Static/props/wood/bois005" index="0"]
+transform = Transform3D(1.29888, -0.540652, -0.0647721, -0.114883, -0.0366947, -1.18671, 0.681017, 1.02498, -0.0766501, 0, 0, 0)
+
+[node name="rock of the scene" type="Node3D" parent="Static/props"]
+
+[node name="C1" parent="Static/props/rock of the scene" instance=ExtResource("5_k42i5")]
+transform = Transform3D(2.59808, 0, -1.5, 0, 3, 0, 1.5, 0, 2.59808, 10, 0.725079, -6)
+
+[node name="C2" parent="Static/props/rock of the scene" instance=ExtResource("6_o5luk")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -11.7259, 0.999998, -5.78808)
+
+[node name="C3" parent="Static/props/rock of the scene" instance=ExtResource("6_o5luk")]
+transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 2, -7.72595, 0.999998, -0.78808)
+
+[node name="C4" parent="Static/props/rock of the scene" instance=ExtResource("7_s3cnp")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, 12.6102, 1, 3.21982)
+
+[node name="C5" parent="Static/props/rock of the scene" instance=ExtResource("8_b703t")]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 5, -8.34435, 1, 8.56493)
+
+[node name="C6" parent="Static/props/rock of the scene" instance=ExtResource("9_d63ay")]
+transform = Transform3D(2, 0, 0, 0, 4, 0, 0, 0, 1, 6.92305, 2.09978, -7.19291)
+
+[node name="C7" parent="Static/props/rock of the scene" instance=ExtResource("10_u4crx")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 1, -13.9707, 1, 2.33871)
+
+[node name="C8" parent="Static/props/rock of the scene" instance=ExtResource("11_vf04r")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, 13.0112, 1, 15.6474)
+
+[node name="C9" parent="Static/props/rock of the scene" instance=ExtResource("12_utns5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 5.62005, 1.3264, 12.5548)
+
+[node name="tuyaux" type="Node3D" parent="Static/props"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 1, -4.9191, 1, 3.70734)
+
+[node name="Tuyau001" parent="Static/props/tuyaux" instance=ExtResource("13_ew3wv")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.166667, 0, -1.5, 0.866025, -0.496955, 6.25849e-07, -19.0767)
+
+[node name="Tuyau002" parent="Static/props/tuyaux" instance=ExtResource("13_ew3wv")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.166667, 0, -1.5, 0.866025, 6.50304, 6.25849e-07, 1.92332)
+
+[node name="Tuyau003" parent="Static/props/tuyaux" instance=ExtResource("14_v4vbc")]
+
+[node name="flower" type="Node3D" parent="Static/props"]
+
+[node name="Fleur001" parent="Static/props/flower" instance=ExtResource("14_vpypa")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower" instance=ExtResource("15_l222d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower" instance=ExtResource("16_q4b5s")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower" instance=ExtResource("17_8oljk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower" instance=ExtResource("18_1lwiw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower" instance=ExtResource("19_pgjgg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower2" type="Node3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7066, 0, 0)
+
+[node name="Fleur001" parent="Static/props/flower2" instance=ExtResource("14_vpypa")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower2" instance=ExtResource("15_l222d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower2" instance=ExtResource("16_q4b5s")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower2" instance=ExtResource("17_8oljk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower2" instance=ExtResource("18_1lwiw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower2" instance=ExtResource("19_pgjgg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower3" type="Node3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5083, 0, 20.1412)
+
+[node name="Fleur001" parent="Static/props/flower3" instance=ExtResource("14_vpypa")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower3" instance=ExtResource("15_l222d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower3" instance=ExtResource("16_q4b5s")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower3" instance=ExtResource("17_8oljk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower3" instance=ExtResource("18_1lwiw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower3" instance=ExtResource("19_pgjgg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower4" type="Node3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3411, 0, 12.5542)
+
+[node name="Fleur001" parent="Static/props/flower4" instance=ExtResource("14_vpypa")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower4" instance=ExtResource("15_l222d")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower4" instance=ExtResource("16_q4b5s")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower4" instance=ExtResource("17_8oljk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower4" instance=ExtResource("18_1lwiw")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower4" instance=ExtResource("19_pgjgg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="wall_1" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/wall_1"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hdhsi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/wall_1"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4t0sk")
+
+[node name="wall_2" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 20, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/wall_2"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_l4vlo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/wall_2"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4t0sk")
+
+[node name="wall_3" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 20, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/wall_3"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rodex")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/wall_3"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4t0sk")
+
+[node name="wall_4" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 20, 20, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/wall_4"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_6p746")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/wall_4"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4t0sk")
+
+[node name="wall_5" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-5.73206e-15, -1, -4.37114e-08, 1.31134e-07, -4.37114e-08, 1, -1, 0, 1.31134e-07, 0, 38, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/wall_5"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_6p746")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/wall_5"]
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_4t0sk")
+
+[node name="Flower" parent="." instance=ExtResource("21_2hqax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8999, 0, 9.82384)
+
+[node name="GazLamp" parent="." instance=ExtResource("22_bkd8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2331, 9.53674e-07, 16.5543)
+
+[editable path="Static/basic_texture_wall"]
+[editable path="Static/props/wood/bois002"]
+[editable path="Static/props/wood/bois003"]
+[editable path="Static/props/wood/bois004"]
+[editable path="Static/props/wood/bois005"]

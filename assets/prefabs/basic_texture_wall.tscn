@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://cle13v5ckbhw5"]
+
+[ext_resource type="PlaneMesh" uid="uid://cpwf8uur20nfe" path="res://assets/prefabs/basic_wall_2.tres" id="1_u073j"]
+[ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_qjjfv"]
+[ext_resource type="PlaneMesh" uid="uid://b2av7fcylnp8n" path="res://assets/prefabs/basic_wall_3.tres" id="3_lsma8"]
+[ext_resource type="PlaneMesh" uid="uid://bpilxidq1ytgs" path="res://assets/prefabs/basic_wall_1.tres" id="4_j331j"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m27di"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4ognv"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cpmky"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ps8wl"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="basic_texture_wall" type="Node"]
+
+[node name="floor" type="Node3D" parent="."]
+
+[node name="texture_mur_10" type="StaticBody3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="mesh_mur_1" type="MeshInstance3D" parent="floor/texture_mur_10"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_u073j")
+skeleton = NodePath("../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/texture_mur_10"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_m27di")
+
+[node name="texture_mur_11" type="StaticBody3D" parent="floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10, 0, -10)
+
+[node name="mesh_mur_1" type="MeshInstance3D" parent="floor/texture_mur_11"]
+mesh = ExtResource("2_qjjfv")
+skeleton = NodePath("../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/texture_mur_11"]
+shape = SubResource("ConcavePolygonShape3D_4ognv")
+
+[node name="texture_mur_12" type="StaticBody3D" parent="floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, 10)
+
+[node name="mesh_mur_1" type="MeshInstance3D" parent="floor/texture_mur_12"]
+mesh = ExtResource("3_lsma8")
+skeleton = NodePath("../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/texture_mur_12"]
+shape = SubResource("ConcavePolygonShape3D_cpmky")
+
+[node name="texture_mur_9" type="StaticBody3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
+
+[node name="mesh_mur_1" type="MeshInstance3D" parent="floor/texture_mur_9"]
+mesh = ExtResource("4_j331j")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/texture_mur_9"]
+shape = SubResource("ConcavePolygonShape3D_ps8wl")
