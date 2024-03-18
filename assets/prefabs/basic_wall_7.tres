@@ -1,0 +1,9 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://d3og5l8tddy0e"]
+
+[ext_resource type="Texture2D" uid="uid://be7w6edpogc1p" path="res://assets/texture/7.jpg" id="1_laulo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j7g0"]
+albedo_texture = ExtResource("1_laulo")
+
+[resource]
+material = SubResource("StandardMaterial3D_6j7g0")

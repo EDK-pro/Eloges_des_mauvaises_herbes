@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce1f44dtfntkb"]
+
+[ext_resource type="Script" path="res://scene/debug/rope.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://lfu5xm35xh6o" path="res://scene/debug/rope.gltf" id="2"]
+[ext_resource type="PackedScene" uid="uid://bsk0oj0vhujhw" path="res://scene/debug/RopeBody.tscn" id="3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_basuk"]
+radius = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_re1tb"]
+radius = 0.1
+
+[node name="rope" node_paths=PackedStringArray("depart", "fin") instance=ExtResource("2")]
+script = ExtResource("1")
+skeleton_path = NodePath("Armature/Skeleton3D")
+rope_body = ExtResource("3")
+depart = NodePath("Depart")
+fin = NodePath("Fin")
+
+[node name="Depart" type="RigidBody3D" parent="." index="1"]
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Depart" index="0"]
+shape = SubResource("SphereShape3D_basuk")
+
+[node name="Fin" type="RigidBody3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08226, 0)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fin" index="0"]
+shape = SubResource("SphereShape3D_re1tb")

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bni2ecbl103wp"]
+
+[ext_resource type="PackedScene" uid="uid://b3dsd2nejydi3" path="res://assets/exported_File/Végétation/Pistil003.glb" id="1_ecikg"]
+
+[node name="Pistil003" instance=ExtResource("1_ecikg")]

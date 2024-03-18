@@ -1,0 +1,317 @@
+[gd_scene load_steps=45 format=3 uid="uid://nc1xq0inht6a"]
+
+[ext_resource type="Material" uid="uid://c5px5j8dwbo1j" path="res://assets/Test_assets/Assets/material/prototype_green.tres" id="1_2smvw"]
+[ext_resource type="Material" uid="uid://d3yuc5kgk10vy" path="res://assets/Test_assets/Assets/material/prototype_black.tres" id="2_k8kvw"]
+[ext_resource type="PackedScene" uid="uid://cc53ldbuwpaf1" path="res://assets/Test_assets/Assets/gltf/armchair.gltf" id="4_jd06l"]
+[ext_resource type="PackedScene" uid="uid://7nekipngkbjl" path="res://assets/Test_assets/Assets/gltf/flower/fleure2.glb" id="5_a1w14"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="5_eq73i"]
+[ext_resource type="PackedScene" uid="uid://bp08hox3pff2j" path="res://assets/exported_File/Végétation/Fleur001.glb" id="6_dmv1x"]
+[ext_resource type="PackedScene" uid="uid://dpxy0sy6mbk18" path="res://assets/exported_File/Végétation/Fleur002.glb" id="7_7d1j3"]
+[ext_resource type="PackedScene" uid="uid://ducf55muoqhhb" path="res://scene/debug/oil_lamp.tres" id="7_p7lj6"]
+[ext_resource type="PackedScene" uid="uid://0nlad786vkri" path="res://assets/exported_File/Végétation/Fleur003.glb" id="8_0x0li"]
+[ext_resource type="PackedScene" uid="uid://pd6co627jxqp" path="res://assets/exported_File/Végétation/Fleur004.glb" id="9_fplq4"]
+[ext_resource type="PackedScene" uid="uid://btwvivu3k1rlh" path="res://assets/exported_File/Végétation/Fleur006.glb" id="10_ue41q"]
+[ext_resource type="PackedScene" uid="uid://3qjhbftt17yq" path="res://assets/exported_File/Végétation/Petal001.glb" id="11_2ki6j"]
+[ext_resource type="PackedScene" uid="uid://br4i4dkpim4c8" path="res://assets/exported_File/Végétation/Petal002.glb" id="12_8e7tt"]
+[ext_resource type="PackedScene" uid="uid://cgwyq3shx5ava" path="res://assets/exported_File/Végétation/Petal003.glb" id="13_u6io8"]
+[ext_resource type="PackedScene" uid="uid://br8s25pnmrqvw" path="res://assets/exported_File/Végétation/Petal004.glb" id="14_b12bp"]
+[ext_resource type="PackedScene" uid="uid://dewd441l0w0wv" path="res://assets/exported_File/Végétation/Petal006.glb" id="15_ro58h"]
+[ext_resource type="PackedScene" uid="uid://y8w8jpawu2x6" path="res://assets/exported_File/Végétation/Petal007.glb" id="16_6qrht"]
+[ext_resource type="PackedScene" uid="uid://fntydwbbbowr" path="res://assets/exported_File/Végétation/Petal008.glb" id="17_obmj8"]
+[ext_resource type="PackedScene" uid="uid://cw48aswxfny33" path="res://assets/exported_File/Végétation/Pistil001.glb" id="18_hhyef"]
+[ext_resource type="PackedScene" uid="uid://bm78sxkduibyg" path="res://assets/exported_File/Végétation/Pistil002.glb" id="19_c2fmg"]
+[ext_resource type="PackedScene" uid="uid://co5dj36l0p82o" path="res://assets/exported_File/Végétation/TouffeHerbe016.glb" id="20_cmvum"]
+[ext_resource type="PackedScene" uid="uid://1j4vebcqftmx" path="res://assets/exported_File/Végétation/TouffeHerbe015.glb" id="21_vcq53"]
+[ext_resource type="PackedScene" uid="uid://cjyhj8plieu02" path="res://assets/exported_File/Végétation/TouffeHerbe012.glb" id="22_vd6bw"]
+[ext_resource type="PackedScene" uid="uid://cvkhenohi1fts" path="res://assets/exported_File/Végétation/TouffeHerbe011.glb" id="23_qgvln"]
+[ext_resource type="PackedScene" uid="uid://dfl4b4ihu0mo" path="res://assets/exported_File/Végétation/TouffeHerbe010.glb" id="24_a6jnw"]
+[ext_resource type="PackedScene" uid="uid://5ebm4f11ay3l" path="res://assets/exported_File/Végétation/TouffeHerbe006.glb" id="25_56cxu"]
+[ext_resource type="PackedScene" uid="uid://donhif6ipwevd" path="res://assets/exported_File/cailloux/C2.glb" id="26_pci6a"]
+[ext_resource type="PackedScene" uid="uid://cn15314hk1rvs" path="res://assets/exported_File/cailloux/C3.glb" id="27_ykspo"]
+[ext_resource type="PackedScene" uid="uid://d1f6x621q4hr0" path="res://assets/exported_File/cailloux/C5.glb" id="28_hcc7p"]
+[ext_resource type="PackedScene" uid="uid://bbjskw0jykktx" path="res://assets/exported_File/cailloux/C9.glb" id="29_mpdcd"]
+[ext_resource type="PackedScene" uid="uid://vgbrk3n34ceu" path="res://assets/exported_File/Props/bois001.glb" id="30_u24n2"]
+[ext_resource type="PackedScene" uid="uid://cmga7kt8i0uk2" path="res://assets/exported_File/Props/bois002.glb" id="31_ihh7v"]
+[ext_resource type="PackedScene" uid="uid://0o3tcr8fk6p1" path="res://assets/exported_File/Props/bois003.glb" id="32_nbxw7"]
+[ext_resource type="PackedScene" uid="uid://dwcvxkxj1f0hd" path="res://assets/exported_File/Props/fauteuil.glb" id="33_w84ht"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qpncc"]
+sky_top_color = Color(0.576471, 0.960784, 1, 1)
+sky_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+
+[sub_resource type="Sky" id="Sky_5twy7"]
+sky_material = SubResource("ProceduralSkyMaterial_qpncc")
+
+[sub_resource type="Environment" id="Environment_6tsjx"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_5twy7")
+ambient_light_source = 2
+ambient_light_color = Color(0.811765, 0.658824, 0.384314, 1)
+ambient_light_sky_contribution = 0.1
+ambient_light_energy = 0.0
+tonemap_mode = 2
+sdfgi_enabled = true
+fog_light_color = Color(0.92549, 0.866667, 0.415686, 1)
+fog_light_energy = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0565
+volumetric_fog_albedo = Color(0.443137, 0.435294, 0.807843, 1)
+volumetric_fog_emission = Color(0.45098, 0.541176, 0.768627, 1)
+volumetric_fog_length = 0.01
+volumetric_fog_detail_spread = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv23d"]
+material = ExtResource("1_2smvw")
+size = Vector3(30, 0.1, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4wdck"]
+data = PackedVector3Array(-15, 0.05, 15, 15, 0.05, 15, -15, -0.05, 15, 15, 0.05, 15, 15, -0.05, 15, -15, -0.05, 15, 15, 0.05, -15, -15, 0.05, -15, 15, -0.05, -15, -15, 0.05, -15, -15, -0.05, -15, 15, -0.05, -15, 15, 0.05, 15, 15, 0.05, -15, 15, -0.05, 15, 15, 0.05, -15, 15, -0.05, -15, 15, -0.05, 15, -15, 0.05, -15, -15, 0.05, 15, -15, -0.05, -15, -15, 0.05, 15, -15, -0.05, 15, -15, -0.05, -15, 15, 0.05, 15, -15, 0.05, 15, 15, 0.05, -15, -15, 0.05, 15, -15, 0.05, -15, 15, 0.05, -15, -15, -0.05, 15, 15, -0.05, 15, -15, -0.05, -15, 15, -0.05, 15, 15, -0.05, -15, -15, -0.05, -15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_osntl"]
+material = ExtResource("2_k8kvw")
+size = Vector3(0.2, 20, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mj6dm"]
+data = PackedVector3Array(-0.1, 10, 15, 0.1, 10, 15, -0.1, -10, 15, 0.1, 10, 15, 0.1, -10, 15, -0.1, -10, 15, 0.1, 10, -15, -0.1, 10, -15, 0.1, -10, -15, -0.1, 10, -15, -0.1, -10, -15, 0.1, -10, -15, 0.1, 10, 15, 0.1, 10, -15, 0.1, -10, 15, 0.1, 10, -15, 0.1, -10, -15, 0.1, -10, 15, -0.1, 10, -15, -0.1, 10, 15, -0.1, -10, -15, -0.1, 10, 15, -0.1, -10, 15, -0.1, -10, -15, 0.1, 10, 15, -0.1, 10, 15, 0.1, 10, -15, -0.1, 10, 15, -0.1, 10, -15, 0.1, 10, -15, -0.1, -10, 15, 0.1, -10, 15, -0.1, -10, -15, 0.1, -10, 15, 0.1, -10, -15, -0.1, -10, -15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iqr5y"]
+material = ExtResource("2_k8kvw")
+size = Vector3(0.1, 31, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_onu5q"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ti5ku"]
+render_priority = 4
+diffuse_mode = 3
+emission_enabled = true
+emission = Color(0.909804, 0.772549, 0, 1)
+emission_energy_multiplier = 16.0
+
+[node name="STATIC_ENVIRONMENT" type="Node3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 16.2366, -1.96756)
+visible = false
+light_color = Color(0.270588, 0.666667, 0.862745, 1)
+light_energy = 6.994
+spot_range = 28.722
+spot_attenuation = 0.757857
+spot_angle = 38.26
+spot_angle_attenuation = 0.707107
+
+[node name="ASSETS" type="Node" parent="."]
+
+[node name="Fleur001" parent="ASSETS" instance=ExtResource("6_dmv1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17039, 0.0499997, 9.30643)
+
+[node name="Fleur002" parent="ASSETS" instance=ExtResource("7_7d1j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20271, 0.05, 8.52494)
+
+[node name="Fleur003" parent="ASSETS" instance=ExtResource("7_7d1j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.599009, 0.05, 8.12073)
+
+[node name="Fleur004" parent="ASSETS" instance=ExtResource("7_7d1j3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.724628, 0.0500001, 8.80924)
+
+[node name="Fleur005" parent="ASSETS" instance=ExtResource("8_0x0li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30245, 0.05, 8.06937)
+
+[node name="Fleur006" parent="ASSETS" instance=ExtResource("9_fplq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3272, 0.05, 8.19888)
+
+[node name="Fleur007" parent="ASSETS" instance=ExtResource("10_ue41q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73813, 0.0500011, 8.21426)
+
+[node name="Petal001" parent="ASSETS" instance=ExtResource("11_2ki6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16209, 0.0500002, 8.91956)
+
+[node name="Petal002" parent="ASSETS" instance=ExtResource("12_8e7tt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.58332, 0.0499992, 7.94482)
+
+[node name="Petal003" parent="ASSETS" instance=ExtResource("13_u6io8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33989, 0.05, 7.4559)
+
+[node name="Petal004" parent="ASSETS" instance=ExtResource("14_b12bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67718, 0.0500002, 7.88184)
+
+[node name="Petal005" parent="ASSETS" instance=ExtResource("14_b12bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50722, 0.05, 5.76331)
+
+[node name="Petal006" parent="ASSETS" instance=ExtResource("14_b12bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5671, 0.05, 9.72226)
+
+[node name="Petal007" parent="ASSETS" instance=ExtResource("15_ro58h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.290577, 0.0500002, 5.20784)
+
+[node name="Petal008" parent="ASSETS" instance=ExtResource("16_6qrht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68614, 0.0500004, 7.09882)
+
+[node name="Petal009" parent="ASSETS" instance=ExtResource("16_6qrht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80999, 0.0500002, 7.09421)
+
+[node name="Petal010" parent="ASSETS" instance=ExtResource("17_obmj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01882, 0.0500002, 9.21689)
+
+[node name="Pistil001" parent="ASSETS" instance=ExtResource("18_hhyef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4336, 0.0499997, 7.37558)
+
+[node name="Pistil002" parent="ASSETS" instance=ExtResource("19_c2fmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15009, 0.0499997, 9.68786)
+
+[node name="TouffeHerbe016" parent="ASSETS" instance=ExtResource("20_cmvum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64123, 0.0499997, 10.0128)
+
+[node name="TouffeHerbe014" parent="ASSETS" instance=ExtResource("21_vcq53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72983, 0.0499995, 8.36029)
+
+[node name="TouffeHerbe011" parent="ASSETS" instance=ExtResource("22_vd6bw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10243, 0.0500002, 7.26236)
+
+[node name="TouffeHerbe010" parent="ASSETS" instance=ExtResource("23_qgvln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.78066, 0.0500002, 5.25911)
+
+[node name="TouffeHerbe009" parent="ASSETS" instance=ExtResource("24_a6jnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.18239, 0.0500002, 6.67463)
+
+[node name="TouffeHerbe012" parent="ASSETS" instance=ExtResource("24_a6jnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.06759, 0.0500002, 6.02373)
+
+[node name="TouffeHerbe005" parent="ASSETS" instance=ExtResource("25_56cxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25119, 0.0499997, 4.28183)
+
+[node name="C2" parent="ASSETS" instance=ExtResource("26_pci6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.61415, 0.0500002, 6.44155)
+
+[node name="C3" parent="ASSETS" instance=ExtResource("27_ykspo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33941, 0.0500002, 5.79337)
+
+[node name="C5" parent="ASSETS" instance=ExtResource("28_hcc7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91086, 0.0500002, 4.47868)
+
+[node name="C9" parent="ASSETS" instance=ExtResource("29_mpdcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27994, 0.05, 10.1487)
+
+[node name="bois001" parent="ASSETS" instance=ExtResource("30_u24n2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96529, 0.0499997, 14.1009)
+
+[node name="bois002" parent="ASSETS" instance=ExtResource("31_ihh7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40613, 0.0499995, 12.0085)
+
+[node name="bois003" parent="ASSETS" instance=ExtResource("32_nbxw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23196, 0.0499997, 6.3927)
+
+[node name="fauteuil" parent="ASSETS" instance=ExtResource("33_w84ht")]
+transform = Transform3D(3, 0, 0, 0, 2.81908, -1.02606, 0, 1.02606, 2.81908, -0.436911, 0.715255, 10.055)
+
+[node name="fleure2" parent="ASSETS" instance=ExtResource("5_a1w14")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.08091, 0.665628, 11.3116)
+
+[node name="Cylinder_002" parent="ASSETS/fleure2" index="0"]
+transform = Transform3D(-0.709059, 0, -0.705149, 0, 1, 0, 0.705149, 0, -0.709059, 1.06647, -0.283475, -0.723789)
+
+[node name="armchair2" parent="ASSETS" instance=ExtResource("4_jd06l")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.825212, 0.0499997, 11.5966)
+
+[node name="Player" parent="." instance=ExtResource("5_eq73i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.392356, 0.0500002, 1.93941)
+
+[node name="oil_lamp" parent="Player/Camera3D" index="0"]
+visible = false
+
+[node name="HOUSE" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HOUSE"]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
+light_color = Color(0.811765, 0.658824, 0.384314, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="HOUSE"]
+environment = SubResource("Environment_6tsjx")
+
+[node name="floor" type="StaticBody3D" parent="HOUSE"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/floor"]
+material_override = ExtResource("2_k8kvw")
+mesh = SubResource("BoxMesh_rv23d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/floor"]
+shape = SubResource("ConcavePolygonShape3D_4wdck")
+
+[node name="wall" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8574, 9, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+mesh = SubResource("BoxMesh_osntl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+shape = SubResource("ConcavePolygonShape3D_mj6dm")
+
+[node name="wall2" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8426, 9, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+mesh = SubResource("BoxMesh_osntl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+shape = SubResource("ConcavePolygonShape3D_mj6dm")
+
+[node name="wall3" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0645828, 9, -12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+mesh = SubResource("BoxMesh_osntl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+shape = SubResource("ConcavePolygonShape3D_mj6dm")
+
+[node name="wall4" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0645828, 9, 18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+mesh = SubResource("BoxMesh_osntl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+shape = SubResource("ConcavePolygonShape3D_mj6dm")
+
+[node name="wall5" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.33865, 23, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HOUSE/wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
+mesh = SubResource("BoxMesh_iqr5y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HOUSE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.404058, 7.42453)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HOUSE/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_onu5q")
+
+[node name="oil_lamp" parent="." instance=ExtResource("7_p7lj6")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.1481, -6.57819)
+
+[node name="lampe" parent="oil_lamp" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_ti5ku")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="oil_lamp"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.16187, 0)
+light_color = Color(0.439216, 0.231373, 0.215686, 1)
+light_energy = 0.579
+omni_range = 1.582
+omni_attenuation = 1.72953
+
+[editable path="ASSETS/fleure2"]
+[editable path="Player"]
+[editable path="oil_lamp"]

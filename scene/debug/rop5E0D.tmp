@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce1f44dtfntkb"]
+
+[ext_resource type="Script" path="res://scene/debug/rope.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://lfu5xm35xh6o" path="res://scene/debug/rope.gltf" id="2"]
+[ext_resource type="PackedScene" uid="uid://bsk0oj0vhujhw" path="res://scene/debug/RopeBody.tscn" id="3"]
+
+[node name="rope" instance=ExtResource("2")]
+script = ExtResource("1")
+skeleton_path = NodePath("Armature/Skeleton3D")
+rope_body = ExtResource("3")

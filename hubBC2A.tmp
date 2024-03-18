@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgugvx7lggw5i"]
+
+[ext_resource type="Texture2D" uid="uid://cb3ln4dmfrspd" path="res://assets/Test_assets/sketch_decor_fond_transparent.png" id="1_12gg3"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="2_3cdqw"]
+[ext_resource type="Texture2D" uid="uid://s3asallu5af0" path="res://assets/Test_assets/Assets/Amandinosaure_idle_1.png" id="2_34y62"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3y1ut"]
+transparency = 1
+albedo_texture = ExtResource("1_12gg3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4u3s"]
+material = SubResource("StandardMaterial3D_3y1ut")
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_my6j0"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3cmmi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_v4u3s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_my6j0")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 1, 12)
+script = ExtResource("2_3cdqw")
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+texture = ExtResource("2_34y62")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_3cmmi")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.943801, -0.330514, 0, 0.330515, 0.943801, 0, -3.74197, 8.92538)
+fov = 73.8398

@@ -24,31 +24,29 @@ var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
 
 var t = 0.0
+var t_cable = 0.0
 var pickup
+var cable_active = false
+var taille_max
+
+enum Condition {CORRECT,PARTIALLY_BROKEN,NEARLY_BROKEN,BROKEN}
+var audio_state: int = Condition.CORRECT
+var visual_state: int = Condition.CORRECT
+var movement_state: int = Condition.CORRECT
+
+var timer_1_shot: bool = false
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	taille_max = $Cable/Tube.mesh.height
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("light"):
 		light.visible = true
+	wire_handler(delta)
+	slots_handler(delta)
 	# Check for pause action and adjust mouse mode accordingly
-	for i in 3:
-		if slots[i] != null:
-			var spacing
-			if i == 0:
-				spacing = Vector3(0,1.8,0)
-			if i == 1:
-				spacing = Vector3(0.5,0.8,0.5)
-			if i == 2:
-				spacing = Vector3(0,0.5,0)
-			if t <= 1.0:
-				t += delta * 0.9
-				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * t
-			else:
-				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
-
 	if Input.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
@@ -68,7 +66,7 @@ func _input(event):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-
+		
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
 			throw_object.emit(3)
@@ -116,3 +114,68 @@ func _on_pick_up(slot, state, item):
 			slots[slot].sleeping = false
 			slots[slot].apply_force(Vector3(300*facing.x,0,300*facing.z))
 			slots[slot] = null
+
+func slots_handler(delta):
+	for i in 3:
+		if slots[i] != null:
+			var flower_on: bool = false
+			var gazlamp_timing:float = 180.0
+			var spacing
+			if i == 0:
+				spacing = Vector3(0,1.8,0)
+				if slots[i].items == slots[i].Items.FLOWER:
+					flower_on = true
+			if i == 1:
+				spacing = Vector3(0.5,0.8,0.5)
+				if slots[i].items == slots[i].Items.FLOWER:
+					flower_on = true
+				if slots[i].items == slots[i].Items.LEVER:
+					if Input.is_action_just_pressed("throw_rope"):
+						cable_active = !cable_active
+						$Cable/Interact_collide.disabled = !$Cable/Interact_collide.disabled
+			if i == 2:
+				spacing = Vector3(0,0.5,0)
+				gazlamp_timing = 120.0
+			if t <= 1.0:
+				t += delta * 0.9
+				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * t
+			else:
+				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
+			if flower_on:
+				if !timer_1_shot:
+					$Timer_fleur.start()
+					print("COUBEH", slots[i].items)
+					timer_1_shot = true
+			if slots[i].items == slots[i].Items.GAZLAMP:
+
+func wire_handler(delta):
+	if cable_active == true:
+		$Cable.show()
+		if t_cable <= 1.0:
+			t_cable += delta * 0.5
+			$Cable/Tube.mesh.height = taille_max * t_cable
+			if !$AudioStreamPlayer3D.playing:
+				$AudioStreamPlayer3D.play()
+		var face = $Camera3D.get_camera_transform().basis.z
+		
+		$Cable.global_position = self.global_position + Vector3(-0.1 * face.x, -1 * face.y +1.6 ,-0.4 * face.z) 
+		$Cable.global_rotation = Vector3(-1 * face.x * face.y,self.rotation.y,-1 * face.z * face.y)
+		$Cable.global_rotation.y += deg_to_rad(90)
+		$Cable.global_rotation.z += deg_to_rad(-90)
+		
+	if cable_active == false:
+		if t_cable >= 0.0:
+			t_cable -= delta * 0.8
+			$Cable/Tube.mesh.height = taille_max * t_cable
+		else:
+			$Cable.hide()
+
+func _on_timer_timeout():
+	if audio_state != Condition.BROKEN:
+		audio_state = audio_state + 1 
+		print("Audio state : ", audio_state)
+		timer_1_shot = false
+
+
+func _on_timer_gazlamp_timeout():
+	pass # Replace with function body.
