@@ -2,12 +2,10 @@
 
 [resource]
 resource_name = "lumière"
-transparency = 1
 cull_mode = 1
 diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0, 0.552941, 0.521569, 0.572549)
 emission_enabled = true
-emission = Color(0.909804, 0.72549, 0.0705882, 1)
-emission_energy_multiplier = 10.69
-emission_operator = 1
+emission = Color(0.945098, 0.705882, 0.172549, 1)
+emission_energy_multiplier = 8.69
