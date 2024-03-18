@@ -64,7 +64,7 @@ mesh = SubResource("PlaneMesh_v4u3s")
 shape = SubResource("ConcavePolygonShape3D_my6j0")
 
 [node name="Player2D" type="CharacterBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 16.4819, 12)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 16.4819, 58.6798)
 collision_mask = 8
 collision_priority = 5.0
 script = ExtResource("2_iljgu")
