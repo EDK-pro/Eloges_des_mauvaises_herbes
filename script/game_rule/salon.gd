@@ -13,8 +13,8 @@ func _ready():
 	## Array to get each circles that will loop around pickable item. Used to know when their full. 
 	var circle_array: Array = get_tree().get_nodes_in_group("circle_around_item")
 	
-	$Player/Player2/Cable.cable_connected.connect(talkWith.bind())
-	$Player/Player2/Cable.cable_disconnected.connect(endTalk.bind())
+	$Player/Player_scene/Player/Cable.cable_connected.connect(talkWith.bind())
+	$Player/Player_scene/Player/Cable.cable_disconnected.connect(endTalk.bind())
 	## For each interactable item 
 	for i in pickable_array.size() :
 		print(pickable_array[i])
@@ -23,20 +23,22 @@ func _ready():
 		## When slot clicked, put an item in if available
 		$UI/Slot_selection.slot_accepted.connect(pickable_array[i]._on_click.bind())
 		## When an item is clicked, makes the circle appear
-		$Player/Player2.hover_object.connect(pickable_array[i]._hovered.bind())
+		$Player/Player_scene/Player.hover_object.connect(pickable_array[i]._hovered.bind())
 		## When item is placed in slot, put it on the correct slot on the player
-		pickable_array[i].item_placed.connect($Player/Player2._on_pick_up.bind())
+		pickable_array[i].item_placed.connect($Player/Player_scene/Player._on_pick_up.bind())
 		## When the circle is full, makes the slot selection menu appaer
 		circle_array[i].item_fully_selected.connect($UI/Slot_selection._on_full_circle.bind())
 		## When the object is thrown out, remove it from slot
-		$Player/Player2.throw_object.connect(pickable_array[i]._on_click.bind())
+		$Player/Player_scene/Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
 func _process(delta):
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
-		scene_goutte.position = Vector3(5,4,5)
-		scene_goutte.crushed = $Player/Player2.audio_state
+		scene_goutte.position = Vector3(5,7,5)
+		scene_goutte.crushed = $Player/Player_scene/Player.audio_state
+		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
+		
 
 func endTalk():
 	$UI/Talk.hide()
@@ -55,13 +57,3 @@ func talkWith(item):
 		correctArray = [0,1,0,1]
 		$UI/Talk.show()
 		$UI/Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
-
-	
-#func talkWith(marginTime: int, symbolCount: int, communicationDuration: float):
-	#if isDialogVisible:
-		#$Talk.hide()
-		#isDialogVisible = false
-	#else:
-		#$Talk.show()
-		#$Talk.initialize(marginTime, symbolCount, communicationDuration)
-		#isDialogVisible = true

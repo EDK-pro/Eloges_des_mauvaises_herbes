@@ -1,39 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1s0yqy72g1oq"]
+[gd_scene load_steps=8 format=3 uid="uid://c1s0yqy72g1oq"]
 
+[ext_resource type="Script" path="res://script/player/Player_scene_script.gd" id="1_1qnco"]
 [ext_resource type="Script" path="res://script/player/Player.gd" id="1_yvgxc"]
 [ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://cable.tscn" id="2_65cvw"]
 [ext_resource type="AudioStream" uid="uid://e0kh4q2mcwqt" path="res://assets/Test_assets/raw_sound/wind-up-crank-1-186894.mp3" id="3_bqeot"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tig38"]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="Animation" id="Animation_dsq1o"]
+resource_name = "left_right"
+length = 3.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, -0.0435779, 0.00190265, 0.0435779, 0.998097, 1.3, 1, 0.0218097, 0.000475889, -0.0218097, 0.999524, 2.3, 1, 0, 0, 0, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 0, 0, 0.0528722, 1, 1, 0.512244, 0.95969, -0.866817, 2.2, 1, 0, 0.852653, -0.867, 3, 1, 0, 0.922627, -0.867)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 1.6, 0, 0.2, 1, 0, 1.6, 0.053, 1, 1, 0.512, 2.6, -0.867, 2.2, 1, 0, 2.5, -0.867, 3, 1, 0, 2.6, -0.867)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntkqx"]
+_data = {
+"left_right": SubResource("Animation_dsq1o")
+}
+
+[node name="Player_scene" type="Node3D"]
+script = ExtResource("1_1qnco")
+
+[node name="Player" type="CharacterBody3D" parent="."]
 script = ExtResource("1_yvgxc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_tig38")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="End_cable_player" type="Node3D" parent="Camera3D"]
+[node name="End_cable_player" type="Node3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
-[node name="Start_cable_player" type="Node3D" parent="Camera3D"]
+[node name="Start_cable_player" type="Node3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Cable" parent="." instance=ExtResource("2_65cvw")]
+[node name="Cable" parent="Player" instance=ExtResource("2_65cvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1)
 
-[node name="Timer_fleur" type="Timer" parent="."]
+[node name="Timer_fleur" type="Timer" parent="Player"]
 wait_time = 20.0
 
-[node name="Timer_gazlamp" type="Timer" parent="."]
+[node name="Timer_gazlamp" type="Timer" parent="Player"]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("3_bqeot")
 
-[connection signal="timeout" from="Timer_fleur" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer_gazlamp" to="." method="_on_timer_gazlamp_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Player")
+libraries = {
+"": SubResource("AnimationLibrary_ntkqx")
+}
 
-[editable path="Cable"]
+[connection signal="timeout" from="Player/Timer_fleur" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Player/Timer_gazlamp" to="Player" method="_on_timer_gazlamp_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="Player/Cable"]

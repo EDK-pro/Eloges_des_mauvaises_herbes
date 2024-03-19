@@ -5,6 +5,8 @@ var sound_array_crushed: Array
 var crushed: int
 var touch_once: bool = false
 
+signal watering
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sound_array.resize(6)
@@ -45,6 +47,9 @@ func _on_body_entered(body):
 			$Son_goutte.volume_db = volume_shift
 		if str(body).get_slice(":",0) == "Flower":
 			$Son_goutte.bus = "Reducson"
+		if str(body).get_slice(":",0) == "GazLamp":
+			$Son_goutte.bus = "Reducson"
+			watering.emit()
 		$Son_goutte.play()
 		$End_Drop.start()
 	touch_once = true

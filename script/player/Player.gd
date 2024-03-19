@@ -23,7 +23,7 @@ var selected: bool = false
 var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
 
-var t = 0.0
+var tj = [0.0,0.0,0.0]
 var t_cable = 0.0
 var pickup
 var cable_active = false
@@ -59,7 +59,7 @@ func _physics_process(delta):
 	velocity.y -= gravity * 0.1
 	velocity.z = movement_dir.z * speed
 	move_and_slide()
-	
+
 func _input(event):
 	# Handle mouse motion and button events for camera control and object selection
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -96,24 +96,23 @@ func get_selection():
 		hover_object.emit(collider)
 
 func _on_pick_up(slot, state, item):
-	print(slot," ", state," ", item)
+	print("pick up ",slot," ", state," ", item)
 	if state == 1:
 		if slots[slot] == null:
 			slots[slot] = item
 			slots[slot].gravity_scale = 0
-			slots[slot].disable_coll()
-			t = 0.0
+			tj[slot] = 0.0
 			slots[slot].rotation = Vector3(0,0,0)
 			slots[slot].sleeping = true
 			pickup = Vector3(item.global_position)
 	else:
 		if slots[slot] != null:
 			slots[slot].gravity_scale = 3
-			slots[slot].enable_coll()
 			var facing = $Camera3D.get_camera_transform().basis.z
 			slots[slot].sleeping = false
-			slots[slot].apply_force(Vector3(300*facing.x,0,300*facing.z))
+			slots[slot].apply_force(Vector3(300*-facing.x,0,300*-facing.z))
 			slots[slot] = null
+	print(slots)
 
 func slots_handler(delta):
 	for i in 3:
@@ -136,9 +135,9 @@ func slots_handler(delta):
 			if i == 2:
 				spacing = Vector3(0,0.5,0)
 				gazlamp_timing = 120.0
-			if t <= 1.0:
-				t += delta * 0.9
-				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * t
+			if tj[i] <= 1.0:
+				tj[i] += delta * 0.9
+				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * tj[i]
 			else:
 				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
 			if flower_on:
@@ -146,8 +145,8 @@ func slots_handler(delta):
 					$Timer_fleur.start()
 					print("COUBEH", slots[i].items)
 					timer_1_shot = true
-			if slots[i].items == slots[i].Items.GAZLAMP:
-				print("oups")
+			#if slots[i].items == slots[i].Items.GAZLAMP:
+				#print("oups")
 
 func wire_handler(delta):
 	if cable_active == true:

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_gccw4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m52iy"]
+radius = 0.3
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl1ol"]
 albedo_color = Color(1, 0.8, 1, 1)
@@ -11,15 +13,17 @@ albedo_color = Color(1, 0.8, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_8g3h8"]
 
 [node name="Lever" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5vbjq")
 items = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_m52iy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 material_override = SubResource("StandardMaterial3D_bl1ol")
 mesh = SubResource("SphereMesh_8g3h8")
 

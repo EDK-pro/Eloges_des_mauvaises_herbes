@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cjxpnvg7dj5md" path="res://assets/Test_assets/kenney_prototype-textures/PNG/Orange/texture_01.png" id="2_buknu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qoukv"]
+radius = 0.3
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3hqs"]
 albedo_color = Color(0.686275, 1, 1, 1)
@@ -14,15 +16,17 @@ uv1_triplanar = true
 [sub_resource type="PrismMesh" id="PrismMesh_f4ufc"]
 
 [node name="Umbrella" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_mfdve")
 items = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_qoukv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 material_override = SubResource("StandardMaterial3D_u3hqs")
 mesh = SubResource("PrismMesh_f4ufc")
 

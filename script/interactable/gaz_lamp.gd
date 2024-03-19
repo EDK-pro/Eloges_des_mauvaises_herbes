@@ -1,24 +1,27 @@
 extends all_items
 
+var is_on: bool = false
+var lamp_energy_emission: float = 0.0
+
 func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
 
 func _process(delta):
+	turn_on_light(lamp_energy_emission)
 	if Input.is_action_just_pressed("light"):
-		turn_on_light(3)
+		is_on = !is_on
+		if is_on: 
+			lamp_energy_emission = 5.0
+		else:
+			lamp_energy_emission = 0.0
+		
+func _wet_lamp():
+	$TimerWet.start()
 
 func turn_on_light(energy):
-	$OmniLight3D.light_energy = energy
-
-func turn_off_light():
-	$OmniLight3D.light_energy = 0
-
-func disable_coll():
-	$CollisionShape3D.disabled = true
-
-func enable_coll():
-	$CollisionShape3D.disabled = false
+	var multiply = 1 - ($TimerWet.time_left / 10.0)
+	$OmniLight3D.light_energy = energy * multiply
 
 func _hovered(item_name):
 	if item_name == Litems.GAZLAMP:
@@ -33,10 +36,13 @@ func _on_click(slot):
 		0,1,2:
 			if is_being_selected:
 				put_in_slot(self,slot)
-				print("Putting")
+				is_being_selected = false
 		3,4,5:
 			remove_from_slot(slot-3)
-			print("Remewing")
 		_:
 			print("echec match")
-	print(slot_used)
+	#print("click_on ",slot_used)
+
+
+func _on_timer_wet_timeout():
+	pass

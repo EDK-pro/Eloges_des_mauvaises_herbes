@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_541b4"]
 radius = 0.3
-height = 1.5
+height = 1.0
 
 [node name="Flower" type="RigidBody3D"]
 collision_layer = 3
@@ -14,11 +14,11 @@ collision_mask = 3
 script = ExtResource("1_g4lr0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_541b4")
 
 [node name="UIHandler" parent="." instance=ExtResource("3_knw2y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12616, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457571, 0)
 
 [node name="fleur" parent="." instance=ExtResource("3_dje6p")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
