@@ -147,6 +147,7 @@ func slots_handler(delta):
 					print("COUBEH", slots[i].items)
 					timer_1_shot = true
 			if slots[i].items == slots[i].Items.GAZLAMP:
+				print("test")
 
 func wire_handler(delta):
 	if cable_active == true:
