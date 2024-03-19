@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjr5i4qo1uv2"
-path="res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.ctex"
+uid="uid://c3cufkcd27xa3"
+path="res://.godot/imported/Fichier 3.png-8814b697da4ed26944fc0342b1e6274b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Test_assets/dots-and-points.png"
-dest_files=["res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.ctex"]
+source_file="res://assets/charte graphique/Fichier 3.png"
+dest_files=["res://.godot/imported/Fichier 3.png-8814b697da4ed26944fc0342b1e6274b.ctex"]
 
 [params]
 
