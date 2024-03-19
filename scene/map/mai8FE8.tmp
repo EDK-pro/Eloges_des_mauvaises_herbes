@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="2_733tp"]
-[ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="2_ftgfi"]
+[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="2_cgfmv"]
 [ext_resource type="Texture2D" uid="uid://baesy0j3gmoy8" path="res://assets/charte graphique/paperFichier 12.png" id="3_w1klo"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="4_pkuwk"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="6_fjicq"]
@@ -323,7 +323,7 @@ bt_quitter = NodePath("MarginContainer/VBoxContainer/BT_Quitter")
 bt_commencer = NodePath("BT_CONTINUER/Commencer")
 animator = NodePath("AnimationPlayer")
 Ui_Text = NodePath("TextureRect")
-nextscene = ExtResource("2_ftgfi")
+nextscene = ExtResource("2_cgfmv")
 
 [node name="Couverture" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.529412)
@@ -533,17 +533,17 @@ texture = ExtResource("3_w1klo")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -373.5
+offset_left = -747.0
 offset_top = -240.0
-offset_right = 373.5
 offset_bottom = 240.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("6_fjicq")

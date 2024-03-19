@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjr5i4qo1uv2"
-path.s3tc="res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.s3tc.ctex"
+uid="uid://c3jcqjsd4qf4k"
+path.s3tc="res://.godot/imported/paper004_paper004-paper004.png-93b0f05997076802a267a4732d08c3e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Test_assets/dots-and-points.png"
-dest_files=["res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.s3tc.ctex"]
+source_file="res://assets/exported_File/paper004_paper004-paper004.png"
+dest_files=["res://.godot/imported/paper004_paper004-paper004.png-93b0f05997076802a267a4732d08c3e4.s3tc.ctex"]
 
 [params]
 

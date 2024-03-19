@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjr5i4qo1uv2"
-path.s3tc="res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.s3tc.ctex"
+uid="uid://bwy0exqwmu6r5"
+path.s3tc="res://.godot/imported/mur_mur-mur.png-e8a68dbab9432b22356a3b9e8227afa6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://assets/Test_assets/dots-and-points.png"
-dest_files=["res://.godot/imported/dots-and-points.png-ef1783fa9ee036f91bd33e0ac71c0716.s3tc.ctex"]
+source_file="res://assets/exported_File/mur_mur-mur.png"
+dest_files=["res://.godot/imported/mur_mur-mur.png-e8a68dbab9432b22356a3b9e8227afa6.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=14 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
@@ -39,6 +39,9 @@ data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500,
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3cmmi"]
 radius = 0.984585
 height = 6.13193
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8gr8l"]
+size = Vector3(610.216, 229.467, 50)
 
 [node name="Hub" type="Node3D"]
 
@@ -84,7 +87,13 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 fov = 54.6
 
 [node name="Door" parent="." instance=ExtResource("4_mfgea")]
-transform = Transform3D(2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 27.1781, -398.548)
+transform = Transform3D(2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 20.1781, -398.548)
 
 [node name="Area3D" parent="." instance=ExtResource("5_rc0ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57715, 149.903, -129.595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5405, 95.4889, -111.365)
+
+[node name="CollisionShape3D" parent="Area3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2783, 0.661873, 0)
+shape = SubResource("BoxShape3D_8gr8l")
+
+[editable path="Area3D"]
