@@ -148,6 +148,7 @@ func slots_handler(delta):
 			#if slots[i].items == slots[i].Items.GAZLAMP:
 				#print("oups")
 
+
 func wire_handler(delta):
 	if cable_active == true:
 		$Cable.show()

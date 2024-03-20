@@ -3,6 +3,8 @@ extends all_items
 var is_on: bool = false
 var lamp_energy_emission: float = 0.0
 
+@export var material:StandardMaterial3D
+
 func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
