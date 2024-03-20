@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://3an2arrntr5k"]
+
+[ext_resource type="PackedScene" uid="uid://hy4er5sg387f" path="res://assets/assets 3D lukas/fauteuiltxt.glb" id="1_dx3rm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mfnr"]
+size = Vector3(2.06409, 2.59814, 2.06104)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(0.999762, 0.0218149, 0, -0.0218123, 0.999645, 0.0153059, 0.000333897, -0.0153023, 0.999883, 0, 0.119878, 0)
+
+[node name="fauteuiltxt" parent="." instance=ExtResource("1_dx3rm")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999991, 6.6922e-08, 1.68802e-09, -7.61611e-09, 0.999991, 5.21541e-08, 3.20142e-09, -5.30854e-08, 0.999982, -0.0119021, 1.15209, -0.000733567)
+shape = SubResource("BoxShape3D_7mfnr")
