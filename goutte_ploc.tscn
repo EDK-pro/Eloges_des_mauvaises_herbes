@@ -26,7 +26,7 @@ stream = ExtResource("3_d8bsm")
 bus = &"EQ_test"
 
 [node name="End_Drop" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.7
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

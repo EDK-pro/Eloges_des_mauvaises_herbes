@@ -14,7 +14,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("light"):
 		is_on = !is_on
 		if is_on: 
-			lamp_energy_emission = 5.0
+			lamp_energy_emission = 3.0
 		else:
 			lamp_energy_emission = 0.0
 		
@@ -22,7 +22,9 @@ func _wet_lamp():
 	$TimerWet.start()
 
 func turn_on_light(energy):
-	var multiply = 1 - ($TimerWet.time_left / 10.0)
+	if $TimerWet.time_left >= 6.0:
+		energy = 0.0
+	var multiply = 1 - ($TimerWet.time_left / 6.0)
 	$OmniLight3D.light_energy = energy * multiply
 
 func _hovered(item_name):

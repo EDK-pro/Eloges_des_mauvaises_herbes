@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1s0yqy72g1oq"]
+[gd_scene load_steps=9 format=3 uid="uid://c1s0yqy72g1oq"]
 
 [ext_resource type="Script" path="res://script/player/Player_scene_script.gd" id="1_1qnco"]
 [ext_resource type="Script" path="res://script/player/Player.gd" id="1_yvgxc"]
 [ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://cable.tscn" id="2_65cvw"]
-[ext_resource type="AudioStream" uid="uid://e0kh4q2mcwqt" path="res://assets/Test_assets/raw_sound/wind-up-crank-1-186894.mp3" id="3_bqeot"]
+[ext_resource type="AudioStream" uid="uid://bl14mpedjqby4" path="res://assets/Test_assets/raw_sound/wind-up-crank-1-186894.mp3" id="3_bqeot"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tig38"]
 
@@ -32,9 +32,21 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0, 1.6, 0, 0.2, 1, 0, 1.6, 0.053, 1, 1, 0.512, 2.6, -0.867, 2.2, 1, 0, 2.5, -0.867, 3, 1, 0, 2.6, -0.867)
 
+[sub_resource type="Animation" id="Animation_k2erk"]
+resource_name = "stumble"
+length = 2.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ntkqx"]
 _data = {
-"left_right": SubResource("Animation_dsq1o")
+"left_right": SubResource("Animation_dsq1o"),
+"stumble": SubResource("Animation_k2erk")
 }
 
 [node name="Player_scene" type="Node3D"]
@@ -63,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -1)
 wait_time = 20.0
 
 [node name="Timer_gazlamp" type="Timer" parent="Player"]
+wait_time = 5.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Player"]
 stream = ExtResource("3_bqeot")

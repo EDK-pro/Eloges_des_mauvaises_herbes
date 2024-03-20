@@ -4,7 +4,8 @@ var sound_array: Array
 var sound_array_crushed: Array
 var crushed: int
 var touch_once: bool = false
-
+var speed: float
+var mass: float = 1.0
 signal watering
 
 # Called when the node enters the scene tree for the first time.
@@ -26,7 +27,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y -= 0.1
+	speed += 0.01
+	position.y -= speed
 
 func _on_body_entered(body):
 	if !touch_once:

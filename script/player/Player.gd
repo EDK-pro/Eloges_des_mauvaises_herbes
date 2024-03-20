@@ -19,6 +19,8 @@ signal hover_object
 ## Emitted when U, I, or O is pressed when an item is in a slot.
 signal throw_object
 
+signal visual_degradation(indice)
+
 var selected: bool = false
 var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
@@ -34,7 +36,9 @@ var audio_state: int = Condition.CORRECT
 var visual_state: int = Condition.CORRECT
 var movement_state: int = Condition.CORRECT
 
-var timer_1_shot: bool = false
+var timer_1_shot_flower: bool = false
+var timer_1_shot_gazlamp: bool = false
+var handle_nb_fails: int = 4
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
@@ -63,7 +67,12 @@ func _physics_process(delta):
 func _input(event):
 	# Handle mouse motion and button events for camera control and object selection
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
+		var bug_rotation = -event.relative.x * mouse_sensitivity
+		if handle_nb_fails == 4:
+			if bug_rotation >= 0:
+				rotate_y(bug_rotation)
+		else:
+			rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
 		
@@ -141,12 +150,13 @@ func slots_handler(delta):
 			else:
 				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
 			if flower_on:
-				if !timer_1_shot:
+				if !timer_1_shot_flower:
 					$Timer_fleur.start()
-					print("COUBEH", slots[i].items)
-					timer_1_shot = true
-			#if slots[i].items == slots[i].Items.GAZLAMP:
-				#print("oups")
+					timer_1_shot_flower = true
+			if slots[i].items == slots[i].Items.GAZLAMP:
+				if ! timer_1_shot_gazlamp:
+					timer_1_shot_gazlamp = true
+					$Timer_gazlamp.start()
 
 
 func wire_handler(delta):
@@ -173,10 +183,13 @@ func wire_handler(delta):
 
 func _on_timer_timeout():
 	if audio_state != Condition.BROKEN:
-		audio_state = audio_state + 1 
+		audio_state += 1 
 		print("Audio state : ", audio_state)
-		timer_1_shot = false
-
+		timer_1_shot_flower = false
 
 func _on_timer_gazlamp_timeout():
-	pass # Replace with function body.
+	if visual_state != Condition.BROKEN:
+		visual_state += 1
+		print("Visual state : ", visual_state)
+		timer_1_shot_gazlamp = false
+		visual_degradation.emit(6)

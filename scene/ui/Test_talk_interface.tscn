@@ -1,22 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3povbytmkdxo"]
+[gd_scene load_steps=5 format=3 uid="uid://d3povbytmkdxo"]
 
 [ext_resource type="Script" path="res://script/Ui/Test_talk_interface.gd" id="1_w0mh1"]
+[ext_resource type="Texture2D" uid="uid://dmmorod2h1fj3" path="res://assets/visuel/UI_sprite/barre_interact_object_png.png" id="2_hk0wt"]
+[ext_resource type="Texture2D" uid="uid://hr25xrt68q4u" path="res://assets/visuel/UI_sprite/rectangle_1_png.png" id="3_765yb"]
+[ext_resource type="Texture2D" uid="uid://dcn80rryvbqe6" path="res://assets/visuel/UI_sprite/son_1_png.png" id="4_rtsmw"]
 
 [node name="Talk" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w0mh1")
 
 [node name="Timing" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 239.0
-offset_top = 140.0
-offset_right = 1009.0
-offset_bottom = 218.0
+offset_left = 144.0
+offset_top = 161.0
+offset_right = 1849.0
+offset_bottom = 483.0
 
 [node name="Endline" type="ColorRect" parent="Timing"]
 layout_mode = 1
@@ -25,38 +30,51 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -20.0
-offset_bottom = 20.0
+offset_left = -284.0
+offset_top = -3.0
+offset_right = -272.0
+offset_bottom = 37.0
 grow_horizontal = 0
 grow_vertical = 2
 color = Color(1, 0.160784, 1, 1)
 
-[node name="Line" type="ColorRect" parent="Timing"]
+[node name="Line" type="TextureRect" parent="Timing"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -9.0
+offset_left = -600.0
+offset_top = -100.0
+offset_right = 600.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(1, 1, 0.156863, 1)
+texture = ExtResource("2_hk0wt")
 
-[node name="Arrow" type="ColorRect" parent="Timing"]
+[node name="Arrow" type="TextureRect" parent="Timing"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 8.0
-offset_bottom = 20.0
+offset_left = 228.0
+offset_top = -74.0
+offset_right = 302.0
+offset_bottom = 55.0
 grow_vertical = 2
-color = Color(0.176471, 1, 1, 1)
+texture = ExtResource("3_765yb")
+expand_mode = 1
 
-[node name="Resultat" type="ColorRect" parent="."]
+[node name="Resultat" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1031.0
-offset_top = 141.0
-offset_right = 1071.0
-offset_bottom = 181.0
+offset_left = 1565.0
+offset_top = 183.0
+offset_right = 1765.0
+offset_bottom = 383.0
+texture = ExtResource("4_rtsmw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

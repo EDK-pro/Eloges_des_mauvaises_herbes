@@ -34,11 +34,10 @@ func _ready():
 func _process(delta):
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
-		scene_goutte.position = Vector3(5,7,5)
+		scene_goutte.position = $Static/props/test_escabeau.position + Vector3(0,7,0)
 		scene_goutte.crushed = $Player/Player_scene/Player.audio_state
 		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
-		
 
 func endTalk():
 	$UI/Talk.hide()
