@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fb2h0m80r1t"]
+
+[ext_resource type="PackedScene" uid="uid://c0rukswe33wlb" path="res://assets/assets 3D lukas/etagere.glb" id="1_42bxv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cq3go"]
+size = Vector3(7.85278, 0.347656, 2.04053)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="etagere" parent="." instance=ExtResource("1_42bxv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00769079, 0.166016, 0.0153809)
+shape = SubResource("BoxShape3D_cq3go")

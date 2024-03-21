@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://nw2ql8mewt5y"]
+
+[ext_resource type="PackedScene" uid="uid://bl5fwwey72s6x" path="res://assets/assets 3D lukas/pipe.glb" id="1_4jhrt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1eh7"]
+size = Vector3(1.76428, 3.93402, 18.4194)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="pipe" parent="." instance=ExtResource("1_4jhrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0366659, 0, -6.45346)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0369263, 1.59927, -1.59937)
+shape = SubResource("BoxShape3D_j1eh7")
