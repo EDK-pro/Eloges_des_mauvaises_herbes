@@ -1,0 +1,265 @@
+[gd_scene load_steps=24 format=3 uid="uid://lwx303ixa3jm"]
+
+[ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
+[ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_gvyjd"]
+[ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="3_nt2yt"]
+[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="4_5th0c"]
+[ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="5_3vh5x"]
+[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="6_10kuo"]
+[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="7_1su2n"]
+[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://scene/interactable/umbrella.tscn" id="7_ilpc4"]
+[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="8_aorp1"]
+[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="8_xmhrp"]
+[ext_resource type="PackedScene" uid="uid://dyh6uap78vnd7" path="res://scene/debug/oil_lamp.tscn" id="9_c6rxg"]
+[ext_resource type="PackedScene" uid="uid://3an2arrntr5k" path="res://assets/prefabs/3D/fauteuil.tscn" id="10_h4l41"]
+[ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="11_rreh3"]
+[ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
+[ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
+[ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
+albedo_texture = ExtResource("1_ur80u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0em22"]
+material = SubResource("StandardMaterial3D_n4o6l")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnkt"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
+sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
+sky_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+sky_energy_multiplier = 2.25
+ground_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+
+[sub_resource type="Sky" id="Sky_5upr0"]
+sky_material = SubResource("ProceduralSkyMaterial_o8yxp")
+
+[sub_resource type="Environment" id="Environment_h5134"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_5upr0")
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.35
+ssao_power = 0.69977
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.8
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0194
+volumetric_fog_albedo = Color(0.584314, 0.823529, 0.721569, 1)
+volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_detail_spread = 0.75
+
+[node name="Salon_Proto" type="Node3D" node_paths=PackedStringArray("Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Fondu")]
+script = ExtResource("1_hlaio")
+Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
+Ui_Text_Item = NodePath("UI/Control_Item")
+Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_0em22")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Environnement" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environnement"]
+environment = SubResource("Environment_h5134")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
+transform = Transform3D(-0.246384, -0.901363, -0.356145, 0.660728, -0.425059, 0.618679, -0.709037, -0.0828825, 0.700284, 0, 26.5418, 0)
+light_color = Color(0.262745, 0.364706, 0.427451, 1)
+light_energy = 0.0
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20.0089, -13.1725)
+light_color = Color(0.588235, 0.701961, 0.505882, 1)
+light_energy = 1.781
+light_indirect_energy = 0.506
+spot_range = 42.346
+spot_attenuation = 0.840896
+spot_angle = 41.67
+spot_angle_attenuation = 0.0213444
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player_scene" parent="Player" instance=ExtResource("2_gvyjd")]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Control_Fondu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondu_End" type="ColorRect" parent="UI/Control_Fondu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Control_Arrivee" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1su2n")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Arrivee/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_aorp1")
+theme_override_font_sizes/normal_font_size = 29
+text = "Dans cet salle plusieurs objets sont disponible , peut etre meme que certain peuvent intéragir avec les objets du salon? "
+
+[node name="Button_Arrivee" type="Button" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Control_Item" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1su2n")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Item/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_aorp1")
+theme_override_font_sizes/normal_font_size = 29
+text = "Pour équiper un objet choissisez un slot, une fois faite attention reinette peut se blesser !"
+
+[node name="Button_Item" type="Button" parent="UI/Control_Item"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Slot_selection" parent="UI" instance=ExtResource("5_3vh5x")]
+visible = false
+mouse_filter = 2
+
+[node name="Talk" parent="UI" instance=ExtResource("3_nt2yt")]
+visible = false
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Select_Object" parent="UI" instance=ExtResource("4_5th0c")]
+visible = false
+
+[node name="Flower" parent="." instance=ExtResource("6_10kuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58814, 0, -5.52725)
+
+[node name="Umbrella" parent="." instance=ExtResource("7_ilpc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64556, 3.73123, -5.52664)
+
+[node name="Lever" parent="." instance=ExtResource("8_xmhrp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21434, 0.393666, -3.53681)
+
+[node name="GazLamp" parent="." instance=ExtResource("9_c6rxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15187, 0, 0)
+
+[node name="Static" type="Node" parent="."]
+
+[node name="Fauteil" parent="Static" instance=ExtResource("10_h4l41")]
+transform = Transform3D(-0.999781, -0.0209424, -8.7412e-08, -0.0209398, 0.999657, 0.0157073, -0.000328862, 0.0157039, -0.999877, 8.60472, 0.119878, -5.92807)
+
+[node name="Tuyau" parent="Static" instance=ExtResource("11_rreh3")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 7.21904, 6.61503, 1.16427)
+
+[node name="Etagere" parent="Static" instance=ExtResource("12_0pw1c")]
+transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 9.54364, 3.08933, -4.43619)
+
+[node name="Table" parent="Static" instance=ExtResource("13_ck313")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.44182, 0, -5.57309)
+
+[node name="cheminee" parent="." instance=ExtResource("16_g5dk3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.91665, 3.52255, -8.55649)
+
+[connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
+[connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]

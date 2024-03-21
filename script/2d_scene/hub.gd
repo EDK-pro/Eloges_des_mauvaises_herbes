@@ -1,8 +1,8 @@
-extends Area3D
+extends Node3D
 
 var player_movement_available: bool = true
-var body_once: bool = false
 @export var Ui_Text:Control
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Ui_Text.visible = true

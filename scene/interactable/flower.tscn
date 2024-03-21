@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cm1506mguuk1n"]
 
 [ext_resource type="Script" path="res://script/interactable/flower.gd" id="1_g4lr0"]
-[ext_resource type="PackedScene" uid="uid://dbcvt0pf0hrb" path="res://fleur_asset.tscn" id="3_dje6p"]
+[ext_resource type="PackedScene" uid="uid://uf05a6oxjptl" path="res://assets/prefabs/3D/fleur.tscn" id="3_jshy1"]
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="3_knw2y"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_541b4"]
@@ -20,5 +20,4 @@ shape = SubResource("CapsuleShape3D_541b4")
 [node name="UIHandler" parent="." instance=ExtResource("3_knw2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457571, 0)
 
-[node name="fleur" parent="." instance=ExtResource("3_dje6p")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+[node name="Node3D" parent="." instance=ExtResource("3_jshy1")]

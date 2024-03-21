@@ -24,12 +24,15 @@ signal visual_degradation(indice)
 var selected: bool = false
 var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
+var can_move: bool = true
 
 var tj = [0.0,0.0,0.0]
 var t_cable = 0.0
 var pickup
 var cable_active = false
 var taille_max
+
+var tuto_object: int = 0
 
 enum Condition {CORRECT,PARTIALLY_BROKEN,NEARLY_BROKEN,BROKEN}
 var audio_state: int = Condition.CORRECT
@@ -38,7 +41,7 @@ var movement_state: int = Condition.CORRECT
 
 var timer_1_shot_flower: bool = false
 var timer_1_shot_gazlamp: bool = false
-var handle_nb_fails: int = 4
+var handle_nb_fails: int = 0
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
@@ -62,7 +65,8 @@ func _physics_process(delta):
 	velocity.x = movement_dir.x * speed
 	velocity.y -= gravity * 0.1
 	velocity.z = movement_dir.z * speed
-	move_and_slide()
+	if can_move:
+		move_and_slide()
 
 func _input(event):
 	# Handle mouse motion and button events for camera control and object selection
@@ -75,7 +79,7 @@ func _input(event):
 			rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-		
+
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
 			throw_object.emit(3)
@@ -102,7 +106,12 @@ func get_selection():
 		selected = true
 		var collider = str(result.collider).get_slice(":",0)
 		print(collider)
-		hover_object.emit(collider)
+		var is_in_slots: bool = false
+		for i in 3:
+			if str(slots[i]).get_slice(":",0) == collider:
+				is_in_slots = true
+		if !is_in_slots:
+			hover_object.emit(collider)
 
 func _on_pick_up(slot, state, item):
 	print("pick up ",slot," ", state," ", item)

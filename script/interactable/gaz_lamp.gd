@@ -11,12 +11,13 @@ func _ready():
 
 func _process(delta):
 	turn_on_light(lamp_energy_emission)
-	if Input.is_action_just_pressed("light"):
-		is_on = !is_on
-		if is_on: 
-			lamp_energy_emission = 3.0
-		else:
-			lamp_energy_emission = 0.0
+	if status == Slots.SLOT_3:
+		if Input.is_action_just_pressed("Use_item"):
+			is_on = !is_on
+			if is_on: 
+				lamp_energy_emission = 3.0
+			else:
+				lamp_energy_emission = 0.0
 		
 func _wet_lamp():
 	$TimerWet.start()

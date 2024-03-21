@@ -1,11 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=26 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
+[ext_resource type="Script" path="res://script/2d_scene/hub.gd" id="1_wxaxt"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
 [ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
 [ext_resource type="Texture2D" uid="uid://cq4u3gfat3jet" path="res://assets/visuel/anim_reinette/reinette_idle0001.png" id="4_aeb8g"]
 [ext_resource type="PackedScene" uid="uid://jb0h6p3x7d1x" path="res://scene/interactable/door_2d.tscn" id="4_mfgea"]
-[ext_resource type="PackedScene" uid="uid://c2tqn62dvcu6t" path="res://scene/interactable/Trigger_UI.tscn" id="5_rc0ef"]
 [ext_resource type="Texture2D" uid="uid://c0kb47e0h7tu0" path="res://assets/visuel/anim_reinette/reinette_idle0002.png" id="5_v3l4e"]
 [ext_resource type="Texture2D" uid="uid://cory53qsdutro" path="res://assets/visuel/anim_reinette/reinette_idle0003.png" id="6_pi6te"]
 [ext_resource type="Texture2D" uid="uid://s48yffb3dd3u" path="res://assets/visuel/anim_reinette/reinette_walk0000.png" id="7_nnyim"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cfdm3cw50j71a" path="res://assets/visuel/anim_reinette/reinette_walk0003.png" id="10_l4ljc"]
 [ext_resource type="Texture2D" uid="uid://cho6u5ydyju24" path="res://assets/visuel/anim_reinette/reinette_walk0004.png" id="11_bdpht"]
 [ext_resource type="Texture2D" uid="uid://fjwu4alb6fld" path="res://assets/visuel/anim_reinette/reinette_walk0005.png" id="12_5ciu6"]
+[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="14_bwui0"]
+[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="16_sw5aa"]
+[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="17_ickxp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]
 sky_top_color = Color(0.615686, 0.356863, 0.447059, 1)
@@ -92,7 +95,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Hub" type="Node3D"]
+[node name="Hub" type="Node3D" node_paths=PackedStringArray("Ui_Text")]
+script = ExtResource("1_wxaxt")
+Ui_Text = NodePath("Control")
 
 [node name="Ambiance" type="Node" parent="."]
 
@@ -139,6 +144,59 @@ autoplay = "idle"
 
 [node name="Door" parent="." instance=ExtResource("4_mfgea")]
 transform = Transform3D(2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 27.1781, -398.548)
+next_scene = ExtResource("14_bwui0")
 
-[node name="Area3D" parent="." instance=ExtResource("5_rc0ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57715, 149.903, -129.595)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_sw5aa")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("17_ickxp")
+theme_override_font_sizes/normal_font_size = 29
+text = "vous venez d'atterir dans la carrière après avoir chercher un lieu ou vivre. depuis cet salle vous pourrez vous déplacez avec zqsd, essayez de vous familiarisez avec les déplacement avant de rentrer dans la première salle."
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

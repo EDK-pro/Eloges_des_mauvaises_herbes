@@ -1,16 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2tqn62dvcu6t"]
+[gd_scene load_steps=5 format=3 uid="uid://c2tqn62dvcu6t"]
 
 [ext_resource type="Script" path="res://scene/interactable/Trigger_UI.gd" id="1_c21pm"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="2_y71aa"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="3_y3fsd"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_71mdm"]
-size = Vector3(1000, 300, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llrdy"]
-transparency = 1
-blend_mode = 1
-albedo_color = Color(0, 0.317647, 0.941176, 0.596078)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52jqo"]
 size = Vector3(1000, 300, 100)
@@ -18,10 +10,6 @@ size = Vector3(1000, 300, 100)
 [node name="Area3D" type="Area3D" node_paths=PackedStringArray("Ui_Text")]
 script = ExtResource("1_c21pm")
 Ui_Text = NodePath("CanvasLayer/Control")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_71mdm")
-surface_material_override/0 = SubResource("StandardMaterial3D_llrdy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_52jqo")
@@ -66,5 +54,21 @@ theme_override_fonts/normal_font = ExtResource("3_y3fsd")
 theme_override_font_sizes/normal_font_size = 29
 text = "vous venez d'atterir dans la carrière après avoir chercher un lieu ou vivre. depuis cet salle vous pourrez vous déplacez avec zqsd, essayez de vous familiarisez avec les déplacement avant de rentrer dans la première salle."
 
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
