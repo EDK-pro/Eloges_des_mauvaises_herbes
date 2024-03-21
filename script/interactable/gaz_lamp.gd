@@ -1,5 +1,7 @@
 extends all_items
 
+@export var material:StandardMaterial3D
+
 func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
