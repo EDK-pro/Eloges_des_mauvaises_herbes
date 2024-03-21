@@ -1,10 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=23 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
-[ext_resource type="Texture2D" uid="uid://s3asallu5af0" path="res://assets/Test_assets/Assets/Amandinosaure_idle_1.png" id="3_fasoj"]
+[ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
+[ext_resource type="Texture2D" uid="uid://cq4u3gfat3jet" path="res://assets/visuel/anim_reinette/reinette_idle0001.png" id="4_aeb8g"]
 [ext_resource type="PackedScene" uid="uid://jb0h6p3x7d1x" path="res://scene/interactable/door_2d.tscn" id="4_mfgea"]
 [ext_resource type="PackedScene" uid="uid://c2tqn62dvcu6t" path="res://scene/interactable/Trigger_UI.tscn" id="5_rc0ef"]
+[ext_resource type="Texture2D" uid="uid://c0kb47e0h7tu0" path="res://assets/visuel/anim_reinette/reinette_idle0002.png" id="5_v3l4e"]
+[ext_resource type="Texture2D" uid="uid://cory53qsdutro" path="res://assets/visuel/anim_reinette/reinette_idle0003.png" id="6_pi6te"]
+[ext_resource type="Texture2D" uid="uid://s48yffb3dd3u" path="res://assets/visuel/anim_reinette/reinette_walk0000.png" id="7_nnyim"]
+[ext_resource type="Texture2D" uid="uid://clr1r4dvvlq7n" path="res://assets/visuel/anim_reinette/reinette_walk0001.png" id="8_4q3nw"]
+[ext_resource type="Texture2D" uid="uid://dqni6miq0sso0" path="res://assets/visuel/anim_reinette/reinette_walk0002.png" id="9_xlfq0"]
+[ext_resource type="Texture2D" uid="uid://cfdm3cw50j71a" path="res://assets/visuel/anim_reinette/reinette_walk0003.png" id="10_l4ljc"]
+[ext_resource type="Texture2D" uid="uid://cho6u5ydyju24" path="res://assets/visuel/anim_reinette/reinette_walk0004.png" id="11_bdpht"]
+[ext_resource type="Texture2D" uid="uid://fjwu4alb6fld" path="res://assets/visuel/anim_reinette/reinette_walk0005.png" id="12_5ciu6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]
 sky_top_color = Color(0.615686, 0.356863, 0.447059, 1)
@@ -40,6 +49,49 @@ data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500,
 radius = 0.984585
 height = 6.13193
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rbt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fhhhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aeb8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v3l4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pi6te")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nnyim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4q3nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xlfq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l4ljc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bdpht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5ciu6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Hub" type="Node3D"]
 
 [node name="Ambiance" type="Node" parent="."]
@@ -63,15 +115,12 @@ mesh = SubResource("PlaneMesh_v4u3s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flood"]
 shape = SubResource("ConcavePolygonShape3D_jici5")
 
-[node name="Player2D" type="CharacterBody3D" parent="."]
+[node name="Player2D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("player_sprite")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 53.4819, 58.6798)
 collision_mask = 8
 collision_priority = 5.0
 script = ExtResource("2_iljgu")
-
-[node name="Player" type="Sprite3D" parent="Player2D"]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
-texture = ExtResource("3_fasoj")
+player_sprite = NodePath("AnimatedSprite3D")
 
 [node name="playerColl" type="CollisionShape3D" parent="Player2D"]
 shape = SubResource("CapsuleShape3D_3cmmi")
@@ -82,6 +131,11 @@ transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 
 [node name="Camera3D" type="Camera3D" parent="Player2D/Camera_spring"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 fov = 54.6
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player2D"]
+sprite_frames = SubResource("SpriteFrames_6rbt4")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Door" parent="." instance=ExtResource("4_mfgea")]
 transform = Transform3D(2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 27.1781, -398.548)
