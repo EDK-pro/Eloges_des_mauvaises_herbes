@@ -46,6 +46,8 @@ signal poser_objet
 @export var feur: all_items
 var slot_used: Array=[0,0,0]
 
+var circle
+
 func put_in_slot(item,slot):
 	if slot_used[slot] != 1:
 		self.status = slot+1

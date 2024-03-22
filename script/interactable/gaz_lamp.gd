@@ -34,9 +34,13 @@ func _hovered(item_name):
 		is_being_selected = true
 
 func _stop_value_circle(slot):
+	circle = $UIHandler/SubView/Select_Object/Circle.value
 	$UIHandler/SubView/Select_Object.stop_processus()
-	
+
+
 func _on_click(slot):
+	if circle == 0.0:
+		slot += 3
 	match slot:
 		0,1,2:
 			if is_being_selected:

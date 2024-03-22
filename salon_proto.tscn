@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://qufir3t40d1"]
+[gd_scene load_steps=41 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="18_c411q"]
 [ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="19_a01i2"]
 [ext_resource type="Texture2D" uid="uid://c075laxa1jdtr" path="res://assets/texture/8.jpg" id="20_wi4qv"]
+[ext_resource type="Texture2D" uid="uid://cjjr5i4qo1uv2" path="res://assets/Test_assets/dots-and-points.png" id="21_7svgw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
 sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
@@ -93,11 +94,20 @@ albedo_texture = ExtResource("20_wi4qv")
 material = SubResource("StandardMaterial3D_vv1bp")
 size = Vector3(20, 0.2, 20)
 
-[node name="Salon_Proto" type="Node3D" node_paths=PackedStringArray("Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Fondu")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aloid"]
+transparency = 1
+albedo_texture = ExtResource("21_7svgw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nuqxr"]
+size = Vector2(7, 7)
+
+[node name="Salon_Proto" type="Node3D" node_paths=PackedStringArray("Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Fondu", "Ui_Tab", "Ui_Reset_Button")]
 script = ExtResource("1_hlaio")
 Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
 Ui_Text_Item = NodePath("UI/Control_Item")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
+Ui_Tab = NodePath("UI/Control_Tab")
+Ui_Reset_Button = NodePath("UI/Control_Reset")
 
 [node name="Environnement" type="Node" parent="."]
 
@@ -106,16 +116,14 @@ environment = SubResource("Environment_h5134")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
 transform = Transform3D(-0.246384, -0.901363, -0.356145, 0.660728, -0.425059, 0.618679, -0.709037, -0.0828826, 0.700284, 0, 6.48825, 0)
-visible = false
 light_color = Color(0.262745, 0.364706, 0.427451, 1)
-light_energy = 0.0
+light_energy = 0.917
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20.0089, -13.1725)
-visible = false
 light_color = Color(0.588235, 0.701961, 0.505882, 1)
-light_energy = 1.781
+light_energy = 0.424
 light_indirect_energy = 0.506
 spot_range = 42.346
 spot_attenuation = 0.840896
@@ -144,6 +152,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="Control_Reset" type="Control" parent="UI"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 606.0
+offset_top = 432.0
+offset_right = 1453.68
+offset_bottom = 527.04
+
+[node name="Button_Reset" type="Button" parent="UI/Control_Reset"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trop de malfonction, votre corps cesse de répondre.
+
+Cliquer pour Recommencer"
 
 [node name="Control_Arrivee" type="Control" parent="UI"]
 layout_mode = 3
@@ -234,7 +263,7 @@ offset_bottom = 286.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_aorp1")
 theme_override_font_sizes/normal_font_size = 29
-text = "Pour équiper un objet choisissez un emplacement. Cependant faites attention, ces vieux objets peuvent vous blesser ! Vous pourrez utiliser certains objets en appuyant sur F !"
+text = "Pour équiper un objet choisissez un emplacement. Cependant faites attention, ces vieux objets peuvent vous blesser ! Vous pourrez utiliser certains objets en appuyant sur clic droit !"
 
 [node name="Button_Item" type="Button" parent="UI/Control_Item"]
 layout_mode = 1
@@ -261,11 +290,80 @@ visible = false
 [node name="Select_Object" parent="UI" instance=ExtResource("4_5th0c")]
 visible = false
 
+[node name="Hint" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/Hint"]
+layout_mode = 0
+offset_left = 1305.0
+offset_top = 608.0
+offset_right = 1666.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 20
+text = "Appuyez sur la barre espace"
+
+[node name="Control_Tab" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Tab"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1su2n")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Tab/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_aorp1")
+theme_override_font_sizes/normal_font_size = 29
+text = "Une fois que vous avez récupéré un objet, vous pouvez enlever l'objet de son emplacement en appuyant sur TAB et en sélectionnant l'emplacement concerné !"
+
+[node name="Button_Tab" type="Button" parent="UI/Control_Tab"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
 [node name="Flower" parent="." instance=ExtResource("6_10kuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58814, 0, -5.52725)
 
 [node name="Lever" parent="." instance=ExtResource("8_xmhrp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21434, 0.393666, -3.53681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85656, 1.08718, -4.52544)
 
 [node name="GazLamp" parent="." instance=ExtResource("9_c6rxg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15187, 0, 0)
@@ -332,13 +430,18 @@ mesh = SubResource("BoxMesh_h7e87")
 shape = SubResource("BoxShape3D_0bnkt")
 
 [node name="Ground6" type="StaticBody3D" parent="Static"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.0119, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 10.0119, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground6"]
 mesh = SubResource("BoxMesh_wpqxo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground6"]
 shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Code" type="MeshInstance3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.73664, 0.521194, -1.34141)
+material_override = SubResource("StandardMaterial3D_aloid")
+mesh = SubResource("PlaneMesh_nuqxr")
 
 [node name="phone" parent="." instance=ExtResource("17_vtopo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40436, 3.18518, -5.74732)
@@ -347,3 +450,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40436, 3.18518, -5.74732)
 
 [connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
 [connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
+[connection signal="pressed" from="UI/Control_Tab/Button_Tab" to="." method="_on_button_tab_pressed"]

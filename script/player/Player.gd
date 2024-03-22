@@ -34,6 +34,8 @@ var taille_max
 
 var tuto_object: int = 0
 
+var tuto_tab: int = 0
+
 enum Condition {CORRECT,PARTIALLY_BROKEN,NEARLY_BROKEN,BROKEN}
 var audio_state: int = Condition.CORRECT
 var visual_state: int = Condition.CORRECT
@@ -123,6 +125,7 @@ func _on_pick_up(slot, state, item):
 			slots[slot].rotation = Vector3(0,0,0)
 			slots[slot].sleeping = true
 			pickup = Vector3(item.global_position)
+			tuto_tab += 1
 	else:
 		if slots[slot] != null:
 			slots[slot].gravity_scale = 3
@@ -146,11 +149,11 @@ func slots_handler(delta):
 				spacing = Vector3(0.5,0.8,0.5)
 				if slots[i].items == slots[i].Items.FLOWER:
 					flower_on = true
+			if i == 2:
 				if slots[i].items == slots[i].Items.LEVER:
-					if Input.is_action_just_pressed("throw_rope"):
+					if Input.is_action_just_pressed("Use_item"):
 						cable_active = !cable_active
 						$Cable/Interact_collide.disabled = !$Cable/Interact_collide.disabled
-			if i == 2:
 				spacing = Vector3(0,0.5,0)
 				gazlamp_timing = 120.0
 			if tj[i] <= 1.0:

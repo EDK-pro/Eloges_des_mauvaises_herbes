@@ -8,7 +8,20 @@ size = Vector3(0.380542, 0.152881, 0.712299)
 
 [sub_resource type="Animation" id="Animation_oaet4"]
 resource_name = "light stuff"
-length = 4.0
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.1, 5.511, 5.511, 0.1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0jxma"]
 _data = {
@@ -28,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140747, 0.191626, -0.0059
 shape = SubResource("BoxShape3D_10b6j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_0jxma")
 }
@@ -35,8 +49,9 @@ libraries = {
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359087, 0)
 light_color = Color(1, 0.717647, 0, 1)
-light_energy = 0.0
-omni_range = 1.039
+light_energy = 5.0
+light_bake_mode = 0
+omni_range = 1.0
 
 [node name="lightTimer" type="Timer" parent="."]
 wait_time = 0.5
