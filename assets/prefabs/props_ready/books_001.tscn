@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk2u1ki0voqg5"]
+
+[ext_resource type="PackedScene" uid="uid://bnlakk08nrjgk" path="res://assets/exported_File/books001.glb" id="1_0bav1"]
+
+[node name="books001" instance=ExtResource("1_0bav1")]

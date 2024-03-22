@@ -1,11 +1,12 @@
-[gd_scene load_steps=26 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=31 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
-[ext_resource type="Script" path="res://script/2d_scene/hub.gd" id="1_wxaxt"]
+[ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_cx5ut"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
 [ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
 [ext_resource type="Texture2D" uid="uid://cq4u3gfat3jet" path="res://assets/visuel/anim_reinette/reinette_idle0001.png" id="4_aeb8g"]
 [ext_resource type="PackedScene" uid="uid://jb0h6p3x7d1x" path="res://scene/interactable/door_2d.tscn" id="4_mfgea"]
+[ext_resource type="PackedScene" uid="uid://c2tqn62dvcu6t" path="res://scene/interactable/Trigger_UI.tscn" id="5_rc0ef"]
 [ext_resource type="Texture2D" uid="uid://c0kb47e0h7tu0" path="res://assets/visuel/anim_reinette/reinette_idle0002.png" id="5_v3l4e"]
 [ext_resource type="Texture2D" uid="uid://cory53qsdutro" path="res://assets/visuel/anim_reinette/reinette_idle0003.png" id="6_pi6te"]
 [ext_resource type="Texture2D" uid="uid://s48yffb3dd3u" path="res://assets/visuel/anim_reinette/reinette_walk0000.png" id="7_nnyim"]
@@ -14,9 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://cfdm3cw50j71a" path="res://assets/visuel/anim_reinette/reinette_walk0003.png" id="10_l4ljc"]
 [ext_resource type="Texture2D" uid="uid://cho6u5ydyju24" path="res://assets/visuel/anim_reinette/reinette_walk0004.png" id="11_bdpht"]
 [ext_resource type="Texture2D" uid="uid://fjwu4alb6fld" path="res://assets/visuel/anim_reinette/reinette_walk0005.png" id="12_5ciu6"]
-[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="14_bwui0"]
-[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="16_sw5aa"]
-[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="17_ickxp"]
+[ext_resource type="PackedScene" uid="uid://bk2u1ki0voqg5" path="res://assets/prefabs/props_ready/books_001.tscn" id="15_tx1vo"]
+[ext_resource type="PackedScene" uid="uid://b2cbrj8vdkw4p" path="res://assets/prefabs/props_ready/tournedisque.tscn" id="16_3sdn3"]
+[ext_resource type="PackedScene" uid="uid://b323tbrfo0vm1" path="res://assets/prefabs/props_ready/velo.tscn" id="17_tmo5d"]
+[ext_resource type="PackedScene" uid="uid://4ajlksjmu6qm" path="res://assets/prefabs/props_ready/bois_001.tscn" id="18_g5abf"]
+[ext_resource type="PackedScene" uid="uid://dj4bxk8o7xqqa" path="res://assets/prefabs/props_ready/bois_002.tscn" id="19_vgyph"]
+[ext_resource type="PackedScene" uid="uid://b57n3y5o8h7v7" path="res://assets/prefabs/props_ready/caillou_001.tscn" id="20_o3ttl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]
 sky_top_color = Color(0.615686, 0.356863, 0.447059, 1)
@@ -43,10 +47,13 @@ albedo_texture = ExtResource("1_2norj")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_v4u3s"]
 material = SubResource("StandardMaterial3D_2u6i8")
-size = Vector2(1000, 1000)
+size = Vector2(20, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jici5"]
-data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500, -500, 0, -500, 500, 0, -500)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_msaq5"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tms1b"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3cmmi"]
 radius = 0.984585
@@ -95,9 +102,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Hub" type="Node3D" node_paths=PackedStringArray("Ui_Text")]
-script = ExtResource("1_wxaxt")
-Ui_Text = NodePath("Control")
+[node name="Hub" type="Node3D"]
 
 [node name="Ambiance" type="Node" parent="."]
 
@@ -118,85 +123,136 @@ collision_mask = 0
 mesh = SubResource("PlaneMesh_v4u3s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flood"]
-shape = SubResource("ConcavePolygonShape3D_jici5")
+shape = SubResource("ConcavePolygonShape3D_msaq5")
 
-[node name="Player2D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("player_sprite")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 53.4819, 58.6798)
+[node name="wall_1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 12, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+mesh = ExtResource("2_cx5ut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+shape = SubResource("ConcavePolygonShape3D_tms1b")
+
+[node name="wall_2" type="StaticBody3D" parent="."]
+transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, -10, 12, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+mesh = ExtResource("2_cx5ut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+shape = SubResource("ConcavePolygonShape3D_tms1b")
+
+[node name="wall_3" type="StaticBody3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 12, 10)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+mesh = ExtResource("2_cx5ut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+shape = SubResource("ConcavePolygonShape3D_tms1b")
+
+[node name="wall_4" type="StaticBody3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 12, -10)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+mesh = ExtResource("2_cx5ut")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
+shape = SubResource("ConcavePolygonShape3D_tms1b")
+
+[node name="Player2D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("player_sprite", "trigger_UI")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.962415, 0)
 collision_mask = 8
 collision_priority = 5.0
 script = ExtResource("2_iljgu")
+speed = 200
 player_sprite = NodePath("AnimatedSprite3D")
+trigger_UI = NodePath("../trigger_UI")
 
 [node name="playerColl" type="CollisionShape3D" parent="Player2D"]
 shape = SubResource("CapsuleShape3D_3cmmi")
 
 [node name="Camera_spring" type="SpringArm3D" parent="Player2D"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 7.635, 7.405)
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 4.39, 3.115)
 
 [node name="Camera3D" type="Camera3D" parent="Player2D/Camera_spring"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 fov = 54.6
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player2D"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 0, 0)
 sprite_frames = SubResource("SpriteFrames_6rbt4")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Door" parent="." instance=ExtResource("4_mfgea")]
-transform = Transform3D(2, 0, 0, 0, 1, -1.73205, 0, 1.73205, 1, 0, 27.1781, -398.548)
-next_scene = ExtResource("14_bwui0")
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 2.30413, -9.55113)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
+[node name="trigger_UI" parent="." instance=ExtResource("5_rc0ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57715, 149.903, -129.595)
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -373.0
-offset_top = -240.0
-offset_right = 374.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("16_sw5aa")
-expand_mode = 1
+[node name="props" type="Node3D" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect"]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 41.0
-offset_right = 723.0
-offset_bottom = 286.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("17_ickxp")
-theme_override_font_sizes/normal_font_size = 29
-text = "vous venez d'atterir dans la carrière après avoir chercher un lieu ou vivre. depuis cet salle vous pourrez vous déplacez avec zqsd, essayez de vous familiarisez avec les déplacement avant de rentrer dans la première salle."
+[node name="books001" parent="props" instance=ExtResource("15_tx1vo")]
+transform = Transform3D(2, 0, 0, 0, 0.477067, 1.94227, 0, -1.94227, 0.477067, 2.82, 0.227462, -4.59)
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -108.0
-offset_top = 97.0
-offset_right = 111.0
-offset_bottom = 143.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "continue"
+[node name="books002" parent="props" instance=ExtResource("15_tx1vo")]
+transform = Transform3D(2, 0, 0, 0, 0.477067, 1.94227, 0, -1.94227, 0.477067, -6.245, 0.142868, -1.78)
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[node name="books003" parent="props" instance=ExtResource("15_tx1vo")]
+transform = Transform3D(2, 0, 0, 0, 0.477067, 1.94227, 0, -1.94227, 0.477067, 7.05, 0.124, -2.775)
+
+[node name="tournedisque" parent="props" instance=ExtResource("16_3sdn3")]
+transform = Transform3D(2, 0, 0, 0, 1.28558, 1.53209, 0, -1.53209, 1.28558, 7.84801, 0.718551, -7.33049)
+
+[node name="velo" parent="props" instance=ExtResource("17_tmo5d")]
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, -6.35658, 0.940547, 6.26158)
+
+[node name="bois001" parent="props" instance=ExtResource("18_g5abf")]
+transform = Transform3D(1, 0, 0, 0, 0.333807, 0.942641, 0, -0.942641, 0.333807, 6.84855, 0.290096, 2.71786)
+
+[node name="bois002" parent="props" instance=ExtResource("18_g5abf")]
+transform = Transform3D(1, 0, 0, 0, 0.667614, 0.942641, 0, -1.88528, 0.333807, -6.15145, 0.0638006, 1.71786)
+
+[node name="bois003" parent="props" instance=ExtResource("19_vgyph")]
+transform = Transform3D(2, 0, 0, 0, 0.397148, 0.917755, 0, -0.917755, 0.397148, 7.06035, 0.128119, -4.75638)
+
+[node name="bois004" parent="props" instance=ExtResource("19_vgyph")]
+transform = Transform3D(1, 0, 0, 0, 0.397148, 0.917755, 0, -0.917755, 0.397148, -7.42774, 0.128119, -7.22574)
+
+[node name="bois005" parent="props" instance=ExtResource("19_vgyph")]
+transform = Transform3D(1, 0, 0, 0, 0.397148, 0.917755, 0, -0.917755, 0.397148, 3.57226, 0.128119, 2.77426)
+
+[node name="caillou001" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(2, 0, 0, 0, 1.20363, 1.59727, 0, -1.59727, 1.20363, -6.78632, 0.463893, -7.99599)
+
+[node name="caillou002" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(2, 0, 0, 0, 1.20363, 1.59727, 0, -1.59727, 1.20363, -2.43155, 0.463893, 5.00401)
+
+[node name="caillou003" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(1, 0, 0, 0, 0.601815, 0.798636, 0, -0.798636, 0.601815, 7.56845, 0.463893, 2.00401)
+
+[node name="caillou004" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(1, 0, 0, 0, 0.601815, 0.798636, 0, -0.798636, 0.601815, 7.56845, 0.463893, -8.99599)
+
+[node name="caillou005" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(1, 0, 0, 0, 0.601815, 0.798636, 0, -0.798636, 0.601815, -3.43155, 0.132627, -1.99599)
+
+[node name="caillou006" parent="props" instance=ExtResource("20_o3ttl")]
+transform = Transform3D(3, 0, 0, 0, 1.20363, 0.798636, 0, -1.59727, 0.601815, 5.51653, 0.289183, 3.00401)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://lwx303ixa3jm"]
+[gd_scene load_steps=24 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="11_rreh3"]
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
-[ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
+[ext_resource type="PackedScene" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
 albedo_texture = ExtResource("1_ur80u")
@@ -226,8 +226,6 @@ mouse_filter = 2
 
 [node name="Talk" parent="UI" instance=ExtResource("3_nt2yt")]
 visible = false
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="Select_Object" parent="UI" instance=ExtResource("4_5th0c")]
 visible = false

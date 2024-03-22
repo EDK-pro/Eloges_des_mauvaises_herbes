@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 @export var speed = 10000	
 @export var player_sprite: AnimatedSprite3D
+@export var trigger_UI: Area3D
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -20,5 +21,5 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-	if $"..".player_movement_available == true:
+	if trigger_UI.player_movement_available == true:
 		move_and_slide()

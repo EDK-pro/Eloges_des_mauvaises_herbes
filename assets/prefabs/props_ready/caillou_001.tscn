@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b57n3y5o8h7v7"]
+
+[ext_resource type="PackedScene" uid="uid://5f7hdqbwog7i" path="res://assets/exported_File/Props/caillou001.glb" id="1_kw13o"]
+
+[node name="caillou001" instance=ExtResource("1_kw13o")]

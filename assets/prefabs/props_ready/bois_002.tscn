@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj4bxk8o7xqqa"]
+
+[ext_resource type="PackedScene" uid="uid://cmga7kt8i0uk2" path="res://assets/exported_File/Props/bois002.glb" id="1_4y8qr"]
+
+[node name="bois002" instance=ExtResource("1_4y8qr")]

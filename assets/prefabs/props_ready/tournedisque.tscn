@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2cbrj8vdkw4p"]
+
+[ext_resource type="PackedScene" uid="uid://cyqfbmpkp5yed" path="res://assets/exported_File/Props/tournedisque.glb" id="1_v28qw"]
+
+[node name="tournedisque" instance=ExtResource("1_v28qw")]

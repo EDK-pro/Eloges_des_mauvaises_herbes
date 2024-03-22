@@ -41,6 +41,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yf18u")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s5fu0"]
+margin = 0.0
 data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="TouffeHerbe001" type="StaticBody3D"]
