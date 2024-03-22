@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=32 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
 [ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_cx5ut"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfdm3cw50j71a" path="res://assets/visuel/anim_reinette/reinette_walk0003.png" id="10_l4ljc"]
 [ext_resource type="Texture2D" uid="uid://cho6u5ydyju24" path="res://assets/visuel/anim_reinette/reinette_walk0004.png" id="11_bdpht"]
 [ext_resource type="Texture2D" uid="uid://fjwu4alb6fld" path="res://assets/visuel/anim_reinette/reinette_walk0005.png" id="12_5ciu6"]
+[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="15_2nf5r"]
 [ext_resource type="PackedScene" uid="uid://bk2u1ki0voqg5" path="res://assets/prefabs/props_ready/books_001.tscn" id="15_tx1vo"]
 [ext_resource type="PackedScene" uid="uid://b2cbrj8vdkw4p" path="res://assets/prefabs/props_ready/tournedisque.tscn" id="16_3sdn3"]
 [ext_resource type="PackedScene" uid="uid://b323tbrfo0vm1" path="res://assets/prefabs/props_ready/velo.tscn" id="17_tmo5d"]
@@ -203,6 +204,7 @@ autoplay = "idle"
 
 [node name="Door" parent="." instance=ExtResource("4_mfgea")]
 transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 2.30413, -9.55113)
+next_scene = ExtResource("15_2nf5r")
 
 [node name="trigger_UI" parent="." instance=ExtResource("5_rc0ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57715, 149.903, -129.595)

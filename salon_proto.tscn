@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qufir3t40d1"]
+[gd_scene load_steps=25 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
 [ext_resource type="PackedScene" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
+[ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/umbrella2.tscn" id="18_eda6k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
 albedo_texture = ExtResource("1_ur80u")
@@ -258,6 +259,9 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.44182, 0, -5.57309)
 
 [node name="cheminee" parent="." instance=ExtResource("16_g5dk3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.91665, 3.52255, -8.55649)
+
+[node name="Umbrella2" parent="." instance=ExtResource("18_eda6k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58555, 3.29324, -3.80229)
 
 [connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
 [connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
