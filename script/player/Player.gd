@@ -19,22 +19,29 @@ signal hover_object
 ## Emitted when U, I, or O is pressed when an item is in a slot.
 signal throw_object
 
+signal visual_degradation(indice)
+
 var selected: bool = false
 var mouse = Vector2()
 var mouse_confirm = Vector2.ZERO
+var can_move: bool = true
 
-var t = 0.0
+var tj = [0.0,0.0,0.0]
 var t_cable = 0.0
 var pickup
 var cable_active = false
 var taille_max
+
+var tuto_object: int = 0
 
 enum Condition {CORRECT,PARTIALLY_BROKEN,NEARLY_BROKEN,BROKEN}
 var audio_state: int = Condition.CORRECT
 var visual_state: int = Condition.CORRECT
 var movement_state: int = Condition.CORRECT
 
-var timer_1_shot: bool = false
+var timer_1_shot_flower: bool = false
+var timer_1_shot_gazlamp: bool = false
+var handle_nb_fails: int = 0
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
@@ -42,8 +49,8 @@ func _ready():
 	taille_max = $Cable/Tube.mesh.height
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("light"):
-		light.visible = true
+	#if Input.is_action_just_pressed("light"):
+		#light.visible = true
 	wire_handler(delta)
 	slots_handler(delta)
 	# Check for pause action and adjust mouse mode accordingly
@@ -58,15 +65,21 @@ func _physics_process(delta):
 	velocity.x = movement_dir.x * speed
 	velocity.y -= gravity * 0.1
 	velocity.z = movement_dir.z * speed
-	move_and_slide()
-	
+	if can_move:
+		move_and_slide()
+
 func _input(event):
 	# Handle mouse motion and button events for camera control and object selection
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * mouse_sensitivity)
+		var bug_rotation = -event.relative.x * mouse_sensitivity
+		if handle_nb_fails == 4:
+			if bug_rotation >= 0:
+				rotate_y(bug_rotation)
+		else:
+			rotate_y(-event.relative.x * mouse_sensitivity)
 		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
-		
+
 	if mouse_confirm == mouse:
 		if Input.is_action_pressed("slot1"):
 			throw_object.emit(3)
@@ -93,27 +106,31 @@ func get_selection():
 		selected = true
 		var collider = str(result.collider).get_slice(":",0)
 		print(collider)
-		hover_object.emit(collider)
+		var is_in_slots: bool = false
+		for i in 3:
+			if str(slots[i]).get_slice(":",0) == collider:
+				is_in_slots = true
+		if !is_in_slots:
+			hover_object.emit(collider)
 
 func _on_pick_up(slot, state, item):
-	print(slot," ", state," ", item)
+	print("pick up ",slot," ", state," ", item)
 	if state == 1:
 		if slots[slot] == null:
 			slots[slot] = item
 			slots[slot].gravity_scale = 0
-			slots[slot].disable_coll()
-			t = 0.0
+			tj[slot] = 0.0
 			slots[slot].rotation = Vector3(0,0,0)
 			slots[slot].sleeping = true
 			pickup = Vector3(item.global_position)
 	else:
 		if slots[slot] != null:
 			slots[slot].gravity_scale = 3
-			slots[slot].enable_coll()
 			var facing = $Camera3D.get_camera_transform().basis.z
 			slots[slot].sleeping = false
-			slots[slot].apply_force(Vector3(300*facing.x,0,300*facing.z))
+			slots[slot].apply_force(Vector3(300*-facing.x,0,300*-facing.z))
 			slots[slot] = null
+	print(slots)
 
 func slots_handler(delta):
 	for i in 3:
@@ -136,18 +153,20 @@ func slots_handler(delta):
 			if i == 2:
 				spacing = Vector3(0,0.5,0)
 				gazlamp_timing = 120.0
-			if t <= 1.0:
-				t += delta * 0.9
-				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * t
+			if tj[i] <= 1.0:
+				tj[i] += delta * 0.9
+				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * tj[i]
 			else:
 				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
 			if flower_on:
-				if !timer_1_shot:
+				if !timer_1_shot_flower:
 					$Timer_fleur.start()
-					print("COUBEH", slots[i].items)
-					timer_1_shot = true
+					timer_1_shot_flower = true
 			if slots[i].items == slots[i].Items.GAZLAMP:
-				print("test")
+				if ! timer_1_shot_gazlamp:
+					timer_1_shot_gazlamp = true
+					$Timer_gazlamp.start()
+
 
 func wire_handler(delta):
 	if cable_active == true:
@@ -173,10 +192,13 @@ func wire_handler(delta):
 
 func _on_timer_timeout():
 	if audio_state != Condition.BROKEN:
-		audio_state = audio_state + 1 
+		audio_state += 1 
 		print("Audio state : ", audio_state)
-		timer_1_shot = false
-
+		timer_1_shot_flower = false
 
 func _on_timer_gazlamp_timeout():
-	pass # Replace with function body.
+	if visual_state != Condition.BROKEN:
+		visual_state += 1
+		print("Visual state : ", visual_state)
+		timer_1_shot_gazlamp = false
+		visual_degradation.emit(6)

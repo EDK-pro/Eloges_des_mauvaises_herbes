@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2shfjxk30e3u"]
+
+[ext_resource type="PackedScene" uid="uid://db8vh5ao11mnp" path="res://assets/assets 3D lukas/manivelletxt.glb" id="1_ytl5u"]
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="manivelletxt" parent="." instance=ExtResource("1_ytl5u")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0196105, 0, 0.782163)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

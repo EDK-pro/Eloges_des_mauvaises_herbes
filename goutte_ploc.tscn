@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0g33o7j5rca1"]
+[gd_scene load_steps=5 format=3 uid="uid://d0g33o7j5rca1"]
 
 [ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/tres_file(fichier_ressources)/goutte.tres" id="1_b46j0"]
 [ext_resource type="Script" path="res://goutte_ploc.gd" id="1_r80g8"]
+[ext_resource type="AudioStream" uid="uid://dl080s0ng13s0" path="res://assets/Test_assets/sound_crushed/test_droplet_bitcrushed_0001-001.ogg" id="3_d8bsm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nehal"]
 height = 1.0
 
 [node name="Goutte_ploc" type="Area3D"]
+collision_layer = 3
+collision_mask = 3
 gravity_point = true
 script = ExtResource("1_r80g8")
 
@@ -19,9 +22,11 @@ skeleton = NodePath("")
 shape = SubResource("CapsuleShape3D_nehal")
 
 [node name="Son_goutte" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_d8bsm")
+bus = &"EQ_test"
 
 [node name="End_Drop" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.7
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

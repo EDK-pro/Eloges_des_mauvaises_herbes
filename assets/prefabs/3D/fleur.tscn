@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://uf05a6oxjptl"]
+
+[ext_resource type="PackedScene" uid="uid://b6amvuxwxiwq5" path="res://assets/assets 3D lukas/fleurtxt.glb" id="1_cdr7o"]
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="fleurtxt" parent="." instance=ExtResource("1_cdr7o")]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, -0.0377803, 0, 0.0650771)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278254, 1.0713, 0.0556507)

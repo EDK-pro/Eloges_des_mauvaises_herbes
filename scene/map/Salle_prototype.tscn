@@ -224,8 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.86127)
 
 [node name="UI" type="Node" parent="."]
 
-[node name="Player" parent="." node_paths=PackedStringArray("light") instance=ExtResource("8_hn4av")]
-light = NodePath("../POST_PROCESS/OmniLight3D")
+[node name="Player" parent="." instance=ExtResource("8_hn4av")]
 
 [node name="POST_PROCESS" type="Node" parent="."]
 
@@ -262,4 +261,4 @@ visible = false
 [editable path="Salle/Flower"]
 [editable path="Salle/rope"]
 [editable path="Player"]
-[editable path="Player/Cable"]
+[editable path="Player/Player/Cable"]

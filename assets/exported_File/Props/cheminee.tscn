@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2n0l10och3v7"]
+
+[ext_resource type="PackedScene" uid="uid://css50jsvu6cg0" path="res://assets/exported_File/cheminee.glb" id="1_7ifnu"]
+
+[node name="cheminee" instance=ExtResource("1_7ifnu")]

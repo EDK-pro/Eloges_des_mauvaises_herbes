@@ -3,6 +3,10 @@ extends Area3D
 var sound_array: Array
 var sound_array_crushed: Array
 var crushed: int
+var touch_once: bool = false
+var speed: float
+var mass: float = 1.0
+signal watering
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,26 +27,34 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.y -= 0.1
+	speed += 0.01
+	position.y -= speed
 
 func _on_body_entered(body):
-	if crushed == 3:
-		$Son_goutte.volume_db = -40.0
-	elif crushed != 3:
-		var chosen_drop = randi_range(0,5)
-		var pitch_shift: float = randf_range(0.9,1.1)
-		var volume_shift: float = randf_range(-3.0,0.0)
-		if crushed == 0:
-			$Son_goutte.stream = sound_array[chosen_drop]
-			$Son_goutte.bus = "Master"
-		if crushed >= 1:
-			$Son_goutte.stream = sound_array_crushed[chosen_drop]
-		if crushed == 2:
+	if !touch_once:
+		if crushed == 3:
+			$Son_goutte.volume_db = -40.0
+		elif crushed != 3:
+			var chosen_drop = randi_range(0,5)
+			var pitch_shift: float = randf_range(0.9,1.1)
+			var volume_shift: float = randf_range(-3.0,0.0)
+			if crushed == 0:
+				$Son_goutte.stream = sound_array[chosen_drop]
+				$Son_goutte.bus = "EQ_test"
+			if crushed >= 1:
+				$Son_goutte.stream = sound_array_crushed[chosen_drop]
+			if crushed == 2:
+				AudioServer.set_bus_volume_db(0,linear_to_db(0.2))
+			$Son_goutte.pitch_scale = pitch_shift
+			$Son_goutte.volume_db = volume_shift
+		if str(body).get_slice(":",0) == "Flower":
 			$Son_goutte.bus = "Reducson"
-		$Son_goutte.pitch_scale = pitch_shift
-		$Son_goutte.volume_db = volume_shift
-	$Son_goutte.play()
-	$End_Drop.start()
+		if str(body).get_slice(":",0) == "GazLamp":
+			$Son_goutte.bus = "Reducson"
+			watering.emit()
+		$Son_goutte.play()
+		$End_Drop.start()
+	touch_once = true
 
 func _on_end_drop_timeout():
 	queue_free()

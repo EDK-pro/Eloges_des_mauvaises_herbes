@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://o7ido6u8yes"]
+[gd_scene load_steps=5 format=3 uid="uid://o7ido6u8yes"]
 
+[ext_resource type="Script" path="res://script/game_rule/render_container.gd" id="1_aviqf"]
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
-[ext_resource type="PackedScene" uid="uid://cf5nvu2p6q8c1" path="res://scene/map/salon.tscn" id="2_ps3hp"]
+[ext_resource type="PackedScene" uid="uid://lwx303ixa3jm" path="res://salon_proto.tscn" id="3_jr21j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkat"]
 shader = ExtResource("1_iggdh")
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aviqf")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_lgkat")
@@ -36,4 +38,4 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="Salon" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_ps3hp")]
+[node name="Salon_Proto" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_jr21j")]

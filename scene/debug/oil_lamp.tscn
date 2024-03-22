@@ -5,19 +5,33 @@
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="2_d5a3o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jybwe"]
+height = 1.0
 
 [node name="GazLamp" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ncq60")
 items = 1
 
 [node name="lampe" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = ExtResource("1_rj0j7")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_jybwe")
 
 [node name="UIHandler" parent="." instance=ExtResource("2_d5a3o")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.684773, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.293012, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.916808, 0)
+light_color = Color(1, 0.717647, 0, 1)
+light_energy = 0.0
+
+[node name="TimerWet" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="TimerWet" to="." method="_on_timer_wet_timeout"]

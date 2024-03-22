@@ -1,27 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr7ikn6s6wsh1"]
+[gd_scene load_steps=5 format=3 uid="uid://dr7ikn6s6wsh1"]
 
 [ext_resource type="Script" path="res://script/interactable/lever.gd" id="1_5vbjq"]
 [ext_resource type="PackedScene" uid="uid://cgup2880voa2f" path="res://scene/ui/ui_handler.tscn" id="1_gccw4"]
+[ext_resource type="PackedScene" uid="uid://c2shfjxk30e3u" path="res://assets/prefabs/3D/manivelle.tscn" id="3_t2ufj"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m52iy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl1ol"]
-albedo_color = Color(1, 0.8, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_8g3h8"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1h8bd"]
+size = Vector3(0.18486, 0.578979, 1.33044)
 
 [node name="Lever" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5vbjq")
 items = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_m52iy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_bl1ol")
-mesh = SubResource("SphereMesh_8g3h8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0175705, 0.28949, -0.126282)
+shape = SubResource("BoxShape3D_1h8bd")
 
 [node name="UIHandler" parent="." instance=ExtResource("1_gccw4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371915, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("3_t2ufj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.167035)
