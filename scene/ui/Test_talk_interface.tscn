@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3povbytmkdxo"]
 
 [ext_resource type="Script" path="res://script/Ui/Test_talk_interface.gd" id="1_w0mh1"]
-[ext_resource type="Texture2D" uid="uid://dmmorod2h1fj3" path="res://assets/visuel/UI_sprite/barre_interact_object_png.png" id="2_hk0wt"]
-[ext_resource type="Texture2D" uid="uid://hr25xrt68q4u" path="res://assets/visuel/UI_sprite/rectangle_1_png.png" id="3_765yb"]
-[ext_resource type="Texture2D" uid="uid://dcn80rryvbqe6" path="res://assets/visuel/UI_sprite/son_1_png.png" id="4_rtsmw"]
+[ext_resource type="Texture2D" uid="uid://dklcnjdg2wn6r" path="res://assets/visuel/UI_sprite/barre_interact_object_png.png" id="2_hk0wt"]
+[ext_resource type="Texture2D" uid="uid://bdpjplji5ha72" path="res://assets/visuel/UI_sprite/rectangle_1_png.png" id="3_765yb"]
+[ext_resource type="Texture2D" uid="uid://by5vut8no5llr" path="res://assets/visuel/UI_sprite/son_1_png.png" id="4_rtsmw"]
 
 [node name="Talk" type="Control"]
 layout_mode = 3

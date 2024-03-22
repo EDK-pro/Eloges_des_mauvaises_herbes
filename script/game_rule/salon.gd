@@ -63,13 +63,14 @@ func talkWith(item):
 	var correctArray: Array
 	var talkative_name = str(item).get_slice(":",0)
 	print("Bah alors ",  talkative_name)
-	if talkative_name == "book_shelf":
-		marginTime = 250
-		symbolCount = 4.0
-		communicationDuration = 5.0
-		correctArray = [0,1,0,1]
-		$UI/Talk.show()
-		$UI/Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
+	if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
+		if talkative_name == "phone":
+			marginTime = 250
+			symbolCount = 4.0
+			communicationDuration = 5.0
+			correctArray = [0,1,0,1]
+			$UI/Talk.show()
+			$UI/Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
 
 func _end_demo():
 	var tweeen = get_tree().create_tween()

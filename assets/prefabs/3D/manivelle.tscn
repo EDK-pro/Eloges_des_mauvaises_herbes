@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2shfjxk30e3u"]
 
-[ext_resource type="PackedScene" uid="uid://db8vh5ao11mnp" path="res://assets/assets 3D lukas/manivelletxt.glb" id="1_ytl5u"]
+[ext_resource type="PackedScene" uid="uid://bmpfr52ygae15" path="res://assets/assets 3D lukas/manivelletxt.glb" id="1_ytl5u"]
 
 [node name="Node3D" type="StaticBody3D"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qufir3t40d1"]
+[gd_scene load_steps=38 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="5_3vh5x"]
 [ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="6_10kuo"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="7_1su2n"]
-[ext_resource type="PackedScene" uid="uid://05pd1lqj65uy" path="res://scene/interactable/umbrella.tscn" id="7_ilpc4"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="8_aorp1"]
 [ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="8_xmhrp"]
 [ext_resource type="PackedScene" uid="uid://dyh6uap78vnd7" path="res://scene/debug/oil_lamp.tscn" id="9_c6rxg"]
@@ -16,18 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="11_rreh3"]
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
-[ext_resource type="PackedScene" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
-[ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/umbrella2.tscn" id="18_eda6k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
-albedo_texture = ExtResource("1_ur80u")
-
-[sub_resource type="BoxMesh" id="BoxMesh_0em22"]
-material = SubResource("StandardMaterial3D_n4o6l")
-size = Vector3(20, 0.2, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0bnkt"]
-size = Vector3(20, 0.2, 20)
+[ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
+[ext_resource type="Texture2D" uid="uid://cnfwmodflvxrd" path="res://assets/texture/5.jpg" id="17_26wv4"]
+[ext_resource type="PackedScene" uid="uid://ifcikpu5t7sk" path="res://scene/interactable/interactible_communication.tscn" id="17_vtopo"]
+[ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/phone.tscn" id="18_46vmm"]
+[ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="18_c411q"]
+[ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="19_a01i2"]
+[ext_resource type="Texture2D" uid="uid://c075laxa1jdtr" path="res://assets/texture/8.jpg" id="20_wi4qv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
 sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
@@ -57,19 +51,53 @@ volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
 volumetric_fog_emission_energy = 0.1
 volumetric_fog_detail_spread = 0.75
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu7xw"]
+albedo_texture = ExtResource("1_ur80u")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0a3ys"]
+material = SubResource("StandardMaterial3D_tu7xw")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnkt"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhct8"]
+albedo_texture = ExtResource("17_26wv4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv0sp"]
+material = SubResource("StandardMaterial3D_hhct8")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
+albedo_texture = ExtResource("18_c411q")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pnpk0"]
+material = SubResource("StandardMaterial3D_n4o6l")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7n66c"]
+material = SubResource("StandardMaterial3D_n4o6l")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqqih"]
+albedo_texture = ExtResource("19_a01i2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h7e87"]
+material = SubResource("StandardMaterial3D_eqqih")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv1bp"]
+albedo_texture = ExtResource("20_wi4qv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpqxo"]
+material = SubResource("StandardMaterial3D_vv1bp")
+size = Vector3(20, 0.2, 20)
+
 [node name="Salon_Proto" type="Node3D" node_paths=PackedStringArray("Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Fondu")]
 script = ExtResource("1_hlaio")
 Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
 Ui_Text_Item = NodePath("UI/Control_Item")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
-
-[node name="Ground" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_0em22")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_0bnkt")
 
 [node name="Environnement" type="Node" parent="."]
 
@@ -77,13 +105,15 @@ shape = SubResource("BoxShape3D_0bnkt")
 environment = SubResource("Environment_h5134")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
-transform = Transform3D(-0.246384, -0.901363, -0.356145, 0.660728, -0.425059, 0.618679, -0.709037, -0.0828825, 0.700284, 0, 26.5418, 0)
+transform = Transform3D(-0.246384, -0.901363, -0.356145, 0.660728, -0.425059, 0.618679, -0.709037, -0.0828826, 0.700284, 0, 6.48825, 0)
+visible = false
 light_color = Color(0.262745, 0.364706, 0.427451, 1)
 light_energy = 0.0
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20.0089, -13.1725)
+visible = false
 light_color = Color(0.588235, 0.701961, 0.505882, 1)
 light_energy = 1.781
 light_indirect_energy = 0.506
@@ -151,7 +181,7 @@ offset_bottom = 286.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_aorp1")
 theme_override_font_sizes/normal_font_size = 29
-text = "Dans cet salle plusieurs objets sont disponible , peut etre meme que certain peuvent intéragir avec les objets du salon? "
+text = "Dans cette salle plusieurs objets sont disponible pourront attirer votre attention. Peut etre même que certain pourront  intéragir avec les objets du salon si vous cliquez dessus ?"
 
 [node name="Button_Arrivee" type="Button" parent="UI/Control_Arrivee"]
 layout_mode = 1
@@ -204,7 +234,7 @@ offset_bottom = 286.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_aorp1")
 theme_override_font_sizes/normal_font_size = 29
-text = "Pour équiper un objet choissisez un slot, une fois faite attention reinette peut se blesser !"
+text = "Pour équiper un objet choisissez un emplacement. Cependant faites attention, ces vieux objets peuvent vous blesser ! Vous pourrez utiliser certains objets en appuyant sur F !"
 
 [node name="Button_Item" type="Button" parent="UI/Control_Item"]
 layout_mode = 1
@@ -234,9 +264,6 @@ visible = false
 [node name="Flower" parent="." instance=ExtResource("6_10kuo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58814, 0, -5.52725)
 
-[node name="Umbrella" parent="." instance=ExtResource("7_ilpc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64556, 3.73123, -5.52664)
-
 [node name="Lever" parent="." instance=ExtResource("8_xmhrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21434, 0.393666, -3.53681)
 
@@ -257,11 +284,66 @@ transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 
 [node name="Table" parent="Static" instance=ExtResource("13_ck313")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.44182, 0, -5.57309)
 
-[node name="cheminee" parent="." instance=ExtResource("16_g5dk3")]
+[node name="cheminee" parent="Static" instance=ExtResource("16_g5dk3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.91665, 3.52255, -8.55649)
 
-[node name="Umbrella2" parent="." instance=ExtResource("18_eda6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58555, 3.29324, -3.80229)
+[node name="Ground" type="StaticBody3D" parent="Static"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground"]
+mesh = SubResource("BoxMesh_0a3ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground2" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.282, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground2"]
+mesh = SubResource("BoxMesh_rv0sp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground2"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground3" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10.1057, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground3"]
+mesh = SubResource("BoxMesh_pnpk0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground3"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground4" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -9.72034)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground4"]
+mesh = SubResource("BoxMesh_7n66c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground4"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground5" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 10.0282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground5"]
+mesh = SubResource("BoxMesh_h7e87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground5"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground6" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.0119, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground6"]
+mesh = SubResource("BoxMesh_wpqxo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground6"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="phone" parent="." instance=ExtResource("17_vtopo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40436, 3.18518, -5.74732)
+
+[node name="Phone" parent="phone" instance=ExtResource("18_46vmm")]
 
 [connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
 [connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]

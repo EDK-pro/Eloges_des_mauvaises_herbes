@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3an2arrntr5k"]
 
-[ext_resource type="PackedScene" uid="uid://j14j54bjnxa2" path="res://assets/assets 3D lukas/fauteuiltxt.glb" id="1_dx3rm"]
+[ext_resource type="PackedScene" uid="uid://dr4a7kwoqjovb" path="res://assets/assets 3D lukas/fauteuiltxt.glb" id="1_dx3rm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7mfnr"]
 size = Vector3(2.06409, 2.59814, 2.06104)

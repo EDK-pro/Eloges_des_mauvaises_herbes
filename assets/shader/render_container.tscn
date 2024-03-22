@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/game_rule/render_container.gd" id="1_aviqf"]
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
-[ext_resource type="PackedScene" uid="uid://lwx303ixa3jm" path="res://salon_proto.tscn" id="3_jr21j"]
+[ext_resource type="PackedScene" uid="uid://qufir3t40d1" path="res://salon_proto.tscn" id="3_jr21j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkat"]
 shader = ExtResource("1_iggdh")
@@ -35,6 +35,7 @@ grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+audio_listener_enable_3d = true
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
