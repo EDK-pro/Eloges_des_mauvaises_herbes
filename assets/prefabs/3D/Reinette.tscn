@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8y0vf7rwqliw"]
 
-[ext_resource type="PackedScene" uid="uid://degpkmeayma2s" path="res://assets/assets 3D lukas/reinette.glb" id="1_ea0p5"]
+[ext_resource type="PackedScene" uid="uid://eua88todfj7w" path="res://assets/assets 3D lukas/reinette.glb" id="1_ea0p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_15b4l"]
 radius = 0.479511
 
 [node name="StaticBody3D" type="StaticBody3D"]
 
-[node name="reinette" parent="." instance=ExtResource("1_ea0p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0111367, 0, 0.0582139)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.839329, 0)
 shape = SubResource("CapsuleShape3D_15b4l")
+
+[node name="reinette" parent="." instance=ExtResource("1_ea0p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00250334, 0, 0.0467075)
