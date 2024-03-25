@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7k0b8w5886gp"]
 
 [ext_resource type="Script" path="res://script/interactable/umbrella.gd" id="1_kyvng"]
-[ext_resource type="PackedScene" uid="uid://c56tk6cq7nx1g" path="res://assets/assets 3D lukas/phone.glb" id="2_g1tpn"]
+[ext_resource type="PackedScene" uid="uid://bjrn7relpcx1c" path="res://assets/assets 3D lukas/phone.glb" id="2_g1tpn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10b6j"]
-size = Vector3(0.380542, 0.152881, 0.712299)
+size = Vector3(0.789699, 0.34646, 0.957127)
 
 [sub_resource type="Animation" id="Animation_oaet4"]
 resource_name = "light stuff"
@@ -37,7 +37,7 @@ light = NodePath("OmniLight3D")
 lightfinisher = NodePath("Finish_timer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0140747, 0.191626, -0.00599071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122887, 0.179713, -0.0201028)
 shape = SubResource("BoxShape3D_10b6j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -62,7 +62,7 @@ autostart = true
 one_shot = true
 
 [node name="phone" parent="." instance=ExtResource("2_g1tpn")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0069958, 0.18159, 0.000808477)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0069958, 0.0630237, 0.000808477)
 
 [connection signal="timeout" from="lightTimer" to="." method="_on_light_timer_timeout"]
 [connection signal="timeout" from="Finish_timer" to="." method="_on_finish_timer_timeout"]

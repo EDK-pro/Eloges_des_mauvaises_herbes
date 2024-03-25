@@ -36,7 +36,7 @@ offset_right = -272.0
 offset_bottom = 37.0
 grow_horizontal = 0
 grow_vertical = 2
-color = Color(1, 0.160784, 1, 1)
+color = Color(1, 0.160784, 1, 0.00392157)
 
 [node name="Line" type="TextureRect" parent="Timing"]
 layout_mode = 1

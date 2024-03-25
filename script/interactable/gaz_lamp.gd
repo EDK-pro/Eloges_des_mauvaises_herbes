@@ -9,7 +9,7 @@ func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
 
-func _process(delta):
+func _process(_delta):
 	turn_on_light(lamp_energy_emission)
 	if status == Slots.SLOT_3:
 		if Input.is_action_just_pressed("Use_item"):
@@ -33,7 +33,7 @@ func _hovered(item_name):
 		$UIHandler/SubView/Select_Object._on_selected_object()
 		is_being_selected = true
 
-func _stop_value_circle(slot):
+func _stop_value_circle(_slot):
 	circle = $UIHandler/SubView/Select_Object/Circle.value
 	$UIHandler/SubView/Select_Object.stop_processus()
 

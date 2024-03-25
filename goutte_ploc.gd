@@ -27,7 +27,7 @@ func _ready():
 	sound_array_crushed[5] = load("res://assets/Test_assets/sound_crushed/test_droplet_bitcrushed_0001-006.ogg")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	speed += 0.01
 	position.y -= speed
 

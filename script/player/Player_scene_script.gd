@@ -5,7 +5,7 @@ var fauteil
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if can_step:
 		if Input.is_action_just_pressed("step_up"):
 			$Player.look_at(fauteil.global_position)

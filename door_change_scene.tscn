@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://2t673dsmj4hh"]
+
+[ext_resource type="Script" path="res://script/2d_scene/door_change_scene.gd" id="1_0d15m"]
+[ext_resource type="Texture2D" uid="uid://b74gg78g0yw7q" path="res://assets/exported_File/Props/door002_Door002-Door002.png" id="1_g4e6a"]
+[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="2_kcw0q"]
+[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="4_brrs5"]
+[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="5_c33nf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fs4n"]
+size = Vector3(2.073, 0.786028, 3.32907)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn4nj"]
+transparency = 1
+albedo_texture = ExtResource("1_g4e6a")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0ae21"]
+material = SubResource("StandardMaterial3D_kn4nj")
+size = Vector2(4, 4)
+
+[node name="Door" type="Area3D" node_paths=PackedStringArray("Ui_Text_Salon", "Ui_Fondu")]
+script = ExtResource("1_0d15m")
+next_scene = ExtResource("2_kcw0q")
+Ui_Text_Salon = NodePath("Control_Scene_Change")
+Ui_Fondu = NodePath("Fondu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0687256, 0.32006, -0.0379181)
+shape = SubResource("BoxShape3D_3fs4n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0ae21")
+
+[node name="Fondu" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Control_Scene_Change" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="Control_Scene_Change"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_brrs5")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control_Scene_Change/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_c33nf")
+theme_override_font_sizes/normal_font_size = 29
+text = "Souhaitez vous entrer dans le salon ?"
+
+[node name="Button_Yes" type="Button" parent="Control_Scene_Change"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -444.0
+offset_top = 130.0
+offset_right = -144.0
+offset_bottom = 230.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Entrer"
+
+[node name="Button_No" type="Button" parent="Control_Scene_Change"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 135.0
+offset_top = 130.0
+offset_right = 435.0
+offset_bottom = 230.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Le moment 
+n'est pas encore venu"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="pressed" from="Control_Scene_Change/Button_Yes" to="." method="_on_button_yes_pressed"]
+[connection signal="pressed" from="Control_Scene_Change/Button_No" to="." method="_on_button_no_pressed"]

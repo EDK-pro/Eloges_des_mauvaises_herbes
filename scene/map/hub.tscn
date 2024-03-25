@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=31 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="1_2norj"]
 [ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_cx5ut"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
 [ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
 [ext_resource type="Texture2D" uid="uid://cq4u3gfat3jet" path="res://assets/visuel/anim_reinette/reinette_idle0001.png" id="4_aeb8g"]
-[ext_resource type="PackedScene" uid="uid://jb0h6p3x7d1x" path="res://scene/interactable/door_2d.tscn" id="4_mfgea"]
 [ext_resource type="PackedScene" uid="uid://c2tqn62dvcu6t" path="res://scene/interactable/Trigger_UI.tscn" id="5_rc0ef"]
 [ext_resource type="Texture2D" uid="uid://c0kb47e0h7tu0" path="res://assets/visuel/anim_reinette/reinette_idle0002.png" id="5_v3l4e"]
 [ext_resource type="Texture2D" uid="uid://cory53qsdutro" path="res://assets/visuel/anim_reinette/reinette_idle0003.png" id="6_pi6te"]
@@ -15,13 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://cfdm3cw50j71a" path="res://assets/visuel/anim_reinette/reinette_walk0003.png" id="10_l4ljc"]
 [ext_resource type="Texture2D" uid="uid://cho6u5ydyju24" path="res://assets/visuel/anim_reinette/reinette_walk0004.png" id="11_bdpht"]
 [ext_resource type="Texture2D" uid="uid://fjwu4alb6fld" path="res://assets/visuel/anim_reinette/reinette_walk0005.png" id="12_5ciu6"]
-[ext_resource type="PackedScene" uid="uid://o7ido6u8yes" path="res://assets/shader/render_container.tscn" id="15_2nf5r"]
 [ext_resource type="PackedScene" uid="uid://bk2u1ki0voqg5" path="res://assets/prefabs/props_ready/books_001.tscn" id="15_tx1vo"]
 [ext_resource type="PackedScene" uid="uid://b2cbrj8vdkw4p" path="res://assets/prefabs/props_ready/tournedisque.tscn" id="16_3sdn3"]
 [ext_resource type="PackedScene" uid="uid://b323tbrfo0vm1" path="res://assets/prefabs/props_ready/velo.tscn" id="17_tmo5d"]
 [ext_resource type="PackedScene" uid="uid://4ajlksjmu6qm" path="res://assets/prefabs/props_ready/bois_001.tscn" id="18_g5abf"]
 [ext_resource type="PackedScene" uid="uid://dj4bxk8o7xqqa" path="res://assets/prefabs/props_ready/bois_002.tscn" id="19_vgyph"]
 [ext_resource type="PackedScene" uid="uid://b57n3y5o8h7v7" path="res://assets/prefabs/props_ready/caillou_001.tscn" id="20_o3ttl"]
+[ext_resource type="PackedScene" uid="uid://2t673dsmj4hh" path="res://door_change_scene.tscn" id="21_264ef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]
 sky_top_color = Color(0.615686, 0.356863, 0.447059, 1)
@@ -202,10 +201,6 @@ sprite_frames = SubResource("SpriteFrames_6rbt4")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Door" parent="." instance=ExtResource("4_mfgea")]
-transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 2.30413, -9.55113)
-next_scene = ExtResource("15_2nf5r")
-
 [node name="trigger_UI" parent="." instance=ExtResource("5_rc0ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.57715, 149.903, -129.595)
 
@@ -258,3 +253,6 @@ transform = Transform3D(1, 0, 0, 0, 0.601815, 0.798636, 0, -0.798636, 0.601815, 
 
 [node name="caillou006" parent="props" instance=ExtResource("20_o3ttl")]
 transform = Transform3D(3, 0, 0, 0, 1.20363, 0.798636, 0, -1.59727, 0.601815, 5.51653, 0.289183, 3.00401)
+
+[node name="Door" parent="." instance=ExtResource("21_264ef")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.62986, -9.83771)
