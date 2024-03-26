@@ -113,7 +113,7 @@ func get_selection():
 			if str(slots[i]).get_slice(":",0) == collider:
 				is_in_slots = true
 		if !is_in_slots:
-			hover_object.emit(collider)
+			hover_object.emit(collider,slots)
 
 func _on_pick_up(slot, state, item):
 	print("pick up ",slot," ", state," ", item)

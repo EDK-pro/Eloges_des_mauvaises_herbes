@@ -4,9 +4,9 @@ func _ready():
 	self.add_to_group("pickable_item")
 	item_placed.connect(_on_item_placed.bind())
 
-func _hovered(item_name):
+func _hovered(item_name,occupied_slots):
 	if item_name == Litems.FLOWER:
-		$UIHandler/SubView/Select_Object._on_selected_object()
+		$UIHandler/SubView/Select_Object._on_selected_object(occupied_slots)
 		is_being_selected = true
 
 func _stop_value_circle(_slot):

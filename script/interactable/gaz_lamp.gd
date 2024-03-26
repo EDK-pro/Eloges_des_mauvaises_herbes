@@ -28,9 +28,9 @@ func turn_on_light(energy):
 	var multiply = 1 - ($TimerWet.time_left / 6.0)
 	$OmniLight3D.light_energy = energy * multiply
 
-func _hovered(item_name):
+func _hovered(item_name,occupied_slots):
 	if item_name == Litems.GAZLAMP:
-		$UIHandler/SubView/Select_Object._on_selected_object()
+		$UIHandler/SubView/Select_Object._on_selected_object(occupied_slots)
 		is_being_selected = true
 
 func _stop_value_circle(_slot):

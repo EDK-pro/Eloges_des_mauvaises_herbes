@@ -4,6 +4,7 @@ extends Control
 @export var Ui_Text_Arrivee:Control
 @export var Ui_Text_Item:Control
 @export var Ui_Tab:Control
+@export var Ui_Slot_Selection:Control
 
 @export var End_Game:PackedScene
 
@@ -20,16 +21,39 @@ func _ready():
 	$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$SubViewportContainer/SubViewport/Salon_Proto.Ui_Talk.reussite_signal.connect(_end_game.bind())
-
+	for i in $SubViewportContainer/SubViewport/Salon_Proto.pickable_array.size():
+		## When slot clicked, reset the circles
+		Ui_Slot_Selection.slot_accepted.connect($SubViewportContainer/SubViewport/Salon_Proto.pickable_array[i]._stop_value_circle.bind())
+		## When slot clicked, put an item in if available
+		Ui_Slot_Selection.slot_accepted.connect($SubViewportContainer/SubViewport/Salon_Proto.pickable_array[i]._on_click.bind())
+		$SubViewportContainer/SubViewport/Salon_Proto.circle_array[i].item_fully_selected.connect(Ui_Slot_Selection._on_full_circle.bind())
+		$SubViewportContainer/SubViewport/Salon_Proto.circle_array[i].item_fully_selected.connect(_text_item_appear.bind())
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if $SubViewportContainer/SubViewport/Salon_Proto.text_item_appearing:
-		_text_item_appear()
+		_text_item_appear(1)
 		$SubViewportContainer/SubViewport/Salon_Proto.text_item_appearing = false
 	if $SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing:
 		_text_tab_appear()
 		$SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing = false
-
+	if Input.is_action_just_pressed("yeet_item"):
+		#Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
+		#Input.mouse_mode = (2 - Input.mouse_mode)
+		if !Ui_Slot_Selection.visible:
+			var occupied_slots:Array[bool] = [true,true,true]
+			for i in 3:
+				if $SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.slots[i] == null:
+					occupied_slots[i] = false
+			Ui_Slot_Selection._on_full_circle(occupied_slots) 
+		else:
+			Input.mouse_mode = (2 - Input.mouse_mode)
+			Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
+		#Input.mouse_mode = (2 - Input.mouse_mode)
+	if $SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab == 1:
+		$SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing = true
+		$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab = 2
+	
 func change_shader_quality(indice):
 	if $SubViewportContainer.material.get_shader_parameter("enable_recolor"):
 		var tweeen = get_tree().create_tween()
@@ -45,7 +69,7 @@ func reset_shader():
 	$SubViewportContainer.material.set_shader_parameter("target_resolution_scale",3)
 	$SubViewportContainer.material.set_shader_parameter("enable_recolor",false)
 
-func _text_item_appear():
+func _text_item_appear(_on_ignore):
 	if tuto_item_once:
 		Ui_Text_Item.visible = true
 		var tween = get_tree().create_tween()

@@ -1,7 +1,6 @@
 [gd_scene load_steps=58 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
-[ext_resource type="Texture2D" uid="uid://cl1btn3jvs2ch" path="res://assets/texture/4.jpg" id="1_ur80u"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_gvyjd"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="3_nt2yt"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="4_5th0c"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="11_rreh3"]
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
+[ext_resource type="Texture2D" uid="uid://62bllx5q0rce" path="res://assets/visuel/floor002_png.png" id="14_laj32"]
 [ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
 [ext_resource type="Texture2D" uid="uid://cnfwmodflvxrd" path="res://assets/texture/5.jpg" id="17_26wv4"]
 [ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/phone.tscn" id="18_46vmm"]
@@ -67,12 +67,12 @@ volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
 volumetric_fog_emission_energy = 0.1
 volumetric_fog_detail_spread = 0.75
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu7xw"]
-albedo_texture = ExtResource("1_ur80u")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbvn0"]
+albedo_texture = ExtResource("14_laj32")
 
-[sub_resource type="BoxMesh" id="BoxMesh_0a3ys"]
-material = SubResource("StandardMaterial3D_tu7xw")
-size = Vector3(20, 0.2, 20)
+[sub_resource type="PlaneMesh" id="PlaneMesh_q8o8q"]
+material = SubResource("StandardMaterial3D_nbvn0")
+size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0bnkt"]
 size = Vector3(20, 0.2, 20)
@@ -154,6 +154,7 @@ spot_angle_attenuation = 0.0213444
 [node name="Player" type="Node" parent="."]
 
 [node name="Player_scene" parent="Player" instance=ExtResource("2_gvyjd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27313, 0, 7.63467)
 
 [node name="UI" type="Node" parent="."]
 
@@ -234,7 +235,8 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.91665, 3.52255, -9.40932)
 [node name="Ground" type="StaticBody3D" parent="Static"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground"]
-mesh = SubResource("BoxMesh_0a3ys")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.216497)
+mesh = SubResource("PlaneMesh_q8o8q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground"]
 shape = SubResource("BoxShape3D_0bnkt")
@@ -276,7 +278,7 @@ mesh = SubResource("BoxMesh_h7e87")
 shape = SubResource("BoxShape3D_0bnkt")
 
 [node name="Ground6" type="StaticBody3D" parent="Static"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 9.95257, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 10.5127, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground6"]
 mesh = SubResource("BoxMesh_wpqxo")
