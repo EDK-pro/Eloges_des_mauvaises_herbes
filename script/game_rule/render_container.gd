@@ -5,6 +5,9 @@ extends Control
 @export var Ui_Text_Item:Control
 @export var Ui_Tab:Control
 
+@export var End_Game:PackedScene
+
+
 var tuto_item_once: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +19,7 @@ func _ready():
 	tween.tween_property(Ui_Text_Arrivee, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
 	$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$SubViewportContainer/SubViewport/Salon_Proto.Ui_Talk.reussite_signal.connect(_end_game.bind())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -91,3 +95,8 @@ func _on_button_tab_pressed():
 	tween.tween_property(Ui_Tab, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
 	$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _end_game():
+	reset_shader()
+	get_tree().change_scene_to_packed(End_Game)

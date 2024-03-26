@@ -138,7 +138,7 @@ environment = SubResource("Environment_h5134")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
 transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603065, 0, 6.48825, 0)
 light_color = Color(0.262745, 0.364706, 0.427451, 1)
-light_energy = 2.854
+light_energy = 16.0
 shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]

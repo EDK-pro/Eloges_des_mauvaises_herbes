@@ -16,3 +16,4 @@ func _on_finish_timer_timeout():
 	var tween = get_tree().create_tween()
 	tween.tween_property(light, "light_energy", 0.0, 0.5).set_trans(Tween.TRANS_BACK)
 	lightHint.start()
+

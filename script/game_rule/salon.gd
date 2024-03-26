@@ -92,8 +92,8 @@ func talkWith(item):
 func _end_demo():
 	var tweeen = get_tree().create_tween()
 	tweeen.tween_property(Ui_Fondu, "color", Color(0.0,0.0,0.0,1.0), 2).set_trans(Tween.TRANS_CUBIC)
-	for i in 4:
-		$Player/Player_scene/Player.visual_degradation.emit(6)
+	#for i in 4:
+		#$Player/Player_scene/Player.visual_degradation.emit(6)
 
 func _text_item_appear():
 	if tuto_item_once:

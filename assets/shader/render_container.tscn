@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://o7ido6u8yes"]
+[gd_scene load_steps=8 format=3 uid="uid://o7ido6u8yes"]
 
 [ext_resource type="Script" path="res://script/game_rule/render_container.gd" id="1_aviqf"]
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
+[ext_resource type="PackedScene" uid="uid://itd7dnhqv51g" path="res://scene/map/Story_1.tscn" id="2_e6sgq"]
 [ext_resource type="PackedScene" uid="uid://qufir3t40d1" path="res://salon_proto.tscn" id="3_jr21j"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="4_8i8wj"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="5_pmu7u"]
@@ -27,6 +28,7 @@ Ui_Reset_Button = NodePath("Button_Reset")
 Ui_Text_Arrivee = NodePath("Control_Arrivee")
 Ui_Text_Item = NodePath("Control_Item")
 Ui_Tab = NodePath("Control_Tab")
+End_Game = ExtResource("2_e6sgq")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_lgkat")
@@ -56,7 +58,7 @@ offset_top = 332.0
 offset_right = 1226.0
 offset_bottom = 586.0
 theme_override_font_sizes/font_size = 20
-text = "Trop de malfonction, votre corps cesse de répondre.
+text = "Trop de dysfonctionnement, votre corps cesse de répondre.
 
 Cliquer pour Recommencer"
 

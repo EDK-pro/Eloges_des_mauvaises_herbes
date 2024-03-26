@@ -35,4 +35,8 @@ light_bake_mode = 0
 wait_time = 10.0
 one_shot = true
 
+[node name="Highlight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.358302, 0)
+omni_range = 0.3
+
 [connection signal="timeout" from="TimerWet" to="." method="_on_timer_wet_timeout"]

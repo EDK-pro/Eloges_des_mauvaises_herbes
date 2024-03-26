@@ -22,3 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.371915, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("3_t2ufj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.167035)
+
+[node name="HighLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273994, 0)
+light_energy = 0.682
+omni_range = 0.3
