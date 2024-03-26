@@ -51,7 +51,3 @@ func _on_click(slot):
 		_:
 			print("echec match")
 	#print("click_on ",slot_used)
-
-
-func _on_timer_wet_timeout():
-	pass
