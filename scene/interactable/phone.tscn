@@ -31,6 +31,8 @@ _data = {
 [node name="Phone" type="RigidBody3D" node_paths=PackedStringArray("lightHint", "light", "lightfinisher")]
 collision_layer = 3
 collision_mask = 3
+lock_rotation = true
+freeze = true
 script = ExtResource("1_kyvng")
 lightHint = NodePath("lightTimer")
 light = NodePath("OmniLight3D")

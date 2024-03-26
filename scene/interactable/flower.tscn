@@ -21,3 +21,9 @@ shape = SubResource("CapsuleShape3D_541b4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457571, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("3_jshy1")]
+
+[node name="HighLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585566, 0)
+light_color = Color(0.854902, 1, 0.839216, 1)
+light_energy = 1.742
+omni_range = 0.576

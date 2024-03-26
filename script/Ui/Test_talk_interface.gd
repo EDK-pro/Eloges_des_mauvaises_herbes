@@ -70,7 +70,7 @@ func initialize(margintime: int, symbolcount: float, communicationduration: floa
 
 func _physics_process(delta):
 
-	if Input.is_action_pressed("talk"):
+	if Input.is_action_pressed("Interagir") and visible == true:
 		isTalking = true
 		$Timing/Arrow.position.x = $Timing/Line.position.x
 		startTime = Time.get_ticks_msec()

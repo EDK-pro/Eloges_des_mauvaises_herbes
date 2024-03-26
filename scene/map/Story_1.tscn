@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://itd7dnhqv51g"]
+[gd_scene load_steps=6 format=3 uid="uid://itd7dnhqv51g"]
 
 [ext_resource type="Script" path="res://scene/map/Story_1.gd" id="1_uakq7"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="1_wheu8"]
+[ext_resource type="Shader" path="res://assets/shader/Story_1.gdshader" id="3_0mg28"]
+[ext_resource type="AudioStream" uid="uid://dkkker13w0p0g" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_li6dl"]
+shader = ExtResource("3_0mg28")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 0.4
+shader_parameter/blur_samples = 15
 
 [node name="Story_1" type="Control" node_paths=PackedStringArray("message")]
 layout_mode = 3
@@ -26,14 +35,14 @@ color = Color(0, 0, 0, 1)
 [node name="message_1" type="RichTextLabel" parent="ColorRect" groups=["message"]]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-offset_left = 50.0
+offset_left = 30.0
 offset_top = 50.0
-offset_right = 929.0
-offset_bottom = 116.0
+offset_right = 909.0
+offset_bottom = 155.0
 theme_override_colors/default_color = Color(0.603922, 0.247059, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "Salut Hughette désolé, ici a la carrière on a beaucoup de travail, le lieu commence a ce mettre en place, on organise le lieu les journée sont très longue."
+theme_override_font_sizes/normal_font_size = 24
+text = "... [Messages précédents corrompus] Salut Hughette, désolé ici à la carrière on a beaucoup de travail, mais le lieu commence a ce mettre en place ! On organise la maison et les journée sont très longue. --'"
 fit_content = true
 
 [node name="message_2" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -43,16 +52,17 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = 170.0
-offset_right = 846.0
-offset_bottom = -833.0
+offset_left = -10.0
+offset_top = 138.5
+offset_right = 883.0
+offset_bottom = -801.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0.341176, 0.498039, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "pas de soucis on a pas bien plus de temps ici. Je pense que tu la vue on a récemment subis une evinction. Désolé je ne sais pas quand je pourrais te répondre - 201X un mois plus tard"
+theme_override_font_sizes/normal_font_size = 24
+text = "- 201X un mois plus tard
+Pas de soucis on a pas bien plus de temps ici. Je pense que tu l'as vu, on a récemment subis une éviction. Tu m'excuseras, je ne sais pas quand je pourrais te répondre."
 fit_content = true
 
 [node name="message_3" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -62,16 +72,16 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -882.0
-offset_top = 328.0
-offset_right = 11.0
-offset_bottom = -659.0
+offset_left = -930.0
+offset_top = 304.5
+offset_right = -37.0
+offset_bottom = -635.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.603922, 0.247059, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "oui j’en ai entendu parlez, on pense fort a vous. De notre coté on continue a découvrir le lieu, cet maison est remplie de souvenir ! on a récemment découvert des prototye d’album de vieux groupe de musique xD."
+theme_override_font_sizes/normal_font_size = 24
+text = "Oui j’en ai entendu parlez, on pense fort à vous. De notre coté, on continue à découvrir le lieu, cette maison est remplie de souvenir ! On a récemment découvert des prototypes d’album de vieux groupe de musique xD."
 fit_content = true
 
 [node name="message_4" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -81,16 +91,16 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = 510.0
-offset_right = 835.0
-offset_bottom = -477.0
+offset_left = -10.0
+offset_top = 451.5
+offset_right = 883.0
+offset_bottom = -418.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0.341176, 0.498039, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "désolé Samuel j’ai bien vu tes messages, mais a NNDL c’est la merde on est sous l’eau, on fait que bosser essayer de se réorganisez, et franchement…on s’entend plus. ça s’embrouille tout les jours, des menaces a la personne c’est vraiment une période de merde. j’espère que la prochaine fois que je te reparlerai j’aurais de meilleur chose a te dire. "
+theme_override_font_sizes/normal_font_size = 24
+text = "Désolée Samuel, j’ai bien vu tes messages, mais à NNDL c’est la merde, on est sous l’eau, on fait que bosser, on essaye de se réorganiser, et franchement…on s’entend plus. Ça s’embrouille tous les jours, y à vla des menaces à la personne c’est vraiment une période de merde. J’espère que la prochaine fois que je te reparlerai j’aurais de meilleur chose à te dire. Et toi alo... [Suite du message corrompue]"
 fit_content = true
 
 [node name="message_5" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -100,16 +110,17 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -63.0
+offset_left = -10.0
 offset_top = 662.0
-offset_right = 830.0
+offset_right = 883.0
 offset_bottom = -263.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0.341176, 0.498039, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "c’est déprimant je pense rentrer chez moi je passerai surement vous voir. On croit vraiment a ce que on fait, mais la ZAD a pas résolue tout les problèmes. Et je pense bien que c’est ce qui me fait ple plus mal. 2 mois plus tard"
+theme_override_font_sizes/normal_font_size = 24
+text = "- 2 mois plus tard
+C’est déprimant je pense rentrer chez moi, je passerai surement vous voir. On croit vraiment à ce qu'on fait, mais la ZAD a pas résolue tous les problèmes. Et je pense bien que c’est ce qui me fait le plus mal. "
 fit_content = true
 
 [node name="message_6" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -119,14 +130,36 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -896.0
-offset_top = 816.0
-offset_right = -3.0
-offset_bottom = -171.0
+offset_left = -930.0
+offset_top = 740.0
+offset_right = -37.0
+offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.603922, 0.247059, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
-theme_override_font_sizes/normal_font_size = 21
-text = "Oh ça me déprime ce que tu dis…et pour t’avouer ici non plus ce n’est pas complétement idylique. La maison n’est pas très grande et on est pas très bricoleur, on essaye de donner vie au mieux que on peut de ce lieu mais c’est complexe…et puis on s’entend pas tous faut bien le dire. On est pas tous pareil, on a pas tous les meme problème, on essaye aussi de se comprendre, mais c’est pas simple. Bref tu me diras si tu reviens et si tu veux passer ! "
+theme_override_font_sizes/normal_font_size = 24
+text = "Oh ça me déprime ce que tu dis… et pour t’avouer ici non plus ce n’est pas complétement idylique. La maison n’est pas très grande et on est pas très bricoleur, on essaye de donner vie du mieux qu'on peut à ce lieu mais c’est complexe… et puis on s’entend pas tous faut bien le dire :/ On est plutôt différents, on a pas tous les mêmes problèmes, on essaye aussi de se comprendre, mais c’est pas simple. Bref tu me diras si tu reviens et si tu veux passer ! "
 fit_content = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1530.0
+offset_top = 987.0
+offset_right = 1856.0
+offset_bottom = 1015.0
+theme_override_font_sizes/font_size = 20
+text = "Appuyer sur Enter pour continuer"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_li6dl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hcyq4")
