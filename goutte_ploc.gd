@@ -4,6 +4,7 @@ var sound_array: Array
 var sound_array_crushed: Array
 var crushed: int
 var touch_once: bool = false
+var touched_flower: bool = false
 var speed: float
 var mass: float = 1.0
 signal watering
@@ -26,7 +27,7 @@ func _ready():
 	sound_array_crushed[5] = load("res://assets/Test_assets/sound_crushed/test_droplet_bitcrushed_0001-006.ogg")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	speed += 0.01
 	position.y -= speed
 
@@ -47,13 +48,15 @@ func _on_body_entered(body):
 				AudioServer.set_bus_volume_db(0,linear_to_db(0.2))
 			$Son_goutte.pitch_scale = pitch_shift
 			$Son_goutte.volume_db = volume_shift
-		if str(body).get_slice(":",0) == "Flower":
-			$Son_goutte.bus = "Reducson"
-		if str(body).get_slice(":",0) == "GazLamp":
-			$Son_goutte.bus = "Reducson"
-			watering.emit()
+
 		$Son_goutte.play()
 		$End_Drop.start()
+	if str(body).get_slice(":",0) == "Flower":
+		$Son_goutte.bus = "Reducson"
+		touched_flower = true
+	if str(body).get_slice(":",0) == "GazLamp" and !touched_flower:
+		$Son_goutte.bus = "Reducson"
+		watering.emit()
 	touch_once = true
 
 func _on_end_drop_timeout():

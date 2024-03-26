@@ -46,7 +46,9 @@ signal poser_objet
 @export var feur: all_items
 var slot_used: Array=[0,0,0]
 
-func put_in_slot(item,slot):
+var circle
+
+func put_in_slot(_item,slot):
 	if slot_used[slot] != 1:
 		self.status = slot+1
 		set_collision_layer_value(1,false)
@@ -60,5 +62,5 @@ func remove_from_slot(slot):
 		self.freeze = false
 		item_placed.emit(slot, 0, self)
 	
-func _on_item_placed(slot,state,useless):
+func _on_item_placed(slot,state,_useless):
 	slot_used[slot] = state

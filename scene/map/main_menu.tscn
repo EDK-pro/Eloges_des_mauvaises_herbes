@@ -562,7 +562,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_pkuwk")
 theme_override_font_sizes/normal_font_size = 40
-text = "Reinette est un robot d’usine, après une blessure, une plante et un champignon vienne se loger en iel, en recherche d’un nouveau lieu ou vivre reinette est arrivé a la carrière."
+text = "Reinette est un robot d’usine issu du capitalisme mourant, qui, suite à une casse, accueilli.e une plante et un champignon en iel. En recherche d’un nouveau lieu où vivre, Reinette est arrivé·e a la Carrière."
 fit_content = true
 
 [connection signal="pressed" from="BT_CONTINUER/Commencer" to="." method="_on_button_pressed"]

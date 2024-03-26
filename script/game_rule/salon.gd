@@ -1,18 +1,23 @@
 extends Node
 
 @export var marginTime : int = 150
-@export var symbolCount : int = 4
+@export var symbolCount : float = 4
 @export var communicationDuration : float = 5.0
 @export var isDialogVisible : bool = false
 
-@export var Ui_Text_Arrivee:Control
-@export var Ui_Text_Item:Control
 @export var Ui_Fondu:Control
+@export var Ui_Reset_Button:Control
+@export var Ui_Talk:Control
 
 var tuto_item_once: bool = true
+var text_item_appearing: bool = false
+var text_tab_appearing:bool = false
 
 var goutte_loaded = load("res://goutte_ploc.tscn")
-var scene_goutte
+var scene_goutte 
+
+signal not_bright_enough
+
 func _ready():
 	## Array to get all the pickable item. Used to easily connect all nodes together
 	var pickable_array: Array = get_tree().get_nodes_in_group("pickable_item")
@@ -21,11 +26,13 @@ func _ready():
 	
 	$Player/Player_scene/Player/Cable.cable_connected.connect(talkWith.bind())
 	$Player/Player_scene/Player/Cable.cable_disconnected.connect(endTalk.bind())
-	Ui_Text_Arrivee.visible = true
-	var tween = get_tree().create_tween()
-	tween.tween_property(Ui_Text_Arrivee, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
-	$Player/Player_scene/Player.can_move = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#Ui_Text_Arrivee.visible = true
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(Ui_Text_Arrivee, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
+	#$Player/Player_scene/Player.can_move = false
+	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$Static/Fauteil.player_can_climb.connect($Player/Player_scene._can_climb.bind())
+	Ui_Talk.reussite_signal.connect(_end_demo.bind())
 	## For each interactable item 
 	for i in pickable_array.size() :
 		print(pickable_array[i])
@@ -43,7 +50,11 @@ func _ready():
 		## When the object is thrown out, remove it from slot
 		$Player/Player_scene/Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
-func _process(delta):
+func _process(_delta):
+	#if $Player/Player_scene.can_step:
+		#$UI/Hint.show()
+	#else:
+		#$UI/Hint.hide()
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
 		scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
@@ -51,51 +62,40 @@ func _process(delta):
 		print(scene_goutte.crushed)
 		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
-
+	if Input.is_action_just_pressed("yeet_item"):
+		$UI/Slot_selection.visible = !$UI/Slot_selection.visible
+		Input.mouse_mode = (2 - Input.mouse_mode)
+	if $Player/Player_scene/Player.tuto_tab == 1:
+		text_tab_appearing = true
+		$Player/Player_scene/Player.tuto_tab = 2
 
 func endTalk():
 	$UI/Talk.hide()
 
 func talkWith(item):
-	var marginTime: int
-	var symbolCount: int
-	var communicationDuration: float
 	var correctArray: Array
 	var talkative_name = str(item).get_slice(":",0)
 	print("Bah alors ",  talkative_name)
-	if talkative_name == "book_shelf":
-		marginTime = 250
-		symbolCount = 4.0
-		communicationDuration = 5.0
-		correctArray = [0,1,0,1]
-		$UI/Talk.show()
-		$UI/Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
+	if talkative_name == "Phone":
+		if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
+			marginTime = 250
+			symbolCount = 4.0
+			communicationDuration = 5.0
+			correctArray = [0,1,0,1]
+			Ui_Talk.show()
+			var tweeen = get_tree().create_tween()
+			tweeen.tween_property(Ui_Talk, "modulate", Color(1.0,1.0,1.0,1.0), 2).set_trans(Tween.TRANS_BOUNCE)
+			Ui_Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
+		else:
+			not_bright_enough.emit()
 
 func _end_demo():
 	var tweeen = get_tree().create_tween()
 	tweeen.tween_property(Ui_Fondu, "color", Color(0.0,0.0,0.0,1.0), 2).set_trans(Tween.TRANS_CUBIC)
+	for i in 4:
+		$Player/Player_scene/Player.visual_degradation.emit(6)
 
-
-func _on_button_arrivee_pressed():
-	var tween = get_tree().create_tween()
-	tween.tween_property(Ui_Text_Arrivee, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
-	$Player/Player_scene/Player.can_move = true
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#_end_demo()
-	
 func _text_item_appear():
 	if tuto_item_once:
-		Ui_Text_Item.visible = true
-		var tween = get_tree().create_tween()
-		tween.tween_property(Ui_Text_Item, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
-		$Player/Player_scene/Player.can_move = false
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		text_item_appearing = true
 		tuto_item_once = false
-		Ui_Text_Arrivee.visible = false
-
-
-func _on_button_item_pressed():
-	var tween = get_tree().create_tween()
-	tween.tween_property(Ui_Text_Item, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
-	$Player/Player_scene/Player.can_move = true
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

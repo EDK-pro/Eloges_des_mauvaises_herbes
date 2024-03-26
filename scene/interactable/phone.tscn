@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7k0b8w5886gp"]
+
+[ext_resource type="Script" path="res://script/interactable/umbrella.gd" id="1_kyvng"]
+[ext_resource type="PackedScene" uid="uid://bjrn7relpcx1c" path="res://assets/assets 3D lukas/phone.glb" id="2_g1tpn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10b6j"]
+size = Vector3(0.789699, 0.34646, 0.957127)
+
+[sub_resource type="Animation" id="Animation_oaet4"]
+resource_name = "light stuff"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.1, 5.511, 5.511, 0.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0jxma"]
+_data = {
+"light stuff": SubResource("Animation_oaet4")
+}
+
+[node name="Phone" type="RigidBody3D" node_paths=PackedStringArray("lightHint", "light", "lightfinisher")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_kyvng")
+lightHint = NodePath("lightTimer")
+light = NodePath("OmniLight3D")
+lightfinisher = NodePath("Finish_timer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122887, 0.179713, -0.0201028)
+shape = SubResource("BoxShape3D_10b6j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_0jxma")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359087, 0)
+light_color = Color(1, 0.717647, 0, 1)
+light_energy = 5.0
+light_bake_mode = 0
+omni_range = 1.0
+
+[node name="lightTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Finish_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="phone" parent="." instance=ExtResource("2_g1tpn")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0069958, 0.0630237, 0.000808477)
+
+[connection signal="timeout" from="lightTimer" to="." method="_on_light_timer_timeout"]
+[connection signal="timeout" from="Finish_timer" to="." method="_on_finish_timer_timeout"]

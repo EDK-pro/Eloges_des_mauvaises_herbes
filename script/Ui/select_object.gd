@@ -7,9 +7,9 @@ var hovered: bool = false
 signal item_fully_selected
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if hovered:
-		$Circle.value += 1
+		$Circle.value += 2
 		if $Circle.value >= $Circle.max_value:
 			item_fully_selected.emit()
 

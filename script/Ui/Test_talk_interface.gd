@@ -39,6 +39,7 @@ var texture_result_good = load("res://assets/visuel/UI_sprite/son_2_png.png")
 var texture_result_bad = load("res://assets/visuel/UI_sprite/son_1_png.png")
 
 var result_base_position:float
+signal reussite_signal
 
 func _ready():
 	
@@ -111,7 +112,7 @@ func _physics_process(delta):
 			if $Timer.time_left != 0.0:
 				var plic: float = $Timer.time_left - 0.2
 				print(plic)
-				$Resultat.position.y = pow(plic, 2.0) * 100 + result_base_position
+				$Resultat.position.y = (-2 * pow(plic, 2.0)) * 100 + result_base_position + 3.5
 			else: 
 				$Resultat.position.y = result_base_position
 		else:
@@ -122,6 +123,7 @@ func _physics_process(delta):
 			print(inputValidated)
 			if inputValidated == correctCombinaison:
 				$Resultat.texture = texture_result_good
+				reussite_signal.emit()
 				#$Resultat.color = Color(0, 1, 0)
 			else:
 				$Resultat.texture = texture_result_bad
