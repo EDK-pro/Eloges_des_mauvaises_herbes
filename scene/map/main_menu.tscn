@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://caircx3sjq154"]
+[gd_scene load_steps=12 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
 [ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="2_733tp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://baesy0j3gmoy8" path="res://assets/charte graphique/paperFichier 12.png" id="3_w1klo"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="4_pkuwk"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="6_fjicq"]
+[ext_resource type="PackedScene" uid="uid://e565ngrvreib" path="res://salon_prototype_main menu.tscn" id="7_sx1sq"]
 
 [sub_resource type="Animation" id="Animation_amn7n"]
 resource_name = "Main_menu"
@@ -316,56 +317,70 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
-bt_jouer = NodePath("MarginContainer/VBoxContainer/BT_Jouer")
-bt_controle = NodePath("MarginContainer/VBoxContainer/BT_Control")
-bt_credits = NodePath("MarginContainer/VBoxContainer/BT_Credit")
-bt_quitter = NodePath("MarginContainer/VBoxContainer/BT_Quitter")
-bt_commencer = NodePath("BT_CONTINUER/Commencer")
-animator = NodePath("AnimationPlayer")
-Ui_Text = NodePath("TextureRect")
+bt_jouer = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer")
+bt_controle = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control")
+bt_credits = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit")
+bt_quitter = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter")
+bt_commencer = NodePath("SubViewportContainer/SubViewport/BT_CONTINUER/Commencer")
+animator = NodePath("SubViewportContainer/SubViewport/AnimationPlayer")
+Ui_Text = NodePath("SubViewportContainer/SubViewport/TextureRect")
 nextscene = ExtResource("2_ftgfi")
 
-[node name="Couverture" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.529412)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Couverture" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+visible = false
+modulate = Color(1, 1, 1, 0.529412)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_733tp")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport"]
 root_node = NodePath("../BT_CONTINUER/Commencer")
 libraries = {
 "": SubResource("AnimationLibrary_14ix7")
 }
 autoplay = "commencer"
 
-[node name="BT_CONTINUER" type="MarginContainer" parent="."]
+[node name="BT_CONTINUER" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -148.0
+offset_left = -147.0
 offset_top = -134.0
-offset_right = 148.0
+offset_right = 149.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="BT_CONTINUER"]
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/BT_CONTINUER"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_w1klo")
 expand_mode = 1
 
-[node name="Commencer" type="Button" parent="BT_CONTINUER"]
+[node name="Commencer" type="Button" parent="SubViewportContainer/SubViewport/BT_CONTINUER"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
@@ -381,22 +396,22 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
 visible = false
 modulate = Color(1, 1, 1, 0.0431373)
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -53.0
-offset_right = 440.0
-offset_bottom = 53.0
+offset_left = 1.0
+offset_top = -166.0
+offset_right = 441.0
+offset_bottom = 166.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/MarginContainer"]
 layout_mode = 2
 
-[node name="BT_Jouer" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BT_Jouer" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
@@ -412,7 +427,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/BT_Jouer"]
+[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer"]
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 1
@@ -430,7 +445,7 @@ grow_vertical = 2
 texture = ExtResource("3_w1klo")
 expand_mode = 1
 
-[node name="BT_Control" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BT_Control" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
@@ -446,7 +461,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/BT_Control"]
+[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control"]
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 1
@@ -464,7 +479,7 @@ grow_vertical = 2
 texture = ExtResource("3_w1klo")
 expand_mode = 1
 
-[node name="BT_Credit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BT_Credit" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
@@ -480,7 +495,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/BT_Credit"]
+[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit"]
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 1
@@ -498,7 +513,7 @@ grow_vertical = 2
 texture = ExtResource("3_w1klo")
 expand_mode = 1
 
-[node name="BT_Quitter" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BT_Quitter" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
@@ -514,7 +529,7 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/BT_Quitter"]
+[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter"]
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 1
@@ -532,23 +547,23 @@ grow_vertical = 2
 texture = ExtResource("3_w1klo")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -373.5
+offset_left = -372.5
 offset_top = -240.0
-offset_right = 373.5
+offset_right = 374.5
 offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("6_fjicq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -565,7 +580,9 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Reinette est un robot d’usine issu du capitalisme mourant, qui, suite à une casse, accueilli.e une plante et un champignon en iel. En recherche d’un nouveau lieu où vivre, Reinette est arrivé·e a la Carrière."
 fit_content = true
 
-[connection signal="pressed" from="BT_CONTINUER/Commencer" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BT_Control" to="." method="_on_bt_control_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BT_Quitter" to="." method="_on_bt_quitter_pressed"]
+[node name="Salon_Protototype_main_menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_sx1sq")]
+
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_CONTINUER/Commencer" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control" to="." method="_on_bt_control_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter" to="." method="_on_bt_quitter_pressed"]

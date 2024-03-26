@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/map/Story_1.gd" id="1_uakq7"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="1_wheu8"]
 [ext_resource type="Shader" path="res://assets/shader/Story_1.gdshader" id="3_0mg28"]
-[ext_resource type="AudioStream" uid="uid://dkkker13w0p0g" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
+[ext_resource type="AudioStream" uid="uid://bn4t61wr5rbqq" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li6dl"]
 shader = ExtResource("3_0mg28")
