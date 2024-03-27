@@ -135,6 +135,10 @@ func _on_pick_up(slot, state, item):
 			$"../Pick_up".play()
 	else:
 		if slots[slot] != null:
+			if str(item).get_slice(":",0) == "Flower":
+				$Timer_fleur.stop()
+			if str(item).get_slice(":",0) == "GazLamp":
+				$Timer_gazlamp.stop()
 			slots[slot].gravity_scale = 3
 			var facing = $Camera3D.get_camera_transform().basis.z
 			slots[slot].sleeping = false
@@ -216,9 +220,6 @@ func _on_timer_gazlamp_timeout():
 				print("Visual state : ", visual_state)
 				visual_degradation.emit(6)
 	timer_1_shot_gazlamp = false
-		
-	
-
 
 func _on_footstep_timer_timeout():
 	footstep_audio.play()
