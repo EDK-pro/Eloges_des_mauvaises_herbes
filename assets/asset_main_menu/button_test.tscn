@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cme764w4vi6dr"]
+
+[ext_resource type="StyleBox" uid="uid://cucp0xtewqdu5" path="res://assets/asset_main_menu/main_menu_texture.tres" id="1_fs5tb"]
+[ext_resource type="Texture2D" uid="uid://bqakcwdovw7jx" path="res://assets/asset_main_menu/carton_menu_commencer.png" id="1_tgdrn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtnen"]
+texture = ExtResource("1_tgdrn")
+modulate_color = Color(0.976471, 0.976471, 0.976471, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3gba"]
+texture = ExtResource("1_tgdrn")
+modulate_color = Color(0.466667, 0.466667, 0.466667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l4mn8"]
+texture = ExtResource("1_tgdrn")
+modulate_color = Color(0.509804, 0.47451, 0.192157, 1)
+
+[node name="Button" type="Button"]
+offset_right = 500.0
+offset_bottom = 312.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rtnen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o3gba")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l4mn8")
+theme_override_styles/focus = ExtResource("1_fs5tb")
+icon_alignment = 1
