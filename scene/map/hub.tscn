@@ -304,7 +304,7 @@ transform = Transform3D(2, 0, 0, 0, 1.28558, 1.53209, 0, -1.53209, 1.28558, 7.84
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="props/tournedisque"]
 stream = SubResource("AudioStreamRandomizer_yjfjp")
 autoplay = true
-max_distance = 20.0
+max_distance = 40.0
 
 [node name="velo" parent="props" instance=ExtResource("17_tmo5d")]
 transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, -6.35658, 0.940547, 6.26158)
