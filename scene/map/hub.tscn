@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b57n3y5o8h7v7" path="res://assets/prefabs/props_ready/caillou_001.tscn" id="20_o3ttl"]
 [ext_resource type="AudioStream" uid="uid://4af4a7o02jq5" path="res://assets/audio/SD_Ambiance/Vinyl_Crackle_Loop_Stereo.wav" id="20_pru6r"]
 [ext_resource type="PackedScene" uid="uid://2t673dsmj4hh" path="res://door_change_scene.tscn" id="21_264ef"]
-[ext_resource type="AudioStream" uid="uid://duxeqmqv0vq68" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Roomtone_Loop_Stereo.wav" id="26_2f6sr"]
+[ext_resource type="AudioStream" uid="uid://xrmpipcjm6oc" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Wood_Wind_Loop_Stereo.wav" id="22_bihvs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]
 sky_top_color = Color(0.615686, 0.356863, 0.447059, 1)
@@ -346,5 +346,5 @@ transform = Transform3D(3, 0, 0, 0, 1.20363, 0.798636, 0, -1.59727, 0.601815, 5.
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.62986, -9.83771)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_2f6sr")
+stream = ExtResource("22_bihvs")
 autoplay = true
