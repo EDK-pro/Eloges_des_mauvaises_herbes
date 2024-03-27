@@ -68,7 +68,7 @@ texture = ExtResource("8_c4mr0")
 region_rect = Rect2(62, 109.808, 649, 264.124)
 modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
 
-[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer", "bt_controle", "bt_credits", "bt_quitter", "animator", "Ui_Text")]
+[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer")]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
@@ -80,11 +80,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
 bt_jouer = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer")
-bt_controle = NodePath("")
-bt_credits = NodePath("")
-bt_quitter = NodePath("")
-animator = NodePath("")
-Ui_Text = NodePath("")
 nextscene = ExtResource("2_ftgfi")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
