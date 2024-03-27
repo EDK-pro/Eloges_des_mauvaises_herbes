@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://bqy0m6inui6vh" path="res://assets/visuel/affiches in game/talking_heads.png" id="41_3yw73"]
 [ext_resource type="Texture2D" uid="uid://rx2yoa2admyp" path="res://assets/visuel/affiches in game/zad.png" id="42_gcr86"]
 [ext_resource type="Texture2D" uid="uid://ha3cknebvfj3" path="res://assets/visuel/affiches in game/87116aefdb06e3bd75faab849b2b5c1f.jpg" id="43_oe1tv"]
+[ext_resource type="PackedScene" uid="uid://n5yg5f1tic7t" path="res://assets/prefabs/guitare_exported.tscn" id="41_73phy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
 sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
@@ -289,7 +290,7 @@ transform = Transform3D(-0.999781, -0.0209424, -8.7412e-08, -0.0209398, 0.999657
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.03104, 6.61503, 0.367905)
 
 [node name="Etagere" parent="Static" instance=ExtResource("12_0pw1c")]
-transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 9.54364, 2.75223, -4.43619)
+transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 9.54364, 3.08933, -4.43619)
 
 [node name="Table" parent="Static" instance=ExtResource("13_ck313")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.44182, 0, -5.57309)
@@ -543,7 +544,7 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 
 mesh = SubResource("PlaneMesh_ee8n6")
 
 [node name="Phone" parent="." instance=ExtResource("18_46vmm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 2.92605, -5.89353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 3.27471, -5.89353)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("39_upr1o")
@@ -553,6 +554,9 @@ autoplay = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("40_i5o3b")
 attenuation_model = 3
+
+[node name="Guitare_exported" parent="." instance=ExtResource("41_73phy")]
+transform = Transform3D(-1, -5.0243e-15, -8.74228e-08, 7.57103e-08, 0.5, -0.866025, 4.37114e-08, -0.866025, -0.5, 3.30337, 1.96084, 9.16855)
 
 [editable path="Static/props/wood/bois002"]
 [editable path="Static/props/wood/bois003"]
