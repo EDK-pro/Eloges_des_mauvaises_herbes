@@ -12,6 +12,7 @@ extends Node
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
 var text_tab_appearing:bool = false
+var text_talk_appearing:bool = false
 
 var pickable_array: Array
 var circle_array: Array
@@ -71,6 +72,7 @@ func talkWith(item):
 	print("Bah alors ",  talkative_name)
 	if talkative_name == "Phone":
 		if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
+			text_talk_appearing = true
 			marginTime = 250
 			symbolCount = 4.0
 			communicationDuration = 5.0
