@@ -55,6 +55,9 @@ func _ready():
 		$Player/Player_scene/Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
 func _process(_delta):
+	if Input.is_action_just_pressed("light"):
+		$Environnement/SpotLight3D.spot_angle = 80.0
+		$Environnement/SpotLight3D.light_energy = 1.5
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
 		scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
