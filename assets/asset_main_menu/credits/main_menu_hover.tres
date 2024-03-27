@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://qfvnfrv7r84y"]
+
+[ext_resource type="Texture2D" uid="uid://cr2kkcafhnv2c" path="res://assets/asset_main_menu/carton_menu_credits.png" id="1_l8ne5"]
+
+[resource]
+content_margin_top = 200.0
+texture = ExtResource("1_l8ne5")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.482353, 0.47451, 0.458824, 1)

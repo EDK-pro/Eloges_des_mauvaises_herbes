@@ -1,70 +1,31 @@
-[gd_scene load_steps=20 format=3 uid="uid://caircx3sjq154"]
+[gd_scene load_steps=14 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
 [ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="2_ftgfi"]
 [ext_resource type="StyleBox" uid="uid://dqkvl8yx2ikpl" path="res://assets/asset_main_menu/main_menu_normal_default.tres" id="5_1jsm1"]
+[ext_resource type="StyleBox" uid="uid://cbyrh61hkbu5c" path="res://assets/asset_main_menu/credits/main_menu.tres" id="6_nhbw6"]
 [ext_resource type="Texture2D" uid="uid://bqakcwdovw7jx" path="res://assets/asset_main_menu/carton_menu_commencer.png" id="6_qi4jc"]
-[ext_resource type="StyleBox" uid="uid://buv1bg8dgiab2" path="res://assets/asset_main_menu/main_menu_Hover_default.tres" id="6_wsivk"]
+[ext_resource type="StyleBox" uid="uid://qfvnfrv7r84y" path="res://assets/asset_main_menu/credits/main_menu_hover.tres" id="7_307oc"]
 [ext_resource type="PackedScene" uid="uid://e565ngrvreib" path="res://salon_prototype_main menu.tscn" id="7_sx1sq"]
 [ext_resource type="Texture2D" uid="uid://ccr00ma3ddvo8" path="res://assets/asset_main_menu/carton_menu_logo.png" id="8_7vylb"]
-[ext_resource type="Texture2D" uid="uid://duo7gt3ppun2" path="res://assets/asset_main_menu/carton_menu_menu.png" id="8_c4mr0"]
-[ext_resource type="Texture2D" uid="uid://cr2kkcafhnv2c" path="res://assets/asset_main_menu/carton_menu_credits.png" id="8_y360s"]
+[ext_resource type="StyleBox" uid="uid://x7f7nvnca2qn" path="res://assets/asset_main_menu/credits/main_menu_pressed.tres" id="8_hjy2u"]
+[ext_resource type="StyleBox" uid="uid://skr7eruhqjp1" path="res://assets/asset_main_menu/credits/main_menu_focus.tres" id="9_4kvw8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix8lx"]
-content_margin_top = 200.0
+content_margin_left = 1424.0
 texture = ExtResource("6_qi4jc")
 region_rect = Rect2(62, 109.808, 649, 264.124)
 modulate_color = Color(0.482353, 0.47451, 0.458824, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x7wi"]
-content_margin_top = 200.0
+content_margin_left = 1424.0
 texture = ExtResource("6_qi4jc")
 region_rect = Rect2(62, 109.808, 649, 264.124)
 modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpg2y"]
-content_margin_top = 200.0
+content_margin_left = 1424.0
 texture = ExtResource("6_qi4jc")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7bed"]
-content_margin_top = 200.0
-texture = ExtResource("8_y360s")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlgvf"]
-content_margin_top = 200.0
-texture = ExtResource("8_y360s")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-modulate_color = Color(0.482353, 0.47451, 0.458824, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yha7c"]
-content_margin_top = 200.0
-texture = ExtResource("8_y360s")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mwnf"]
-content_margin_top = 200.0
-texture = ExtResource("8_y360s")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gf3j"]
-content_margin_top = 200.0
-texture = ExtResource("8_c4mr0")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m583s"]
-content_margin_top = 200.0
-texture = ExtResource("8_c4mr0")
-region_rect = Rect2(62, 109.808, 649, 264.124)
-modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmi61"]
-content_margin_top = 200.0
-texture = ExtResource("8_c4mr0")
 region_rect = Rect2(62, 109.808, 649, 264.124)
 modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
 
@@ -79,7 +40,7 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
-bt_jouer = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer")
+bt_jouer = NodePath("SubViewportContainer/SubViewport/BT_Jouer")
 nextscene = ExtResource("2_ftgfi")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -99,14 +60,62 @@ render_target_update_mode = 4
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 80.0
+offset_left = 200.0
 offset_top = -480.0
-offset_right = 1580.0
+offset_right = 1700.0
 offset_bottom = 280.0
 grow_vertical = 2
 rotation = 0.0872665
-scale = Vector2(0.26, 0.26)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_7vylb")
+
+[node name="BT_Jouer" type="Button" parent="SubViewportContainer/SubViewport"]
+offset_left = 300.0
+offset_top = 450.0
+offset_right = 1724.0
+offset_bottom = 1200.0
+rotation = -0.0872665
+scale = Vector2(0.23, 0.23)
+theme_override_styles/normal = ExtResource("5_1jsm1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ix8lx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7x7wi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fpg2y")
+text_overrun_behavior = 2
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BT_Credits" type="Button" parent="SubViewportContainer/SubViewport"]
+offset_left = 300.0
+offset_top = 650.0
+offset_right = 1724.0
+offset_bottom = 1400.0
+rotation = 0.0174533
+scale = Vector2(0.23, 0.23)
+theme_override_styles/normal = ExtResource("6_nhbw6")
+theme_override_styles/hover = ExtResource("7_307oc")
+theme_override_styles/pressed = ExtResource("8_hjy2u")
+theme_override_styles/focus = ExtResource("9_4kvw8")
+text_overrun_behavior = 2
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BT_Quitter" type="Button" parent="SubViewportContainer/SubViewport"]
+offset_left = 300.0
+offset_top = 850.0
+offset_right = 1724.0
+offset_bottom = 1600.0
+rotation = 0.0872665
+scale = Vector2(0.23, 0.23)
+theme_override_styles/normal = ExtResource("6_nhbw6")
+theme_override_styles/hover = ExtResource("7_307oc")
+theme_override_styles/pressed = ExtResource("8_hjy2u")
+theme_override_styles/focus = ExtResource("9_4kvw8")
+text_overrun_behavior = 2
+clip_text = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
 anchors_preset = 4
@@ -124,41 +133,8 @@ scale = Vector2(0.7, 0.7)
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="BT_Jouer" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("5_1jsm1")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ix8lx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_7x7wi")
-theme_override_styles/focus = SubResource("StyleBoxTexture_fpg2y")
-text_overrun_behavior = 2
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="BT_Credit" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_o7bed")
-theme_override_styles/hover = SubResource("StyleBoxTexture_mlgvf")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_yha7c")
-theme_override_styles/focus = SubResource("StyleBoxTexture_7mwnf")
-text_overrun_behavior = 2
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="BT_Quitter" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_2gf3j")
-theme_override_styles/hover = ExtResource("6_wsivk")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_m583s")
-theme_override_styles/focus = SubResource("StyleBoxTexture_rmi61")
-text_overrun_behavior = 2
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="Salon_Protototype_main_menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_sx1sq")]
 
-[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit" to="." method="_on_bt_credit_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter" to="." method="_on_bt_quitter_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Credits" to="." method="_on_bt_jouer_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Quitter" to="." method="_on_bt_jouer_pressed"]
