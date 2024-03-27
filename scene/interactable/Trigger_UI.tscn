@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2tqn62dvcu6t"]
 
 [ext_resource type="Script" path="res://scene/interactable/Trigger_UI.gd" id="1_c21pm"]
-[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="2_y71aa"]
+[ext_resource type="Texture2D" uid="uid://dyb6xkg3lbyvr" path="res://assets/visuel/UI_sprite/cartons_deplacement_png.png" id="2_0hnhe"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="3_y3fsd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52jqo"]
@@ -40,10 +40,10 @@ offset_right = 374.0
 offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_y71aa")
-expand_mode = 1
+texture = ExtResource("2_0hnhe")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/TextureRect"]
+visible = false
 layout_mode = 0
 offset_left = 24.0
 offset_top = 41.0
