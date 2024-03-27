@@ -9,27 +9,6 @@ extends Control
 @export var Ui_Text:TextureRect
 @export var nextscene:PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_quitter_pressed() -> void:
-	get_tree().quit()
-
-
-func _on_commencer_pressed() -> void:
-	animator.play("main_menu")
-	pass # Replace with function body.
-
-
-func _on_button_pressed() -> void:
-	animator.play("Main_menu")
-
 
 func _on_controle_pressed() -> void:
 	animator.play("credit")

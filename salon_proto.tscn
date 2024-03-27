@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="11_rreh3"]
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="12_0pw1c"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="13_ck313"]
-[ext_resource type="Texture2D" uid="uid://62bllx5q0rce" path="res://assets/visuel/floor002_png.png" id="14_laj32"]
+[ext_resource type="Texture2D" uid="uid://dypd8p5uabnbi" path="res://assets/visuel/floor002_png.png" id="14_laj32"]
 [ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="16_g5dk3"]
 [ext_resource type="Texture2D" uid="uid://cnfwmodflvxrd" path="res://assets/texture/5.jpg" id="17_26wv4"]
 [ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/phone.tscn" id="18_46vmm"]

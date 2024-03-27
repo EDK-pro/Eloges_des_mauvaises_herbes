@@ -1,312 +1,74 @@
-[gd_scene load_steps=12 format=3 uid="uid://caircx3sjq154"]
+[gd_scene load_steps=20 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
-[ext_resource type="Texture2D" uid="uid://bre3ocyb3h24l" path="res://assets/visuel/Main_menu/Page0020.jpg" id="2_733tp"]
 [ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="2_ftgfi"]
-[ext_resource type="Texture2D" uid="uid://baesy0j3gmoy8" path="res://assets/charte graphique/paperFichier 12.png" id="3_w1klo"]
-[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="4_pkuwk"]
-[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="6_fjicq"]
+[ext_resource type="StyleBox" uid="uid://dqkvl8yx2ikpl" path="res://assets/asset_main_menu/main_menu_normal_default.tres" id="5_1jsm1"]
+[ext_resource type="Texture2D" uid="uid://bqakcwdovw7jx" path="res://assets/asset_main_menu/carton_menu_commencer.png" id="6_qi4jc"]
+[ext_resource type="StyleBox" uid="uid://buv1bg8dgiab2" path="res://assets/asset_main_menu/main_menu_Hover_default.tres" id="6_wsivk"]
 [ext_resource type="PackedScene" uid="uid://e565ngrvreib" path="res://salon_prototype_main menu.tscn" id="7_sx1sq"]
+[ext_resource type="Texture2D" uid="uid://ccr00ma3ddvo8" path="res://assets/asset_main_menu/carton_menu_logo.png" id="8_7vylb"]
+[ext_resource type="Texture2D" uid="uid://duo7gt3ppun2" path="res://assets/asset_main_menu/carton_menu_menu.png" id="8_c4mr0"]
+[ext_resource type="Texture2D" uid="uid://cr2kkcafhnv2c" path="res://assets/asset_main_menu/carton_menu_credits.png" id="8_y360s"]
 
-[sub_resource type="Animation" id="Animation_amn7n"]
-resource_name = "Main_menu"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../MarginContainer:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../MarginContainer:modulate:r")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 3)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../MarginContainer:modulate:g")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../MarginContainer:modulate:b")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 3)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../MarginContainer:modulate:a")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.0431373, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.5, 3)
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("..:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("..:modulate:r")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("..:modulate:g")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("..:modulate:b")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("..:modulate:a")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix8lx"]
+content_margin_top = 200.0
+texture = ExtResource("6_qi4jc")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.482353, 0.47451, 0.458824, 1)
 
-[sub_resource type="Animation" id="Animation_bf7y4"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../MarginContainer:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../MarginContainer:modulate:r")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../../MarginContainer:modulate:g")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../../MarginContainer:modulate:b")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../../MarginContainer:modulate:a")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.0431373, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x7wi"]
+content_margin_top = 200.0
+texture = ExtResource("6_qi4jc")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
 
-[sub_resource type="Animation" id="Animation_gwug6"]
-resource_name = "commencer"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 2)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("..:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 2)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("..:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.372549, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 2)
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fpg2y"]
+content_margin_top = 200.0
+texture = ExtResource("6_qi4jc")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_14ix7"]
-_data = {
-"Main_menu": SubResource("Animation_amn7n"),
-"RESET": SubResource("Animation_bf7y4"),
-"commencer": SubResource("Animation_gwug6")
-}
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7bed"]
+content_margin_top = 200.0
+texture = ExtResource("8_y360s")
+region_rect = Rect2(62, 109.808, 649, 264.124)
 
-[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer", "bt_controle", "bt_credits", "bt_quitter", "bt_commencer", "animator", "Ui_Text")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlgvf"]
+content_margin_top = 200.0
+texture = ExtResource("8_y360s")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.482353, 0.47451, 0.458824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yha7c"]
+content_margin_top = 200.0
+texture = ExtResource("8_y360s")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7mwnf"]
+content_margin_top = 200.0
+texture = ExtResource("8_y360s")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2gf3j"]
+content_margin_top = 200.0
+texture = ExtResource("8_c4mr0")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m583s"]
+content_margin_top = 200.0
+texture = ExtResource("8_c4mr0")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.364706, 0.423529, 0.341176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmi61"]
+content_margin_top = 200.0
+texture = ExtResource("8_c4mr0")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
+
+[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer", "bt_controle", "bt_credits", "bt_quitter", "animator", "Ui_Text")]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
@@ -318,12 +80,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
 bt_jouer = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer")
-bt_controle = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control")
-bt_credits = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit")
-bt_quitter = NodePath("SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter")
-bt_commencer = NodePath("SubViewportContainer/SubViewport/BT_CONTINUER/Commencer")
-animator = NodePath("SubViewportContainer/SubViewport/AnimationPlayer")
-Ui_Text = NodePath("SubViewportContainer/SubViewport/TextureRect")
+bt_controle = NodePath("")
+bt_credits = NodePath("")
+bt_quitter = NodePath("")
+animator = NodePath("")
+Ui_Text = NodePath("")
 nextscene = ExtResource("2_ftgfi")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -339,250 +100,70 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="Couverture" type="TextureRect" parent="SubViewportContainer/SubViewport"]
-visible = false
-modulate = Color(1, 1, 1, 0.529412)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_733tp")
-expand_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport"]
-root_node = NodePath("../BT_CONTINUER/Commencer")
-libraries = {
-"": SubResource("AnimationLibrary_14ix7")
-}
-autoplay = "commencer"
-
-[node name="BT_CONTINUER" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -147.0
-offset_top = -134.0
-offset_right = 149.0
-offset_bottom = -54.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/BT_CONTINUER"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_w1klo")
-expand_mode = 1
-
-[node name="Commencer" type="Button" parent="SubViewportContainer/SubViewport/BT_CONTINUER"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
-theme_override_colors/font_hover_color = Color(0.517647, 0.345098, 0.317647, 1)
-theme_override_colors/font_focus_color = Color(0.47451, 0.298039, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.262745, 0.435294, 0.407843, 1)
-theme_override_fonts/font = ExtResource("4_pkuwk")
-theme_override_font_sizes/font_size = 50
-text = "Commencer"
-flat = true
-text_overrun_behavior = 2
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
-visible = false
-modulate = Color(1, 1, 1, 0.0431373)
+[node name="Logo" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = -166.0
-offset_right = 441.0
-offset_bottom = 166.0
+offset_left = 80.0
+offset_top = -480.0
+offset_right = 1580.0
+offset_bottom = 280.0
 grow_vertical = 2
+rotation = 0.0872665
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("8_7vylb")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = -165.0
+offset_right = 640.0
+offset_bottom = 585.0
+grow_vertical = 2
+rotation = -0.0523599
+scale = Vector2(0.7, 0.7)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
 [node name="BT_Jouer" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
-theme_override_colors/font_hover_color = Color(0.517647, 0.345098, 0.317647, 1)
-theme_override_colors/font_focus_color = Color(0.47451, 0.298039, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.262745, 0.435294, 0.407843, 1)
-theme_override_fonts/font = ExtResource("4_pkuwk")
-theme_override_font_sizes/font_size = 50
-text = "Commencer"
-flat = true
+theme_override_styles/normal = ExtResource("5_1jsm1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ix8lx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7x7wi")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fpg2y")
 text_overrun_behavior = 2
 clip_text = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer"]
-show_behind_parent = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -29.0
-offset_right = 156.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_w1klo")
-expand_mode = 1
-
-[node name="BT_Control" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
-theme_override_colors/font_hover_color = Color(0.517647, 0.345098, 0.317647, 1)
-theme_override_colors/font_focus_color = Color(0.47451, 0.298039, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.262745, 0.435294, 0.407843, 1)
-theme_override_fonts/font = ExtResource("4_pkuwk")
-theme_override_font_sizes/font_size = 50
-text = "présentation"
-flat = true
-text_overrun_behavior = 2
-clip_text = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control"]
-show_behind_parent = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -29.0
-offset_right = 156.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_w1klo")
-expand_mode = 1
 
 [node name="BT_Credit" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
-theme_override_colors/font_hover_color = Color(0.517647, 0.345098, 0.317647, 1)
-theme_override_colors/font_focus_color = Color(0.47451, 0.298039, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.262745, 0.435294, 0.407843, 1)
-theme_override_fonts/font = ExtResource("4_pkuwk")
-theme_override_font_sizes/font_size = 50
-text = "Credit"
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_o7bed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mlgvf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yha7c")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7mwnf")
 text_overrun_behavior = 2
 clip_text = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit"]
-show_behind_parent = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -29.0
-offset_right = 156.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_w1klo")
-expand_mode = 1
 
 [node name="BT_Quitter" type="Button" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.294118, 0.6, 0.498039, 1)
-theme_override_colors/font_hover_color = Color(0.517647, 0.345098, 0.317647, 1)
-theme_override_colors/font_focus_color = Color(0.47451, 0.298039, 0, 1)
-theme_override_colors/icon_normal_color = Color(0.262745, 0.435294, 0.407843, 1)
-theme_override_fonts/font = ExtResource("4_pkuwk")
-theme_override_font_sizes/font_size = 50
-text = "Quitter"
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxTexture_2gf3j")
+theme_override_styles/hover = ExtResource("6_wsivk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m583s")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rmi61")
 text_overrun_behavior = 2
 clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter"]
-show_behind_parent = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -29.0
-offset_right = 156.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_w1klo")
-expand_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -372.5
-offset_top = -240.0
-offset_right = 374.5
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("6_fjicq")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 60.0
-offset_right = -22.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_pkuwk")
-theme_override_font_sizes/normal_font_size = 40
-text = "Reinette est un robot d’usine issu du capitalisme mourant, qui, suite à une casse, accueilli.e une plante et un champignon en iel. En recherche d’un nouveau lieu où vivre, Reinette est arrivé·e a la Carrière."
-fit_content = true
-
 [node name="Salon_Protototype_main_menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_sx1sq")]
 
-[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_CONTINUER/Commencer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Control" to="." method="_on_bt_control_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Credit" to="." method="_on_bt_credit_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/MarginContainer/VBoxContainer/BT_Quitter" to="." method="_on_bt_quitter_pressed"]
