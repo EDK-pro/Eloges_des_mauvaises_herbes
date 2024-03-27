@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
-[ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="2_ftgfi"]
+[ext_resource type="PackedScene" uid="uid://bxd7skdcr3an4" path="res://scene/ui/introduction_reinette.tscn" id="2_e5lrc"]
 [ext_resource type="StyleBox" uid="uid://dqkvl8yx2ikpl" path="res://assets/asset_main_menu/main_menu_normal_default.tres" id="5_1jsm1"]
 [ext_resource type="StyleBox" uid="uid://cbyrh61hkbu5c" path="res://assets/asset_main_menu/credits/main_menu.tres" id="6_nhbw6"]
 [ext_resource type="Texture2D" uid="uid://bqakcwdovw7jx" path="res://assets/asset_main_menu/carton_menu_commencer.png" id="6_qi4jc"]
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
 bt_jouer = NodePath("SubViewportContainer/SubViewport/BT_Jouer")
-nextscene = ExtResource("2_ftgfi")
+nextscene = ExtResource("2_e5lrc")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1

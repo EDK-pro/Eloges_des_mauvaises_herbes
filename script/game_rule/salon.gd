@@ -62,7 +62,10 @@ func _process(_delta):
 		print(scene_goutte.crushed)
 		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
-
+	if $Player/Player_scene/Player.visual_state == 3:
+		_end_demo()
+	if !$AudioStreamPlayer3D.playing and $Player/Player_scene/Player.audio_state == 2:
+		$AudioStreamPlayer3D.play()
 func endTalk():
 	$UI/Talk.hide()
 

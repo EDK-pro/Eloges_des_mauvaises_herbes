@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://qufir3t40d1"]
+[gd_scene load_steps=60 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_gvyjd"]
@@ -38,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://bni2ecbl103wp" path="res://assets/prefabs/object/pistil_003.tscn" id="36_cfhl0"]
 [ext_resource type="PackedScene" uid="uid://by74k0ka7ol20" path="res://assets/prefabs/object/pistil_004.tscn" id="37_jgd04"]
 [ext_resource type="Texture2D" uid="uid://chdbark7hn0ji" path="res://assets/exported_File/Props/door001_Door001-Door001.png" id="37_v3m2u"]
+[ext_resource type="AudioStream" uid="uid://xrmpipcjm6oc" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Wood_Wind_Loop_Stereo.wav" id="39_upr1o"]
+[ext_resource type="AudioStream" uid="uid://bxw1tycpvpbno" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Damage_Loop_Stereo.wav" id="40_i5o3b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
 sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
@@ -452,6 +454,15 @@ mesh = SubResource("PlaneMesh_ee8n6")
 
 [node name="Phone" parent="." instance=ExtResource("18_46vmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 3.27471, -5.89353)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_upr1o")
+volume_db = -4.333
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("40_i5o3b")
+attenuation_model = 3
 
 [editable path="Static/props/wood/bois002"]
 [editable path="Static/props/wood/bois003"]

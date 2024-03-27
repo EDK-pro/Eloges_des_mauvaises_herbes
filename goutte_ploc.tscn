@@ -29,6 +29,5 @@ bus = &"EQ_test"
 wait_time = 1.7
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="finished" from="Son_goutte" to="." method="_on_son_goutte_finished"]
 [connection signal="timeout" from="End_Drop" to="." method="_on_end_drop_timeout"]
