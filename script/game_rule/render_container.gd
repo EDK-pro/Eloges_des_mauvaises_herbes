@@ -138,6 +138,9 @@ func _text_talk_appearing():
 		$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		tuto_talk_once = false
+		await tween.finished
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
 
 func _on_button_talk_pressed():
 	var tween = get_tree().create_tween()

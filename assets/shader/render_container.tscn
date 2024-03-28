@@ -64,9 +64,9 @@ offset_top = 332.0
 offset_right = 1226.0
 offset_bottom = 586.0
 theme_override_font_sizes/font_size = 20
-text = "Trop de dysfonctionnement, votre corps cesse de répondre.
+text = "Alors que votre périphérique se détériore complétement, votre OS vous impose un redémarrage d'usine. Perdu.e, vous quittez la Carrière... Pour un temps indéterminé.
 
-Cliquer pour Recommencer"
+Revenir à la Carrière ?"
 
 [node name="Slot_selection" parent="." instance=ExtResource("7_ovx44")]
 visible = false

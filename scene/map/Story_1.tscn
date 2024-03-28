@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://itd7dnhqv51g"]
+[gd_scene load_steps=7 format=3 uid="uid://itd7dnhqv51g"]
 
 [ext_resource type="Script" path="res://scene/map/Story_1.gd" id="1_uakq7"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="1_wheu8"]
 [ext_resource type="Shader" path="res://assets/shader/Story_1.gdshader" id="3_0mg28"]
 [ext_resource type="AudioStream" uid="uid://c0so587uweci" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
+[ext_resource type="AudioStream" uid="uid://dc7ouhw4hnikk" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Rain_Loop_Stereo.wav" id="5_qqoxx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li6dl"]
 shader = ExtResource("3_0mg28")
@@ -163,3 +164,7 @@ grow_vertical = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hcyq4")
+
+[node name="Communication" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qqoxx")
+autoplay = true

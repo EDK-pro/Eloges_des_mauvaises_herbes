@@ -42,7 +42,6 @@ var result_base_position:float
 signal reussite_signal
 
 func _ready():
-	
 	initialize(marginTime, symbolCount, communicationDuration,[0,1,0,1])
 
 
@@ -81,6 +80,7 @@ func _physics_process(delta):
 		#$Timing/Arrow.color = Color(0.176, 1, 1, 1)
 
 	if isTalking:
+		if !$Communication.playing: $Communication.play()
 		timeElapsed += delta * timeIncrement
 		#print(timeElapsed)
 		if timeElapsed <= 1.0 :
@@ -121,12 +121,15 @@ func _physics_process(delta):
 			endTime = Time.get_ticks_msec()
 			print(endTime - startTime)
 			print(inputValidated)
+			$Communication.stop()
 			if inputValidated == correctCombinaison:
 				$Resultat.texture = texture_result_good
-				reussite_signal.emit()
+				$Good_Result.play()
+				
 				#$Resultat.color = Color(0, 1, 0)
 			else:
 				$Resultat.texture = texture_result_bad
+				$Bad_Result.play()
 				#$Resultat.color = Color(1, 0, 0)
 
 func nearestTimer():
@@ -147,3 +150,7 @@ func nearestTimer():
 
 func _on_timer_timeout():
 	$Resultat.texture = texture_result_bad
+
+
+func _on_good_result_finished():
+	reussite_signal.emit()

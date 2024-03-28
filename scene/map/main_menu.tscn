@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://caircx3sjq154"]
+[gd_scene load_steps=21 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
-[ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="2_ftgfi"]
+[ext_resource type="PackedScene" uid="uid://bxd7skdcr3an4" path="res://scene/ui/introduction_reinette.tscn" id="2_e5lrc"]
 [ext_resource type="StyleBox" uid="uid://dqkvl8yx2ikpl" path="res://assets/asset_main_menu/main_menu_normal_default.tres" id="5_1jsm1"]
 [ext_resource type="StyleBox" uid="uid://cbyrh61hkbu5c" path="res://assets/asset_main_menu/credits/main_menu.tres" id="6_nhbw6"]
 [ext_resource type="Texture2D" uid="uid://bqakcwdovw7jx" path="res://assets/asset_main_menu/carton_menu_commencer.png" id="6_qi4jc"]
@@ -11,6 +11,8 @@
 [ext_resource type="StyleBox" uid="uid://x7f7nvnca2qn" path="res://assets/asset_main_menu/credits/main_menu_pressed.tres" id="8_hjy2u"]
 [ext_resource type="StyleBox" uid="uid://skr7eruhqjp1" path="res://assets/asset_main_menu/credits/main_menu_focus.tres" id="9_4kvw8"]
 [ext_resource type="Texture2D" uid="uid://duo7gt3ppun2" path="res://assets/asset_main_menu/carton_menu_menu.png" id="10_0sre4"]
+[ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="12_dxgic"]
+[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="13_mtt88"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix8lx"]
 content_margin_left = 1424.0
@@ -53,7 +55,7 @@ texture = ExtResource("10_0sre4")
 region_rect = Rect2(62, 109.808, 649, 264.124)
 modulate_color = Color(0.537255, 0.466667, 0.333333, 1)
 
-[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer")]
+[node name="Main_Menu" type="Control" node_paths=PackedStringArray("bt_jouer", "credits")]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
@@ -65,7 +67,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wadvd")
 bt_jouer = NodePath("SubViewportContainer/SubViewport/BT_Jouer")
-nextscene = ExtResource("2_ftgfi")
+credits = NodePath("SubViewportContainer/SubViewport/Control_Credit")
+nextscene = ExtResource("2_e5lrc")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -159,6 +162,69 @@ theme_override_constants/separation = 50
 
 [node name="Salon_Protototype_main_menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_sx1sq")]
 
+[node name="Control_Credit" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 340.0
+offset_top = 160.0
+offset_right = 340.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/Control_Credit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_dxgic")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewportContainer/SubViewport/Control_Credit/TextureRect"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("13_mtt88")
+theme_override_font_sizes/normal_font_size = 29
+text = "Jeu par Noémie Horta, Moeva Mondoha, Lukas Gossot, Elise Decaesteker
+
+Un grand merci à Damien Combes pour le son, à Samuel Wolf pour la guitare et à Raphaël Nestor pour les 3 coups de pinceaux
+
+Merci aussi à l'équipe pédagogique de l'université Paul Valéry pour leur accompagnement dans ce projet
+
+Et merci maman !"
+
+[node name="Button_Credit" type="Button" parent="SubViewportContainer/SubViewport/Control_Credit"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Credits" to="." method="_on_bt_jouer_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Credits" to="." method="_on_bt_credits_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Quitter" to="." method="_on_bt_quitter_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Control_Credit/Button_Credit" to="." method="_on_button_credit_pressed"]

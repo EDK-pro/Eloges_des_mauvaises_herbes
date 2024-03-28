@@ -132,8 +132,13 @@ func _on_pick_up(slot, state, item):
 			slots[slot].sleeping = true
 			pickup = Vector3(item.global_position)
 			tuto_tab += 1
+			$"../Pick_up".play()
 	else:
 		if slots[slot] != null:
+			if str(item).get_slice(":",0) == "Flower":
+				$Timer_fleur.stop()
+			if str(item).get_slice(":",0) == "GazLamp":
+				$Timer_gazlamp.stop()
 			slots[slot].gravity_scale = 3
 			var facing = $Camera3D.get_camera_transform().basis.z
 			slots[slot].sleeping = false
@@ -201,18 +206,20 @@ func wire_handler(delta):
 
 func _on_timer_timeout():
 	if audio_state != Condition.BROKEN:
-		audio_state += 1 
-		print("Audio state : ", audio_state)
-		timer_1_shot_flower = false
+		for i in 3:
+			if str(slots[i]).get_slice(":",0) == "Flower":
+				audio_state += 1 
+				print("Audio state : ", audio_state)
+	timer_1_shot_flower = false
 
 func _on_timer_gazlamp_timeout():
 	if visual_state != Condition.BROKEN:
-		visual_state += 1
-		print("Visual state : ", visual_state)
-		timer_1_shot_gazlamp = false
-		visual_degradation.emit(6)
-	
-
+		for i in 3:
+			if str(slots[i]).get_slice(":",0) == "GazLamp":
+				visual_state += 1
+				print("Visual state : ", visual_state)
+				visual_degradation.emit(6)
+	timer_1_shot_gazlamp = false
 
 func _on_footstep_timer_timeout():
 	footstep_audio.play()
