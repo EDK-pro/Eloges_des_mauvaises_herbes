@@ -43,7 +43,7 @@ offset_bottom = 155.0
 theme_override_colors/default_color = Color(0.603922, 0.247059, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
 theme_override_font_sizes/normal_font_size = 24
-text = "... [Messages précédents corrompus] Salut Hughette, désolé ici à la carrière on a beaucoup de travail, mais le lieu commence à se mettre en place ! On organise la maison et les journées sont très longues. --'"
+text = "... [Messages précédents corrompus] Salut Hughette, désolé ici à la carrière on a beaucoup de travail, mais Le lieu commence à se mettre en place ! On organise la maison et les journées sont très longues. --'"
 fit_content = true
 
 [node name="message_2" type="RichTextLabel" parent="ColorRect" groups=["message"]]
@@ -82,7 +82,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.603922, 0.247059, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_wheu8")
 theme_override_font_sizes/normal_font_size = 24
-text = "Oui j’en ai entendu parlé, on pense fort à vous. De notre coté, on continue à découvrir le lieu, cette maison est remplie de souvenirs ! On a récemment découvert des prototypes d’album de vieux groupe de musique xD"
+text = "Oui j'en ai entendu parler, on pense fort à vous. De notre coté, on continue à découvrir le lieu, cette maison est remplie de souvenirs ! On a récemment découvert des prototypes d’albums de vieux groupe de musique xD"
 fit_content = true
 
 [node name="message_4" type="RichTextLabel" parent="ColorRect" groups=["message"]]

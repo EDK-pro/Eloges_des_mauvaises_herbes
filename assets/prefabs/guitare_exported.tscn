@@ -462,3 +462,4 @@ text = "press F to play"
 stream = SubResource("AudioStreamRandomizer_d28kf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
