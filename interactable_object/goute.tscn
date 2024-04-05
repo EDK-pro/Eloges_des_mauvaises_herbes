@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlver57xljgps"]
+
+[ext_resource type="PackedScene" uid="uid://bh4ppahxuscuh" path="res://assets/Test_assets/Assets/gltf/goute.glb" id="1_lj5xa"]
+[ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/tres_file(fichier_ressources)/goutte.tres" id="2_rldyt"]
+
+[node name="goute" instance=ExtResource("1_lj5xa")]
+
+[node name="Sphere" parent="." index="0"]
+mesh = ExtResource("2_rldyt")

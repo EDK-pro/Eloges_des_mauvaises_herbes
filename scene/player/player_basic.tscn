@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c3irofsxun7ew"]
 
 [ext_resource type="Script" path="res://script/player/Player.gd" id="1_fn0q3"]
-[ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://cable.tscn" id="2_68hs7"]
+[ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://interactable_object/cable.tscn" id="2_68hs7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tig38"]
 

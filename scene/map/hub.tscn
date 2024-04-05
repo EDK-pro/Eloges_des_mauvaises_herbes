@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://bgugvx7lggw5i"]
 
-[ext_resource type="Texture2D" uid="uid://sveri7uyo70e" path="res://addons/phantom_camera/floor.png" id="1_f17r7"]
+[ext_resource type="Texture2D" uid="uid://dypd8p5uabnbi" path="res://assets/visuel/floor002.png" id="1_f17r7"]
 [ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_cx5ut"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
 [ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dj4bxk8o7xqqa" path="res://assets/prefabs/props_ready/bois_002.tscn" id="19_vgyph"]
 [ext_resource type="PackedScene" uid="uid://b57n3y5o8h7v7" path="res://assets/prefabs/props_ready/caillou_001.tscn" id="20_o3ttl"]
 [ext_resource type="AudioStream" uid="uid://4af4a7o02jq5" path="res://assets/audio/SD_Ambiance/Vinyl_Crackle_Loop_Stereo.wav" id="20_pru6r"]
-[ext_resource type="PackedScene" uid="uid://2t673dsmj4hh" path="res://door_change_scene.tscn" id="21_264ef"]
+[ext_resource type="PackedScene" uid="uid://2t673dsmj4hh" path="res://scene/interactable/door_change_scene.tscn" id="21_264ef"]
 [ext_resource type="AudioStream" uid="uid://xrmpipcjm6oc" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Wood_Wind_Loop_Stereo.wav" id="22_bihvs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qgehu"]

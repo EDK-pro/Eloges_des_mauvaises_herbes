@@ -1,5 +1,4 @@
 extends Control
-var main = preload("res://Scene/Game/Level/test_scene.tscn")
 @export var bt_jouer:Button
 @export var bt_controle:Button
 @export var bt_credits:Button

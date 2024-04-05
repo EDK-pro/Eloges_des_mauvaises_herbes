@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/player/Player_scene_script.gd" id="1_1qnco"]
 [ext_resource type="Script" path="res://script/player/Player.gd" id="1_yvgxc"]
-[ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://cable.tscn" id="2_65cvw"]
+[ext_resource type="PackedScene" uid="uid://civbnfflyaljt" path="res://interactable_object/cable.tscn" id="2_65cvw"]
 [ext_resource type="AudioStream" uid="uid://bl14mpedjqby4" path="res://assets/Test_assets/raw_sound/wind-up-crank-1-186894.mp3" id="3_bqeot"]
 [ext_resource type="AudioStream" uid="uid://raksmm5smw4w" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Foosteps_Generic_Mono_02.wav" id="6_wv7n2"]
 [ext_resource type="AudioStream" uid="uid://ctp16h4sic4va" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Foosteps_Generic_Mono_03.wav" id="7_xuwpd"]

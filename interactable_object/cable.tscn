@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://civbnfflyaljt"]
+
+[ext_resource type="Script" path="res://interactable_object/cable.gd" id="1_vmv0p"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mro8m"]
+top_radius = 0.05
+bottom_radius = 0.05
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5xkms"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tdbsy"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gyub"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Cable" type="RigidBody3D"]
+gravity_scale = 0.0
+max_contacts_reported = 100
+contact_monitor = true
+script = ExtResource("1_vmv0p")
+
+[node name="Tube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_mro8m")
+
+[node name="Player_collide" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_5xkms")
+disabled = true
+
+[node name="Interact_collide" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_tdbsy")
+disabled = true
+
+[node name="bas" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_3gyub")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

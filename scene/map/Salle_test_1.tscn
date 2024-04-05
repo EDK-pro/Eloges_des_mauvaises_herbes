@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="12_dq0xb"]
 [ext_resource type="ArrayMesh" uid="uid://bmnxvjr2ka08e" path="res://assets/Test_assets/tres_file(fichier_ressources)/goutte.tres" id="13_u4bsw"]
 [ext_resource type="AudioStream" uid="uid://n3sugcf80hbo" path="res://assets/Test_assets/raw_sound/WATRDrip_Gouttes casserole metallique (ID 1382)_LS.ogg" id="14_02vcm"]
-[ext_resource type="PackedScene" uid="uid://d0g33o7j5rca1" path="res://goutte_ploc.tscn" id="15_cshb1"]
+[ext_resource type="PackedScene" uid="uid://d0g33o7j5rca1" path="res://interactable_object/goutte_ploc.tscn" id="15_cshb1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v4n01"]
 size = Vector3(30, 2, 30)

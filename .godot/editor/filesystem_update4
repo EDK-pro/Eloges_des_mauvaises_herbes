@@ -1,0 +1,20 @@
+res://default_bus_layout.tres
+res://goute.tscn
+res://goutte_ploc.tscn
+res://assets/prefabs/basic_wall_4.tres
+res://assets/prefabs/basic_wall_2.tres
+res://assets/prefabs/basic_wall_3.tres
+res://assets/prefabs/basic_wall_1.tres
+res://assets/Test_assets/tres_file(fichier_ressources)/goutte.tres
+res://cable.tscn
+res://scene/map/main_menu.tscn
+res://salon_finale.tscn
+res://salon_proto.tscn
+res://salon_prototype_main menu.tscn
+res://script/player/table.tscn
+res://scene/debug/RopeBody.tscn
+res://scene/interactable/door_change_scene.tscn
+res://script/game_rule/salon.gd
+res://scene/map/hub.tscn
+res://scene/debug/testing_shader.tscn
+res://scene/debug/shader-player.gdshader

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="11_il02u"]
 [ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="12_66ei7"]
 [ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="13_n3yg1"]
-[ext_resource type="Texture2D" uid="uid://d2bfd8v6eu3j2" path="res://assets/visuel/floor002_png.png" id="14_oblqv"]
+[ext_resource type="Texture2D" uid="uid://dypd8p5uabnbi" path="res://assets/visuel/floor002.png" id="14_oblqv"]
 [ext_resource type="Texture2D" uid="uid://cnfwmodflvxrd" path="res://assets/texture/5.jpg" id="15_d2732"]
 [ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="16_up261"]
 [ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="17_lgdak"]

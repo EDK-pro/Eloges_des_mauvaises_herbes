@@ -17,7 +17,7 @@ var text_talk_appearing:bool = false
 var pickable_array: Array
 var circle_array: Array
 
-var goutte_loaded = load("res://goutte_ploc.tscn")
+var goutte_loaded = load("res://interactable_object/goutte_ploc.tscn")
 var scene_goutte 
 
 signal not_bright_enough

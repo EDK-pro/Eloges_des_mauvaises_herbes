@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://caircx3sjq154"]
 
-[ext_resource type="Script" path="res://Main_Menu.gd" id="1_wadvd"]
+[ext_resource type="Script" path="res://script/Ui/Main_Menu.gd" id="1_wadvd"]
 [ext_resource type="PackedScene" uid="uid://bxd7skdcr3an4" path="res://scene/ui/introduction_reinette.tscn" id="2_e5lrc"]
 [ext_resource type="StyleBox" uid="uid://dqkvl8yx2ikpl" path="res://assets/asset_main_menu/main_menu_normal_default.tres" id="5_1jsm1"]
 [ext_resource type="StyleBox" uid="uid://cbyrh61hkbu5c" path="res://assets/asset_main_menu/credits/main_menu.tres" id="6_nhbw6"]
