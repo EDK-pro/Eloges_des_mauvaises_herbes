@@ -31,3 +31,6 @@ script_templates/.gdignore
 .godot/editor/main_menu.tscn-editstate-0f6f6f13ee777121d23097e4930aa261.cfg
 .godot/editor/project_metadata.cfg
 .godot/editor/script_editor_cache.cfg
+.godot/editor/editor_layout.cfg
+.godot/editor/project_metadata.cfg
+.godot/editor/script_editor_cache.cfg
