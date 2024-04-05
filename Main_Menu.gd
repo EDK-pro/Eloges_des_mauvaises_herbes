@@ -1,19 +1,12 @@
 extends Control
 
 @export var bt_jouer:Button
-@export var bt_controle:Button
 @export var bt_credits:Button
 @export var bt_quitter:Button
 @export var bt_commencer:Button
-@export var animator:AnimationPlayer
 @export var Ui_Text:TextureRect
 @export var credits:Control
 @export var nextscene:PackedScene
-
-
-
-func _on_controle_pressed() -> void:
-	animator.play("credit")
 
 func _on_bt_quitter_pressed():
 	get_tree().quit()
