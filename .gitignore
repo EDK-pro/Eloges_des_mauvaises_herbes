@@ -1,6 +1,6 @@
 ### Godot ###
 # Godot 4+ specific ignores
-.godot/
+
 
 # Godot-specific ignores
 .import/
@@ -19,8 +19,6 @@ mono_crash.*.json
 script_templates/ink_template.gd
 script_templates/ink_template_signals.gd
 script_templates/.gdignore
-.godot/shader_cache/ScreenSpaceReflectionFilterShaderRD/60f8b0befc8ae01c09adc3d4b34f7900bc1430b089054913d923605e7a0ca9c4/087916079fba7c625e62b0c2cca570e0fb87c99a.cache
-.godot/shader_cache/ScreenSpaceReflectionScaleShaderRD/c17a8a99b2bfaf1a0e3fdeaf2afc912e685a8f581ca9ad3208b2637c78d43699/087916079fba7c625e62b0c2cca570e0fb87c99a.cache
 .vscode/launch.json
 .vscode/settings.json
 .godot/uid_cache.bin
