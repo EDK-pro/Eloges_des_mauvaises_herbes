@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://qufir3t40d1"]
+[gd_scene load_steps=82 format=3 uid="uid://qufir3t40d1"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_hlaio"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_gvyjd"]
@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://b7k0b8w5886gp" path="res://scene/interactable/phone.tscn" id="18_46vmm"]
 [ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="18_c411q"]
 [ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="19_a01i2"]
+[ext_resource type="Texture2D" uid="uid://c8cqolqq5s48r" path="res://assets/Test_assets/dots-and-points_jaune.png" id="19_kd880"]
 [ext_resource type="Texture2D" uid="uid://c075laxa1jdtr" path="res://assets/texture/8.jpg" id="20_wi4qv"]
-[ext_resource type="Texture2D" uid="uid://cjjr5i4qo1uv2" path="res://assets/Test_assets/dots-and-points.png" id="21_7svgw"]
 [ext_resource type="PackedScene" uid="uid://vgbrk3n34ceu" path="res://assets/exported_File/Props/bois001.glb" id="21_w6lx4"]
 [ext_resource type="PackedScene" uid="uid://daluhxys5e4js" path="res://assets/exported_File/cailloux/C1.glb" id="22_ipatl"]
 [ext_resource type="PackedScene" uid="uid://donhif6ipwevd" path="res://assets/exported_File/cailloux/C2.glb" id="23_sof15"]
@@ -36,8 +36,18 @@
 [ext_resource type="PackedScene" uid="uid://do7qkm6b4ynjo" path="res://assets/prefabs/object/fleur_003.tscn" id="34_5s5d6"]
 [ext_resource type="PackedScene" uid="uid://cj0sfek8s7vsx" path="res://assets/prefabs/object/pistil_002.tscn" id="35_vk8pd"]
 [ext_resource type="PackedScene" uid="uid://bni2ecbl103wp" path="res://assets/prefabs/object/pistil_003.tscn" id="36_cfhl0"]
+[ext_resource type="Texture2D" uid="uid://cflx664ef8j0r" path="res://assets/visuel/affiches in game/5835ac9b7072b7172f1fdbc9018bbb2b.jpg" id="37_770mx"]
 [ext_resource type="PackedScene" uid="uid://by74k0ka7ol20" path="res://assets/prefabs/object/pistil_004.tscn" id="37_jgd04"]
 [ext_resource type="Texture2D" uid="uid://chdbark7hn0ji" path="res://assets/exported_File/Props/door001_Door001-Door001.png" id="37_v3m2u"]
+[ext_resource type="Texture2D" uid="uid://ef8j45l8t4b" path="res://assets/visuel/affiches in game/mai68.3.png" id="38_lwxqr"]
+[ext_resource type="Texture2D" uid="uid://egqh8m311jjb" path="res://assets/visuel/affiches in game/mai68.2.png" id="39_5fcb8"]
+[ext_resource type="AudioStream" uid="uid://xrmpipcjm6oc" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Wood_Wind_Loop_Stereo.wav" id="39_upr1o"]
+[ext_resource type="AudioStream" uid="uid://bxw1tycpvpbno" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Damage_Loop_Stereo.wav" id="40_i5o3b"]
+[ext_resource type="Texture2D" uid="uid://bkupnv40ds6sk" path="res://assets/visuel/affiches in game/buzzcocks.png" id="40_ny6sh"]
+[ext_resource type="Texture2D" uid="uid://mqedypfu8r4t" path="res://assets/visuel/affiches in game/talking_heads.png" id="41_3yw73"]
+[ext_resource type="PackedScene" uid="uid://n5yg5f1tic7t" path="res://assets/prefabs/guitare_exported.tscn" id="41_73phy"]
+[ext_resource type="Texture2D" uid="uid://be0y1r6cgtyk8" path="res://assets/visuel/affiches in game/zad.png" id="42_gcr86"]
+[ext_resource type="Texture2D" uid="uid://bbhm4hrheq1cn" path="res://assets/visuel/affiches in game/87116aefdb06e3bd75faab849b2b5c1f.jpg" id="43_oe1tv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
 sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
@@ -109,12 +119,68 @@ albedo_texture = ExtResource("20_wi4qv")
 material = SubResource("StandardMaterial3D_vv1bp")
 size = Vector3(20, 0.2, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aloid"]
-transparency = 1
-albedo_texture = ExtResource("21_7svgw")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47yqy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0.796078)
+albedo_texture = ExtResource("19_kd880")
+metallic = 0.82
+roughness = 0.35
+roughness_texture_channel = 1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nuqxr"]
+material = SubResource("StandardMaterial3D_47yqy")
 size = Vector2(7, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uckt"]
+albedo_texture = ExtResource("37_770mx")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vb15u"]
+material = SubResource("StandardMaterial3D_3uckt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj6kc"]
+albedo_texture = ExtResource("38_lwxqr")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gjpan"]
+material = SubResource("StandardMaterial3D_aj6kc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxo01"]
+albedo_texture = ExtResource("39_5fcb8")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lvt4x"]
+material = SubResource("StandardMaterial3D_mxo01")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn2ui"]
+albedo_texture = ExtResource("40_ny6sh")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hce23"]
+material = SubResource("StandardMaterial3D_sn2ui")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhvfd"]
+albedo_texture = ExtResource("41_3yw73")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_84wa1"]
+material = SubResource("StandardMaterial3D_nhvfd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei2oc"]
+albedo_texture = ExtResource("42_gcr86")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xkcer"]
+material = SubResource("StandardMaterial3D_ei2oc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj3jo"]
+albedo_texture = ExtResource("43_oe1tv")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ost2"]
+material = SubResource("StandardMaterial3D_wj3jo")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm1kd"]
 transparency = 1
@@ -144,7 +210,7 @@ shadow_enabled = true
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.71844, 2.40688)
 light_color = Color(0.588235, 0.701961, 0.505882, 1)
-light_energy = 0.211
+light_energy = 1.076
 light_indirect_energy = 0.506
 spot_range = 42.346
 spot_attenuation = 0.840896
@@ -201,6 +267,7 @@ visible = false
 mouse_filter = 2
 
 [node name="Talk" parent="UI" instance=ExtResource("3_nt2yt")]
+visible = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="Select_Object" parent="UI" instance=ExtResource("4_5th0c")]
@@ -278,7 +345,7 @@ mesh = SubResource("BoxMesh_h7e87")
 shape = SubResource("BoxShape3D_0bnkt")
 
 [node name="Ground6" type="StaticBody3D" parent="Static"]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 10.5127, 0)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871558, 0, -0.0871558, 0.996195, 0, 10.3647, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground6"]
 mesh = SubResource("BoxMesh_wpqxo")
@@ -288,7 +355,6 @@ shape = SubResource("BoxShape3D_0bnkt")
 
 [node name="Code" type="MeshInstance3D" parent="Static"]
 transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.73664, 0.521194, -1.34141)
-material_override = SubResource("StandardMaterial3D_aloid")
 mesh = SubResource("PlaneMesh_nuqxr")
 
 [node name="props" type="Node3D" parent="Static"]
@@ -446,12 +512,52 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
 [node name="Pistil004" parent="Static/props/flower4" instance=ExtResource("37_jgd04")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
 
+[node name="Affiche1" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.15701, 1.65553, -9.55831)
+mesh = SubResource("PlaneMesh_vb15u")
+
+[node name="Affiche2" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -9.14441, 2.81154, 0)
+mesh = SubResource("PlaneMesh_gjpan")
+
+[node name="Affiche3" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(0.98151, -8.36674e-09, -0.191409, -0.191409, -4.29032e-08, -0.98151, 0, 1, -4.37114e-08, -0.658254, 2.53258, -9.51626)
+mesh = SubResource("PlaneMesh_lvt4x")
+
+[node name="Affiche4" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 9.9452, 2.04638, 4.74735)
+mesh = SubResource("PlaneMesh_hce23")
+
+[node name="Affiche5" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.21367, 2.43572, 9.87113)
+mesh = SubResource("PlaneMesh_84wa1")
+
+[node name="Affiche6" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-0.976073, -7.58262e-08, 0.217445, -0.217445, -6.16751e-08, -0.976073, 8.74228e-08, -1, 4.37114e-08, 3.05897, 2.13686, 9.90249)
+mesh = SubResource("PlaneMesh_xkcer")
+
+[node name="Affiche7" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 9.9592, 3.1439, -0.554742)
+mesh = SubResource("PlaneMesh_8ost2")
+
 [node name="Porte" type="MeshInstance3D" parent="Static"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -9.07136, 1.89884, 7.54645)
 mesh = SubResource("PlaneMesh_ee8n6")
 
 [node name="Phone" parent="." instance=ExtResource("18_46vmm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 3.27471, -5.89353)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("39_upr1o")
+volume_db = -4.333
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("40_i5o3b")
+attenuation_model = 3
+
+[node name="Guitare_exported" parent="." instance=ExtResource("41_73phy")]
+transform = Transform3D(-1, -5.0243e-15, -8.74228e-08, 7.57103e-08, 0.5, -0.866025, 4.37114e-08, -0.866025, -0.5, 3.30337, 1.96084, 9.16855)
 
 [editable path="Static/props/wood/bois002"]
 [editable path="Static/props/wood/bois003"]

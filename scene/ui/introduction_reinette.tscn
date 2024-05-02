@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxd7skdcr3an4"]
+
+[ext_resource type="VideoStream" path="res://assets/visuel/cutscene/Reinette_Introduction.ogv" id="1_g83eb"]
+[ext_resource type="Script" path="res://script/Ui/Cinematique_Introduction_Reinette.gd" id="2_nguwk"]
+[ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="3_wk23j"]
+
+[node name="Introduction_Reinette" type="VideoStreamPlayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_g83eb")
+autoplay = true
+script = ExtResource("2_nguwk")
+nextscene = ExtResource("3_wk23j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1650.0
+offset_top = 1021.0
+offset_right = 1868.0
+offset_bottom = 1044.0
+text = "Appuyez sur Enter pour sauter"
+
+[connection signal="finished" from="." to="." method="_on_finished"]

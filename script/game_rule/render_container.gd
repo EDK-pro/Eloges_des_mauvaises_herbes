@@ -5,11 +5,13 @@ extends Control
 @export var Ui_Text_Item:Control
 @export var Ui_Tab:Control
 @export var Ui_Slot_Selection:Control
+@export var Ui_Talk:Control
 
 @export var End_Game:PackedScene
 
 
 var tuto_item_once: bool = true
+var tuto_talk_once: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.visual_degradation.connect(change_shader_quality.bind())
@@ -37,6 +39,9 @@ func _process(_delta):
 	if $SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing:
 		_text_tab_appear()
 		$SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing = false
+		
+	if $SubViewportContainer/SubViewport/Salon_Proto.text_talk_appearing:
+		_text_talk_appearing()
 	if Input.is_action_just_pressed("yeet_item"):
 		#Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
 		#Input.mouse_mode = (2 - Input.mouse_mode)
@@ -124,3 +129,21 @@ func _on_button_tab_pressed():
 func _end_game():
 	reset_shader()
 	get_tree().change_scene_to_packed(End_Game)
+
+func _text_talk_appearing():
+	if tuto_talk_once:
+		Ui_Talk.visible = true
+		var tween = get_tree().create_tween()
+		tween.tween_property(Ui_Talk, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
+		$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = false
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		tuto_talk_once = false
+		await tween.finished
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+
+func _on_button_talk_pressed():
+	var tween = get_tree().create_tween()
+	tween.tween_property(Ui_Talk, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
+	$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.can_move = true
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

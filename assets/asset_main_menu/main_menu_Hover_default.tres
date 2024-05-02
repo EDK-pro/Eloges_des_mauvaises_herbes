@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://buv1bg8dgiab2"]
+
+[ext_resource type="Texture2D" uid="uid://duo7gt3ppun2" path="res://assets/asset_main_menu/carton_menu_menu.png" id="1_6jupp"]
+
+[resource]
+content_margin_top = 200.0
+texture = ExtResource("1_6jupp")
+region_rect = Rect2(62, 109.808, 649, 264.124)
+modulate_color = Color(0.482353, 0.47451, 0.458824, 1)

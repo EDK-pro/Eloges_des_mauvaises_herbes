@@ -12,6 +12,7 @@ extends Node
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
 var text_tab_appearing:bool = false
+var text_talk_appearing:bool = false
 
 var pickable_array: Array
 var circle_array: Array
@@ -54,6 +55,9 @@ func _ready():
 		$Player/Player_scene/Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
 func _process(_delta):
+	if Input.is_action_just_pressed("light"):
+		$Environnement/SpotLight3D.spot_angle = 80.0
+		$Environnement/SpotLight3D.light_energy = 1.5
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
 		scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
@@ -61,7 +65,10 @@ func _process(_delta):
 		print(scene_goutte.crushed)
 		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
-
+	if $Player/Player_scene/Player.visual_state == 3:
+		_end_demo()
+	if !$AudioStreamPlayer3D.playing and $Player/Player_scene/Player.audio_state == 2:
+		$AudioStreamPlayer3D.play()
 func endTalk():
 	$UI/Talk.hide()
 
@@ -71,6 +78,7 @@ func talkWith(item):
 	print("Bah alors ",  talkative_name)
 	if talkative_name == "Phone":
 		if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
+			text_talk_appearing = true
 			marginTime = 250
 			symbolCount = 4.0
 			communicationDuration = 5.0

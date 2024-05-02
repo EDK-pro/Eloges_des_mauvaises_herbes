@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if velocity != Vector3.ZERO:
 		playerAnim.play("walk")
 	else:
-		playerAnim.play("idle")
+		playerAnim.play("IDLE")
 	if direction:
 		velocity.x = direction.x * speed * delta
 		velocity.z = direction.z * speed * delta

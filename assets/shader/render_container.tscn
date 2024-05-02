@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://o7ido6u8yes"]
+[gd_scene load_steps=12 format=3 uid="uid://o7ido6u8yes"]
 
 [ext_resource type="Script" path="res://script/game_rule/render_container.gd" id="1_aviqf"]
 [ext_resource type="Shader" path="res://assets/shader/render_shader.gdshader" id="1_iggdh"]
 [ext_resource type="PackedScene" uid="uid://itd7dnhqv51g" path="res://scene/map/Story_1.tscn" id="2_e6sgq"]
 [ext_resource type="PackedScene" uid="uid://qufir3t40d1" path="res://salon_proto.tscn" id="3_jr21j"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="5_pmu7u"]
-[ext_resource type="Texture2D" uid="uid://d3xmdms461w5g" path="res://assets/visuel/UI_sprite/cartons_interact_le_vrai_png.png" id="6_qgm4y"]
+[ext_resource type="Texture2D" uid="uid://bhyn2poqk3mxo" path="res://assets/visuel/UI_sprite/cartons_interact_le_vrai_png.png" id="6_qgm4y"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="7_ovx44"]
-[ext_resource type="Texture2D" uid="uid://c3xkptnbn0dmx" path="res://assets/visuel/UI_sprite/cartons_choix_slot_png.png" id="8_tt3hj"]
-[ext_resource type="Texture2D" uid="uid://c3rgcfdcjar1u" path="res://assets/visuel/UI_sprite/cartons_tab_png.png" id="9_mw0eo"]
+[ext_resource type="Texture2D" uid="uid://brqq2te6olduk" path="res://assets/visuel/UI_sprite/cartons_choix_slot_png.png" id="8_tt3hj"]
+[ext_resource type="Texture2D" uid="uid://rhph0r74lybn" path="res://assets/visuel/UI_sprite/cartons_tab_png.png" id="9_mw0eo"]
+[ext_resource type="Texture2D" uid="uid://dtj7tt0d4gmwi" path="res://assets/visuel/UI_sprite/cartons_talk_png.png" id="10_ob80r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkat"]
 shader = ExtResource("1_iggdh")
@@ -19,7 +20,7 @@ shader_parameter/scale_resolution = true
 shader_parameter/target_resolution_scale = 3
 shader_parameter/enable_recolor = false
 
-[node name="Render_Container" type="Control" node_paths=PackedStringArray("Ui_Reset_Button", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection")]
+[node name="Render_Container" type="Control" node_paths=PackedStringArray("Ui_Reset_Button", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "Ui_Talk")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +33,7 @@ Ui_Text_Arrivee = NodePath("Control_Arrivee")
 Ui_Text_Item = NodePath("Control_Item")
 Ui_Tab = NodePath("Control_Tab")
 Ui_Slot_Selection = NodePath("Slot_selection")
+Ui_Talk = NodePath("Control_Talk")
 End_Game = ExtResource("2_e6sgq")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -62,9 +64,9 @@ offset_top = 332.0
 offset_right = 1226.0
 offset_bottom = 586.0
 theme_override_font_sizes/font_size = 20
-text = "Trop de dysfonctionnement, votre corps cesse de répondre.
+text = "Alors que votre périphérique se détériore complétement, votre OS vous impose un redémarrage d'usine. Perdu.e, vous quittez la Carrière... Pour un temps indéterminé.
 
-Cliquer pour Recommencer"
+Revenir à la Carrière ?"
 
 [node name="Slot_selection" parent="." instance=ExtResource("7_ovx44")]
 visible = false
@@ -245,7 +247,61 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "continue"
 
+[node name="Control_Talk" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="Control_Talk"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ob80r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control_Talk/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pmu7u")
+theme_override_font_sizes/normal_font_size = 29
+text = "Une fois que vous avez équipé un objet, vous pouvez le retirer de son emplacement en appuyant sur TAB et en sélectionnant l'emplacement concerné !"
+
+[node name="Button_Talk" type="Button" parent="Control_Talk"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
 [connection signal="pressed" from="Button_Reset" to="." method="_on_button_reset_pressed"]
 [connection signal="pressed" from="Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
 [connection signal="pressed" from="Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
 [connection signal="pressed" from="Control_Tab/Button_Tab" to="." method="_on_button_tab_pressed"]
+[connection signal="pressed" from="Control_Talk/Button_Talk" to="." method="_on_button_talk_pressed"]
