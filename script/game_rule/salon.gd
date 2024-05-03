@@ -8,6 +8,7 @@ extends Node
 @export var Ui_Fondu:Control
 @export var Ui_Reset_Button:Control
 @export var Ui_Talk:Control
+#@export var 
 
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
@@ -54,15 +55,16 @@ func _ready():
 		## When the object is thrown out, remove it from slot
 		$Player/Player_scene/Player.throw_object.connect(pickable_array[i]._on_click.bind())
 
-func _process(_delta):
-	if Input.is_action_just_pressed("light"):
+func _input(event):
+	if event.is_action_pressed("light"):
 		$Environnement/SpotLight3D.spot_angle = 80.0
 		$Environnement/SpotLight3D.light_energy = 1.5
+
+func _process(_delta):
 	if scene_goutte == null:
 		scene_goutte = goutte_loaded.instantiate()
 		scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
 		scene_goutte.crushed = $Player/Player_scene/Player.audio_state
-		print(scene_goutte.crushed)
 		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
 		add_child(scene_goutte)
 	if $Player/Player_scene/Player.visual_state == 3:
@@ -75,7 +77,6 @@ func endTalk():
 func talkWith(item):
 	var correctArray: Array
 	var talkative_name = str(item).get_slice(":",0)
-	print("Bah alors ",  talkative_name)
 	if talkative_name == "Phone":
 		if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
 			text_talk_appearing = true

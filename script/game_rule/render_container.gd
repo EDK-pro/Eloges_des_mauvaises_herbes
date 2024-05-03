@@ -6,6 +6,7 @@ extends Control
 @export var Ui_Tab:Control
 @export var Ui_Slot_Selection:Control
 @export var Ui_Talk:Control
+@export var Salon: PackedScene
 
 @export var End_Game:PackedScene
 
@@ -42,6 +43,11 @@ func _process(_delta):
 		
 	if $SubViewportContainer/SubViewport/Salon_Proto.text_talk_appearing:
 		_text_talk_appearing()
+	if $SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab == 1:
+		$SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing = true
+		$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab = 2
+	
+func _input(event):
 	if Input.is_action_just_pressed("yeet_item"):
 		#Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
 		#Input.mouse_mode = (2 - Input.mouse_mode)
@@ -55,10 +61,7 @@ func _process(_delta):
 			Input.mouse_mode = (2 - Input.mouse_mode)
 			Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
 		#Input.mouse_mode = (2 - Input.mouse_mode)
-	if $SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab == 1:
-		$SubViewportContainer/SubViewport/Salon_Proto.text_tab_appearing = true
-		$SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.tuto_tab = 2
-	
+
 func change_shader_quality(indice):
 	if $SubViewportContainer.material.get_shader_parameter("enable_recolor"):
 		var tweeen = get_tree().create_tween()
@@ -139,7 +142,6 @@ func _text_talk_appearing():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		tuto_talk_once = false
 		await tween.finished
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 
 func _on_button_talk_pressed():

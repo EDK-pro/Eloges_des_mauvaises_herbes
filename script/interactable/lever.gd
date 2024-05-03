@@ -25,6 +25,5 @@ func _on_click(slot):
 			remove_from_slot(slot-3)
 		_:
 			print("echec match")
-	#print("click_on ", slot_used)
 
 

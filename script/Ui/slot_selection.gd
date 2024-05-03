@@ -26,44 +26,47 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if fade_value[0] >= 1.0 or fade_in[0] == true:
-				slot_accepted.emit(0)
-				self.hide()
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			if fade_value[1] >= 1.0 or fade_in[1] == true:
-				slot_accepted.emit(1)
-				self.hide()
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			if fade_value[2] >= 1.0 or fade_in[2] == true:
-				slot_accepted.emit(2)
-				self.hide()
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if fade_in[0] == true : 
-			if fade_value[0] <= 1.0:
-				fade_value[0] += delta * 0.9
-				$UnselectedSlot1/RectSlot1.modulate = Color(1,1,1,fade_value[0])
-		elif fade_in[1] == true : 
-			if fade_value[1] <= 1.0:
-				fade_value[1] += delta * 0.9
-				$UnselectedSlot2/RectSlot2.modulate = Color(1,1,1,fade_value[1])
-		elif fade_in[2] == true : 
-			if fade_value[2] <= 1.0 :
-				fade_value[2] += delta * 0.9
-				$UnselectedSlot3/RectSlot3.modulate = Color(1,1,1,fade_value[2])
-		if fade_in[0] == false:
-			if fade_value[0] >= 0.0:
-				fade_value[0] -= delta * 0.9
-				$UnselectedSlot1/RectSlot1.modulate = Color(1,1,1,fade_value[0])
-		if fade_in[1] == false:
-			if fade_value[1] >= 0.0:
-				fade_value[1] -= delta * 0.9
-				$UnselectedSlot2/RectSlot2.modulate = Color(1,1,1,fade_value[1])
-		if fade_in[2] == false:
-			if fade_value[2] >= 0.0 :
-				fade_value[2] -= delta * 0.9
-				$UnselectedSlot3/RectSlot3.modulate = Color(1,1,1,fade_value[2])
-		
+	if self.visible == false:
+		return
+	if fade_in[0] == true : 
+		if fade_value[0] <= 1.0:
+			fade_value[0] += delta * 0.9
+			$UnselectedSlot1/RectSlot1.modulate = Color(1,1,1,fade_value[0])
+	elif fade_in[1] == true : 
+		if fade_value[1] <= 1.0:
+			fade_value[1] += delta * 0.9
+			$UnselectedSlot2/RectSlot2.modulate = Color(1,1,1,fade_value[1])
+	elif fade_in[2] == true : 
+		if fade_value[2] <= 1.0 :
+			fade_value[2] += delta * 0.9
+			$UnselectedSlot3/RectSlot3.modulate = Color(1,1,1,fade_value[2])
+	if fade_in[0] == false:
+		if fade_value[0] >= 0.0:
+			fade_value[0] -= delta * 0.9
+			$UnselectedSlot1/RectSlot1.modulate = Color(1,1,1,fade_value[0])
+	if fade_in[1] == false:
+		if fade_value[1] >= 0.0:
+			fade_value[1] -= delta * 0.9
+			$UnselectedSlot2/RectSlot2.modulate = Color(1,1,1,fade_value[1])
+	if fade_in[2] == false:
+		if fade_value[2] >= 0.0 :
+			fade_value[2] -= delta * 0.9
+			$UnselectedSlot3/RectSlot3.modulate = Color(1,1,1,fade_value[2])
+
+func _input(event):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if fade_in[0] == true:
+			slot_accepted.emit(0)
+			self.hide()
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if fade_in[1] == true:
+			slot_accepted.emit(1)
+			self.hide()
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if fade_in[2] == true:
+			slot_accepted.emit(2)
+			self.hide()
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_rect_slot_1_mouse_entered():
 	fade_in[0] = true
@@ -107,4 +110,4 @@ func _on_full_circle(occupe:Array[bool]):
 		$UnselectedSlot3/RectSlot3.texture = slot_images[9]
 		
 	self.show()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
