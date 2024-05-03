@@ -49,7 +49,7 @@ var handle_nb_fails: int = 0
 
 func _ready():
 	# Set mouse mode to captured when the scene is ready
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	taille_max = $Cable/Tube.mesh.height
 
 func _physics_process(delta):
@@ -58,22 +58,22 @@ func _physics_process(delta):
 	wire_handler(delta)
 	slots_handler(delta)
 	# Check for pause action and adjust mouse mode accordingly
-
-	# Handle player movement based on input
-	var input = Input.get_vector("gauche", "droite", "devant", "derriere")
-	if input != Vector2.ZERO and !boolMove:
-		boolMove = true
-		footstep_timer.start()
-	else:
-		footstep_timer.is_stopped()
-	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
-	velocity.x = movement_dir.x * speed
-	velocity.y -= gravity * 0.1
-	velocity.z = movement_dir.z * speed
 	if can_move:
+		# Handle player movement based on input
+		var input = Input.get_vector("gauche", "droite", "devant", "derriere")
+		if input != Vector2.ZERO and !boolMove:
+			boolMove = true
+			footstep_timer.start()
+		else:
+			footstep_timer.is_stopped()
+		var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
+		velocity.x = movement_dir.x * speed
+		velocity.y -= gravity * 0.1
+		velocity.z = movement_dir.z * speed
 		move_and_slide()
 
 func _input(event):
+	print("coubeh",event)
 	# Check for pause action and adjust mouse mode accordingly
 	if event.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -81,6 +81,7 @@ func _input(event):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Handle mouse motion and button events for camera control and object selection
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+
 		var bug_rotation = -event.relative.x * mouse_sensitivity
 		if handle_nb_fails == 4:
 			if bug_rotation >= 0:

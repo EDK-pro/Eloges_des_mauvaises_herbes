@@ -35,7 +35,6 @@ func _ready():
 	#var tween = get_tree().create_tween()
 	#tween.tween_property(Ui_Text_Arrivee, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
 	#$Player/Player_scene/Player.can_move = false
-	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$Static/Fauteil.player_can_climb.connect($Player/Player_scene._can_climb.bind())
 	Ui_Talk.reussite_signal.connect(_end_demo.bind())
 	## For each interactable item 
@@ -61,14 +60,15 @@ func _input(event):
 		$Environnement/SpotLight3D.light_energy = 1.5
 
 func _process(_delta):
-	if scene_goutte == null:
-		scene_goutte = goutte_loaded.instantiate()
-		scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
-		scene_goutte.crushed = $Player/Player_scene/Player.audio_state
-		scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
-		add_child(scene_goutte)
-	if $Player/Player_scene/Player.visual_state == 3:
-		_end_demo()
+	#print(Input.mouse_mode)
+	#if scene_goutte == null:
+		#scene_goutte = goutte_loaded.instantiate()
+		#scene_goutte.position = $Static/Fauteil.position + Vector3(0,7,0)
+		#scene_goutte.crushed = $Player/Player_scene/Player.audio_state
+		#scene_goutte.watering.connect($GazLamp._wet_lamp.bind())
+		#add_child(scene_goutte)
+	#if $Player/Player_scene/Player.visual_state == 3:
+		#_end_demo()
 	if !$AudioStreamPlayer3D.playing and $Player/Player_scene/Player.audio_state == 2:
 		$AudioStreamPlayer3D.play()
 func endTalk():
