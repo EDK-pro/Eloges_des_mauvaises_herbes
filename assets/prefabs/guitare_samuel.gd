@@ -5,7 +5,7 @@ extends Area3D
 @export var canPlay = false
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("play_guitar") and canPlay:
 		samuel.play() 
 		return

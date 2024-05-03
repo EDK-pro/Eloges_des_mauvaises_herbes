@@ -33,7 +33,6 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if str(body).get_slice(":",0) != "Tuyau" and str(body).get_slice(":",0) != "Phone" and str(body).get_slice(":",0) != "Etagere":
-		print(body)
 		if !touch_once:
 			if crushed == 3:
 				$Son_goutte.volume_db = -40.0

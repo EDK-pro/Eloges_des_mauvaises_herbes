@@ -58,10 +58,7 @@ func _physics_process(delta):
 	wire_handler(delta)
 	slots_handler(delta)
 	# Check for pause action and adjust mouse mode accordingly
-	if Input.is_action_pressed("Menu_pause"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	# Handle player movement based on input
 	var input = Input.get_vector("gauche", "droite", "devant", "derriere")
 	if input != Vector2.ZERO and !boolMove:
@@ -77,6 +74,11 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _input(event):
+	# Check for pause action and adjust mouse mode accordingly
+	if event.is_action_pressed("Menu_pause"):
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Handle mouse motion and button events for camera control and object selection
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		var bug_rotation = -event.relative.x * mouse_sensitivity

@@ -205,13 +205,13 @@ environment = SubResource("Environment_h5134")
 transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603065, 0, 6.48825, 0)
 light_color = Color(0.262745, 0.364706, 0.427451, 1)
 light_energy = 16.0
-shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.71844, 2.40688)
 light_color = Color(0.588235, 0.701961, 0.505882, 1)
 light_energy = 1.076
 light_indirect_energy = 0.506
+editor_only = true
 spot_range = 42.346
 spot_attenuation = 0.840896
 spot_angle = 41.67

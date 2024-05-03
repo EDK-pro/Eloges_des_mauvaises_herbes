@@ -10,7 +10,6 @@ func teleport() -> void:
 	tween.tween_property(Ui_Text_Salon, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
 
 func _on_body_entered(body):
-	print("feur")
 	var player = str(body).get_slice(":",0)
 	if player == "Player2D":
 		teleport()

@@ -5,7 +5,7 @@ extends Control
 @export var color: Color
 
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("advance_story"):
 		if number < message.size():
 			var pitch_shift: float = randf_range(0.95,1.05)
@@ -18,6 +18,5 @@ func _physics_process(_delta: float) -> void:
 			await tween.finished
 		else:
 			$CanvasLayer/ColorRect.material.set_shader_parameter("smear",2.0)
-		print(number)
 		number +=1
 		return
