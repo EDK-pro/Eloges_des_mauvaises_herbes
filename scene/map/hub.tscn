@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://bgugvx7lggw5i"]
+[gd_scene load_steps=44 format=3 uid="uid://bgugvx7lggw5i"]
 
 [ext_resource type="Texture2D" uid="uid://dypd8p5uabnbi" path="res://assets/visuel/floor002.png" id="1_f17r7"]
 [ext_resource type="PlaneMesh" uid="uid://baofa1rjyp7g6" path="res://assets/prefabs/basic_wall_4.tres" id="2_cx5ut"]
 [ext_resource type="Script" path="res://script/2d_scene/CharacterBody3D.gd" id="2_iljgu"]
 [ext_resource type="Texture2D" uid="uid://clbxs0l8pxva6" path="res://assets/visuel/anim_reinette/reinette_idle0000.png" id="3_fhhhw"]
+[ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="3_w8ev1"]
 [ext_resource type="Texture2D" uid="uid://cq4u3gfat3jet" path="res://assets/visuel/anim_reinette/reinette_idle0001.png" id="4_aeb8g"]
 [ext_resource type="PackedScene" uid="uid://c2tqn62dvcu6t" path="res://scene/interactable/Trigger_UI.tscn" id="5_rc0ef"]
 [ext_resource type="Texture2D" uid="uid://c0kb47e0h7tu0" path="res://assets/visuel/anim_reinette/reinette_idle0002.png" id="5_v3l4e"]
@@ -61,8 +62,8 @@ data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tms1b"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x31gq"]
-albedo_texture = ExtResource("4_aeb8g")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2mn4"]
+albedo_texture = ExtResource("3_w8ev1")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3cmmi"]
 radius = 0.984585
@@ -198,7 +199,7 @@ shape = SubResource("ConcavePolygonShape3D_msaq5")
 
 [node name="wall_1" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 12, 0)
-collision_layer = 0
+collision_layer = 9
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall_1"]
@@ -211,7 +212,7 @@ shape = SubResource("ConcavePolygonShape3D_tms1b")
 
 [node name="wall_2" type="StaticBody3D" parent="."]
 transform = Transform3D(4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 3.82137e-15, 8.74228e-08, -1, -10, 12, 0)
-collision_layer = 0
+collision_layer = 8
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall_2"]
@@ -224,12 +225,12 @@ shape = SubResource("ConcavePolygonShape3D_tms1b")
 
 [node name="wall_3" type="StaticBody3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 12, 10)
-collision_layer = 0
+collision_layer = 8
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.90735e-06, 0)
-material_override = SubResource("StandardMaterial3D_x31gq")
+material_override = SubResource("StandardMaterial3D_y2mn4")
 mesh = ExtResource("2_cx5ut")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall_3"]
@@ -238,7 +239,7 @@ shape = SubResource("ConcavePolygonShape3D_tms1b")
 
 [node name="wall_4" type="StaticBody3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 12, -10)
-collision_layer = 0
+collision_layer = 8
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall_4"]

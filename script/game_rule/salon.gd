@@ -8,8 +8,9 @@ extends Node
 @export var Ui_Fondu:Control
 @export var Ui_Reset_Button:Control
 @export var Ui_Talk:Control
-#@export var 
 
+##var player et les objets
+@export var player: PackedScene
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
 var text_tab_appearing:bool = false
@@ -24,6 +25,7 @@ var scene_goutte
 signal not_bright_enough
 
 func _ready():
+	player.get_node("Player").visual_degradation.connect(change_shader_quality.bind())
 	## Array to get all the pickable item. Used to easily connect all nodes together
 	pickable_array = get_tree().get_nodes_in_group("pickable_item")
 	## Array to get each circles that will loop around pickable item. Used to know when their full. 
