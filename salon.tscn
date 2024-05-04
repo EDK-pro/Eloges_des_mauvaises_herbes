@@ -1,7 +1,8 @@
-[gd_scene load_steps=87 format=3 uid="uid://ck0up3tauvqhh"]
+[gd_scene load_steps=88 format=3 uid="uid://ck0up3tauvqhh"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_8jlhj"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_1u70a"]
+[ext_resource type="PackedScene" uid="uid://itd7dnhqv51g" path="res://scene/map/Story_1.tscn" id="2_6fxun"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="3_r1jp3"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="4_4n80k"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="5_xvrr6"]
@@ -195,11 +196,19 @@ albedo_texture = ExtResource("44_0urav")
 material = SubResource("StandardMaterial3D_sm1kd")
 size = Vector2(5, 5)
 
-[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk")]
+[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "player", "sofa", "cable")]
 script = ExtResource("1_8jlhj")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
-Ui_Reset_Button = NodePath("UI/Control_Reset")
+Ui_Reset_Button = NodePath("UI/Button_Reset")
 Ui_Talk = NodePath("UI/Talk")
+Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
+Ui_Text_Item = NodePath("UI/Control_Item")
+Ui_Tab = NodePath("UI/Control_Tab")
+Ui_Slot_Selection = NodePath("UI/Slot_selection")
+player = NodePath("Player/Player_scene/Player")
+sofa = NodePath("Static/Fauteil")
+cable = NodePath("Player/Player_scene/Player/Cable")
+next_scene = ExtResource("2_6fxun")
 
 [node name="Environnement" type="Node" parent="."]
 
@@ -414,6 +423,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.095, 1e-05)
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control_Arrivee"]
 layout_mode = 1
@@ -647,7 +657,7 @@ transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, 4.62854, 1, -12.8834)
 transform = Transform3D(1.99986, -0.0195402, -0.0489771, 0.0128428, 2.99981, -0.0469719, 0.0197121, 0.0279925, 4.99954, -6.25344, 1, 19.5191)
 
 [node name="C6" parent="Static/props/rock of the scene" instance=ExtResource("25_07860")]
-transform = Transform3D(1.89668, 0.507911, -0.290741, -0.138158, 3.90828, 0.201402, 0.619296, -0.683652, 0.935364, 17.9086, 2.09978, -17.8395)
+transform = Transform3D(1.89668, 0.507911, -0.290741, -0.146856, 3.91751, 0.188224, 0.617291, -0.628607, 0.938105, 17.9086, 2.09978, -17.8395)
 
 [node name="C7" parent="Static/props/rock of the scene" instance=ExtResource("26_mr0vi")]
 transform = Transform3D(0.805349, 0, 0.986943, 0, 3, 0, -4.93472, 0, 0.16107, -17.4238, 1, 2.33871)
@@ -807,6 +817,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 3.27471, -5.89353)
 [node name="Guitare_exported" parent="." instance=ExtResource("48_vjyg4")]
 transform = Transform3D(-1, -5.0243e-15, -8.74228e-08, 7.57103e-08, 0.5, -0.866025, 4.37114e-08, -0.866025, -0.5, 3.30337, 1.96084, 9.16855)
 
+[editable path="Player/Player_scene"]
+[editable path="Player/Player_scene/Player/Cable"]
 [editable path="Static/props/wood/bois002"]
 [editable path="Static/props/wood/bois003"]
 [editable path="Static/props/wood/bois004"]

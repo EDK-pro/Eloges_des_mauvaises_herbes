@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://e565ngrvreib"]
+[gd_scene load_steps=54 format=3 uid="uid://e565ngrvreib"]
 
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="1_f35m1"]
 [ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="6_b27t8"]
 [ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="7_ck5h6"]
 [ext_resource type="PackedScene" uid="uid://dyh6uap78vnd7" path="res://scene/debug/oil_lamp.tscn" id="8_2d7ug"]
@@ -120,6 +121,8 @@ material = SubResource("StandardMaterial3D_sm1kd")
 size = Vector2(5, 5)
 
 [node name="Salon_Proto" type="Node3D"]
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("1_f35m1")]
 
 [node name="Environnement" type="Node" parent="."]
 

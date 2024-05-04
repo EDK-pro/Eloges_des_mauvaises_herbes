@@ -55,7 +55,7 @@ func _input(event):
 			for i in 3:
 				if $SubViewportContainer/SubViewport/Salon_Proto/Player/Player_scene/Player.slots[i] == null:
 					occupied_slots[i] = false
-			Ui_Slot_Selection._on_full_circle(occupied_slots) 
+			Ui_Slot_Selection._on_full_circle(	) 
 		else:
 			Input.mouse_mode = (2 - Input.mouse_mode)
 			Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
