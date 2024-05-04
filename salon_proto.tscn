@@ -430,6 +430,7 @@ transform = Transform3D(0.511818, 0, 0.859094, 0, 1, 0, -0.859094, 0, 0.511818, 
 
 [node name="flower" type="Node3D" parent="Static/props"]
 transform = Transform3D(0.991671, 0, 0.128796, 0, 1, 0, -0.128796, 0, 0.991671, 10.0104, 0, 4.58381)
+visible = false
 
 [node name="Fleur001" parent="Static/props/flower" instance=ExtResource("32_o6xs8")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
@@ -451,6 +452,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
 
 [node name="flower2" type="Node3D" parent="Static/props"]
 transform = Transform3D(-0.238466, 0, -0.971151, 0, 1, 0, 0.971151, 0, -0.238466, -7.90731, 0, 12.9758)
+visible = false
 
 [node name="Fleur001" parent="Static/props/flower2" instance=ExtResource("32_o6xs8")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
@@ -472,6 +474,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
 
 [node name="flower3" type="Node3D" parent="Static/props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07229, 0, 20.7298)
+visible = false
 
 [node name="Fleur001" parent="Static/props/flower3" instance=ExtResource("32_o6xs8")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
@@ -493,6 +496,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
 
 [node name="flower4" type="Node3D" parent="Static/props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3411, 0, 12.5542)
+visible = false
 
 [node name="Fleur001" parent="Static/props/flower4" instance=ExtResource("32_o6xs8")]
 transform = Transform3D(-2.97828, 0, 0.360358, 0, 3, 0, -0.360358, 0, -2.97828, -26.1218, 1.45917, -7.6907)

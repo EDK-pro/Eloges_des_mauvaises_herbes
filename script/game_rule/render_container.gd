@@ -50,7 +50,6 @@ func _process(_delta):
 func _input(event):
 	if Input.is_action_just_pressed("yeet_item"):
 		#Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
-		#Input.mouse_mode = (2 - Input.mouse_mode)
 		if !Ui_Slot_Selection.visible:
 			var occupied_slots:Array[bool] = [true,true,true]
 			for i in 3:
@@ -60,7 +59,6 @@ func _input(event):
 		else:
 			Input.mouse_mode = (2 - Input.mouse_mode)
 			Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
-		#Input.mouse_mode = (2 - Input.mouse_mode)
 
 func change_shader_quality(indice):
 	if $SubViewportContainer.material.get_shader_parameter("enable_recolor"):
