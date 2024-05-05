@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkvb25mgdcr8e"]
+
+[ext_resource type="PackedScene" uid="uid://18yy6sndlbcs" path="res://assets/assets 3D lukas/etagere.glb" id="1_wp0jt"]
+[ext_resource type="PackedScene" uid="uid://b6amvuxwxiwq5" path="res://assets/assets 3D lukas/fleurtxt.glb" id="2_boamv"]
+[ext_resource type="PackedScene" uid="uid://dr4a7kwoqjovb" path="res://assets/assets 3D lukas/fauteuiltxt.glb" id="3_6uakk"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="4_0pawd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jip4r"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3cvpk"]
+sky_material = SubResource("ProceduralSkyMaterial_jip4r")
+
+[sub_resource type="Environment" id="Environment_juil1"]
+background_mode = 2
+sky = SubResource("Sky_3cvpk")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="salle test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_juil1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="etagere" parent="." instance=ExtResource("1_wp0jt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.452727, 1.19209e-07, -0.478839)
+
+[node name="fleurtxt" parent="." instance=ExtResource("2_boamv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62305, 0, -0.827652)
+
+[node name="fauteuiltxt" parent="." instance=ExtResource("3_6uakk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12467, 0, 2.77105)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.642788, -0.347777, 0.682551, 0, 0.891007, 0.453991, -0.766044, -0.291819, 0.572728, 5.04, 3.62, 5.255)
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("4_0pawd")]
