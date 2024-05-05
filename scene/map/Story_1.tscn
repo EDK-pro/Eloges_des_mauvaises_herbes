@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://itd7dnhqv51g"]
+[gd_scene load_steps=8 format=3 uid="uid://itd7dnhqv51g"]
 
 [ext_resource type="Script" path="res://scene/map/Story_1.gd" id="1_uakq7"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="1_wheu8"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="2_8b8rg"]
 [ext_resource type="Shader" path="res://assets/shader/Story_1.gdshader" id="3_0mg28"]
 [ext_resource type="AudioStream" uid="uid://c0so587uweci" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
 [ext_resource type="AudioStream" uid="uid://dc7ouhw4hnikk" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Rain_Loop_Stereo.wav" id="5_qqoxx"]
@@ -13,7 +14,7 @@ shader_parameter/wiggle_speed = 25.0
 shader_parameter/smear = 0.4
 shader_parameter/blur_samples = 15
 
-[node name="Story_1" type="Control" node_paths=PackedStringArray("message")]
+[node name="Story_1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uakq7")
-message = [NodePath("ColorRect/message_1"), NodePath("ColorRect/message_2"), NodePath("ColorRect/message_3"), NodePath("ColorRect/message_4"), NodePath("ColorRect/message_5"), NodePath("ColorRect/message_6")]
 color = Color(0.403922, 0.372549, 0.384314, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -153,6 +153,7 @@ theme_override_font_sizes/font_size = 20
 text = "Appuyer sur Enter pour continuer"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_li6dl")
@@ -161,6 +162,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("2_8b8rg")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 576.0
+grow_horizontal = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hcyq4")

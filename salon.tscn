@@ -1,8 +1,9 @@
-[gd_scene load_steps=88 format=3 uid="uid://ck0up3tauvqhh"]
+[gd_scene load_steps=89 format=3 uid="uid://ck0up3tauvqhh"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon.gd" id="1_8jlhj"]
 [ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="2_1u70a"]
 [ext_resource type="PackedScene" uid="uid://itd7dnhqv51g" path="res://scene/map/Story_1.tscn" id="2_6fxun"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="3_ddb4d"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="3_r1jp3"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="4_4n80k"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="5_xvrr6"]
@@ -196,7 +197,7 @@ albedo_texture = ExtResource("44_0urav")
 material = SubResource("StandardMaterial3D_sm1kd")
 size = Vector2(5, 5)
 
-[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "player", "sofa", "cable")]
+[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "player", "sofa", "cable", "ambient_sound")]
 script = ExtResource("1_8jlhj")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
 Ui_Reset_Button = NodePath("UI/Button_Reset")
@@ -205,10 +206,22 @@ Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
 Ui_Text_Item = NodePath("UI/Control_Item")
 Ui_Tab = NodePath("UI/Control_Tab")
 Ui_Slot_Selection = NodePath("UI/Slot_selection")
+Ui_Hint = NodePath("UI/Hint")
+Ui_Hint_Label = NodePath("UI/Hint/Label")
 player = NodePath("Player/Player_scene/Player")
 sofa = NodePath("Static/Fauteil")
 cable = NodePath("Player/Player_scene/Player/Cable")
+ambient_sound = NodePath("Static/AudioStreamPlayer3D")
 next_scene = ExtResource("2_6fxun")
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("3_ddb4d")]
+visible = false
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -755.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="Environnement" type="Node" parent="."]
 
@@ -216,12 +229,15 @@ next_scene = ExtResource("2_6fxun")
 environment = SubResource("Environment_h5134")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
-transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603065, 0, 6.48825, 0)
+transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603064, 0, 14.6937, 13.6743)
 light_color = Color(0.262745, 0.364706, 0.427451, 1)
 light_energy = 16.0
+light_bake_mode = 0
+shadow_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.71844, 2.40688)
+visible = false
 light_color = Color(0.588235, 0.701961, 0.505882, 1)
 light_energy = 1.076
 light_indirect_energy = 0.506
@@ -237,6 +253,60 @@ spot_angle_attenuation = 0.0213444
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27313, 0, 7.63467)
 
 [node name="UI" type="Node" parent="."]
+
+[node name="Control_Arrivee" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("53_oupb4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Arrivee/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("50_1g6qi")
+theme_override_font_sizes/normal_font_size = 29
+text = "Dans cette salle plusieurs objets sont disponible et pourront attirer votre attention. Peut être pourrez vous mêmes intéragir avec certains si vous leur cliquez dessus ?"
+
+[node name="Button_Arrivee" type="Button" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
 
 [node name="Control_Talk" type="Control" parent="UI"]
 layout_mode = 3
@@ -357,7 +427,7 @@ offset_left = 1305.0
 offset_top = 608.0
 offset_right = 1666.0
 offset_bottom = 636.0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 40
 text = "Appuyez sur la barre espace"
 
 [node name="Control_Item" type="Control" parent="UI"]
@@ -413,60 +483,6 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "continue"
 
-[node name="Control_Arrivee" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.095, 1e-05)
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="UI/Control_Arrivee"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -373.0
-offset_top = -240.0
-offset_right = 374.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("53_oupb4")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Arrivee/TextureRect"]
-visible = false
-layout_mode = 0
-offset_left = 24.0
-offset_top = 41.0
-offset_right = 723.0
-offset_bottom = 286.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("50_1g6qi")
-theme_override_font_sizes/normal_font_size = 29
-text = "Dans cette salle plusieurs objets sont disponible et pourront attirer votre attention. Peut être pourrez vous mêmes intéragir avec certains si vous leur cliquez dessus ?"
-
-[node name="Button_Arrivee" type="Button" parent="UI/Control_Arrivee"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -108.0
-offset_top = 97.0
-offset_right = 111.0
-offset_bottom = 143.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "continue"
-
 [node name="Button_Reset" type="Button" parent="UI"]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -483,6 +499,7 @@ Revenir à la Carrière ?"
 visible = false
 
 [node name="Control_Fondu" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -500,6 +517,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Control_Reset" type="Control" parent="UI"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchor_right = 0.021
@@ -816,6 +834,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.36646, 3.27471, -5.89353)
 
 [node name="Guitare_exported" parent="." instance=ExtResource("48_vjyg4")]
 transform = Transform3D(-1, -5.0243e-15, -8.74228e-08, 7.57103e-08, 0.5, -0.866025, 4.37114e-08, -0.866025, -0.5, 3.30337, 1.96084, 9.16855)
+
+[connection signal="mouse_entered" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_mouse_entered"]
+[connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
+[connection signal="pressed" from="UI/Control_Talk/Button_Talk" to="." method="_on_button_talk_pressed"]
+[connection signal="pressed" from="UI/Control_Tab/Button_Tab" to="." method="_on_button_tab_pressed"]
+[connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
+[connection signal="pressed" from="UI/Control_Reset/Button_Reset" to="." method="_on_button_reset_pressed"]
 
 [editable path="Player/Player_scene"]
 [editable path="Player/Player_scene/Player/Cable"]
