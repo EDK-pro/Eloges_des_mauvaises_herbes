@@ -208,3 +208,37 @@ func _on_preset_selected(value:int) -> void:
 			bloom.button_pressed = true
 			bloom_t.value = 0.14
 			bloom_i.value = 0.8
+
+		5: # VHS Tape (
+			dither.button_pressed = false
+			color_depth.value = 3
+			downscale.value = 3
+
+			preblur.button_pressed = true
+			preblur_sl.value = 3
+
+			grain.button_pressed = true
+			grain_sl.value = 0.3
+
+			scanlines.button_pressed = true
+			scanlines_sl.value = 0.45
+
+			curve.button_pressed = true
+			curve_sl.value = 1.02
+
+			vignette.button_pressed = true;
+			vignette_size_sl.value = 0.4
+			vignette_smoothness_sl.value = 0.4
+
+			wiggle.button_pressed = true
+			wiggle_sl.value = 0.005
+
+			chromaberr.button_pressed = true
+			chromaberr_sl.value = 6
+
+			rgb_grid.button_pressed = true
+			brightness.value = 1.2
+
+			bloom.button_pressed = true
+			bloom_t.value = 0.12
+			bloom_i.value = 1.9

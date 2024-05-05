@@ -26,5 +26,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457571, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585566, 0)
 light_color = Color(0.854902, 1, 0.839216, 1)
 light_energy = 1.742
-editor_only = true
 omni_range = 0.576

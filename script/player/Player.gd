@@ -7,6 +7,8 @@ extends CharacterBody3D
 @export var mouse_sensitivity: float = 0.002
 @export var footstep_audio:AudioStreamPlayer
 @export var footstep_timer: Timer
+@export var spacing_slot_1:Node3D
+
 var boolMove:bool = false
 
 var slot1: all_items
@@ -73,7 +75,6 @@ func _physics_process(delta):
 		move_and_slide()
 
 func _input(event):
-	print("coubeh",event)
 	# Check for pause action and adjust mouse mode accordingly
 	if event.is_action_pressed("Menu_pause"):
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -154,13 +155,9 @@ func slots_handler(delta):
 		if slots[i] != null:
 			var flower_on: bool = false
 			var gazlamp_timing:float = 180.0
-			var spacing
+			var spacing: Vector3 = Vector3.ZERO
 			if i == 0:
 				spacing = Vector3(0,1.8,0)
-				if slots[i].items == slots[i].Items.FLOWER:
-					flower_on = true
-			if i == 1:
-				spacing = Vector3(0.5,0.8,0.5)
 				if slots[i].items == slots[i].Items.FLOWER:
 					flower_on = true
 			if i == 2:
@@ -170,11 +167,17 @@ func slots_handler(delta):
 						$Cable/Interact_collide.disabled = !$Cable/Interact_collide.disabled
 				spacing = Vector3(0,0.5,0)
 				gazlamp_timing = 120.0
+			var item_position: Vector3 = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
+			if i == 1:
+				spacing = spacing_slot_1.global_position
+				if slots[i].items == slots[i].Items.FLOWER:
+					flower_on = true
+				item_position = spacing
 			if tj[i] <= 1.0:
 				tj[i] += delta * 0.9
-				slots[i].global_position = pickup + (Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z) - pickup) * tj[i]
+				slots[i].global_position = pickup + item_position * tj[i]
 			else:
-				slots[i].global_position = Vector3(global_position.x + spacing.x,global_position.y + spacing.y,global_position.z + spacing.z)
+				slots[i].global_position = item_position
 			if flower_on:
 				if !timer_1_shot_flower:
 					$Timer_fleur.start()
@@ -213,6 +216,8 @@ func _on_timer_timeout():
 			if str(slots[i]).get_slice(":",0) == "Flower":
 				audio_state += 1 
 				print("Audio state : ", audio_state)
+		if audio_state == 2:
+			footstep_audio.bus = "Goutte_deau"
 	timer_1_shot_flower = false
 
 func _on_timer_gazlamp_timeout():

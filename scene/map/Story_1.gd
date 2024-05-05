@@ -4,7 +4,13 @@ extends Control
 @export var number: int = 0
 @export var color: Color
 
-
+func _ready():
+	#$FlowerwallCrtConfigUi/Presets._on_preset_selected(4)
+	#flowerwall_pp_autoload.crt_shader.set("shader_parameter/chromatic_aberration_strength", 1.0)
+	#flowerwall_pp_autoload.dither_shader.set("shader_parameter/resolution_scale", 1.0)
+	#flowerwall_pp_autoload.preblur_x_shader.set("shader_parameter/radius", 1.0)
+	#flowerwall_pp_autoload.preblur_y_shader.set("shader_parameter/radius", 1.0)
+	pass
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("advance_story"):
 		if number < message.size():
