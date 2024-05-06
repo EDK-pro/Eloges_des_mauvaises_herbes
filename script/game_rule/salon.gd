@@ -20,6 +20,7 @@ extends Node
 @export var sofa:StaticBody3D
 @export var cable:RigidBody3D
 @export var ambient_sound:AudioStreamPlayer3D
+@export var test: int = 0
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
 var text_tab_appearing:bool = false
@@ -132,6 +133,8 @@ func _process(_delta):
 		add_child(scene_goutte)
 	#if $Player/Player_scene/Player.visual_state == 3:
 		#_end_demo()
+		# flowerwall_pp_autoload.dither_shader.set("shader_parameter/dithering", test)
+
 
 func endTalk():
 	Ui_Talk.hide()
@@ -171,19 +174,20 @@ func _text_item_appear(_on_ignore):
 		toggle_shader_readability()
 
 func change_shader_quality(indice):
-	if $SubViewportContainer.material.get_shader_parameter("enable_recolor"):
+	if flowerwall_pp_autoload.dither_shader.get("shader_parameter/enable_recolor"):
 		var tweeen = get_tree().create_tween()
 		Ui_Reset_Button.show()
 		tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if $SubViewportContainer.material.get_shader_parameter("target_resolution_scale") == indice:
-		$SubViewportContainer.material.set_shader_parameter("enable_recolor",true)
+	if flowerwall_pp_autoload.dither.get("shader_parameter/resolution_scale") == indice:
+		flowerwall_pp_autoload.dither_shader.set("shader_parameter/enable_recolor", true)
 	else:
-		$SubViewportContainer.material.set_shader_parameter("target_resolution_scale",indice)
+		flowerwall_pp_autoload.dither_shader.set("shader_parameter/resolution_scale",indice)
+
 
 func reset_shader():
-	$SubViewportContainer.material.set_shader_parameter("target_resolution_scale",3)
-	$SubViewportContainer.material.set_shader_parameter("enable_recolor",false)
+	flowerwall_pp_autoload.dither_shader.set("shader_parameter/resolution_scale",3)
+	flowerwall_pp_autoload.dither_shader.set("shader_parameter/enable_recolor", false)
 
 func _text_tab_appear():
 	Ui_Tab.visible = true

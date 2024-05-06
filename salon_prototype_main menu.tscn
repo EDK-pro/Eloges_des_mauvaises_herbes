@@ -123,6 +123,7 @@ size = Vector2(5, 5)
 [node name="Salon_Proto" type="Node3D"]
 
 [node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("1_f35m1")]
+visible = false
 
 [node name="Environnement" type="Node" parent="."]
 

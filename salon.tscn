@@ -112,11 +112,11 @@ size = Vector3(20, 0.2, 20)
 material = SubResource("StandardMaterial3D_n4o6l")
 size = Vector3(20, 0.2, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqqih"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aduv6"]
 albedo_texture = ExtResource("17_ueh4w")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h7e87"]
-material = SubResource("StandardMaterial3D_eqqih")
+material = SubResource("StandardMaterial3D_aduv6")
 size = Vector3(20, 0.2, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv1bp"]
@@ -212,6 +212,7 @@ player = NodePath("Player/Player_scene/Player")
 sofa = NodePath("Static/Fauteil")
 cable = NodePath("Player/Player_scene/Player/Cable")
 ambient_sound = NodePath("Static/AudioStreamPlayer3D")
+test = 10
 next_scene = ExtResource("2_6fxun")
 
 [node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("3_ddb4d")]
