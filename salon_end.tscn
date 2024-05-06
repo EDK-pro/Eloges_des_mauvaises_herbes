@@ -1,0 +1,859 @@
+[gd_scene load_steps=88 format=3 uid="uid://c375bnioom4r3"]
+
+[ext_resource type="Script" path="res://script/game_rule/salon_end.gd" id="1_sw2sg"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="3_ota76"]
+[ext_resource type="PackedScene" uid="uid://c1s0yqy72g1oq" path="res://scene/player/player.tscn" id="4_050rf"]
+[ext_resource type="Texture2D" uid="uid://bhyn2poqk3mxo" path="res://assets/visuel/UI_sprite/cartons_interact_le_vrai_png.png" id="5_m4yq1"]
+[ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="6_t2wa8"]
+[ext_resource type="Texture2D" uid="uid://dtj7tt0d4gmwi" path="res://assets/visuel/UI_sprite/cartons_talk_png.png" id="7_cu5d0"]
+[ext_resource type="Texture2D" uid="uid://rhph0r74lybn" path="res://assets/visuel/UI_sprite/cartons_tab_png.png" id="8_pojlk"]
+[ext_resource type="Texture2D" uid="uid://brqq2te6olduk" path="res://assets/visuel/UI_sprite/cartons_choix_slot_png.png" id="9_ephby"]
+[ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="10_f365b"]
+[ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="11_5f2au"]
+[ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="12_weihg"]
+[ext_resource type="PackedScene" uid="uid://3an2arrntr5k" path="res://assets/prefabs/3D/fauteuil.tscn" id="13_cl1xs"]
+[ext_resource type="PackedScene" uid="uid://nw2ql8mewt5y" path="res://assets/prefabs/3D/pipe.tscn" id="14_ab23u"]
+[ext_resource type="PackedScene" uid="uid://8fb2h0m80r1t" path="res://assets/prefabs/3D/etagere.tscn" id="15_gaurq"]
+[ext_resource type="PackedScene" uid="uid://q5uammthi82r" path="res://assets/prefabs/3D/table.tscn" id="16_xk62l"]
+[ext_resource type="PackedScene" uid="uid://b2n0l10och3v7" path="res://assets/exported_File/Props/cheminee.tscn" id="17_8303a"]
+[ext_resource type="Texture2D" uid="uid://dypd8p5uabnbi" path="res://assets/visuel/floor002.png" id="18_q14cf"]
+[ext_resource type="Texture2D" uid="uid://cnfwmodflvxrd" path="res://assets/texture/5.jpg" id="19_cfx8s"]
+[ext_resource type="Texture2D" uid="uid://b8utc6lsgbw51" path="res://assets/texture/3.jpg" id="20_iuyud"]
+[ext_resource type="Texture2D" uid="uid://u2hl3jy4yqro" path="res://assets/texture/6.jpg" id="21_k2pst"]
+[ext_resource type="Texture2D" uid="uid://c075laxa1jdtr" path="res://assets/texture/8.jpg" id="22_tv4x3"]
+[ext_resource type="Texture2D" uid="uid://c8cqolqq5s48r" path="res://assets/Test_assets/dots-and-points_jaune.png" id="23_cnp4q"]
+[ext_resource type="PackedScene" uid="uid://vgbrk3n34ceu" path="res://assets/exported_File/Props/bois001.glb" id="24_litts"]
+[ext_resource type="PackedScene" uid="uid://daluhxys5e4js" path="res://assets/exported_File/cailloux/C1.glb" id="25_saq2m"]
+[ext_resource type="PackedScene" uid="uid://donhif6ipwevd" path="res://assets/exported_File/cailloux/C2.glb" id="26_ugydh"]
+[ext_resource type="PackedScene" uid="uid://cn15314hk1rvs" path="res://assets/exported_File/cailloux/C3.glb" id="27_x2ins"]
+[ext_resource type="PackedScene" uid="uid://bmsxi4gjdub7x" path="res://assets/exported_File/cailloux/C4.glb" id="28_ytd8l"]
+[ext_resource type="PackedScene" uid="uid://gt5xw1jq01w4" path="res://assets/exported_File/cailloux/C6.glb" id="29_vw4xb"]
+[ext_resource type="PackedScene" uid="uid://tyv4gjpemkst" path="res://assets/exported_File/cailloux/C7.glb" id="30_fxqh5"]
+[ext_resource type="PackedScene" uid="uid://c1brcielrailt" path="res://assets/exported_File/cailloux/C8.glb" id="31_saib7"]
+[ext_resource type="PackedScene" uid="uid://bbjskw0jykktx" path="res://assets/exported_File/cailloux/C9.glb" id="32_4w15v"]
+[ext_resource type="PackedScene" uid="uid://cwcc6lt6o467e" path="res://assets/exported_File/Props/Tuyau001.glb" id="33_t2j17"]
+[ext_resource type="PackedScene" uid="uid://b81i1vy5i61tl" path="res://assets/exported_File/Props/Tuyau003.glb" id="34_r510m"]
+[ext_resource type="PackedScene" uid="uid://ccw1dl7bdril7" path="res://assets/prefabs/object/fleur_001.tscn" id="35_mubn2"]
+[ext_resource type="PackedScene" uid="uid://cl4l7dyvud84p" path="res://assets/prefabs/object/fleur_002.tscn" id="36_hrqfn"]
+[ext_resource type="PackedScene" uid="uid://do7qkm6b4ynjo" path="res://assets/prefabs/object/fleur_003.tscn" id="37_5s3nn"]
+[ext_resource type="PackedScene" uid="uid://cj0sfek8s7vsx" path="res://assets/prefabs/object/pistil_002.tscn" id="38_5ro7o"]
+[ext_resource type="PackedScene" uid="uid://bni2ecbl103wp" path="res://assets/prefabs/object/pistil_003.tscn" id="39_01ikd"]
+[ext_resource type="PackedScene" uid="uid://by74k0ka7ol20" path="res://assets/prefabs/object/pistil_004.tscn" id="40_lx1rw"]
+[ext_resource type="Texture2D" uid="uid://cflx664ef8j0r" path="res://assets/visuel/affiches in game/5835ac9b7072b7172f1fdbc9018bbb2b.jpg" id="41_qi7qb"]
+[ext_resource type="Texture2D" uid="uid://ef8j45l8t4b" path="res://assets/visuel/affiches in game/mai68.3.png" id="42_ow2rw"]
+[ext_resource type="Texture2D" uid="uid://egqh8m311jjb" path="res://assets/visuel/affiches in game/mai68.2.png" id="43_nclb5"]
+[ext_resource type="Texture2D" uid="uid://bkupnv40ds6sk" path="res://assets/visuel/affiches in game/buzzcocks.png" id="44_vcp6q"]
+[ext_resource type="Texture2D" uid="uid://mqedypfu8r4t" path="res://assets/visuel/affiches in game/talking_heads.png" id="45_be1no"]
+[ext_resource type="Texture2D" uid="uid://be0y1r6cgtyk8" path="res://assets/visuel/affiches in game/zad.png" id="46_5mwk2"]
+[ext_resource type="Texture2D" uid="uid://bbhm4hrheq1cn" path="res://assets/visuel/affiches in game/87116aefdb06e3bd75faab849b2b5c1f.jpg" id="47_jaxii"]
+[ext_resource type="Texture2D" uid="uid://chdbark7hn0ji" path="res://assets/exported_File/Props/door001_Door001-Door001.png" id="48_5wgos"]
+[ext_resource type="AudioStream" uid="uid://xrmpipcjm6oc" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Wood_Wind_Loop_Stereo.wav" id="49_mrdns"]
+[ext_resource type="AudioStream" uid="uid://bxw1tycpvpbno" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Damage_Loop_Stereo.wav" id="50_pxk75"]
+[ext_resource type="PackedScene" uid="uid://cm1506mguuk1n" path="res://scene/interactable/flower.tscn" id="51_od0oe"]
+[ext_resource type="PackedScene" uid="uid://dr7ikn6s6wsh1" path="res://scene/interactable/lever.tscn" id="52_rf10p"]
+[ext_resource type="PackedScene" uid="uid://dyh6uap78vnd7" path="res://scene/debug/oil_lamp.tscn" id="53_rssk3"]
+[ext_resource type="PackedScene" uid="uid://n5yg5f1tic7t" path="res://assets/prefabs/guitare_exported.tscn" id="55_c63c2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o8yxp"]
+sky_top_color = Color(0.188235, 0.466667, 0.698039, 1)
+sky_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+sky_energy_multiplier = 2.25
+ground_horizon_color = Color(0.597059, 0.658917, 0.70776, 1)
+
+[sub_resource type="Sky" id="Sky_5upr0"]
+sky_material = SubResource("ProceduralSkyMaterial_o8yxp")
+
+[sub_resource type="Environment" id="Environment_h5134"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_5upr0")
+ambient_light_energy = 0.0
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.35
+ssao_power = 0.69977
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.8
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0194
+volumetric_fog_albedo = Color(0.584314, 0.823529, 0.721569, 1)
+volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_detail_spread = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbvn0"]
+albedo_texture = ExtResource("18_q14cf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q8o8q"]
+material = SubResource("StandardMaterial3D_nbvn0")
+size = Vector2(25, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bnkt"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hhct8"]
+albedo_texture = ExtResource("19_cfx8s")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv0sp"]
+material = SubResource("StandardMaterial3D_hhct8")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4o6l"]
+albedo_texture = ExtResource("20_iuyud")
+
+[sub_resource type="BoxMesh" id="BoxMesh_pnpk0"]
+material = SubResource("StandardMaterial3D_n4o6l")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7n66c"]
+material = SubResource("StandardMaterial3D_n4o6l")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aduv6"]
+albedo_texture = ExtResource("21_k2pst")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h7e87"]
+material = SubResource("StandardMaterial3D_aduv6")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv1bp"]
+albedo_texture = ExtResource("22_tv4x3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpqxo"]
+material = SubResource("StandardMaterial3D_vv1bp")
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47yqy"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0.796078)
+albedo_texture = ExtResource("23_cnp4q")
+metallic = 0.82
+roughness = 0.35
+roughness_texture_channel = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nuqxr"]
+material = SubResource("StandardMaterial3D_47yqy")
+size = Vector2(7, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uckt"]
+albedo_texture = ExtResource("41_qi7qb")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vb15u"]
+material = SubResource("StandardMaterial3D_3uckt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj6kc"]
+albedo_texture = ExtResource("42_ow2rw")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gjpan"]
+material = SubResource("StandardMaterial3D_aj6kc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxo01"]
+albedo_texture = ExtResource("43_nclb5")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lvt4x"]
+material = SubResource("StandardMaterial3D_mxo01")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sn2ui"]
+albedo_texture = ExtResource("44_vcp6q")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hce23"]
+material = SubResource("StandardMaterial3D_sn2ui")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhvfd"]
+albedo_texture = ExtResource("45_be1no")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_84wa1"]
+material = SubResource("StandardMaterial3D_nhvfd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei2oc"]
+albedo_texture = ExtResource("46_5mwk2")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xkcer"]
+material = SubResource("StandardMaterial3D_ei2oc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj3jo"]
+albedo_texture = ExtResource("47_jaxii")
+albedo_texture_force_srgb = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ost2"]
+material = SubResource("StandardMaterial3D_wj3jo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm1kd"]
+transparency = 1
+albedo_texture = ExtResource("48_5wgos")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ee8n6"]
+material = SubResource("StandardMaterial3D_sm1kd")
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnvv5"]
+size = Vector3(2, 3, 2)
+
+[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "player", "sofa", "ambient_sound")]
+visible = false
+script = ExtResource("1_sw2sg")
+Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
+Ui_Reset_Button = NodePath("UI/Button_Reset")
+Ui_Slot_Selection = NodePath("UI/Slot_selection")
+Ui_Hint = NodePath("UI/Hint")
+Ui_Hint_Label = NodePath("UI/Hint/Label")
+player = NodePath("Player/Player_scene/Player")
+sofa = NodePath("Static/Fauteil")
+ambient_sound = NodePath("Static/AudioStreamPlayer3D")
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("3_ota76")]
+visible = false
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -755.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="Environnement" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environnement"]
+environment = SubResource("Environment_h5134")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
+transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603064, 0, 14.6937, 13.6743)
+light_color = Color(0.262745, 0.364706, 0.427451, 1)
+light_energy = 16.0
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environnement"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.71844, -4.75779)
+visible = false
+light_color = Color(0.588235, 0.701961, 0.505882, 1)
+light_energy = 16.0
+light_indirect_energy = 0.506
+light_bake_mode = 0
+editor_only = true
+spot_range = 42.346
+spot_attenuation = 0.840896
+spot_angle = 41.67
+spot_angle_attenuation = 0.0213444
+
+[node name="SpotlightDoor" type="SpotLight3D" parent="Environnement"]
+transform = Transform3D(1, 0, 0, 0, -0.000733062, 1, 0, -1, -0.000733062, -8.23909, 5.69708, 7.35052)
+light_energy = 4.65
+light_bake_mode = 0
+spot_range = 9.162
+spot_angle = 25.78
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player_scene" parent="Player" instance=ExtResource("4_050rf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9964, 1.68578, -5.42291)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Control_Arrivee" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_m4yq1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Arrivee/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_t2wa8")
+theme_override_font_sizes/normal_font_size = 29
+text = "Dans cette salle plusieurs objets sont disponible et pourront attirer votre attention. Peut être pourrez vous mêmes intéragir avec certains si vous leur cliquez dessus ?"
+
+[node name="Button_Arrivee" type="Button" parent="UI/Control_Arrivee"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Control_Talk" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Talk"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_cu5d0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Talk/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_t2wa8")
+theme_override_font_sizes/normal_font_size = 29
+text = "Une fois que vous avez équipé un objet, vous pouvez le retirer de son emplacement en appuyant sur TAB et en sélectionnant l'emplacement concerné !"
+
+[node name="Button_Talk" type="Button" parent="UI/Control_Talk"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Control_Tab" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Tab"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_pojlk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Tab/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_t2wa8")
+theme_override_font_sizes/normal_font_size = 29
+text = "Une fois que vous avez équipé un objet, vous pouvez le retirer de son emplacement en appuyant sur TAB et en sélectionnant l'emplacement concerné !"
+
+[node name="Button_Tab" type="Button" parent="UI/Control_Tab"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Hint" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/Hint"]
+layout_mode = 0
+offset_left = 1305.0
+offset_top = 608.0
+offset_right = 1666.0
+offset_bottom = 636.0
+theme_override_font_sizes/font_size = 40
+text = "Appuyez sur la barre espace"
+
+[node name="Control_Item" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.095, 1e-05)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control_Item"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -240.0
+offset_right = 374.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ephby")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control_Item/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 723.0
+offset_bottom = 286.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_t2wa8")
+theme_override_font_sizes/normal_font_size = 29
+text = "Choisissez un emplacement pour équiper l'objet ! (Tête, hanche, bras respectivement de haut en bas). Mais attention, ces vieux objets peuvent vous blesser ! Vous pourrez en utiliser certains en appuyant sur clic droit !"
+
+[node name="Button_Item" type="Button" parent="UI/Control_Item"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = 97.0
+offset_right = 111.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "continue"
+
+[node name="Button_Reset" type="Button" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 600.0
+offset_top = 332.0
+offset_right = 2227.0
+offset_bottom = 586.0
+theme_override_font_sizes/font_size = 20
+text = "Alors que votre périphérique se détériore complétement, votre OS vous impose un redémarrage d'usine. Perdu.e, vous quittez la Carrière... Pour un temps indéterminé.
+
+Revenir à la Carrière ?"
+
+[node name="Slot_selection2" parent="UI" instance=ExtResource("10_f365b")]
+visible = false
+
+[node name="Control_Fondu" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondu_End" type="ColorRect" parent="UI/Control_Fondu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.627451, 0.627451, 0.627451, 0)
+
+[node name="Control_Reset" type="Control" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 606.0
+offset_top = 432.0
+offset_right = 1453.68
+offset_bottom = 527.04
+
+[node name="Button_Reset" type="Button" parent="UI/Control_Reset"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trop de malfonction, votre corps cesse de répondre.
+
+Cliquer pour Recommencer"
+
+[node name="Slot_selection" parent="UI" instance=ExtResource("10_f365b")]
+visible = false
+mouse_filter = 2
+
+[node name="Talk" parent="UI" instance=ExtResource("11_5f2au")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="Select_Object" parent="UI" instance=ExtResource("12_weihg")]
+visible = false
+
+[node name="Static" type="Node" parent="."]
+
+[node name="Fauteil" parent="Static" instance=ExtResource("13_cl1xs")]
+transform = Transform3D(-0.999781, -0.0209424, -8.7412e-08, -0.0209398, 0.999657, 0.0157073, -0.000328862, 0.0157039, -0.999877, 8.60472, 0.119878, -5.92807)
+
+[node name="Tuyau" parent="Static" instance=ExtResource("14_ab23u")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.03104, 6.61503, 0.367905)
+
+[node name="Etagere" parent="Static" instance=ExtResource("15_gaurq")]
+transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 9.54364, 3.08933, -4.43619)
+
+[node name="Table" parent="Static" instance=ExtResource("16_xk62l")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 5.44182, 0, -5.57309)
+
+[node name="cheminee" parent="Static" instance=ExtResource("17_8303a")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.91665, 3.52255, -9.40932)
+
+[node name="Ground" type="StaticBody3D" parent="Static"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.216497)
+mesh = SubResource("PlaneMesh_q8o8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground2" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.282, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground2"]
+mesh = SubResource("BoxMesh_rv0sp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground2"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground3" type="StaticBody3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 10.1057, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground3"]
+mesh = SubResource("BoxMesh_pnpk0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground3"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground4" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -9.72034)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground4"]
+mesh = SubResource("BoxMesh_7n66c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground4"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground5" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 10.0282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground5"]
+mesh = SubResource("BoxMesh_h7e87")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground5"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Ground6" type="StaticBody3D" parent="Static"]
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871558, 0, -0.0871558, 0.996195, 0, 10.3647, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground6"]
+mesh = SubResource("BoxMesh_wpqxo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground6"]
+shape = SubResource("BoxShape3D_0bnkt")
+
+[node name="Code" type="MeshInstance3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 9.73664, 0.521194, -1.34141)
+mesh = SubResource("PlaneMesh_nuqxr")
+
+[node name="props" type="Node3D" parent="Static"]
+
+[node name="wood" type="Node3D" parent="Static/props"]
+transform = Transform3D(1.06066, -1.06066, 0, 0.918559, 0.918559, 0.75, -0.53033, -0.53033, 1.29904, -6.43823, 0.296757, -9.46725)
+
+[node name="bois001" parent="Static/props/wood" instance=ExtResource("24_litts")]
+transform = Transform3D(1, 2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="bois002" parent="Static/props/wood" instance=ExtResource("24_litts")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 4.47834, -8.72098, 5.19615)
+
+[node name="Plane" parent="Static/props/wood/bois002" index="0"]
+transform = Transform3D(-1.08759, -0.652522, 0.440278, 0.990533, -0.710889, 0.492, -0.00857633, 0.642718, 0.991181, 1.83088, 5.19672, 2.80005)
+
+[node name="bois003" parent="Static/props/wood" instance=ExtResource("24_litts")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 10.5695, -9.0225, -0.847811)
+
+[node name="Plane" parent="Static/props/wood/bois003" index="0"]
+transform = Transform3D(1.29888, -0.540652, -0.0647721, -0.114883, -0.0366947, -1.18671, 0.681017, 1.02498, -0.0766501, 0, 0, 0)
+
+[node name="bois004" parent="Static/props/wood" instance=ExtResource("24_litts")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400305, 0.646673, 0.762756, 2.7299, -12.1481, 11.6113)
+
+[node name="Plane" parent="Static/props/wood/bois004" index="0"]
+transform = Transform3D(1.28298, -0.565254, 0.0488684, 0.0373285, -0.0448466, -1.18967, 0.718771, 1.01129, -0.0254416, 6.57443, -14.2512, -1.06393)
+
+[node name="bois005" parent="Static/props/wood" instance=ExtResource("24_litts")]
+transform = Transform3D(-0.955444, -0.222654, 0.193783, 0.295145, -0.729547, 0.616969, 0.00400306, 0.646673, 0.762756, -3.86774, -4.2522, 10.0212)
+
+[node name="Plane" parent="Static/props/wood/bois005" index="0"]
+transform = Transform3D(0.319827, -0.646246, 0.954278, 0.928058, -0.633223, -0.656327, 1.09567, 0.725001, 0.277374, -0.243164, -5.48655, -1.47248)
+
+[node name="rock of the scene" type="Node3D" parent="Static/props"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="C1" parent="Static/props/rock of the scene" instance=ExtResource("25_saq2m")]
+transform = Transform3D(2.59808, 0, -1.5, 0, 3, 0, 1.5, 0, 2.59808, 10, 0.433585, -6.85322)
+
+[node name="C2" parent="Static/props/rock of the scene" instance=ExtResource("26_ugydh")]
+transform = Transform3D(2.52874, 0, 1.61415, 0, 3, 0, -1.61415, 0, 2.52874, -11.7259, 0.999998, -5.78808)
+
+[node name="C3" parent="Static/props/rock of the scene" instance=ExtResource("26_ugydh")]
+transform = Transform3D(3.83957, 0, 1.2811, 0, 2, 0, -3.20276, 0, 1.53583, -14.8545, 0.999998, -14.3625)
+
+[node name="C4" parent="Static/props/rock of the scene" instance=ExtResource("27_x2ins")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, 4.62854, 1, -12.8834)
+
+[node name="C5" parent="Static/props/rock of the scene" instance=ExtResource("28_ytd8l")]
+transform = Transform3D(1.99986, -0.0195402, -0.0489771, 0.0128428, 2.99981, -0.0469719, 0.0197121, 0.0279925, 4.99954, -6.25344, 1, 19.5191)
+
+[node name="C6" parent="Static/props/rock of the scene" instance=ExtResource("29_vw4xb")]
+transform = Transform3D(1.89668, 0.507911, -0.290741, -0.146856, 3.91751, 0.188224, 0.617291, -0.628607, 0.938105, 17.9086, 2.09978, -17.8395)
+
+[node name="C7" parent="Static/props/rock of the scene" instance=ExtResource("30_fxqh5")]
+transform = Transform3D(0.805349, 0, 0.986943, 0, 3, 0, -4.93472, 0, 0.16107, -17.4238, 1, 2.33871)
+
+[node name="C8" parent="Static/props/rock of the scene" instance=ExtResource("31_saib7")]
+transform = Transform3D(2.9313, 0, 0.212775, 0, 2, 0, -0.638324, 0, 0.977101, 13.5363, 1, 18.8258)
+
+[node name="C9" parent="Static/props/rock of the scene" instance=ExtResource("32_4w15v")]
+transform = Transform3D(1.55732, 0, 0.627447, 0, 2, 0, -1.25489, 0, 0.77866, 4.39349, 1.3264, 12.5655)
+
+[node name="tuyaux" type="Node3D" parent="Static/props"]
+transform = Transform3D(2, 0, 0, 0, 3, 0, 0, 0, 1, -4.9191, 1, -0.715104)
+
+[node name="Tuyau001" parent="Static/props/tuyaux" instance=ExtResource("33_t2j17")]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.166667, 0, -1.5, 0.866025, 4.6596, 6.25849e-07, -2.99351)
+
+[node name="Tuyau003" parent="Static/props/tuyaux" instance=ExtResource("34_r510m")]
+transform = Transform3D(0.511818, 0, 0.859094, 0, 1, 0, -0.859094, 0, 0.511818, -1.76975, 0, -0.73458)
+
+[node name="flower" type="Node3D" parent="Static/props"]
+transform = Transform3D(0.991671, 0, 0.128796, 0, 1, 0, -0.128796, 0, 0.991671, 10.0104, 0, 4.58381)
+
+[node name="Fleur001" parent="Static/props/flower" instance=ExtResource("35_mubn2")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower" instance=ExtResource("36_hrqfn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower" instance=ExtResource("37_5s3nn")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower" instance=ExtResource("38_5ro7o")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower" instance=ExtResource("39_01ikd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower" instance=ExtResource("40_lx1rw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower2" type="Node3D" parent="Static/props"]
+transform = Transform3D(-0.238466, 0, -0.971151, 0, 1, 0, 0.971151, 0, -0.238466, -7.90731, 0, 12.9758)
+
+[node name="Fleur001" parent="Static/props/flower2" instance=ExtResource("35_mubn2")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower2" instance=ExtResource("36_hrqfn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower2" instance=ExtResource("37_5s3nn")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower2" instance=ExtResource("38_5ro7o")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower2" instance=ExtResource("39_01ikd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower2" instance=ExtResource("40_lx1rw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower3" type="Node3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.07229, 0, 20.7298)
+
+[node name="Fleur001" parent="Static/props/flower3" instance=ExtResource("35_mubn2")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -12.692, 1.45917, -12.7799)
+
+[node name="Fleur002" parent="Static/props/flower3" instance=ExtResource("36_hrqfn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower3" instance=ExtResource("37_5s3nn")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -10.4544, 1.20615, -13.3309)
+
+[node name="Pistil002" parent="Static/props/flower3" instance=ExtResource("38_5ro7o")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.5863, 0.110937, -14.9362)
+
+[node name="Pistil003" parent="Static/props/flower3" instance=ExtResource("39_01ikd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower3" instance=ExtResource("40_lx1rw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="flower4" type="Node3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3411, 0, 12.5542)
+
+[node name="Fleur001" parent="Static/props/flower4" instance=ExtResource("35_mubn2")]
+transform = Transform3D(-2.97828, 0, 0.360358, 0, 3, 0, -0.360358, 0, -2.97828, -26.1218, 1.45917, -7.6907)
+
+[node name="Fleur002" parent="Static/props/flower4" instance=ExtResource("36_hrqfn")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.3489, 1.00202, -12.6158)
+
+[node name="Fleur003" parent="Static/props/flower4" instance=ExtResource("37_5s3nn")]
+transform = Transform3D(2.0544, 0, 3.43212, 0, 4, 0, -3.43212, 0, 2.0544, -29.8482, 1.20615, -9.6548)
+
+[node name="Pistil002" parent="Static/props/flower4" instance=ExtResource("38_5ro7o")]
+transform = Transform3D(1.43747, 0, -1.39057, 0, 2, 0, 1.39057, 0, 1.43747, -15.4567, 0.110937, -13.2437)
+
+[node name="Pistil003" parent="Static/props/flower4" instance=ExtResource("39_01ikd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -10.546, 0.0892764, -9.91174)
+
+[node name="Pistil004" parent="Static/props/flower4" instance=ExtResource("40_lx1rw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.6335, 0.202999, -10.8117)
+
+[node name="Affiche1" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.15701, 1.65553, -9.55831)
+mesh = SubResource("PlaneMesh_vb15u")
+
+[node name="Affiche2" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -9.14441, 2.81154, 0)
+mesh = SubResource("PlaneMesh_gjpan")
+
+[node name="Affiche3" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(0.98151, -8.36674e-09, -0.191409, -0.191409, -4.29032e-08, -0.98151, 0, 1, -4.37114e-08, -0.658254, 2.53258, -9.51626)
+mesh = SubResource("PlaneMesh_lvt4x")
+
+[node name="Affiche4" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 9.9452, 2.04638, 4.74735)
+mesh = SubResource("PlaneMesh_hce23")
+
+[node name="Affiche5" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.21367, 2.43572, 9.87113)
+mesh = SubResource("PlaneMesh_84wa1")
+
+[node name="Affiche6" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-0.976073, -7.58262e-08, 0.217445, -0.217445, -6.16751e-08, -0.976073, 8.74228e-08, -1, 4.37114e-08, 3.05897, 2.13686, 9.90249)
+mesh = SubResource("PlaneMesh_xkcer")
+
+[node name="Affiche7" type="MeshInstance3D" parent="Static/props"]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 9.9592, 3.1439, -0.554742)
+mesh = SubResource("PlaneMesh_8ost2")
+
+[node name="Porte" type="MeshInstance3D" parent="Static"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -9.07136, 1.89884, 7.54645)
+mesh = SubResource("PlaneMesh_ee8n6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Static"]
+stream = ExtResource("49_mrdns")
+volume_db = -4.333
+autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Static"]
+stream = ExtResource("50_pxk75")
+attenuation_model = 3
+
+[node name="Flower" parent="." instance=ExtResource("51_od0oe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58814, 0, -5.52725)
+
+[node name="Lever" parent="." instance=ExtResource("52_rf10p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85656, 1.08718, -4.52544)
+
+[node name="GazLamp" parent="." instance=ExtResource("53_rssk3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15187, 0, 0)
+
+[node name="Guitare_exported" parent="." instance=ExtResource("55_c63c2")]
+transform = Transform3D(-1, -5.0243e-15, -8.74228e-08, 7.57103e-08, 0.5, -0.866025, 4.37114e-08, -0.866025, -0.5, 3.30337, 1.96084, 9.16855)
+
+[node name="End" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.27729, 1.91305, 7.34227)
+shape = SubResource("BoxShape3D_tnvv5")
+
+[connection signal="mouse_entered" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_mouse_entered"]
+[connection signal="pressed" from="UI/Control_Arrivee/Button_Arrivee" to="." method="_on_button_arrivee_pressed"]
+[connection signal="pressed" from="UI/Control_Talk/Button_Talk" to="." method="_on_button_talk_pressed"]
+[connection signal="pressed" from="UI/Control_Tab/Button_Tab" to="." method="_on_button_tab_pressed"]
+[connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
+[connection signal="pressed" from="UI/Control_Reset/Button_Reset" to="." method="_on_button_reset_pressed"]
+[connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+
+[editable path="FlowerwallCrtConfigUi"]
+[editable path="Player/Player_scene"]
+[editable path="Player/Player_scene/Player/Cable"]
+[editable path="Static/props/wood/bois002"]
+[editable path="Static/props/wood/bois003"]
+[editable path="Static/props/wood/bois004"]
+[editable path="Static/props/wood/bois005"]
