@@ -14,6 +14,8 @@ extends Node
 @export var Ui_Slot_Selection:Control
 @export var Ui_Hint:Control
 @export var Ui_Hint_Label:Control
+@export var Ui_Control_Reset:Control
+@export var Ui_Control_Fondu:Control
 
 ##var player et les objets
 @export var player: CharacterBody3D
@@ -176,7 +178,10 @@ func _text_item_appear(_on_ignore):
 func change_shader_quality(indice):
 	if flowerwall_pp_autoload.dither_shader.get("shader_parameter/enable_recolor"):
 		var tweeen = get_tree().create_tween()
-		Ui_Reset_Button.show()
+		var tween = get_tree().create_tween()
+		Ui_Control_Reset.show()
+		Ui_Control_Fondu.show()
+		tween.tween_property(Ui_Fondu,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if flowerwall_pp_autoload.dither.get("shader_parameter/resolution_scale") == indice:
