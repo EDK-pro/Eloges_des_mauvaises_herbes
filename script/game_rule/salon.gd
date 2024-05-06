@@ -177,12 +177,17 @@ func _text_item_appear(_on_ignore):
 
 func change_shader_quality(indice):
 	if flowerwall_pp_autoload.dither_shader.get("shader_parameter/enable_recolor"):
-		var tweeen = get_tree().create_tween()
 		var tween = get_tree().create_tween()
-		Ui_Control_Reset.show()
+	
 		Ui_Control_Fondu.show()
-		tween.tween_property(Ui_Fondu,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
-		tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
+		#tween.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 1.0 ).set_trans(Tween.TRANS_CUBIC)
+		#await tween 
+		tween.tween_property(Ui_Fondu,"color",Color(0.1,0.1,0.1,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
+		await tween
+		Ui_Control_Reset.show()
+		$FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
+		#Ui_Reset_Button.modulate = Color(1.0,1.0,1.0,1.0)
+		#tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if flowerwall_pp_autoload.dither_shader.get("shader_parameter/resolution_scale") == indice:
 		flowerwall_pp_autoload.dither_shader.set("shader_parameter/enable_recolor", true)

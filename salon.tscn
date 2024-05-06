@@ -521,7 +521,6 @@ color = Color(0, 0, 0, 0)
 
 [node name="Control_Reset" type="Control" parent="UI"]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
