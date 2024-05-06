@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://itd7dnhqv51g"]
+[gd_scene load_steps=10 format=3 uid="uid://itd7dnhqv51g"]
 
 [ext_resource type="Script" path="res://scene/map/Story_1.gd" id="1_uakq7"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="1_wheu8"]
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="2_8b8rg"]
+[ext_resource type="PackedScene" uid="uid://c375bnioom4r3" path="res://salon_end.tscn" id="2_km3wo"]
 [ext_resource type="Shader" path="res://assets/shader/Story_1.gdshader" id="3_0mg28"]
 [ext_resource type="AudioStream" uid="uid://c0so587uweci" path="res://assets/Test_assets/raw_sound/analog-appliance-button-15-186961.mp3" id="4_hcyq4"]
 [ext_resource type="AudioStream" uid="uid://dc7ouhw4hnikk" path="res://assets/audio/SD_Ambiance/Ambiance_2D_Interior_Rain_Loop_Stereo.wav" id="5_qqoxx"]
+[ext_resource type="AudioStream" uid="uid://bxw1tycpvpbno" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Damage_Loop_Stereo.wav" id="7_yeh3x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li6dl"]
 shader = ExtResource("3_0mg28")
@@ -14,7 +16,7 @@ shader_parameter/wiggle_speed = 25.0
 shader_parameter/smear = 0.4
 shader_parameter/blur_samples = 15
 
-[node name="Story_1" type="Control"]
+[node name="Story_1" type="Control" node_paths=PackedStringArray("error_sound", "timer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +25,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uakq7")
 color = Color(0.403922, 0.372549, 0.384314, 1)
+error_sound = NodePath("Error_sound")
+timer = NodePath("Timer")
+salon_end = ExtResource("2_km3wo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -179,3 +184,12 @@ stream = ExtResource("4_hcyq4")
 [node name="Communication" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qqoxx")
 autoplay = true
+
+[node name="Error_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yeh3x")
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
