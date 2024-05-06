@@ -104,18 +104,8 @@ void fragment() {
     
     // Truncate from 8 bits to color_depth bits.
     c >>= (8 - color_depth);
-
     // Convert back to 0 to 1.
     COLOR.rgb = vec3(c) / float(1 << color_depth);
 	
-	if(enable_recolor){
-		vec3 hsv = rgb2hsv(color);
-		float color_pos = (hsv.x / 360.0);
-		vec3 new_color = texture(to_gradient, vec2((color_pos), 0.5)).rgb;
-		vec3 new_hsv = rgb2hsv(new_color);
-		hsv.x = new_hsv.x;
-		vec3 final_rgb = hsv2rgb(hsv);
 
-		color.rgb = final_rgb;
-	}
 }

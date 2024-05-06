@@ -184,10 +184,15 @@ func change_shader_quality(indice):
 		tween.tween_property(Ui_Fondu,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if flowerwall_pp_autoload.dither.get("shader_parameter/resolution_scale") == indice:
+	if flowerwall_pp_autoload.dither_shader.get("shader_parameter/resolution_scale") == indice:
 		flowerwall_pp_autoload.dither_shader.set("shader_parameter/enable_recolor", true)
+		flowerwall_pp_autoload.crt_shader.set("shader_parameter/wiggle", 0.05)
+		print(flowerwall_pp_autoload.crt_shader.get("shader_parameter/wiggle"))
+		flowerwall_pp_autoload.crt_shader.set("shader_parameter/chromatic_aberration_strength",10)
 	else:
 		flowerwall_pp_autoload.dither_shader.set("shader_parameter/resolution_scale",indice)
+		print(flowerwall_pp_autoload.dither_shader.get("shader_parameter/resolution_scale"))
+		print(indice)
 
 
 func reset_shader():
