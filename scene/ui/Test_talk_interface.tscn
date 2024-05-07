@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://gi0y1p4pmvwb" path="res://assets/audio/SD_Player_Robot/Foley_Robot_Connection_Loop_Stereo.wav" id="7_xpxcl"]
 
 [node name="Talk" type="Control"]
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

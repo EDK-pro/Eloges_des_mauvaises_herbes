@@ -14,7 +14,7 @@ var endTime: float
 
 var score: int = 0
 
-@export var marginTime: int = 200
+@export var marginTime: int = 300
 
 var timestamp: float
 

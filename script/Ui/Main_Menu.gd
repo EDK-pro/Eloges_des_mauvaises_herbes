@@ -17,6 +17,7 @@ func _on_bt_jouer_pressed():
 
 func _on_bt_credits_pressed():
 	credits.visible = true
+	$SubViewportContainer/SubViewport/FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(credits, "scale", Vector2(1,1), 2).set_trans(Tween.TRANS_CUBIC)
 

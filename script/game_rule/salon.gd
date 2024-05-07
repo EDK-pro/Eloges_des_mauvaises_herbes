@@ -8,6 +8,7 @@ extends Node
 @export var Ui_Fondu:Control
 @export var Ui_Reset_Button:Control
 @export var Ui_Talk:Control
+@export var Ui_Talk_Tuto:Control
 @export var Ui_Text_Arrivee:Control
 @export var Ui_Text_Item:Control
 @export var Ui_Tab:Control
@@ -28,7 +29,7 @@ extends Node
 var tuto_item_once: bool = true
 var text_item_appearing: bool = false
 var text_tab_appearing:bool = false
-var text_talk_appearing:bool = false
+var text_talk_appearing:bool = true
 
 
 var pickable_array: Array
@@ -125,8 +126,6 @@ func _process(_delta):
 	if text_tab_appearing:
 		_text_tab_appear()
 		text_tab_appearing = false
-	if text_talk_appearing:
-		_text_talk_appearing()
 	if player.tuto_tab == 1:
 		text_tab_appearing = true
 		player.tuto_tab = 2
@@ -153,15 +152,19 @@ func talkWith(item):
 	var talkative_name = str(item).get_slice(":",0)
 	if talkative_name == "Phone":
 		if $GazLamp/OmniLight3D.light_energy >= 2.0 and $GazLamp.status != $GazLamp.Slots.NONE:
-			text_talk_appearing = true
-			marginTime = 250
-			symbolCount = 4.0
-			communicationDuration = 5.0
-			correctArray = [0,1,0,1]
-			Ui_Talk.show()
-			var tweeen = get_tree().create_tween()
-			tweeen.tween_property(Ui_Talk, "modulate", Color(1.0,1.0,1.0,1.0), 2).set_trans(Tween.TRANS_BOUNCE)
-			Ui_Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
+			if tuto_talk_once:
+				_text_talk_appearing()
+			elif text_talk_appearing:
+				pass
+			else:
+				marginTime = 350
+				symbolCount = 4.0
+				communicationDuration = 5.0
+				correctArray = [0,1,0,1]
+				Ui_Talk.show()
+				var tweeen = get_tree().create_tween()
+				tweeen.tween_property(Ui_Talk, "modulate", Color(1.0,1.0,1.0,1.0), 2).set_trans(Tween.TRANS_BOUNCE)
+				Ui_Talk.initialize(marginTime, symbolCount, communicationDuration,correctArray)
 		else:
 			not_bright_enough.emit()
 
@@ -267,20 +270,23 @@ func _end_game():
 
 func _text_talk_appearing():
 	if tuto_talk_once:
-		Ui_Talk.visible = true
+		Ui_Talk_Tuto.visible = true
 		var tween = get_tree().create_tween()
-		tween.tween_property(Ui_Talk, "scale", Vector2(1.5,1.5), 2).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(Ui_Talk_Tuto, "scale", Vector2(1.5,1.5), 2).set_trans(Tween.TRANS_CUBIC)
 		player.can_move = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		tuto_talk_once = false
+		
 		toggle_shader_readability()
 		
 
 func _on_button_talk_pressed():
 	var tween = get_tree().create_tween()
-	tween.tween_property(Ui_Talk, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(Ui_Talk_Tuto, "scale", Vector2(), 1).set_trans(Tween.TRANS_CUBIC)
 	player.can_move = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	text_talk_appearing = false
+	talkWith("Phone:coubehdentifiant")
 	toggle_shader_readability()
 
 func toggle_shader_readability():

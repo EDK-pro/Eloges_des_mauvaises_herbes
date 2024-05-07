@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://caircx3sjq154"]
+[gd_scene load_steps=22 format=3 uid="uid://caircx3sjq154"]
 
 [ext_resource type="Script" path="res://script/Ui/Main_Menu.gd" id="1_wadvd"]
 [ext_resource type="PackedScene" uid="uid://bxd7skdcr3an4" path="res://scene/ui/introduction_reinette.tscn" id="2_e5lrc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://duo7gt3ppun2" path="res://assets/asset_main_menu/carton_menu_menu.png" id="10_0sre4"]
 [ext_resource type="Texture2D" uid="uid://cvap5u6obn5xy" path="res://assets/charte graphique/paperFichier 14.png" id="12_dxgic"]
 [ext_resource type="FontFile" uid="uid://d3u06wqdtas8g" path="res://assets/visuel/font/PermanentMarker-Regular.ttf" id="13_mtt88"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="14_wucgd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ix8lx"]
 content_margin_left = 1424.0
@@ -225,6 +226,9 @@ offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "continue"
+
+[node name="FlowerwallCrtConfigUi" parent="SubViewportContainer/SubViewport" instance=ExtResource("14_wucgd")]
+visible = false
 
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Jouer" to="." method="_on_bt_jouer_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/BT_Credits" to="." method="_on_bt_credits_pressed"]

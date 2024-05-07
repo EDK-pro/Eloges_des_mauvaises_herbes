@@ -206,11 +206,12 @@ albedo_texture = ExtResource("44_0urav")
 material = SubResource("StandardMaterial3D_sm1kd")
 size = Vector2(5, 5)
 
-[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "Ui_Control_Reset", "Ui_Control_Fondu", "Ui_Ecran_Titre", "player", "sofa", "cable", "ambient_sound")]
+[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Talk", "Ui_Talk_Tuto", "Ui_Text_Arrivee", "Ui_Text_Item", "Ui_Tab", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "Ui_Control_Reset", "Ui_Control_Fondu", "Ui_Ecran_Titre", "player", "sofa", "cable", "ambient_sound")]
 script = ExtResource("1_8jlhj")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
 Ui_Reset_Button = NodePath("UI/Button_Reset")
 Ui_Talk = NodePath("UI/Talk")
+Ui_Talk_Tuto = NodePath("UI/Control_Talk")
 Ui_Text_Arrivee = NodePath("UI/Control_Arrivee")
 Ui_Text_Item = NodePath("UI/Control_Item")
 Ui_Tab = NodePath("UI/Control_Tab")
@@ -563,6 +564,8 @@ mouse_filter = 2
 [node name="Talk" parent="UI" instance=ExtResource("4_4n80k")]
 visible = false
 modulate = Color(1, 1, 1, 0)
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="Select_Object" parent="UI" instance=ExtResource("5_xvrr6")]
 visible = false

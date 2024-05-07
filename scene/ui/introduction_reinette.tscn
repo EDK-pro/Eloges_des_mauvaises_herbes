@@ -28,5 +28,10 @@ text = "Appuyez sur Enter pour sauter"
 visible = false
 layout_mode = 0
 anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 576.0
+grow_horizontal = 1
 
 [connection signal="finished" from="." to="." method="_on_finished"]
