@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://c375bnioom4r3"]
+[gd_scene load_steps=92 format=3 uid="uid://c375bnioom4r3"]
 
 [ext_resource type="Script" path="res://script/game_rule/salon_end.gd" id="1_sw2sg"]
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="3_ota76"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://rhph0r74lybn" path="res://assets/visuel/UI_sprite/cartons_tab_png.png" id="8_pojlk"]
 [ext_resource type="Texture2D" uid="uid://brqq2te6olduk" path="res://assets/visuel/UI_sprite/cartons_choix_slot_png.png" id="9_ephby"]
 [ext_resource type="PackedScene" uid="uid://b72pbjnaypa2p" path="res://scene/ui/slot_selection.tscn" id="10_f365b"]
+[ext_resource type="Texture2D" uid="uid://cysf0yjk5wla2" path="res://assets/texture/concept_art_merci_fin.jpg" id="10_ts7rk"]
 [ext_resource type="PackedScene" uid="uid://d3povbytmkdxo" path="res://scene/ui/Test_talk_interface.tscn" id="11_5f2au"]
 [ext_resource type="PackedScene" uid="uid://cruo2mjjb1iht" path="res://scene/ui/select_object.tscn" id="12_weihg"]
 [ext_resource type="PackedScene" uid="uid://3an2arrntr5k" path="res://assets/prefabs/3D/fauteuil.tscn" id="13_cl1xs"]
@@ -81,6 +82,15 @@ volumetric_fog_albedo = Color(0.584314, 0.823529, 0.721569, 1)
 volumetric_fog_emission = Color(0.294118, 0.509804, 0.658824, 1)
 volumetric_fog_emission_energy = 0.1
 volumetric_fog_detail_spread = 0.75
+
+[sub_resource type="Gradient" id="Gradient_56p0j"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g1oyd"]
+gradient = SubResource("Gradient_56p0j")
+width = 400
+height = 80
+fill_from = Vector2(0.508621, 0.350216)
+fill_to = Vector2(0.413793, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbvn0"]
 albedo_texture = ExtResource("18_q14cf")
@@ -198,7 +208,7 @@ size = Vector2(5, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnvv5"]
 size = Vector3(2, 3, 2)
 
-[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "player", "sofa", "ambient_sound")]
+[node name="Salon" type="Node3D" node_paths=PackedStringArray("Ui_Fondu", "Ui_Reset_Button", "Ui_Slot_Selection", "Ui_Hint", "Ui_Hint_Label", "Ui_End_Img", "Ui_Ecran_Titre_Button", "player", "sofa", "ambient_sound")]
 visible = false
 script = ExtResource("1_sw2sg")
 Ui_Fondu = NodePath("UI/Control_Fondu/Fondu_End")
@@ -206,6 +216,8 @@ Ui_Reset_Button = NodePath("UI/Button_Reset")
 Ui_Slot_Selection = NodePath("UI/Slot_selection")
 Ui_Hint = NodePath("UI/Hint")
 Ui_Hint_Label = NodePath("UI/Hint/Label")
+Ui_End_Img = NodePath("UI/Control_Fondu/End_img")
+Ui_Ecran_Titre_Button = NodePath("UI/Control_Fondu/Ecran_titre")
 player = NodePath("Player/Player_scene/Player")
 sofa = NodePath("Static/Fauteil")
 ambient_sound = NodePath("Static/AudioStreamPlayer3D")
@@ -519,6 +531,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.627451, 0.627451, 0.627451, 0)
+
+[node name="End_img" type="TextureRect" parent="UI/Control_Fondu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_ts7rk")
+expand_mode = 2
+
+[node name="Ecran_titre" type="Button" parent="UI/Control_Fondu"]
+visible = false
+modulate = Color(0.211765, 0.623529, 0.505882, 0)
+layout_mode = 0
+offset_left = 1128.0
+offset_top = 908.0
+offset_right = 1591.0
+offset_bottom = 1001.0
+theme_override_font_sizes/font_size = 30
+text = "Retour à l'écran titre"
+icon = SubResource("GradientTexture2D_g1oyd")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Control_Reset" type="Control" parent="UI"]
 visible = false
@@ -847,6 +885,7 @@ shape = SubResource("BoxShape3D_tnvv5")
 [connection signal="pressed" from="UI/Control_Talk/Button_Talk" to="." method="_on_button_talk_pressed"]
 [connection signal="pressed" from="UI/Control_Tab/Button_Tab" to="." method="_on_button_tab_pressed"]
 [connection signal="pressed" from="UI/Control_Item/Button_Item" to="." method="_on_button_item_pressed"]
+[connection signal="pressed" from="UI/Control_Fondu/Ecran_titre" to="." method="_on_ecran_titre_pressed"]
 [connection signal="pressed" from="UI/Control_Reset/Button_Reset" to="." method="_on_button_reset_pressed"]
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
 
