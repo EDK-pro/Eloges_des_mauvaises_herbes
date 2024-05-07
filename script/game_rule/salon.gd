@@ -16,6 +16,8 @@ extends Node
 @export var Ui_Hint_Label:Control
 @export var Ui_Control_Reset:Control
 @export var Ui_Control_Fondu:Control
+@export var Ui_Ecran_Titre:Control
+@export var Ecran_Titre:PackedScene
 
 ##var player et les objets
 @export var player: CharacterBody3D
@@ -110,6 +112,10 @@ func _input(event):
 		else:
 			Input.mouse_mode = (2 - Input.mouse_mode)
 			Ui_Slot_Selection.visible = !Ui_Slot_Selection.visible
+	if Input.is_action_just_pressed("Menu_pause"):
+		Input.mouse_mode = (2 - Input.mouse_mode)
+		Ui_Ecran_Titre.visible = !Ui_Ecran_Titre.visible
+		
 
 func _process(_delta):
 	if text_item_appearing:
@@ -182,10 +188,9 @@ func change_shader_quality(indice):
 		Ui_Control_Fondu.show()
 		#tween.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 1.0 ).set_trans(Tween.TRANS_CUBIC)
 		#await tween 
-		tween.tween_property(Ui_Fondu,"color",Color(0.1,0.1,0.1,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
-		await tween
-		Ui_Control_Reset.show()
-		$FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
+		tween.tween_property(Ui_Fondu,"color",Color(0.1,0.1,0.1,1.0), 8.0 ).set_trans(Tween.TRANS_CUBIC)
+		tween.finished.connect(_end_button_appear.bind())
+
 		#Ui_Reset_Button.modulate = Color(1.0,1.0,1.0,1.0)
 		#tweeen.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 10.0 ).set_trans(Tween.TRANS_CUBIC)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -199,10 +204,17 @@ func change_shader_quality(indice):
 		print(flowerwall_pp_autoload.dither_shader.get("shader_parameter/resolution_scale"))
 		print(indice)
 
+func _end_button_appear():
+	Ui_Control_Reset.show()
+	Ui_Reset_Button.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 2.0 ).set_trans(Tween.TRANS_CUBIC)
+	$FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
 
 func reset_shader():
 	flowerwall_pp_autoload.dither_shader.set("shader_parameter/resolution_scale",3)
 	flowerwall_pp_autoload.dither_shader.set("shader_parameter/enable_recolor", false)
+	$FlowerwallCrtConfigUi/Presets._on_preset_selected(5)
 
 func _text_tab_appear():
 	Ui_Tab.visible = true
@@ -284,3 +296,7 @@ func _shader_readability(end_value : float):
 	flowerwall_pp_autoload.preblur_x_shader.set("shader_parameter/radius", end_value * 3.0)
 	flowerwall_pp_autoload.preblur_y_shader.set("shader_parameter/radius", end_value * 3.0)
 	flowerwall_pp_autoload.crt_shader.set("shader_parameter/chromatic_aberration_strength", end_value * 6.0)
+
+
+func _on_ecran_titre_pressed():
+	get_tree().change_scene_to_packed(Ecran_Titre)

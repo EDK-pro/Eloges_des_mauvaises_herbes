@@ -10,6 +10,9 @@ extends Node
 @export var Ui_Slot_Selection:Control
 @export var Ui_Hint:Control
 @export var Ui_Hint_Label:Control
+@export var Ui_End_Img:Control
+@export var Ui_Ecran_Titre_Button:Control
+@export var ecran_titre:PackedScene
 
 ##var player et les objets
 @export var player: CharacterBody3D
@@ -108,7 +111,9 @@ func _process(_delta):
 
 func _end_demo():
 	var tweeen = get_tree().create_tween()
-	tweeen.tween_property(Ui_Fondu, "color", Color(0.0,0.0,0.0,1.0), 2).set_trans(Tween.TRANS_CUBIC)
+	tweeen.finished.connect(_on_fade_out.bind())
+	tweeen.tween_property(Ui_Fondu, "color", Color(0.0,0.0,0.0,1.0), 5).set_trans(Tween.TRANS_CUBIC)
+
 	#for i in 4:
 		#$Player/Player_scene/Player.visual_degradation.emit(6)
 
@@ -166,3 +171,20 @@ func _on_end_body_entered(body):
 		Ui_Fondu.show()
 		var tween = get_tree().create_tween()
 		tween.tween_property(Ui_Fondu, "color", Color(0.326,0.326,0.326,1.0), 3).set_trans(Tween.TRANS_CUBIC)
+		tween.finished.connect(_on_fade_out.bind())
+
+func _on_fade_out():
+	Ui_End_Img.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property(Ui_End_Img,"self_modulate",Color(1.0,1.0,1.0,1.0),2)
+	tween.finished.connect(_button_fade_in.bind())
+
+func _button_fade_in():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Ui_Ecran_Titre_Button.show()
+	var tween = get_tree().create_tween()
+	tween.tween_property(Ui_Ecran_Titre_Button,"modulate",Color(0.212,0.624,0.506,1.0),2)
+
+
+func _on_ecran_titre_pressed():
+	get_tree().change_scene_to_packed(ecran_titre)
