@@ -2,6 +2,8 @@ extends VideoStreamPlayer
 
 @export var nextscene:PackedScene
 
+func _ready():
+	$FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
 func _process(delta):
 	pass
 func _input(event):

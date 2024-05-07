@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxd7skdcr3an4"]
+[gd_scene load_steps=5 format=3 uid="uid://bxd7skdcr3an4"]
 
 [ext_resource type="VideoStream" path="res://assets/visuel/cutscene/Reinette_Introduction.ogv" id="1_g83eb"]
 [ext_resource type="Script" path="res://script/Ui/Cinematique_Introduction_Reinette.gd" id="2_nguwk"]
 [ext_resource type="PackedScene" uid="uid://bgugvx7lggw5i" path="res://scene/map/hub.tscn" id="3_wk23j"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="4_0usjo"]
 
 [node name="Introduction_Reinette" type="VideoStreamPlayer"]
 anchors_preset = 15
@@ -22,5 +23,10 @@ offset_top = 1021.0
 offset_right = 1868.0
 offset_bottom = 1044.0
 text = "Appuyez sur Enter pour sauter"
+
+[node name="FlowerwallCrtConfigUi" parent="." instance=ExtResource("4_0usjo")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="finished" from="." to="." method="_on_finished"]

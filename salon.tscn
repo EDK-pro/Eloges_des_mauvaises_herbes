@@ -243,7 +243,7 @@ environment = SubResource("Environment_h5134")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environnement"]
 transform = Transform3D(-0.0818209, -0.86009, -0.503537, 0.660728, -0.425059, 0.618679, -0.746153, -0.28208, 0.603064, 0, 14.6937, 13.6743)
-light_color = Color(0.262745, 0.364706, 0.427451, 1)
+light_color = Color(0.45098, 0.580392, 0.662745, 1)
 light_energy = 16.0
 light_bake_mode = 0
 shadow_enabled = true
@@ -545,7 +545,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button_Reset" type="Button" parent="UI/Control_Reset"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -46,6 +46,7 @@ var shader_readable:bool = false
 signal not_bright_enough
 
 func _ready():
+	$FlowerwallCrtConfigUi/Presets._on_preset_selected(5)
 	## Array to get all the pickable item. Used to easily connect all nodes together
 	pickable_array = get_tree().get_nodes_in_group("pickable_item")
 	## Array to get each circles that will loop around pickable item. Used to know when their full. 
@@ -207,8 +208,6 @@ func change_shader_quality(indice):
 func _end_button_appear():
 	Ui_Control_Reset.show()
 	Ui_Reset_Button.show()
-	var tween = get_tree().create_tween()
-	tween.tween_property(Ui_Reset_Button,"modulate",Color(1.0,1.0,1.0,1.0), 2.0 ).set_trans(Tween.TRANS_CUBIC)
 	$FlowerwallCrtConfigUi/Presets._on_preset_selected(0)
 
 func reset_shader():
